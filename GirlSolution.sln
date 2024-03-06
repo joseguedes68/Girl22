@@ -1,0 +1,64 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Girl", "Girl.vbproj", "{F048439E-67B2-4528-9C5D-D0231E6FF47E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{EC294326-3031-461D-8A07-9F79A243A0DC}"
+	ProjectSection(SolutionItems) = preProject
+		GirlSolution.vsmdi = GirlSolution.vsmdi
+		Local.testsettings = Local.testsettings
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+	EndProjectSection
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Girl17Setup", "Girl17Setup\Girl17Setup.vdproj", "{9B4FBA5B-8854-4600-9A12-2465860E48DB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F048439E-67B2-4528-9C5D-D0231E6FF47E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F048439E-67B2-4528-9C5D-D0231E6FF47E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F048439E-67B2-4528-9C5D-D0231E6FF47E}.Debug|x64.ActiveCfg = Debug|x64
+		{F048439E-67B2-4528-9C5D-D0231E6FF47E}.Debug|x64.Build.0 = Debug|x64
+		{F048439E-67B2-4528-9C5D-D0231E6FF47E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F048439E-67B2-4528-9C5D-D0231E6FF47E}.Debug|x86.Build.0 = Debug|Any CPU
+		{F048439E-67B2-4528-9C5D-D0231E6FF47E}.Release|Any CPU.ActiveCfg = Release|x64
+		{F048439E-67B2-4528-9C5D-D0231E6FF47E}.Release|Any CPU.Build.0 = Release|x64
+		{F048439E-67B2-4528-9C5D-D0231E6FF47E}.Release|x64.ActiveCfg = Release|x64
+		{F048439E-67B2-4528-9C5D-D0231E6FF47E}.Release|x64.Build.0 = Release|x64
+		{F048439E-67B2-4528-9C5D-D0231E6FF47E}.Release|x86.ActiveCfg = Release|Any CPU
+		{F048439E-67B2-4528-9C5D-D0231E6FF47E}.Release|x86.Build.0 = Release|Any CPU
+		{9B4FBA5B-8854-4600-9A12-2465860E48DB}.Debug|Any CPU.ActiveCfg = Debug
+		{9B4FBA5B-8854-4600-9A12-2465860E48DB}.Debug|Any CPU.Build.0 = Debug
+		{9B4FBA5B-8854-4600-9A12-2465860E48DB}.Debug|x64.ActiveCfg = Debug
+		{9B4FBA5B-8854-4600-9A12-2465860E48DB}.Debug|x64.Build.0 = Debug
+		{9B4FBA5B-8854-4600-9A12-2465860E48DB}.Debug|x86.ActiveCfg = Debug
+		{9B4FBA5B-8854-4600-9A12-2465860E48DB}.Debug|x86.Build.0 = Debug
+		{9B4FBA5B-8854-4600-9A12-2465860E48DB}.Release|Any CPU.ActiveCfg = Release
+		{9B4FBA5B-8854-4600-9A12-2465860E48DB}.Release|Any CPU.Build.0 = Release
+		{9B4FBA5B-8854-4600-9A12-2465860E48DB}.Release|x64.ActiveCfg = Release
+		{9B4FBA5B-8854-4600-9A12-2465860E48DB}.Release|x64.Build.0 = Release
+		{9B4FBA5B-8854-4600-9A12-2465860E48DB}.Release|x86.ActiveCfg = Release
+		{9B4FBA5B-8854-4600-9A12-2465860E48DB}.Release|x86.Build.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F048439E-67B2-4528-9C5D-D0231E6FF47E} = {EC294326-3031-461D-8A07-9F79A243A0DC}
+		{9B4FBA5B-8854-4600-9A12-2465860E48DB} = {EC294326-3031-461D-8A07-9F79A243A0DC}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F8038A5C-3C59-4513-A274-F6B332BDBAD2}
+	EndGlobalSection
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = GirlSolution.vsmdi
+	EndGlobalSection
+EndGlobal
