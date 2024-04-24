@@ -188,6 +188,19 @@ Public Class frmInserirTerceiros
 
         Dim db As New ClsSqlBDados
         Try
+            'VALIDAR SE Me.tbCodigo.Text ESTÁ ENTRE 0000 E 9999
+            If Not IsNumeric(Me.tbCodigo.Text) OrElse Me.tbCodigo.Text.Length <> 4 Then
+                MsgBox("Código Inválido")
+                Me.tbCodigo.Text = ""
+            Else
+                Dim codigo As String = Me.tbCodigo.Text
+                If codigo < "0000" OrElse codigo > "9999" Then
+                    MsgBox("Código fora do intervalo válido (0000 - 9999)")
+                    Me.tbCodigo.Text = ""
+                End If
+
+            End If
+
 
             'VERIFICAR SE EXISTE
             Sql = "SELECT COUNT(*) FROM TERCEIROS WHERE TERCID='" & Me.tbCodigo.Text & "'"
@@ -195,6 +208,9 @@ Public Class frmInserirTerceiros
                 MsgBox("Esse Terceiro já existe")
                 tbCodigo.Text = ""
             End If
+
+
+
 
 
         Catch ex As SqlException
@@ -329,10 +345,11 @@ Public Class frmInserirTerceiros
 
         Try
 
+            If IsValidContrib(Trim(tbNIF.Text)) = False And sPaisAux = "PT" Then
 
-            If Not ValidarNifUE(sPaisAux, tbNIF.Text) Then
                 MsgBox("O NIF Introduzido não é válido!!!")
                 Return False
+
             End If
 
             'If Len(Me.tbCodigo.Text) <> 4 Then
