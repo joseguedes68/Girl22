@@ -97,6 +97,8 @@ Partial Public Class GirlDataSet
     
     Private tableAux1 As Aux1DataTable
     
+    Private tableMarcas As MarcasDataTable
+    
     Private tableEncCabLista As EncCabListaDataTable
     
     Private tableEncDet As EncDetDataTable
@@ -138,6 +140,8 @@ Partial Public Class GirlDataSet
     Private relationFK_DocDet_DocCab As Global.System.Data.DataRelation
     
     Private relationFK_Modelos_Epoca As Global.System.Data.DataRelation
+    
+    Private relationMarcas_Modelos As Global.System.Data.DataRelation
     
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
     
@@ -275,6 +279,9 @@ Partial Public Class GirlDataSet
             End If
             If (Not (ds.Tables("Aux1")) Is Nothing) Then
                 MyBase.Tables.Add(New Aux1DataTable(ds.Tables("Aux1")))
+            End If
+            If (Not (ds.Tables("Marcas")) Is Nothing) Then
+                MyBase.Tables.Add(New MarcasDataTable(ds.Tables("Marcas")))
             End If
             If (Not (ds.Tables("EncCabLista")) Is Nothing) Then
                 MyBase.Tables.Add(New EncCabListaDataTable(ds.Tables("EncCabLista")))
@@ -687,6 +694,16 @@ Partial Public Class GirlDataSet
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
      Global.System.ComponentModel.Browsable(false),  _
      Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
+    Public ReadOnly Property Marcas() As MarcasDataTable
+        Get
+            Return Me.tableMarcas
+        End Get
+    End Property
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
+     Global.System.ComponentModel.Browsable(false),  _
+     Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
     Public ReadOnly Property EncCabLista() As EncCabListaDataTable
         Get
             Return Me.tableEncCabLista
@@ -957,6 +974,9 @@ Partial Public Class GirlDataSet
             End If
             If (Not (ds.Tables("Aux1")) Is Nothing) Then
                 MyBase.Tables.Add(New Aux1DataTable(ds.Tables("Aux1")))
+            End If
+            If (Not (ds.Tables("Marcas")) Is Nothing) Then
+                MyBase.Tables.Add(New MarcasDataTable(ds.Tables("Marcas")))
             End If
             If (Not (ds.Tables("EncCabLista")) Is Nothing) Then
                 MyBase.Tables.Add(New EncCabListaDataTable(ds.Tables("EncCabLista")))
@@ -1236,6 +1256,12 @@ Partial Public Class GirlDataSet
                 Me.tableAux1.InitVars
             End If
         End If
+        Me.tableMarcas = CType(MyBase.Tables("Marcas"),MarcasDataTable)
+        If (initTable = true) Then
+            If (Not (Me.tableMarcas) Is Nothing) Then
+                Me.tableMarcas.InitVars
+            End If
+        End If
         Me.tableEncCabLista = CType(MyBase.Tables("EncCabLista"),EncCabListaDataTable)
         If (initTable = true) Then
             If (Not (Me.tableEncCabLista) Is Nothing) Then
@@ -1307,6 +1333,7 @@ Partial Public Class GirlDataSet
         Me.relationFK_EncDetTam_Encomenda = Me.Relations("FK_EncDetTam_Encomenda")
         Me.relationFK_DocDet_DocCab = Me.Relations("FK_DocDet_DocCab")
         Me.relationFK_Modelos_Epoca = Me.Relations("FK_Modelos_Epoca")
+        Me.relationMarcas_Modelos = Me.Relations("Marcas_Modelos")
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1389,6 +1416,8 @@ Partial Public Class GirlDataSet
         MyBase.Tables.Add(Me.tableEpocas)
         Me.tableAux1 = New Aux1DataTable()
         MyBase.Tables.Add(Me.tableAux1)
+        Me.tableMarcas = New MarcasDataTable()
+        MyBase.Tables.Add(Me.tableMarcas)
         Me.tableEncCabLista = New EncCabListaDataTable()
         MyBase.Tables.Add(Me.tableEncCabLista)
         Me.tableEncDet = New EncDetDataTable()
@@ -1431,6 +1460,8 @@ Partial Public Class GirlDataSet
         Me.Relations.Add(Me.relationFK_DocDet_DocCab)
         Me.relationFK_Modelos_Epoca = New Global.System.Data.DataRelation("FK_Modelos_Epoca", New Global.System.Data.DataColumn() {Me.tableEpocas.EpocaIDColumn}, New Global.System.Data.DataColumn() {Me.tableModelos.EpocaIDColumn}, false)
         Me.Relations.Add(Me.relationFK_Modelos_Epoca)
+        Me.relationMarcas_Modelos = New Global.System.Data.DataRelation("Marcas_Modelos", New Global.System.Data.DataColumn() {Me.tableMarcas.MarcaIDColumn}, New Global.System.Data.DataColumn() {Me.tableModelos.MarcaIDColumn}, false)
+        Me.Relations.Add(Me.relationMarcas_Modelos)
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1646,6 +1677,12 @@ Partial Public Class GirlDataSet
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
     Private Function ShouldSerializeAux1() As Boolean
+        Return false
+    End Function
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+    Private Function ShouldSerializeMarcas() As Boolean
         Return false
     End Function
     
@@ -1874,6 +1911,9 @@ Partial Public Class GirlDataSet
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
     Public Delegate Sub Aux1RowChangeEventHandler(ByVal sender As Object, ByVal e As Aux1RowChangeEvent)
+    
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+    Public Delegate Sub MarcasRowChangeEventHandler(ByVal sender As Object, ByVal e As MarcasRowChangeEvent)
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
     Public Delegate Sub EncCabListaRowChangeEventHandler(ByVal sender As Object, ByVal e As EncCabListaRowChangeEvent)
@@ -2296,6 +2336,8 @@ Partial Public Class GirlDataSet
         
         Private columnVolume As Global.System.Data.DataColumn
         
+        Private columnMarcaID As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub New()
@@ -2412,6 +2454,14 @@ Partial Public Class GirlDataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property MarcaIDColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnMarcaID
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -2448,9 +2498,9 @@ Partial Public Class GirlDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Overloads Function AddModelosRow(ByVal ModeloID As String, ByVal parentGruposRowByFK_Modelos_Grupos As GruposRow, ByVal parentTiposRowByFK_Modelos_Tipos As TiposRow, ByVal FamiliaID As String, ByVal parentLinhasRowByFK_Modelos_Linhas As LinhasRow, ByVal parentUnidadesRowByFK_Modelos_Unidades As UnidadesRow, ByVal Altura As String, ByVal parentEpocasRowByFK_Modelos_Epoca As EpocasRow, ByVal EscalaID As String, ByVal Volume As Decimal) As ModelosRow
+        Public Overloads Function AddModelosRow(ByVal ModeloID As String, ByVal parentGruposRowByFK_Modelos_Grupos As GruposRow, ByVal parentTiposRowByFK_Modelos_Tipos As TiposRow, ByVal FamiliaID As String, ByVal parentLinhasRowByFK_Modelos_Linhas As LinhasRow, ByVal parentUnidadesRowByFK_Modelos_Unidades As UnidadesRow, ByVal Altura As String, ByVal parentEpocasRowByFK_Modelos_Epoca As EpocasRow, ByVal EscalaID As String, ByVal Volume As Decimal, ByVal parentMarcasRowByMarcas_Modelos As MarcasRow) As ModelosRow
             Dim rowModelosRow As ModelosRow = CType(Me.NewRow,ModelosRow)
-            Dim columnValuesArray() As Object = New Object() {ModeloID, Nothing, Nothing, FamiliaID, Nothing, Nothing, Altura, Nothing, EscalaID, Volume}
+            Dim columnValuesArray() As Object = New Object() {ModeloID, Nothing, Nothing, FamiliaID, Nothing, Nothing, Altura, Nothing, EscalaID, Volume, Nothing}
             If (Not (parentGruposRowByFK_Modelos_Grupos) Is Nothing) Then
                 columnValuesArray(1) = parentGruposRowByFK_Modelos_Grupos(0)
             End If
@@ -2465,6 +2515,9 @@ Partial Public Class GirlDataSet
             End If
             If (Not (parentEpocasRowByFK_Modelos_Epoca) Is Nothing) Then
                 columnValuesArray(7) = parentEpocasRowByFK_Modelos_Epoca(0)
+            End If
+            If (Not (parentMarcasRowByMarcas_Modelos) Is Nothing) Then
+                columnValuesArray(10) = parentMarcasRowByMarcas_Modelos(0)
             End If
             rowModelosRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowModelosRow)
@@ -2504,6 +2557,7 @@ Partial Public Class GirlDataSet
             Me.columnEpocaID = MyBase.Columns("EpocaID")
             Me.columnEscalaID = MyBase.Columns("EscalaID")
             Me.columnVolume = MyBase.Columns("Volume")
+            Me.columnMarcaID = MyBase.Columns("MarcaID")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2529,6 +2583,8 @@ Partial Public Class GirlDataSet
             MyBase.Columns.Add(Me.columnEscalaID)
             Me.columnVolume = New Global.System.Data.DataColumn("Volume", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnVolume)
+            Me.columnMarcaID = New Global.System.Data.DataColumn("MarcaID", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnMarcaID)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnModeloID}, true))
             Me.columnModeloID.AllowDBNull = false
             Me.columnModeloID.Unique = true
@@ -10219,6 +10275,8 @@ Partial Public Class GirlDataSet
         
         Private columnClienteID As Global.System.Data.DataColumn
         
+        Private columnMarcaID As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub New()
@@ -10463,6 +10521,14 @@ Partial Public Class GirlDataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property MarcaIDColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnMarcaID
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -10525,9 +10591,10 @@ Partial Public Class GirlDataSet
                     ByVal OperadorID As String,  _
                     ByVal DtRegisto As Date,  _
                     ByVal ExpOffice As Boolean,  _
-                    ByVal ClienteID As String) As EncomendasRow
+                    ByVal ClienteID As String,  _
+                    ByVal MarcaID As Integer) As EncomendasRow
             Dim rowEncomendasRow As EncomendasRow = CType(Me.NewRow,EncomendasRow)
-            Dim columnValuesArray() As Object = New Object() {EmpresaID, ArmazemID, NrEnc, LnEnc, FornId, RefForn, CorForn, PrCusto, DtEntrega, GrupoID, TipoID, Altura, ModeloID, CorID, ModCorDescr, LinhaID, PrecoEtiqueta, Obs, EstadoEnc, TGerado, QtdEnc, DataDoc, OperadorID, DtRegisto, ExpOffice, ClienteID}
+            Dim columnValuesArray() As Object = New Object() {EmpresaID, ArmazemID, NrEnc, LnEnc, FornId, RefForn, CorForn, PrCusto, DtEntrega, GrupoID, TipoID, Altura, ModeloID, CorID, ModCorDescr, LinhaID, PrecoEtiqueta, Obs, EstadoEnc, TGerado, QtdEnc, DataDoc, OperadorID, DtRegisto, ExpOffice, ClienteID, MarcaID}
             rowEncomendasRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowEncomendasRow)
             Return rowEncomendasRow
@@ -10582,6 +10649,7 @@ Partial Public Class GirlDataSet
             Me.columnDtRegisto = MyBase.Columns("DtRegisto")
             Me.columnExpOffice = MyBase.Columns("ExpOffice")
             Me.columnClienteID = MyBase.Columns("ClienteID")
+            Me.columnMarcaID = MyBase.Columns("MarcaID")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -10639,6 +10707,8 @@ Partial Public Class GirlDataSet
             MyBase.Columns.Add(Me.columnExpOffice)
             Me.columnClienteID = New Global.System.Data.DataColumn("ClienteID", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnClienteID)
+            Me.columnMarcaID = New Global.System.Data.DataColumn("MarcaID", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnMarcaID)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnEmpresaID, Me.columnArmazemID, Me.columnNrEnc, Me.columnLnEnc}, true))
             Me.columnEmpresaID.AllowDBNull = false
             Me.columnEmpresaID.MaxLength = 4
@@ -16709,6 +16779,282 @@ Partial Public Class GirlDataSet
     '''</summary>
     <Global.System.Serializable(),  _
      Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
+    Partial Public Class MarcasDataTable
+        Inherits Global.System.Data.TypedTableBase(Of MarcasRow)
+        
+        Private columnMarcaID As Global.System.Data.DataColumn
+        
+        Private columnMarcaDescr As Global.System.Data.DataColumn
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub New()
+            MyBase.New
+            Me.TableName = "Marcas"
+            Me.BeginInit
+            Me.InitClass
+            Me.EndInit
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Friend Sub New(ByVal table As Global.System.Data.DataTable)
+            MyBase.New
+            Me.TableName = table.TableName
+            If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
+                Me.CaseSensitive = table.CaseSensitive
+            End If
+            If (table.Locale.ToString <> table.DataSet.Locale.ToString) Then
+                Me.Locale = table.Locale
+            End If
+            If (table.Namespace <> table.DataSet.Namespace) Then
+                Me.Namespace = table.Namespace
+            End If
+            Me.Prefix = table.Prefix
+            Me.MinimumCapacity = table.MinimumCapacity
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Protected Sub New(ByVal info As Global.System.Runtime.Serialization.SerializationInfo, ByVal context As Global.System.Runtime.Serialization.StreamingContext)
+            MyBase.New(info, context)
+            Me.InitVars
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property MarcaIDColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnMarcaID
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property MarcaDescrColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnMarcaDescr
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
+         Global.System.ComponentModel.Browsable(false)>  _
+        Public ReadOnly Property Count() As Integer
+            Get
+                Return Me.Rows.Count
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Default ReadOnly Property Item(ByVal index As Integer) As MarcasRow
+            Get
+                Return CType(Me.Rows(index),MarcasRow)
+            End Get
+        End Property
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Event MarcasRowChanging As MarcasRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Event MarcasRowChanged As MarcasRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Event MarcasRowDeleting As MarcasRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Event MarcasRowDeleted As MarcasRowChangeEventHandler
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Overloads Sub AddMarcasRow(ByVal row As MarcasRow)
+            Me.Rows.Add(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Overloads Function AddMarcasRow(ByVal MarcaID As Integer, ByVal MarcaDescr As String) As MarcasRow
+            Dim rowMarcasRow As MarcasRow = CType(Me.NewRow,MarcasRow)
+            Dim columnValuesArray() As Object = New Object() {MarcaID, MarcaDescr}
+            rowMarcasRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowMarcasRow)
+            Return rowMarcasRow
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function FindByMarcaID(ByVal MarcaID As Integer) As MarcasRow
+            Return CType(Me.Rows.Find(New Object() {MarcaID}),MarcasRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Overrides Function Clone() As Global.System.Data.DataTable
+            Dim cln As MarcasDataTable = CType(MyBase.Clone,MarcasDataTable)
+            cln.InitVars
+            Return cln
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
+            Return New MarcasDataTable()
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Friend Sub InitVars()
+            Me.columnMarcaID = MyBase.Columns("MarcaID")
+            Me.columnMarcaDescr = MyBase.Columns("MarcaDescr")
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Private Sub InitClass()
+            Me.columnMarcaID = New Global.System.Data.DataColumn("MarcaID", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnMarcaID)
+            Me.columnMarcaDescr = New Global.System.Data.DataColumn("MarcaDescr", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnMarcaDescr)
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnMarcaID}, true))
+            Me.columnMarcaID.AllowDBNull = false
+            Me.columnMarcaID.Unique = true
+            Me.columnMarcaDescr.AllowDBNull = false
+            Me.columnMarcaDescr.MaxLength = 50
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function NewMarcasRow() As MarcasRow
+            Return CType(Me.NewRow,MarcasRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
+            Return New MarcasRow(builder)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Protected Overrides Function GetRowType() As Global.System.Type
+            Return GetType(MarcasRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanged(e)
+            If (Not (Me.MarcasRowChangedEvent) Is Nothing) Then
+                RaiseEvent MarcasRowChanged(Me, New MarcasRowChangeEvent(CType(e.Row,MarcasRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanging(e)
+            If (Not (Me.MarcasRowChangingEvent) Is Nothing) Then
+                RaiseEvent MarcasRowChanging(Me, New MarcasRowChangeEvent(CType(e.Row,MarcasRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleted(e)
+            If (Not (Me.MarcasRowDeletedEvent) Is Nothing) Then
+                RaiseEvent MarcasRowDeleted(Me, New MarcasRowChangeEvent(CType(e.Row,MarcasRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleting(e)
+            If (Not (Me.MarcasRowDeletingEvent) Is Nothing) Then
+                RaiseEvent MarcasRowDeleting(Me, New MarcasRowChangeEvent(CType(e.Row,MarcasRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub RemoveMarcasRow(ByVal row As MarcasRow)
+            Me.Rows.Remove(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
+            Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
+            Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
+            Dim ds As GirlDataSet = New GirlDataSet()
+            Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any1.Namespace = "http://www.w3.org/2001/XMLSchema"
+            any1.MinOccurs = New Decimal(0)
+            any1.MaxOccurs = Decimal.MaxValue
+            any1.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any1)
+            Dim any2 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1"
+            any2.MinOccurs = New Decimal(1)
+            any2.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any2)
+            Dim attribute1 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute1.Name = "namespace"
+            attribute1.FixedValue = ds.Namespace
+            type.Attributes.Add(attribute1)
+            Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute2.Name = "tableTypeName"
+            attribute2.FixedValue = "MarcasDataTable"
+            type.Attributes.Add(attribute2)
+            type.Particle = sequence
+            Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
+            If xs.Contains(dsSchema.TargetNamespace) Then
+                Dim s1 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Dim s2 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Try 
+                    Dim schema As Global.System.Xml.Schema.XmlSchema = Nothing
+                    dsSchema.Write(s1)
+                    Dim schemas As Global.System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator
+                    Do While schemas.MoveNext
+                        schema = CType(schemas.Current,Global.System.Xml.Schema.XmlSchema)
+                        s2.SetLength(0)
+                        schema.Write(s2)
+                        If (s1.Length = s2.Length) Then
+                            s1.Position = 0
+                            s2.Position = 0
+                            
+                            Do While ((s1.Position <> s1.Length)  _
+                                        AndAlso (s1.ReadByte = s2.ReadByte))
+                                
+                                
+                            Loop
+                            If (s1.Position = s1.Length) Then
+                                Return type
+                            End If
+                        End If
+                        
+                    Loop
+                Finally
+                    If (Not (s1) Is Nothing) Then
+                        s1.Close
+                    End If
+                    If (Not (s2) Is Nothing) Then
+                        s2.Close
+                    End If
+                End Try
+            End If
+            xs.Add(dsSchema)
+            Return type
+        End Function
+    End Class
+    
+    '''<summary>
+    '''Represents the strongly named DataTable class.
+    '''</summary>
+    <Global.System.Serializable(),  _
+     Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
     Partial Public Class EncCabListaDataTable
         Inherits Global.System.Data.TypedTableBase(Of EncCabListaRow)
         
@@ -20124,6 +20470,21 @@ Partial Public Class GirlDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property MarcaID() As Integer
+            Get
+                Try 
+                    Return CType(Me(Me.tableModelos.MarcaIDColumn),Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'MarcaID' na tabela 'Modelos' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableModelos.MarcaIDColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Property GruposRow() As GruposRow
             Get
                 Return CType(Me.GetParentRow(Me.Table.ParentRelations("FK_Modelos_Grupos")),GruposRow)
@@ -20174,6 +20535,17 @@ Partial Public Class GirlDataSet
             End Get
             Set
                 Me.SetParentRow(value, Me.Table.ParentRelations("FK_Modelos_Epoca"))
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property MarcasRow() As MarcasRow
+            Get
+                Return CType(Me.GetParentRow(Me.Table.ParentRelations("Marcas_Modelos")),MarcasRow)
+            End Get
+            Set
+                Me.SetParentRow(value, Me.Table.ParentRelations("Marcas_Modelos"))
             End Set
         End Property
         
@@ -20283,6 +20655,18 @@ Partial Public Class GirlDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub SetVolumeNull()
             Me(Me.tableModelos.VolumeColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsMarcaIDNull() As Boolean
+            Return Me.IsNull(Me.tableModelos.MarcaIDColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetMarcaIDNull()
+            Me(Me.tableModelos.MarcaIDColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -25852,6 +26236,21 @@ Partial Public Class GirlDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property MarcaID() As Integer
+            Get
+                Try 
+                    Return CType(Me(Me.tableEncomendas.MarcaIDColumn),Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("O valor da coluna 'MarcaID' na tabela 'Encomendas' é DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableEncomendas.MarcaIDColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Function IsFornIdNull() As Boolean
             Return Me.IsNull(Me.tableEncomendas.FornIdColumn)
         End Function
@@ -26112,6 +26511,18 @@ Partial Public Class GirlDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub SetClienteIDNull()
             Me(Me.tableEncomendas.ClienteIDColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsMarcaIDNull() As Boolean
+            Return Me.IsNull(Me.tableEncomendas.MarcaIDColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetMarcaIDNull()
+            Me(Me.tableEncomendas.MarcaIDColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -30013,6 +30424,54 @@ Partial Public Class GirlDataSet
     '''<summary>
     '''Represents strongly named DataRow class.
     '''</summary>
+    Partial Public Class MarcasRow
+        Inherits Global.System.Data.DataRow
+        
+        Private tableMarcas As MarcasDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
+            MyBase.New(rb)
+            Me.tableMarcas = CType(Me.Table,MarcasDataTable)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property MarcaID() As Integer
+            Get
+                Return CType(Me(Me.tableMarcas.MarcaIDColumn),Integer)
+            End Get
+            Set
+                Me(Me.tableMarcas.MarcaIDColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property MarcaDescr() As String
+            Get
+                Return CType(Me(Me.tableMarcas.MarcaDescrColumn),String)
+            End Get
+            Set
+                Me(Me.tableMarcas.MarcaDescrColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function GetModelosRows() As ModelosRow()
+            If (Me.Table.ChildRelations("Marcas_Modelos") Is Nothing) Then
+                Return New ModelosRow(-1) {}
+            Else
+                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("Marcas_Modelos")),ModelosRow())
+            End If
+        End Function
+    End Class
+    
+    '''<summary>
+    '''Represents strongly named DataRow class.
+    '''</summary>
     Partial Public Class EncCabListaRow
         Inherits Global.System.Data.DataRow
         
@@ -32698,6 +33157,42 @@ Partial Public Class GirlDataSet
     '''Row event argument class
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+    Public Class MarcasRowChangeEvent
+        Inherits Global.System.EventArgs
+        
+        Private eventRow As MarcasRow
+        
+        Private eventAction As Global.System.Data.DataRowAction
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub New(ByVal row As MarcasRow, ByVal action As Global.System.Data.DataRowAction)
+            MyBase.New
+            Me.eventRow = row
+            Me.eventAction = action
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property Row() As MarcasRow
+            Get
+                Return Me.eventRow
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property Action() As Global.System.Data.DataRowAction
+            Get
+                Return Me.eventAction
+            End Get
+        End Property
+    End Class
+    
+    '''<summary>
+    '''Row event argument class
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
     Public Class EncCabListaRowChangeEvent
         Inherits Global.System.EventArgs
         
@@ -33234,7 +33729,7 @@ Namespace GirlDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = sconnectionstring
+            Me._connection.ConnectionString = Global.GirlRootName.My.MySettings.Default.GirlConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -33624,6 +34119,7 @@ Namespace GirlDataSetTableAdapters
             tableMapping.ColumnMappings.Add("EpocaID", "EpocaID")
             tableMapping.ColumnMappings.Add("EscalaID", "EscalaID")
             tableMapping.ColumnMappings.Add("Volume", "Volume")
+            tableMapping.ColumnMappings.Add("MarcaID", "MarcaID")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
@@ -33637,7 +34133,8 @@ Namespace GirlDataSetTableAdapters
                 "ltura)) AND ((@IsNull_EpocaID = 1 AND [EpocaID] IS NULL) OR ([EpocaID] = @Origin"& _ 
                 "al_EpocaID)) AND ((@IsNull_EscalaID = 1 AND [EscalaID] IS NULL) OR ([EscalaID] ="& _ 
                 " @Original_EscalaID)) AND ((@IsNull_Volume = 1 AND [Volume] IS NULL) OR ([Volume"& _ 
-                "] = @Original_Volume)))"
+                "] = @Original_Volume)) AND ((@IsNull_MarcaID = 1 AND [MarcaID] IS NULL) OR ([Mar"& _ 
+                "caID] = @Original_MarcaID)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ModeloID", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ModeloID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_GrupoID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "GrupoID", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
@@ -33658,13 +34155,16 @@ Namespace GirlDataSetTableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_EscalaID", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EscalaID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Volume", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Volume", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Volume", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 5, "Volume", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_MarcaID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MarcaID", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_MarcaID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MarcaID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO [Modelos] ([ModeloID], [GrupoID], [TipoID], [FamiliaID], [LinhaID], ["& _ 
-                "UnidID], [Altura], [EpocaID], [EscalaID], [Volume]) VALUES (@ModeloID, @GrupoID,"& _ 
-                " @TipoID, @FamiliaID, @LinhaID, @UnidID, @Altura, @EpocaID, @EscalaID, @Volume);"& _ 
-                ""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ModeloID, GrupoID, TipoID, FamiliaID, LinhaID, UnidID, Altura, EpocaID,"& _ 
-                " EscalaID, Volume FROM Modelos WHERE (ModeloID = @ModeloID)"
+                "UnidID], [Altura], [EpocaID], [EscalaID], [Volume], [MarcaID]) VALUES (@ModeloID"& _ 
+                ", @GrupoID, @TipoID, @FamiliaID, @LinhaID, @UnidID, @Altura, @EpocaID, @EscalaID"& _ 
+                ", @Volume, @MarcaID);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ModeloID, GrupoID, TipoID, FamiliaID, LinhaID, Uni"& _ 
+                "dID, Altura, EpocaID, EscalaID, Volume, MarcaID FROM Modelos WHERE (ModeloID = @"& _ 
+                "ModeloID)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ModeloID", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ModeloID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@GrupoID", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "GrupoID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -33676,23 +34176,26 @@ Namespace GirlDataSetTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EpocaID", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EpocaID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EscalaID", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EscalaID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Volume", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 5, "Volume", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MarcaID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MarcaID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
             Me._adapter.UpdateCommand.CommandText = "UPDATE [Modelos] SET [ModeloID] = @ModeloID, [GrupoID] = @GrupoID, [TipoID] = @Ti"& _ 
                 "poID, [FamiliaID] = @FamiliaID, [LinhaID] = @LinhaID, [UnidID] = @UnidID, [Altur"& _ 
-                "a] = @Altura, [EpocaID] = @EpocaID, [EscalaID] = @EscalaID, [Volume] = @Volume W"& _ 
-                "HERE (([ModeloID] = @Original_ModeloID) AND ((@IsNull_GrupoID = 1 AND [GrupoID] "& _ 
-                "IS NULL) OR ([GrupoID] = @Original_GrupoID)) AND ((@IsNull_TipoID = 1 AND [TipoI"& _ 
-                "D] IS NULL) OR ([TipoID] = @Original_TipoID)) AND ((@IsNull_FamiliaID = 1 AND [F"& _ 
-                "amiliaID] IS NULL) OR ([FamiliaID] = @Original_FamiliaID)) AND ((@IsNull_LinhaID"& _ 
-                " = 1 AND [LinhaID] IS NULL) OR ([LinhaID] = @Original_LinhaID)) AND ((@IsNull_Un"& _ 
-                "idID = 1 AND [UnidID] IS NULL) OR ([UnidID] = @Original_UnidID)) AND ((@IsNull_A"& _ 
-                "ltura = 1 AND [Altura] IS NULL) OR ([Altura] = @Original_Altura)) AND ((@IsNull_"& _ 
-                "EpocaID = 1 AND [EpocaID] IS NULL) OR ([EpocaID] = @Original_EpocaID)) AND ((@Is"& _ 
-                "Null_EscalaID = 1 AND [EscalaID] IS NULL) OR ([EscalaID] = @Original_EscalaID)) "& _ 
-                "AND ((@IsNull_Volume = 1 AND [Volume] IS NULL) OR ([Volume] = @Original_Volume))"& _ 
-                ");"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ModeloID, GrupoID, TipoID, FamiliaID, LinhaID, UnidID, Altura, EpocaI"& _ 
-                "D, EscalaID, Volume FROM Modelos WHERE (ModeloID = @ModeloID)"
+                "a] = @Altura, [EpocaID] = @EpocaID, [EscalaID] = @EscalaID, [Volume] = @Volume, "& _ 
+                "[MarcaID] = @MarcaID WHERE (([ModeloID] = @Original_ModeloID) AND ((@IsNull_Grup"& _ 
+                "oID = 1 AND [GrupoID] IS NULL) OR ([GrupoID] = @Original_GrupoID)) AND ((@IsNull"& _ 
+                "_TipoID = 1 AND [TipoID] IS NULL) OR ([TipoID] = @Original_TipoID)) AND ((@IsNul"& _ 
+                "l_FamiliaID = 1 AND [FamiliaID] IS NULL) OR ([FamiliaID] = @Original_FamiliaID))"& _ 
+                " AND ((@IsNull_LinhaID = 1 AND [LinhaID] IS NULL) OR ([LinhaID] = @Original_Linh"& _ 
+                "aID)) AND ((@IsNull_UnidID = 1 AND [UnidID] IS NULL) OR ([UnidID] = @Original_Un"& _ 
+                "idID)) AND ((@IsNull_Altura = 1 AND [Altura] IS NULL) OR ([Altura] = @Original_A"& _ 
+                "ltura)) AND ((@IsNull_EpocaID = 1 AND [EpocaID] IS NULL) OR ([EpocaID] = @Origin"& _ 
+                "al_EpocaID)) AND ((@IsNull_EscalaID = 1 AND [EscalaID] IS NULL) OR ([EscalaID] ="& _ 
+                " @Original_EscalaID)) AND ((@IsNull_Volume = 1 AND [Volume] IS NULL) OR ([Volume"& _ 
+                "] = @Original_Volume)) AND ((@IsNull_MarcaID = 1 AND [MarcaID] IS NULL) OR ([Mar"& _ 
+                "caID] = @Original_MarcaID)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ModeloID, GrupoID, TipoID, FamiliaID, Linh"& _ 
+                "aID, UnidID, Altura, EpocaID, EscalaID, Volume, MarcaID FROM Modelos WHERE (Mode"& _ 
+                "loID = @ModeloID)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ModeloID", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ModeloID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@GrupoID", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "GrupoID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -33704,6 +34207,7 @@ Namespace GirlDataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EpocaID", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EpocaID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EscalaID", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EscalaID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Volume", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 5, "Volume", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MarcaID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MarcaID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ModeloID", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ModeloID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_GrupoID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "GrupoID", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_GrupoID", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "GrupoID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
@@ -33723,13 +34227,15 @@ Namespace GirlDataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_EscalaID", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EscalaID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Volume", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Volume", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Volume", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 5, "Volume", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_MarcaID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MarcaID", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_MarcaID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MarcaID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = sconnectionstring
+            Me._connection.ConnectionString = Global.GirlRootName.My.MySettings.Default.GirlConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -33739,13 +34245,13 @@ Namespace GirlDataSetTableAdapters
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT ModeloID, GrupoID, TipoID, FamiliaID, LinhaID, UnidID, Altura, EpocaID, Es"& _ 
-                "calaID, Volume FROM Modelos"
+                "calaID, Volume, MarcaID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM     Modelos"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "SELECT     ModeloID, GrupoID, TipoID, FamiliaID, LinhaID, UnidID, Altura, EpocaID"& _ 
-                ", EscalaID, Volume"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         Modelos"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE     (ModeloID LIKE @Modelo) AND "& _ 
-                "(GrupoID LIKE @Grupo) AND (TipoID LIKE @Tipo) AND (LinhaID LIKE @Linha)"
+            Me._commandCollection(1).CommandText = "SELECT Altura, EpocaID, EscalaID, FamiliaID, GrupoID, LinhaID, MarcaID, ModeloID,"& _ 
+                " TipoID, UnidID, Volume FROM Modelos WHERE (ModeloID LIKE @Modelo) AND (GrupoID "& _ 
+                "LIKE @Grupo) AND (TipoID LIKE @Tipo) AND (LinhaID LIKE @Linha)"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Modelo", Global.System.Data.SqlDbType.VarChar, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "ModeloID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Grupo", Global.System.Data.SqlDbType.VarChar, 2, Global.System.Data.ParameterDirection.Input, 0, 0, "GrupoID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -33873,7 +34379,7 @@ Namespace GirlDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_ModeloID As String, ByVal Original_GrupoID As String, ByVal Original_TipoID As String, ByVal Original_FamiliaID As String, ByVal Original_LinhaID As String, ByVal Original_UnidID As Global.System.Nullable(Of Short), ByVal Original_Altura As String, ByVal Original_EpocaID As String, ByVal Original_EscalaID As String, ByVal Original_Volume As Global.System.Nullable(Of Decimal)) As Integer
+        Public Overloads Overridable Function Delete(ByVal Original_ModeloID As String, ByVal Original_GrupoID As String, ByVal Original_TipoID As String, ByVal Original_FamiliaID As String, ByVal Original_LinhaID As String, ByVal Original_UnidID As Global.System.Nullable(Of Short), ByVal Original_Altura As String, ByVal Original_EpocaID As String, ByVal Original_EscalaID As String, ByVal Original_Volume As Global.System.Nullable(Of Decimal), ByVal Original_MarcaID As Global.System.Nullable(Of Integer)) As Integer
             If (Original_ModeloID Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_ModeloID")
             Else
@@ -33942,6 +34448,13 @@ Namespace GirlDataSetTableAdapters
                 Me.Adapter.DeleteCommand.Parameters(17).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(18).Value = Global.System.DBNull.Value
             End If
+            If (Original_MarcaID.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(19).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(20).Value = CType(Original_MarcaID.Value,Integer)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(19).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(20).Value = Global.System.DBNull.Value
+            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -33961,7 +34474,7 @@ Namespace GirlDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal ModeloID As String, ByVal GrupoID As String, ByVal TipoID As String, ByVal FamiliaID As String, ByVal LinhaID As String, ByVal UnidID As Global.System.Nullable(Of Short), ByVal Altura As String, ByVal EpocaID As String, ByVal EscalaID As String, ByVal Volume As Global.System.Nullable(Of Decimal)) As Integer
+        Public Overloads Overridable Function Insert(ByVal ModeloID As String, ByVal GrupoID As String, ByVal TipoID As String, ByVal FamiliaID As String, ByVal LinhaID As String, ByVal UnidID As Global.System.Nullable(Of Short), ByVal Altura As String, ByVal EpocaID As String, ByVal EscalaID As String, ByVal Volume As Global.System.Nullable(Of Decimal), ByVal MarcaID As Global.System.Nullable(Of Integer)) As Integer
             If (ModeloID Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("ModeloID")
             Else
@@ -34012,6 +34525,11 @@ Namespace GirlDataSetTableAdapters
             Else
                 Me.Adapter.InsertCommand.Parameters(9).Value = Global.System.DBNull.Value
             End If
+            If (MarcaID.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(10).Value = CType(MarcaID.Value,Integer)
+            Else
+                Me.Adapter.InsertCommand.Parameters(10).Value = Global.System.DBNull.Value
+            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -34042,6 +34560,7 @@ Namespace GirlDataSetTableAdapters
                     ByVal EpocaID As String,  _
                     ByVal EscalaID As String,  _
                     ByVal Volume As Global.System.Nullable(Of Decimal),  _
+                    ByVal MarcaID As Global.System.Nullable(Of Integer),  _
                     ByVal Original_ModeloID As String,  _
                     ByVal Original_GrupoID As String,  _
                     ByVal Original_TipoID As String,  _
@@ -34051,7 +34570,8 @@ Namespace GirlDataSetTableAdapters
                     ByVal Original_Altura As String,  _
                     ByVal Original_EpocaID As String,  _
                     ByVal Original_EscalaID As String,  _
-                    ByVal Original_Volume As Global.System.Nullable(Of Decimal)) As Integer
+                    ByVal Original_Volume As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_MarcaID As Global.System.Nullable(Of Integer)) As Integer
             If (ModeloID Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("ModeloID")
             Else
@@ -34102,73 +34622,85 @@ Namespace GirlDataSetTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
             End If
+            If (MarcaID.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(MarcaID.Value,Integer)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(10).Value = Global.System.DBNull.Value
+            End If
             If (Original_ModeloID Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_ModeloID")
             Else
-                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_ModeloID,String)
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Original_ModeloID,String)
             End If
             If (Original_GrupoID Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(12).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(13).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Original_GrupoID,String)
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Original_GrupoID,String)
             End If
             If (Original_TipoID Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(14).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(15).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(Original_TipoID,String)
+                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(Original_TipoID,String)
             End If
             If (Original_FamiliaID Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(16).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(17).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(Original_FamiliaID,String)
+                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(Original_FamiliaID,String)
             End If
             If (Original_LinhaID Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(18).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(19).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(Original_LinhaID,String)
+                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(Original_LinhaID,String)
             End If
             If (Original_UnidID.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(Original_UnidID.Value,Short)
+                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(Original_UnidID.Value,Short)
             Else
-                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(20).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(21).Value = Global.System.DBNull.Value
             End If
             If (Original_Altura Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(22).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(23).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(Original_Altura,String)
+                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(Original_Altura,String)
             End If
             If (Original_EpocaID Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(24).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(25).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(Original_EpocaID,String)
+                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(Original_EpocaID,String)
             End If
             If (Original_EscalaID Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(26).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(27).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(Original_EscalaID,String)
+                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(Original_EscalaID,String)
             End If
             If (Original_Volume.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(Original_Volume.Value,Decimal)
+                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(Original_Volume.Value,Decimal)
             Else
-                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(28).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(29).Value = Global.System.DBNull.Value
+            End If
+            If (Original_MarcaID.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(Original_MarcaID.Value,Integer)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(31).Value = Global.System.DBNull.Value
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -34199,6 +34731,7 @@ Namespace GirlDataSetTableAdapters
                     ByVal EpocaID As String,  _
                     ByVal EscalaID As String,  _
                     ByVal Volume As Global.System.Nullable(Of Decimal),  _
+                    ByVal MarcaID As Global.System.Nullable(Of Integer),  _
                     ByVal Original_ModeloID As String,  _
                     ByVal Original_GrupoID As String,  _
                     ByVal Original_TipoID As String,  _
@@ -34208,8 +34741,9 @@ Namespace GirlDataSetTableAdapters
                     ByVal Original_Altura As String,  _
                     ByVal Original_EpocaID As String,  _
                     ByVal Original_EscalaID As String,  _
-                    ByVal Original_Volume As Global.System.Nullable(Of Decimal)) As Integer
-            Return Me.Update(Original_ModeloID, GrupoID, TipoID, FamiliaID, LinhaID, UnidID, Altura, EpocaID, EscalaID, Volume, Original_ModeloID, Original_GrupoID, Original_TipoID, Original_FamiliaID, Original_LinhaID, Original_UnidID, Original_Altura, Original_EpocaID, Original_EscalaID, Original_Volume)
+                    ByVal Original_Volume As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_MarcaID As Global.System.Nullable(Of Integer)) As Integer
+            Return Me.Update(Original_ModeloID, GrupoID, TipoID, FamiliaID, LinhaID, UnidID, Altura, EpocaID, EscalaID, Volume, MarcaID, Original_ModeloID, Original_GrupoID, Original_TipoID, Original_FamiliaID, Original_LinhaID, Original_UnidID, Original_Altura, Original_EpocaID, Original_EscalaID, Original_Volume, Original_MarcaID)
         End Function
     End Class
     
@@ -34403,7 +34937,7 @@ Namespace GirlDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = sconnectionstring
+            Me._connection.ConnectionString = Global.GirlRootName.My.MySettings.Default.GirlConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -34897,7 +35431,7 @@ Namespace GirlDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = sconnectionstring
+            Me._connection.ConnectionString = Global.GirlRootName.My.MySettings.Default.GirlConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -35268,7 +35802,7 @@ Namespace GirlDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = sconnectionstring
+            Me._connection.ConnectionString = Global.GirlRootName.My.MySettings.Default.GirlConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -35648,7 +36182,7 @@ Namespace GirlDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = sconnectionstring
+            Me._connection.ConnectionString = Global.GirlRootName.My.MySettings.Default.GirlConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -36103,7 +36637,7 @@ Namespace GirlDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = sconnectionstring
+            Me._connection.ConnectionString = Global.GirlRootName.My.MySettings.Default.GirlConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -36862,7 +37396,7 @@ Namespace GirlDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = sconnectionstring
+            Me._connection.ConnectionString = Global.GirlRootName.My.MySettings.Default.GirlConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -37338,7 +37872,7 @@ Namespace GirlDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = sconnectionstring
+            Me._connection.ConnectionString = Global.GirlRootName.My.MySettings.Default.GirlConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -38359,7 +38893,7 @@ Namespace GirlDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = sconnectionstring
+            Me._connection.ConnectionString = Global.GirlRootName.My.MySettings.Default.GirlConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -39405,7 +39939,7 @@ Namespace GirlDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = sconnectionstring
+            Me._connection.ConnectionString = Global.GirlRootName.My.MySettings.Default.GirlConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -39805,7 +40339,7 @@ Namespace GirlDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = sconnectionstring
+            Me._connection.ConnectionString = Global.GirlRootName.My.MySettings.Default.GirlConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -40352,7 +40886,7 @@ Namespace GirlDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = sconnectionstring
+            Me._connection.ConnectionString = Global.GirlRootName.My.MySettings.Default.GirlConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -40773,7 +41307,7 @@ Namespace GirlDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = sconnectionstring
+            Me._connection.ConnectionString = Global.GirlRootName.My.MySettings.Default.GirlConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -41335,7 +41869,7 @@ Namespace GirlDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = sconnectionstring
+            Me._connection.ConnectionString = Global.GirlRootName.My.MySettings.Default.GirlConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -42023,7 +42557,7 @@ Namespace GirlDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = sconnectionstring
+            Me._connection.ConnectionString = Global.GirlRootName.My.MySettings.Default.GirlConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -42649,7 +43183,7 @@ Namespace GirlDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = sconnectionstring
+            Me._connection.ConnectionString = Global.GirlRootName.My.MySettings.Default.GirlConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -43955,7 +44489,7 @@ Namespace GirlDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = sconnectionstring
+            Me._connection.ConnectionString = Global.GirlRootName.My.MySettings.Default.GirlConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -44491,7 +45025,7 @@ Namespace GirlDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = sconnectionstring
+            Me._connection.ConnectionString = Global.GirlRootName.My.MySettings.Default.GirlConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -45367,7 +45901,7 @@ Namespace GirlDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = sconnectionstring
+            Me._connection.ConnectionString = Global.GirlRootName.My.MySettings.Default.GirlConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -45712,6 +46246,7 @@ Namespace GirlDataSetTableAdapters
             tableMapping.ColumnMappings.Add("DtRegisto", "DtRegisto")
             tableMapping.ColumnMappings.Add("ExpOffice", "ExpOffice")
             tableMapping.ColumnMappings.Add("ClienteID", "ClienteID")
+            tableMapping.ColumnMappings.Add("MarcaID", "MarcaID")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
@@ -45741,7 +46276,8 @@ Namespace GirlDataSetTableAdapters
                 " 1 AND [OperadorID] IS NULL) OR ([OperadorID] = @Original_OperadorID)) AND ((@Is"& _ 
                 "Null_DtRegisto = 1 AND [DtRegisto] IS NULL) OR ([DtRegisto] = @Original_DtRegist"& _ 
                 "o)) AND ((@IsNull_ClienteID = 1 AND [ClienteID] IS NULL) OR ([ClienteID] = @Orig"& _ 
-                "inal_ClienteID)))"
+                "inal_ClienteID)) AND ((@IsNull_MarcaID = 1 AND [MarcaID] IS NULL) OR ([MarcaID] "& _ 
+                "= @Original_MarcaID)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_EmpresaID", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EmpresaID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ArmazemID", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ArmazemID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
@@ -45791,21 +46327,23 @@ Namespace GirlDataSetTableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DtRegisto", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DtRegisto", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ClienteID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ClienteID", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ClienteID", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ClienteID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_MarcaID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MarcaID", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_MarcaID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MarcaID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO [Encomendas] ([EmpresaID], [ArmazemID], [NrEnc], [LnEnc], [FornId], ["& _ 
                 "RefForn], [CorForn], [PrCusto], [DtEntrega], [GrupoID], [TipoID], [Altura], [Mod"& _ 
                 "eloID], [CorID], [ModCorDescr], [LinhaID], [PrecoEtiqueta], [Obs], [EstadoEnc], "& _ 
                 "[TGerado], [QtdEnc], [DataDoc], [ExpOffice], [OperadorID], [DtRegisto], [Cliente"& _ 
-                "ID]) VALUES (@EmpresaID, @ArmazemID, @NrEnc, @LnEnc, @FornId, @RefForn, @CorForn"& _ 
-                ", @PrCusto, @DtEntrega, @GrupoID, @TipoID, @Altura, @ModeloID, @CorID, @ModCorDe"& _ 
-                "scr, @LinhaID, @PrecoEtiqueta, @Obs, @EstadoEnc, @TGerado, @QtdEnc, @DataDoc, @E"& _ 
-                "xpOffice, @OperadorID, @DtRegisto, @ClienteID);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT EmpresaID, ArmazemID, Nr"& _ 
-                "Enc, LnEnc, FornId, RefForn, CorForn, PrCusto, DtEntrega, GrupoID, TipoID, Altur"& _ 
-                "a, ModeloID, CorID, ModCorDescr, LinhaID, PrecoEtiqueta, Obs, EstadoEnc, TGerado"& _ 
-                ", QtdEnc, DataDoc, ExpOffice, OperadorID, DtRegisto, ClienteID FROM Encomendas W"& _ 
-                "HERE (ArmazemID = @ArmazemID) AND (EmpresaID = @EmpresaID) AND (LnEnc = @LnEnc) "& _ 
-                "AND (NrEnc = @NrEnc)"
+                "ID], [MarcaID]) VALUES (@EmpresaID, @ArmazemID, @NrEnc, @LnEnc, @FornId, @RefFor"& _ 
+                "n, @CorForn, @PrCusto, @DtEntrega, @GrupoID, @TipoID, @Altura, @ModeloID, @CorID"& _ 
+                ", @ModCorDescr, @LinhaID, @PrecoEtiqueta, @Obs, @EstadoEnc, @TGerado, @QtdEnc, @"& _ 
+                "DataDoc, @ExpOffice, @OperadorID, @DtRegisto, @ClienteID, @MarcaID);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Emp"& _ 
+                "resaID, ArmazemID, NrEnc, LnEnc, FornId, RefForn, CorForn, PrCusto, DtEntrega, G"& _ 
+                "rupoID, TipoID, Altura, ModeloID, CorID, ModCorDescr, LinhaID, PrecoEtiqueta, Ob"& _ 
+                "s, EstadoEnc, TGerado, QtdEnc, DataDoc, ExpOffice, OperadorID, DtRegisto, Client"& _ 
+                "eID, MarcaID FROM Encomendas WHERE (ArmazemID = @ArmazemID) AND (EmpresaID = @Em"& _ 
+                "presaID) AND (LnEnc = @LnEnc) AND (NrEnc = @NrEnc)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EmpresaID", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EmpresaID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ArmazemID", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ArmazemID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -45833,6 +46371,7 @@ Namespace GirlDataSetTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@OperadorID", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "OperadorID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DtRegisto", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DtRegisto", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ClienteID", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ClienteID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MarcaID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MarcaID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
             Me._adapter.UpdateCommand.CommandText = "UPDATE [Encomendas] SET [EmpresaID] = @EmpresaID, [ArmazemID] = @ArmazemID, [NrEn"& _ 
@@ -45842,38 +46381,39 @@ Namespace GirlDataSetTableAdapters
                 "CorID, [ModCorDescr] = @ModCorDescr, [LinhaID] = @LinhaID, [PrecoEtiqueta] = @Pr"& _ 
                 "ecoEtiqueta, [Obs] = @Obs, [EstadoEnc] = @EstadoEnc, [TGerado] = @TGerado, [QtdE"& _ 
                 "nc] = @QtdEnc, [DataDoc] = @DataDoc, [ExpOffice] = @ExpOffice, [OperadorID] = @O"& _ 
-                "peradorID, [DtRegisto] = @DtRegisto, [ClienteID] = @ClienteID WHERE (([EmpresaID"& _ 
-                "] = @Original_EmpresaID) AND ([ArmazemID] = @Original_ArmazemID) AND ([NrEnc] = "& _ 
-                "@Original_NrEnc) AND ([LnEnc] = @Original_LnEnc) AND ((@IsNull_FornId = 1 AND [F"& _ 
-                "ornId] IS NULL) OR ([FornId] = @Original_FornId)) AND ((@IsNull_RefForn = 1 AND "& _ 
-                "[RefForn] IS NULL) OR ([RefForn] = @Original_RefForn)) AND ((@IsNull_CorForn = 1"& _ 
-                " AND [CorForn] IS NULL) OR ([CorForn] = @Original_CorForn)) AND ((@IsNull_PrCust"& _ 
-                "o = 1 AND [PrCusto] IS NULL) OR ([PrCusto] = @Original_PrCusto)) AND ((@IsNull_D"& _ 
-                "tEntrega = 1 AND [DtEntrega] IS NULL) OR ([DtEntrega] = @Original_DtEntrega)) AN"& _ 
-                "D ((@IsNull_GrupoID = 1 AND [GrupoID] IS NULL) OR ([GrupoID] = @Original_GrupoID"& _ 
-                ")) AND ((@IsNull_TipoID = 1 AND [TipoID] IS NULL) OR ([TipoID] = @Original_TipoI"& _ 
-                "D)) AND ((@IsNull_Altura = 1 AND [Altura] IS NULL) OR ([Altura] = @Original_Altu"& _ 
-                "ra)) AND ((@IsNull_ModeloID = 1 AND [ModeloID] IS NULL) OR ([ModeloID] = @Origin"& _ 
-                "al_ModeloID)) AND ((@IsNull_CorID = 1 AND [CorID] IS NULL) OR ([CorID] = @Origin"& _ 
-                "al_CorID)) AND ((@IsNull_ModCorDescr = 1 AND [ModCorDescr] IS NULL) OR ([ModCorD"& _ 
-                "escr] = @Original_ModCorDescr)) AND ((@IsNull_LinhaID = 1 AND [LinhaID] IS NULL)"& _ 
-                " OR ([LinhaID] = @Original_LinhaID)) AND ((@IsNull_PrecoEtiqueta = 1 AND [PrecoE"& _ 
-                "tiqueta] IS NULL) OR ([PrecoEtiqueta] = @Original_PrecoEtiqueta)) AND ((@IsNull_"& _ 
-                "Obs = 1 AND [Obs] IS NULL) OR ([Obs] = @Original_Obs)) AND ((@IsNull_EstadoEnc ="& _ 
-                " 1 AND [EstadoEnc] IS NULL) OR ([EstadoEnc] = @Original_EstadoEnc)) AND ((@IsNul"& _ 
-                "l_TGerado = 1 AND [TGerado] IS NULL) OR ([TGerado] = @Original_TGerado)) AND ((@"& _ 
-                "IsNull_QtdEnc = 1 AND [QtdEnc] IS NULL) OR ([QtdEnc] = @Original_QtdEnc)) AND (("& _ 
-                "@IsNull_DataDoc = 1 AND [DataDoc] IS NULL) OR ([DataDoc] = @Original_DataDoc)) A"& _ 
-                "ND ((@IsNull_ExpOffice = 1 AND [ExpOffice] IS NULL) OR ([ExpOffice] = @Original_"& _ 
-                "ExpOffice)) AND ((@IsNull_OperadorID = 1 AND [OperadorID] IS NULL) OR ([Operador"& _ 
-                "ID] = @Original_OperadorID)) AND ((@IsNull_DtRegisto = 1 AND [DtRegisto] IS NULL"& _ 
-                ") OR ([DtRegisto] = @Original_DtRegisto)) AND ((@IsNull_ClienteID = 1 AND [Clien"& _ 
-                "teID] IS NULL) OR ([ClienteID] = @Original_ClienteID)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT EmpresaID, Arma"& _ 
-                "zemID, NrEnc, LnEnc, FornId, RefForn, CorForn, PrCusto, DtEntrega, GrupoID, Tipo"& _ 
-                "ID, Altura, ModeloID, CorID, ModCorDescr, LinhaID, PrecoEtiqueta, Obs, EstadoEnc"& _ 
-                ", TGerado, QtdEnc, DataDoc, ExpOffice, OperadorID, DtRegisto, ClienteID FROM Enc"& _ 
-                "omendas WHERE (ArmazemID = @ArmazemID) AND (EmpresaID = @EmpresaID) AND (LnEnc ="& _ 
-                " @LnEnc) AND (NrEnc = @NrEnc)"
+                "peradorID, [DtRegisto] = @DtRegisto, [ClienteID] = @ClienteID, [MarcaID] = @Marc"& _ 
+                "aID WHERE (([EmpresaID] = @Original_EmpresaID) AND ([ArmazemID] = @Original_Arma"& _ 
+                "zemID) AND ([NrEnc] = @Original_NrEnc) AND ([LnEnc] = @Original_LnEnc) AND ((@Is"& _ 
+                "Null_FornId = 1 AND [FornId] IS NULL) OR ([FornId] = @Original_FornId)) AND ((@I"& _ 
+                "sNull_RefForn = 1 AND [RefForn] IS NULL) OR ([RefForn] = @Original_RefForn)) AND"& _ 
+                " ((@IsNull_CorForn = 1 AND [CorForn] IS NULL) OR ([CorForn] = @Original_CorForn)"& _ 
+                ") AND ((@IsNull_PrCusto = 1 AND [PrCusto] IS NULL) OR ([PrCusto] = @Original_PrC"& _ 
+                "usto)) AND ((@IsNull_DtEntrega = 1 AND [DtEntrega] IS NULL) OR ([DtEntrega] = @O"& _ 
+                "riginal_DtEntrega)) AND ((@IsNull_GrupoID = 1 AND [GrupoID] IS NULL) OR ([GrupoI"& _ 
+                "D] = @Original_GrupoID)) AND ((@IsNull_TipoID = 1 AND [TipoID] IS NULL) OR ([Tip"& _ 
+                "oID] = @Original_TipoID)) AND ((@IsNull_Altura = 1 AND [Altura] IS NULL) OR ([Al"& _ 
+                "tura] = @Original_Altura)) AND ((@IsNull_ModeloID = 1 AND [ModeloID] IS NULL) OR"& _ 
+                " ([ModeloID] = @Original_ModeloID)) AND ((@IsNull_CorID = 1 AND [CorID] IS NULL)"& _ 
+                " OR ([CorID] = @Original_CorID)) AND ((@IsNull_ModCorDescr = 1 AND [ModCorDescr]"& _ 
+                " IS NULL) OR ([ModCorDescr] = @Original_ModCorDescr)) AND ((@IsNull_LinhaID = 1 "& _ 
+                "AND [LinhaID] IS NULL) OR ([LinhaID] = @Original_LinhaID)) AND ((@IsNull_PrecoEt"& _ 
+                "iqueta = 1 AND [PrecoEtiqueta] IS NULL) OR ([PrecoEtiqueta] = @Original_PrecoEti"& _ 
+                "queta)) AND ((@IsNull_Obs = 1 AND [Obs] IS NULL) OR ([Obs] = @Original_Obs)) AND"& _ 
+                " ((@IsNull_EstadoEnc = 1 AND [EstadoEnc] IS NULL) OR ([EstadoEnc] = @Original_Es"& _ 
+                "tadoEnc)) AND ((@IsNull_TGerado = 1 AND [TGerado] IS NULL) OR ([TGerado] = @Orig"& _ 
+                "inal_TGerado)) AND ((@IsNull_QtdEnc = 1 AND [QtdEnc] IS NULL) OR ([QtdEnc] = @Or"& _ 
+                "iginal_QtdEnc)) AND ((@IsNull_DataDoc = 1 AND [DataDoc] IS NULL) OR ([DataDoc] ="& _ 
+                " @Original_DataDoc)) AND ((@IsNull_ExpOffice = 1 AND [ExpOffice] IS NULL) OR ([E"& _ 
+                "xpOffice] = @Original_ExpOffice)) AND ((@IsNull_OperadorID = 1 AND [OperadorID] "& _ 
+                "IS NULL) OR ([OperadorID] = @Original_OperadorID)) AND ((@IsNull_DtRegisto = 1 A"& _ 
+                "ND [DtRegisto] IS NULL) OR ([DtRegisto] = @Original_DtRegisto)) AND ((@IsNull_Cl"& _ 
+                "ienteID = 1 AND [ClienteID] IS NULL) OR ([ClienteID] = @Original_ClienteID)) AND"& _ 
+                " ((@IsNull_MarcaID = 1 AND [MarcaID] IS NULL) OR ([MarcaID] = @Original_MarcaID)"& _ 
+                "));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT EmpresaID, ArmazemID, NrEnc, LnEnc, FornId, RefForn, CorForn, PrCust"& _ 
+                "o, DtEntrega, GrupoID, TipoID, Altura, ModeloID, CorID, ModCorDescr, LinhaID, Pr"& _ 
+                "ecoEtiqueta, Obs, EstadoEnc, TGerado, QtdEnc, DataDoc, ExpOffice, OperadorID, Dt"& _ 
+                "Registo, ClienteID, MarcaID FROM Encomendas WHERE (ArmazemID = @ArmazemID) AND ("& _ 
+                "EmpresaID = @EmpresaID) AND (LnEnc = @LnEnc) AND (NrEnc = @NrEnc)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EmpresaID", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EmpresaID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ArmazemID", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ArmazemID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -45901,6 +46441,7 @@ Namespace GirlDataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@OperadorID", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "OperadorID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DtRegisto", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DtRegisto", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ClienteID", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ClienteID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MarcaID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MarcaID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_EmpresaID", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EmpresaID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ArmazemID", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ArmazemID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_NrEnc", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "NrEnc", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
@@ -45949,13 +46490,15 @@ Namespace GirlDataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DtRegisto", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DtRegisto", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ClienteID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ClienteID", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ClienteID", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ClienteID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_MarcaID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MarcaID", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_MarcaID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MarcaID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = sconnectionstring
+            Me._connection.ConnectionString = Global.GirlRootName.My.MySettings.Default.GirlConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -45964,10 +46507,10 @@ Namespace GirlDataSetTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT        EmpresaID, ArmazemID, NrEnc, LnEnc, FornId, RefForn, CorForn, PrCus"& _ 
-                "to, DtEntrega, GrupoID, TipoID, Altura, ModeloID, CorID, ModCorDescr, LinhaID, P"& _ 
-                "recoEtiqueta, Obs, EstadoEnc, TGerado, QtdEnc, DataDoc, ExpOffice, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"           "& _ 
-                "              OperadorID, DtRegisto, ClienteID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Encomendas"
+            Me._commandCollection(0).CommandText = "SELECT EmpresaID, ArmazemID, NrEnc, LnEnc, FornId, RefForn, CorForn, PrCusto, DtE"& _ 
+                "ntrega, GrupoID, TipoID, Altura, ModeloID, CorID, ModCorDescr, LinhaID, PrecoEti"& _ 
+                "queta, Obs, EstadoEnc, TGerado, QtdEnc, DataDoc, ExpOffice, OperadorID, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"      "& _ 
+                "            DtRegisto, ClienteID, MarcaID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM     Encomendas"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -46053,7 +46596,8 @@ Namespace GirlDataSetTableAdapters
                     ByVal Original_ExpOffice As Global.System.Nullable(Of Boolean),  _
                     ByVal Original_OperadorID As String,  _
                     ByVal Original_DtRegisto As Global.System.Nullable(Of Date),  _
-                    ByVal Original_ClienteID As String) As Integer
+                    ByVal Original_ClienteID As String,  _
+                    ByVal Original_MarcaID As Global.System.Nullable(Of Integer)) As Integer
             If (Original_EmpresaID Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_EmpresaID")
             Else
@@ -46224,6 +46768,13 @@ Namespace GirlDataSetTableAdapters
                 Me.Adapter.DeleteCommand.Parameters(46).Value = CType(0,Object)
                 Me.Adapter.DeleteCommand.Parameters(47).Value = CType(Original_ClienteID,String)
             End If
+            If (Original_MarcaID.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(48).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(49).Value = CType(Original_MarcaID.Value,Integer)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(48).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(49).Value = Global.System.DBNull.Value
+            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -46269,7 +46820,8 @@ Namespace GirlDataSetTableAdapters
                     ByVal ExpOffice As Global.System.Nullable(Of Boolean),  _
                     ByVal OperadorID As String,  _
                     ByVal DtRegisto As Global.System.Nullable(Of Date),  _
-                    ByVal ClienteID As String) As Integer
+                    ByVal ClienteID As String,  _
+                    ByVal MarcaID As Global.System.Nullable(Of Integer)) As Integer
             If (EmpresaID Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("EmpresaID")
             Else
@@ -46396,6 +46948,11 @@ Namespace GirlDataSetTableAdapters
             Else
                 Me.Adapter.InsertCommand.Parameters(25).Value = CType(ClienteID,String)
             End If
+            If (MarcaID.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(26).Value = CType(MarcaID.Value,Integer)
+            Else
+                Me.Adapter.InsertCommand.Parameters(26).Value = Global.System.DBNull.Value
+            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -46442,6 +46999,7 @@ Namespace GirlDataSetTableAdapters
                     ByVal OperadorID As String,  _
                     ByVal DtRegisto As Global.System.Nullable(Of Date),  _
                     ByVal ClienteID As String,  _
+                    ByVal MarcaID As Global.System.Nullable(Of Integer),  _
                     ByVal Original_EmpresaID As String,  _
                     ByVal Original_ArmazemID As String,  _
                     ByVal Original_NrEnc As String,  _
@@ -46467,7 +47025,8 @@ Namespace GirlDataSetTableAdapters
                     ByVal Original_ExpOffice As Global.System.Nullable(Of Boolean),  _
                     ByVal Original_OperadorID As String,  _
                     ByVal Original_DtRegisto As Global.System.Nullable(Of Date),  _
-                    ByVal Original_ClienteID As String) As Integer
+                    ByVal Original_ClienteID As String,  _
+                    ByVal Original_MarcaID As Global.System.Nullable(Of Integer)) As Integer
             If (EmpresaID Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("EmpresaID")
             Else
@@ -46594,175 +47153,187 @@ Namespace GirlDataSetTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(25).Value = CType(ClienteID,String)
             End If
+            If (MarcaID.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(MarcaID.Value,Integer)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(26).Value = Global.System.DBNull.Value
+            End If
             If (Original_EmpresaID Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_EmpresaID")
             Else
-                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(Original_EmpresaID,String)
+                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(Original_EmpresaID,String)
             End If
             If (Original_ArmazemID Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_ArmazemID")
             Else
-                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(Original_ArmazemID,String)
+                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(Original_ArmazemID,String)
             End If
             If (Original_NrEnc Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_NrEnc")
             Else
-                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(Original_NrEnc,String)
+                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(Original_NrEnc,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(29).Value = CType(Original_LnEnc,Integer)
+            Me.Adapter.UpdateCommand.Parameters(30).Value = CType(Original_LnEnc,Integer)
             If (Original_FornId Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(31).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(32).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(Original_FornId,String)
+                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(Original_FornId,String)
             End If
             If (Original_RefForn Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(33).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(33).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(34).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(33).Value = CType(Original_RefForn,String)
+                Me.Adapter.UpdateCommand.Parameters(33).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(Original_RefForn,String)
             End If
             If (Original_CorForn Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(35).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(35).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(36).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(35).Value = CType(Original_CorForn,String)
+                Me.Adapter.UpdateCommand.Parameters(35).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(36).Value = CType(Original_CorForn,String)
             End If
             If (Original_PrCusto.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(36).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(37).Value = CType(Original_PrCusto.Value,Decimal)
+                Me.Adapter.UpdateCommand.Parameters(37).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(38).Value = CType(Original_PrCusto.Value,Decimal)
             Else
-                Me.Adapter.UpdateCommand.Parameters(36).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(37).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(37).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(38).Value = Global.System.DBNull.Value
             End If
             If (Original_DtEntrega.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(38).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(39).Value = CType(Original_DtEntrega.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(39).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(40).Value = CType(Original_DtEntrega.Value,Date)
             Else
-                Me.Adapter.UpdateCommand.Parameters(38).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(39).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(39).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(40).Value = Global.System.DBNull.Value
             End If
             If (Original_GrupoID Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(40).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(41).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(41).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(42).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(40).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(41).Value = CType(Original_GrupoID,String)
+                Me.Adapter.UpdateCommand.Parameters(41).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(42).Value = CType(Original_GrupoID,String)
             End If
             If (Original_TipoID Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(42).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(43).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(43).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(44).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(42).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(43).Value = CType(Original_TipoID,String)
+                Me.Adapter.UpdateCommand.Parameters(43).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(44).Value = CType(Original_TipoID,String)
             End If
             If (Original_Altura Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(44).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(45).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(45).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(46).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(44).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(45).Value = CType(Original_Altura,String)
+                Me.Adapter.UpdateCommand.Parameters(45).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(46).Value = CType(Original_Altura,String)
             End If
             If (Original_ModeloID Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(46).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(47).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(47).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(48).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(46).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(47).Value = CType(Original_ModeloID,String)
+                Me.Adapter.UpdateCommand.Parameters(47).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(48).Value = CType(Original_ModeloID,String)
             End If
             If (Original_CorID Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(48).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(49).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(49).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(50).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(48).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(49).Value = CType(Original_CorID,String)
+                Me.Adapter.UpdateCommand.Parameters(49).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(50).Value = CType(Original_CorID,String)
             End If
             If (Original_ModCorDescr Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(50).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(51).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(51).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(52).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(50).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(51).Value = CType(Original_ModCorDescr,String)
+                Me.Adapter.UpdateCommand.Parameters(51).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(52).Value = CType(Original_ModCorDescr,String)
             End If
             If (Original_LinhaID Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(52).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(53).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(53).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(54).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(52).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(53).Value = CType(Original_LinhaID,String)
+                Me.Adapter.UpdateCommand.Parameters(53).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(54).Value = CType(Original_LinhaID,String)
             End If
             If (Original_PrecoEtiqueta.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(54).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(55).Value = CType(Original_PrecoEtiqueta.Value,Decimal)
+                Me.Adapter.UpdateCommand.Parameters(55).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(56).Value = CType(Original_PrecoEtiqueta.Value,Decimal)
             Else
-                Me.Adapter.UpdateCommand.Parameters(54).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(55).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(55).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(56).Value = Global.System.DBNull.Value
             End If
             If (Original_Obs Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(56).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(57).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(57).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(58).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(56).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(57).Value = CType(Original_Obs,String)
+                Me.Adapter.UpdateCommand.Parameters(57).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(58).Value = CType(Original_Obs,String)
             End If
             If (Original_EstadoEnc Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(58).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(59).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(59).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(60).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(58).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(59).Value = CType(Original_EstadoEnc,String)
+                Me.Adapter.UpdateCommand.Parameters(59).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(60).Value = CType(Original_EstadoEnc,String)
             End If
             If (Original_TGerado.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(60).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(61).Value = CType(Original_TGerado.Value,Boolean)
+                Me.Adapter.UpdateCommand.Parameters(61).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(62).Value = CType(Original_TGerado.Value,Boolean)
             Else
-                Me.Adapter.UpdateCommand.Parameters(60).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(61).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(61).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(62).Value = Global.System.DBNull.Value
             End If
             If (Original_QtdEnc.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(62).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(63).Value = CType(Original_QtdEnc.Value,Decimal)
+                Me.Adapter.UpdateCommand.Parameters(63).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(64).Value = CType(Original_QtdEnc.Value,Decimal)
             Else
-                Me.Adapter.UpdateCommand.Parameters(62).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(63).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(63).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(64).Value = Global.System.DBNull.Value
             End If
             If (Original_DataDoc.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(64).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(65).Value = CType(Original_DataDoc.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(65).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(66).Value = CType(Original_DataDoc.Value,Date)
             Else
-                Me.Adapter.UpdateCommand.Parameters(64).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(65).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(65).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(66).Value = Global.System.DBNull.Value
             End If
             If (Original_ExpOffice.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(66).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(67).Value = CType(Original_ExpOffice.Value,Boolean)
+                Me.Adapter.UpdateCommand.Parameters(67).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(68).Value = CType(Original_ExpOffice.Value,Boolean)
             Else
-                Me.Adapter.UpdateCommand.Parameters(66).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(67).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(67).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(68).Value = Global.System.DBNull.Value
             End If
             If (Original_OperadorID Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(68).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(69).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(69).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(70).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(68).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(69).Value = CType(Original_OperadorID,String)
+                Me.Adapter.UpdateCommand.Parameters(69).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(70).Value = CType(Original_OperadorID,String)
             End If
             If (Original_DtRegisto.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(70).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(71).Value = CType(Original_DtRegisto.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(71).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(72).Value = CType(Original_DtRegisto.Value,Date)
             Else
-                Me.Adapter.UpdateCommand.Parameters(70).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(71).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(71).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(72).Value = Global.System.DBNull.Value
             End If
             If (Original_ClienteID Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(72).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(73).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(73).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(74).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(72).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(73).Value = CType(Original_ClienteID,String)
+                Me.Adapter.UpdateCommand.Parameters(73).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(74).Value = CType(Original_ClienteID,String)
+            End If
+            If (Original_MarcaID.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(75).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(76).Value = CType(Original_MarcaID.Value,Integer)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(75).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(76).Value = Global.System.DBNull.Value
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -46806,6 +47377,7 @@ Namespace GirlDataSetTableAdapters
                     ByVal OperadorID As String,  _
                     ByVal DtRegisto As Global.System.Nullable(Of Date),  _
                     ByVal ClienteID As String,  _
+                    ByVal MarcaID As Global.System.Nullable(Of Integer),  _
                     ByVal Original_EmpresaID As String,  _
                     ByVal Original_ArmazemID As String,  _
                     ByVal Original_NrEnc As String,  _
@@ -46831,8 +47403,9 @@ Namespace GirlDataSetTableAdapters
                     ByVal Original_ExpOffice As Global.System.Nullable(Of Boolean),  _
                     ByVal Original_OperadorID As String,  _
                     ByVal Original_DtRegisto As Global.System.Nullable(Of Date),  _
-                    ByVal Original_ClienteID As String) As Integer
-            Return Me.Update(Original_EmpresaID, Original_ArmazemID, Original_NrEnc, Original_LnEnc, FornId, RefForn, CorForn, PrCusto, DtEntrega, GrupoID, TipoID, Altura, ModeloID, CorID, ModCorDescr, LinhaID, PrecoEtiqueta, Obs, EstadoEnc, TGerado, QtdEnc, DataDoc, ExpOffice, OperadorID, DtRegisto, ClienteID, Original_EmpresaID, Original_ArmazemID, Original_NrEnc, Original_LnEnc, Original_FornId, Original_RefForn, Original_CorForn, Original_PrCusto, Original_DtEntrega, Original_GrupoID, Original_TipoID, Original_Altura, Original_ModeloID, Original_CorID, Original_ModCorDescr, Original_LinhaID, Original_PrecoEtiqueta, Original_Obs, Original_EstadoEnc, Original_TGerado, Original_QtdEnc, Original_DataDoc, Original_ExpOffice, Original_OperadorID, Original_DtRegisto, Original_ClienteID)
+                    ByVal Original_ClienteID As String,  _
+                    ByVal Original_MarcaID As Global.System.Nullable(Of Integer)) As Integer
+            Return Me.Update(Original_EmpresaID, Original_ArmazemID, Original_NrEnc, Original_LnEnc, FornId, RefForn, CorForn, PrCusto, DtEntrega, GrupoID, TipoID, Altura, ModeloID, CorID, ModCorDescr, LinhaID, PrecoEtiqueta, Obs, EstadoEnc, TGerado, QtdEnc, DataDoc, ExpOffice, OperadorID, DtRegisto, ClienteID, MarcaID, Original_EmpresaID, Original_ArmazemID, Original_NrEnc, Original_LnEnc, Original_FornId, Original_RefForn, Original_CorForn, Original_PrCusto, Original_DtEntrega, Original_GrupoID, Original_TipoID, Original_Altura, Original_ModeloID, Original_CorID, Original_ModCorDescr, Original_LinhaID, Original_PrecoEtiqueta, Original_Obs, Original_EstadoEnc, Original_TGerado, Original_QtdEnc, Original_DataDoc, Original_ExpOffice, Original_OperadorID, Original_DtRegisto, Original_ClienteID, Original_MarcaID)
         End Function
     End Class
     
@@ -46950,7 +47523,7 @@ Namespace GirlDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = sconnectionstring
+            Me._connection.ConnectionString = Global.GirlRootName.My.MySettings.Default.GirlConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -47311,7 +47884,7 @@ Namespace GirlDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = sconnectionstring
+            Me._connection.ConnectionString = Global.GirlRootName.My.MySettings.Default.GirlConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -48211,7 +48784,7 @@ Namespace GirlDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = sconnectionstring
+            Me._connection.ConnectionString = Global.GirlRootName.My.MySettings.Default.GirlConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -48544,7 +49117,7 @@ Namespace GirlDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = sconnectionstring
+            Me._connection.ConnectionString = Global.GirlRootName.My.MySettings.Default.GirlConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -48881,7 +49454,7 @@ Namespace GirlDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = sconnectionstring
+            Me._connection.ConnectionString = Global.GirlRootName.My.MySettings.Default.GirlConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -49063,7 +49636,7 @@ Namespace GirlDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = sconnectionstring
+            Me._connection.ConnectionString = Global.GirlRootName.My.MySettings.Default.GirlConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -49241,7 +49814,7 @@ Namespace GirlDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = sconnectionstring
+            Me._connection.ConnectionString = Global.GirlRootName.My.MySettings.Default.GirlConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -49446,7 +50019,7 @@ Namespace GirlDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = sconnectionstring
+            Me._connection.ConnectionString = Global.GirlRootName.My.MySettings.Default.GirlConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -49664,7 +50237,7 @@ Namespace GirlDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = sconnectionstring
+            Me._connection.ConnectionString = Global.GirlRootName.My.MySettings.Default.GirlConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -49871,7 +50444,7 @@ Namespace GirlDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = sconnectionstring
+            Me._connection.ConnectionString = Global.GirlRootName.My.MySettings.Default.GirlConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -50268,7 +50841,7 @@ Namespace GirlDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = sconnectionstring
+            Me._connection.ConnectionString = Global.GirlRootName.My.MySettings.Default.GirlConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -50690,7 +51263,7 @@ Namespace GirlDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = sconnectionstring
+            Me._connection.ConnectionString = Global.GirlRootName.My.MySettings.Default.GirlConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -51082,7 +51655,7 @@ Namespace GirlDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = sconnectionstring
+            Me._connection.ConnectionString = Global.GirlRootName.My.MySettings.Default.GirlConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -51329,7 +51902,7 @@ Namespace GirlDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = sconnectionstring
+            Me._connection.ConnectionString = Global.GirlRootName.My.MySettings.Default.GirlConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -51780,7 +52353,7 @@ Namespace GirlDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = sconnectionstring
+            Me._connection.ConnectionString = Global.GirlRootName.My.MySettings.Default.GirlConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -51873,6 +52446,295 @@ Namespace GirlDataSetTableAdapters
                     Me.Adapter.InsertCommand.Connection.Close
                 End If
             End Try
+        End Function
+    End Class
+    
+    '''<summary>
+    '''Represents the connection and commands used to retrieve and save data.
+    '''</summary>
+    <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
+     Global.System.ComponentModel.ToolboxItem(true),  _
+     Global.System.ComponentModel.DataObjectAttribute(true),  _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+    Partial Public Class MarcasTableAdapter
+        Inherits Global.System.ComponentModel.Component
+        
+        Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
+        
+        Private _connection As Global.System.Data.SqlClient.SqlConnection
+        
+        Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
+        
+        Private _clearBeforeFill As Boolean
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub New()
+            MyBase.New
+            Me.ClearBeforeFill = true
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Private ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
+            Get
+                If (Me._adapter Is Nothing) Then
+                    Me.InitAdapter
+                End If
+                Return Me._adapter
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
+            Get
+                If (Me._connection Is Nothing) Then
+                    Me.InitConnection
+                End If
+                Return Me._connection
+            End Get
+            Set
+                Me._connection = value
+                If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
+                    Me.Adapter.InsertCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.DeleteCommand) Is Nothing) Then
+                    Me.Adapter.DeleteCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.UpdateCommand) Is Nothing) Then
+                    Me.Adapter.UpdateCommand.Connection = value
+                End If
+                Dim i As Integer = 0
+                Do While (i < Me.CommandCollection.Length)
+                    If (Not (Me.CommandCollection(i)) Is Nothing) Then
+                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
+                    End If
+                    i = (i + 1)
+                Loop
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
+            Get
+                If (Me._commandCollection Is Nothing) Then
+                    Me.InitCommandCollection
+                End If
+                Return Me._commandCollection
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property ClearBeforeFill() As Boolean
+            Get
+                Return Me._clearBeforeFill
+            End Get
+            Set
+                Me._clearBeforeFill = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Private Sub InitAdapter()
+            Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter()
+            Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
+            tableMapping.SourceTable = "Table"
+            tableMapping.DataSetTable = "Marcas"
+            tableMapping.ColumnMappings.Add("MarcaID", "MarcaID")
+            tableMapping.ColumnMappings.Add("MarcaDescr", "MarcaDescr")
+            Me._adapter.TableMappings.Add(tableMapping)
+            Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
+            Me._adapter.DeleteCommand.Connection = Me.Connection
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [Marcas] WHERE (([MarcaID] = @Original_MarcaID) AND ([MarcaDescr] = @"& _ 
+                "Original_MarcaDescr))"
+            Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_MarcaID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MarcaID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_MarcaDescr", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MarcaDescr", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
+            Me._adapter.InsertCommand.Connection = Me.Connection
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [Marcas] ([MarcaID], [MarcaDescr]) VALUES (@MarcaID, @MarcaDescr);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"S"& _ 
+                "ELECT MarcaID, MarcaDescr FROM Marcas WHERE (MarcaID = @MarcaID) ORDER BY MarcaD"& _ 
+                "escr"
+            Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MarcaID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MarcaID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MarcaDescr", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MarcaDescr", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
+            Me._adapter.UpdateCommand.Connection = Me.Connection
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [Marcas] SET [MarcaID] = @MarcaID, [MarcaDescr] = @MarcaDescr WHERE (([Mar"& _ 
+                "caID] = @Original_MarcaID) AND ([MarcaDescr] = @Original_MarcaDescr));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT M"& _ 
+                "arcaID, MarcaDescr FROM Marcas WHERE (MarcaID = @MarcaID) ORDER BY MarcaDescr"
+            Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MarcaID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MarcaID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MarcaDescr", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MarcaDescr", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_MarcaID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MarcaID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_MarcaDescr", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MarcaDescr", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Private Sub InitConnection()
+            Me._connection = New Global.System.Data.SqlClient.SqlConnection()
+            Me._connection.ConnectionString = Global.GirlRootName.My.MySettings.Default.GirlConnectionString
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Private Sub InitCommandCollection()
+            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
+            Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(0).Connection = Me.Connection
+            Me._commandCollection(0).CommandText = "SELECT MarcaID, MarcaDescr"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM     Marcas"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY MarcaDescr"
+            Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
+        Public Overloads Overridable Function Fill(ByVal dataTable As GirlDataSet.MarcasDataTable) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
+        Public Overloads Overridable Function GetData() As GirlDataSet.MarcasDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            Dim dataTable As GirlDataSet.MarcasDataTable = New GirlDataSet.MarcasDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataTable As GirlDataSet.MarcasDataTable) As Integer
+            Return Me.Adapter.Update(dataTable)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataSet As GirlDataSet) As Integer
+            Return Me.Adapter.Update(dataSet, "Marcas")
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataRow As Global.System.Data.DataRow) As Integer
+            Return Me.Adapter.Update(New Global.System.Data.DataRow() {dataRow})
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataRows() As Global.System.Data.DataRow) As Integer
+            Return Me.Adapter.Update(dataRows)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
+        Public Overloads Overridable Function Delete(ByVal Original_MarcaID As Integer, ByVal Original_MarcaDescr As String) As Integer
+            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_MarcaID,Integer)
+            If (Original_MarcaDescr Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Original_MarcaDescr")
+            Else
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(Original_MarcaDescr,String)
+            End If
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
+            If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.DeleteCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.DeleteCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.DeleteCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
+        Public Overloads Overridable Function Insert(ByVal MarcaID As Integer, ByVal MarcaDescr As String) As Integer
+            Me.Adapter.InsertCommand.Parameters(0).Value = CType(MarcaID,Integer)
+            If (MarcaDescr Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("MarcaDescr")
+            Else
+                Me.Adapter.InsertCommand.Parameters(1).Value = CType(MarcaDescr,String)
+            End If
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
+            If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.InsertCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.InsertCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.InsertCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
+        Public Overloads Overridable Function Update(ByVal MarcaID As Integer, ByVal MarcaDescr As String, ByVal Original_MarcaID As Integer, ByVal Original_MarcaDescr As String) As Integer
+            Me.Adapter.UpdateCommand.Parameters(0).Value = CType(MarcaID,Integer)
+            If (MarcaDescr Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("MarcaDescr")
+            Else
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(MarcaDescr,String)
+            End If
+            Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Original_MarcaID,Integer)
+            If (Original_MarcaDescr Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Original_MarcaDescr")
+            Else
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Original_MarcaDescr,String)
+            End If
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
+            If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.UpdateCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.UpdateCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.UpdateCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
+        Public Overloads Overridable Function Update(ByVal MarcaDescr As String, ByVal Original_MarcaID As Integer, ByVal Original_MarcaDescr As String) As Integer
+            Return Me.Update(Original_MarcaID, MarcaDescr, Original_MarcaID, Original_MarcaDescr)
         End Function
     End Class
 End Namespace

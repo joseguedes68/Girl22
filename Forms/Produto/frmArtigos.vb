@@ -1,5 +1,6 @@
 
 Imports System.Data.SqlClient
+Imports System.Linq
 
 Public Class frmArtigos
 
@@ -110,16 +111,57 @@ Public Class frmArtigos
 
     End Sub
 
-    Private Sub frmArtigos_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
+    'Private Sub frmArtigos_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
+    '    Try
 
-        If GirlDataSet.Modelos.GetChanges Is Nothing And GirlDataSet.ModeloCor.GetChanges Is Nothing Then
-        Else
-            If MsgBox("Pretende gravar?", MsgBoxStyle.Question + MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
-                cmdGravar_Click(sender, e)
-            End If
-        End If
 
+    '        If GirlDataSet.Modelos.GetChanges Is Nothing And GirlDataSet.ModeloCor.GetChanges Is Nothing Then
+    '        Else
+    '            If MsgBox("Pretende gravar?", MsgBoxStyle.Question + MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+    '                cmdGravar_Click(sender, e)
+    '            End If
+    '        End If
+
+
+    '    Catch ex As Exception
+    '        ErroVB(ex.Message, Me.Name + ": frmArtigos_FormClosing")
+    '    End Try
+
+    'End Sub
+
+
+
+    Private Sub Form1_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        ' Itera sobre as células do DataGridView
+        For Each row As DataGridViewRow In dgvModelos.Rows
+            For Each cell As DataGridViewCell In row.Cells
+                ' Verifica se a célula é do tipo DataGridViewComboBoxCell
+                If TypeOf cell Is DataGridViewComboBoxCell Then
+                    Dim comboCell As DataGridViewComboBoxCell = CType(cell, DataGridViewComboBoxCell)
+                    ' Verifica se o valor selecionado é inválido
+                    If Not comboCell.Items.Contains(cell.Value) Then
+                        ' Valor não válido, exibir mensagem de erro com informações adicionais
+                        Dim validOptions As String = String.Join(", ", comboCell.Items.Cast(Of Object)().Select(Function(item) item.ToString()).ToArray())
+                        MessageBox.Show($"Valor selecionado não é válido para a célula na linha {row.Index}, coluna {cell.ColumnIndex}! Opções válidas: {validOptions}")
+
+                        ' Impede o fechamento do formulário
+                        e.Cancel = True
+                        Return
+                    End If
+                End If
+            Next
+        Next
     End Sub
+
+    Private Sub DataGridView1_DataError(sender As Object, e As DataGridViewDataErrorEventArgs) Handles dgvModelos.DataError
+        ' Impede que o DataGridView gere um erro não controlado
+        e.Cancel = True
+    End Sub
+
+
+
+
+
 
     Private Sub cmdGravar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdGravar.Click
         Dim db As New ClsSqlBDados
@@ -136,19 +178,55 @@ Public Class frmArtigos
             frmArtigos_Load(sender, e)
 
         Catch ex As Exception
-            MsgBox(ex.Message)
+            ErroVB(ex.Message, Me.Name + ": cmdGravar_Click")
         End Try
     End Sub
 
     Private Sub cmdCancelar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdCancelar.Click
-        GirlDataSet.Modelos.RejectChanges()
-        GirlDataSet.ModeloCor.RejectChanges()
-        btFiltro_Click(sender, e)
+
+        Try
+            Me.ModelosBindingSource.CancelEdit()
+            Me.ModeloCorBindingSource.CancelEdit()
+            Me.GirlDataSet.Modelos.RejectChanges()
+            Me.GirlDataSet.ModeloCor.RejectChanges()
+            btFiltro_Click(sender, e)
+
+        Catch ex As Exception
+            ErroVB(ex.Message, Me.Name + ": cmdCancelar_Click")
+        End Try
+
+
     End Sub
 
     Private Sub cmdFechar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdFechar.Click
-        Me.Close()
+
+        Try
+
+            Me.Close()
+
+        Catch ex As SqlException
+            ErroSQL(ex.Number, ex.Message, "cmdFechar_Click")
+        Catch ex As Exception
+            ErroVB(ex.Message, "cmdFechar_Click")
+        End Try
+
+
     End Sub
+
+    Private Sub DataGridView1_CellValidating(sender As Object, e As DataGridViewCellValidatingEventArgs) Handles dgvModelos.CellValidating
+        If TypeOf dgvModelos.Rows(e.RowIndex).Cells(e.ColumnIndex) Is DataGridViewComboBoxCell Then
+            Dim comboCell As DataGridViewComboBoxCell = CType(dgvModelos.Rows(e.RowIndex).Cells(e.ColumnIndex), DataGridViewComboBoxCell)
+            If Not comboCell.Items.Contains(e.FormattedValue) Then
+                ' Valor não válido, exibir mensagem de erro com informações adicionais
+                e.Cancel = True
+                Dim validOptions As String = String.Join(", ", comboCell.Items.Cast(Of Object)().Select(Function(item) item.ToString()).ToArray())
+                MessageBox.Show($"Valor selecionado não é válido para esta célula! Opções válidas: {validOptions}")
+            End If
+        End If
+    End Sub
+
+
+
 
     Private Sub btFiltro_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btFiltro.Click
         Try

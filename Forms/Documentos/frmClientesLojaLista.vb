@@ -9,42 +9,11 @@ Public Class frmClientesLojaLista
 
 
     Dim bPermiteSelectLinha As Boolean = False
-
+    Dim bPesquisa As Boolean = True
 
 
     'EVENTOS NO FORM
 
-
-
-    Private Sub btFiltro_Click(sender As System.Object, e As System.EventArgs) Handles btFiltro.Click
-
-
-        Try
-
-
-            chamarfiltro()
-
-            'If DevolveGrupoAcesso() = "ADMIN" Then
-            '    filtraCliente("%")
-            'Else
-            '    filtraCliente(xArmz)
-            'End If
-            'If dgvListaClientes.Rows.Count > 0 Then
-            '    dgvListaClientes.Visible = True
-            'End If
-            'dgvListaClientes.ClearSelection()
-            'bPermiteSelectLinha = False
-
-
-
-        Catch ex As SqlException
-            ErroSQL(ex.Number, ex.Message, "btFiltro_Click")
-        Catch ex As Exception
-            ErroVB(ex.Message, "btFiltro_Click")
-        End Try
-
-
-    End Sub
 
     Private Sub btGravar_Click(sender As System.Object, e As System.EventArgs) Handles btGravar.Click
 
@@ -122,12 +91,11 @@ Public Class frmClientesLojaLista
                 If db.GetDataValue(Sql) > 0 Then
                     filtraCliente("%")
                 Else
-                    btFiltro.Visible = False
                     MsgBox("Novo Cliente! Insira dos dados")
                     LimparForm()
                 End If
                 txtNif.Enabled = False
-                dgvListaClientes.Visible = False
+                dgvListaClientes.Visible = True
 
             End If
 
@@ -175,7 +143,6 @@ Public Class frmClientesLojaLista
     End Sub
 
 
-
     'EVENTOS NA frmClientesLojaLista
 
 
@@ -184,15 +151,12 @@ Public Class frmClientesLojaLista
         'FALTA LIMITAR ALTERAÇÕES PELAS REGRAS DAS FINANÇAS
         Try
 
-
-
             'dgvListaClientes.SelectionMode = DataGridViewSelectionMode.FullRowSelect
             dgvListaClientes.MultiSelect = False
 
             dgvListaClientes.Visible = False
             Me.GirlDataSet.ClientesLoja.Clear()
             If Len(sIDClienteLoja) > 0 Then
-                btFiltro.Visible = False
                 txtNif.TabStop = False
                 txtNif.Enabled = False
                 txtNome.Focus()
@@ -204,7 +168,6 @@ Public Class frmClientesLojaLista
                 txtNif.TabStop = True
                 txtNif.Enabled = True
                 txtNif.Focus()
-                btFiltro.Visible = True
             End If
             Me.ControlBox = False
 
@@ -224,34 +187,62 @@ Public Class frmClientesLojaLista
         bPermiteSelectLinha = True
     End Sub
 
-    Private Sub dgvListaClientes_SelectionChanged(sender As Object, e As System.EventArgs) Handles dgvListaClientes.SelectionChanged
+    'Private Sub dgvListaClientes_SelectionChanged(sender As Object, e As System.EventArgs) Handles dgvListaClientes.SelectionChanged
 
-        Dim db As New ClsSqlBDados
+    '    Dim db As New ClsSqlBDados
 
-        Try
-
-            If bPermiteSelectLinha = False Then Exit Sub
-            If IsDataGridViewEmpty(dgvListaClientes) Then Exit Sub
-
-
-            sIDClienteLoja = Me.dgvListaClientes("IDClienteLoja", Me.dgvListaClientes.CurrentCell.RowIndex).Value.ToString
-            txtNif.Text = Me.dgvListaClientes("NIF", Me.dgvListaClientes.CurrentCell.RowIndex).Value.ToString
-            txtNif.Enabled = False
-            txtTelemovel.Text = Me.dgvListaClientes("Telemovel", Me.dgvListaClientes.CurrentCell.RowIndex).Value.ToString
-            txtNome.Text = Me.dgvListaClientes("Nome", Me.dgvListaClientes.CurrentCell.RowIndex).Value.ToString
-            txtMorada.Text = Me.dgvListaClientes("Morada", Me.dgvListaClientes.CurrentCell.RowIndex).Value.ToString
-            txtCodPostal.Text = Me.dgvListaClientes("CodPostal", Me.dgvListaClientes.CurrentCell.RowIndex).Value.ToString
-            txtLocalidade.Text = Me.dgvListaClientes("Localidade", Me.dgvListaClientes.CurrentCell.RowIndex).Value.ToString
-            txtTelefone.Text = Me.dgvListaClientes("Telefone", Me.dgvListaClientes.CurrentCell.RowIndex).Value.ToString
-            txtEmail.Text = Me.dgvListaClientes("Email", Me.dgvListaClientes.CurrentCell.RowIndex).Value.ToString
-            txtObs.Text = Me.dgvListaClientes("Obs", Me.dgvListaClientes.CurrentCell.RowIndex).Value.ToString
+    '    Try
+    '        bPesquisa = False
+    '        If bPermiteSelectLinha = False Then Exit Sub
+    '        If IsDataGridViewEmpty(dgvListaClientes) Then Exit Sub
 
 
+    '        sIDClienteLoja = Me.dgvListaClientes("IDClienteLoja", Me.dgvListaClientes.CurrentCell.RowIndex).Value.ToString
+    '        txtNif.Text = Me.dgvListaClientes("NIF", Me.dgvListaClientes.CurrentCell.RowIndex).Value.ToString
+    '        txtNif.Enabled = False
+    '        txtTelemovel.Text = Me.dgvListaClientes("Telemovel", Me.dgvListaClientes.CurrentCell.RowIndex).Value.ToString
+    '        txtNome.Text = Me.dgvListaClientes("Nome", Me.dgvListaClientes.CurrentCell.RowIndex).Value.ToString
+    '        txtMorada.Text = Me.dgvListaClientes("Morada", Me.dgvListaClientes.CurrentCell.RowIndex).Value.ToString
+    '        txtCodPostal.Text = Me.dgvListaClientes("CodPostal", Me.dgvListaClientes.CurrentCell.RowIndex).Value.ToString
+    '        txtLocalidade.Text = Me.dgvListaClientes("Localidade", Me.dgvListaClientes.CurrentCell.RowIndex).Value.ToString
+    '        txtTelefone.Text = Me.dgvListaClientes("Telefone", Me.dgvListaClientes.CurrentCell.RowIndex).Value.ToString
+    '        txtEmail.Text = Me.dgvListaClientes("Email", Me.dgvListaClientes.CurrentCell.RowIndex).Value.ToString
+    '        txtObs.Text = Me.dgvListaClientes("Obs", Me.dgvListaClientes.CurrentCell.RowIndex).Value.ToString
 
-        Catch ex As Exception
-            ErroVB(ex.Message, "dgvListaClientes_SelectionChanged")
-        End Try
 
+
+    '    Catch ex As Exception
+    '        ErroVB(ex.Message, "dgvListaClientes_SelectionChanged")
+    '    End Try
+
+    'End Sub
+
+    Private Sub dgvListaClientes_RowEnter(sender As Object, e As DataGridViewCellEventArgs) Handles dgvListaClientes.RowEnter
+
+        bPesquisa = False
+        If bPermiteSelectLinha = False Then Exit Sub
+        If IsDataGridViewEmpty(dgvListaClientes) Then Exit Sub
+
+
+        ' Obtém a linha atualmente selecionada
+        Dim selectedRow As DataGridViewRow = dgvListaClientes.Rows(e.RowIndex)
+
+        ' Verifica se há uma linha selecionada
+        If selectedRow IsNot Nothing Then
+            ' Obtém os valores das células da linha selecionada
+            sIDClienteLoja = selectedRow.Cells("IDClienteLoja").Value
+            txtNif.Text = selectedRow.Cells("NIF").Value
+            txtTelemovel.Text = selectedRow.Cells("Telemovel").Value
+            txtNome.Text = selectedRow.Cells("Nome").Value
+            txtMorada.Text = selectedRow.Cells("Morada").Value
+            txtCodPostal.Text = selectedRow.Cells("CodPostal").Value
+            txtLocalidade.Text = selectedRow.Cells("Localidade").Value
+            txtTelefone.Text = selectedRow.Cells("Telefone").Value
+            txtEmail.Text = selectedRow.Cells("Email").Value
+            txtObs.Text = selectedRow.Cells("Obs").Value
+
+
+        End If
     End Sub
 
 
@@ -259,7 +250,29 @@ Public Class frmClientesLojaLista
 
 
 
+
+
+
+
+
     'FUNÇÕES
+
+    Private Sub Pesquisar(sender As Object, e As EventArgs) Handles txtNif.Validated, txtTelefone.Validated, txtTelemovel.Validated, txtNome.Validated, txtMorada.Validated, txtLocalidade.Validated, txtEmail.Validated, txtCodPostal.Validated, txtObs.Validated
+
+        Try
+            If bPesquisa = True Then
+                chamarfiltro()
+            End If
+
+
+        Catch ex As SqlException
+            ErroSQL(ex.Number, ex.Message, "Filtro")
+        Catch ex As Exception
+            ErroVB(ex.Message, "Filtro")
+        End Try
+
+
+    End Sub
 
     Private Sub filtraCliente(ByVal sLoja As String)
 
@@ -282,12 +295,12 @@ Public Class frmClientesLojaLista
             Dim sObs As String = "%" + Trim(txtObs.Text) + "%"
             If Len(sNIF) > 0 Then sLoja = "%"
 
-            If Len(Trim(sNome + sMorada + sTelemovel + sLocalidade + sCodPostal + sNIF + sTelefone + sEmail + sObs)) > 18 Then
+            If Len(Trim(sNome + sMorada + sTelemovel + sLocalidade + sCodPostal + sNIF + sTelefone + sEmail + sObs)) > 19 Then
                 Me.ClientesLojaTableAdapter.FillByFiltroCliente(Me.GirlDataSet.ClientesLoja, sNome, sMorada, sTelemovel, sLocalidade, sNIF, sTelefone, sEmail, sObs, sLoja)
                 If Me.GirlDataSet.ClientesLoja.Rows.Count > 0 Then bPermiteSelectLinha = True
                 dgvListaClientes.ClearSelection()
-            Else
-                MsgBox("Não tem filtros para a pesquisa!", , "Filtro")
+                'Else
+                '    MsgBox("Não tem filtros para a pesquisa!", , "Filtro")
             End If
 
         Catch ex As Exception
@@ -376,6 +389,7 @@ Public Class frmClientesLojaLista
             dgvListaClientes.ClearSelection()
             bPermiteSelectLinha = False
             btGravar.Enabled = True
+            bPesquisa = False
 
 
         Catch ex As Exception
@@ -384,26 +398,16 @@ Public Class frmClientesLojaLista
 
     End Sub
 
+    Private Sub dgvListaClientes_Leave(sender As Object, e As EventArgs) Handles dgvListaClientes.Leave
+        bPesquisa = True
+    End Sub
 
+    Private Sub EnterTBox(sender As Object, e As EventArgs) Handles txtNif.Enter, txtTelefone.Enter, txtTelemovel.Enter, txtNome.Enter, txtMorada.Enter, txtLocalidade.Enter, txtEmail.Enter, txtCodPostal.Enter, txtObs.Enter
+        bPesquisa = True
+    End Sub
 
-
-
-    'Protected Overrides Function ProcessCmdKey(ByRef msg As Message, keyData As Keys) As Boolean
-
-
-    '    If keyData = Keys.Enter Then
-    '        If ActiveControl.Name.ToString = "txtNif" Then
-    '            SendKeys.Send("{Tab}")
-    '            chamarfiltro()
-    '            dgvListaClientes.Visible = False
-    '            Return True
-    '        End If
-    '    End If
-
-    'End Function
-
-
-
-
+    Private Sub dgvListaClientes_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles dgvListaClientes.CellValueChanged
+        bPesquisa = False
+    End Sub
 
 End Class

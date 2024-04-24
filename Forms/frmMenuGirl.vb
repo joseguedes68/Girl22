@@ -1187,6 +1187,17 @@ Public Class frmMenuGirl
 
     End Sub
 
+    Private Sub MarcasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MarcasToolStripMenuItem.Click
+
+
+        xCallByPosDocs = False
+        frmMarcas.MdiParent = Me
+        frmMarcas.StartPosition = FormStartPosition.CenterScreen
+        frmMarcas.WindowState = FormWindowState.Normal
+        frmMarcas.Show()
+
+
+    End Sub
 
 
 End Class

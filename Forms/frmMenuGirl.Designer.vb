@@ -45,6 +45,7 @@ Partial Class frmMenuGirl
         Me.EscalasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UnidadesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EpocasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MarcasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TaxasIVAToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LinhasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RecodificaçãoToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
@@ -218,7 +219,7 @@ Partial Class frmMenuGirl
         '
         'ProdutosToolStripMenuItem
         '
-        Me.ProdutosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ProdutoToolStripMenuItem, Me.GerarEtiquetasToolStripMenuItem1, Me.Artigos, Me.GruposToolStripMenuItem, Me.TiposToolStripMenuItem, Me.CoresToolStripMenuItem, Me.EscalasToolStripMenuItem, Me.UnidadesToolStripMenuItem, Me.EpocasToolStripMenuItem, Me.TaxasIVAToolStripMenuItem, Me.LinhasToolStripMenuItem, Me.RecodificaçãoToolStripMenuItem2})
+        Me.ProdutosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ProdutoToolStripMenuItem, Me.GerarEtiquetasToolStripMenuItem1, Me.Artigos, Me.GruposToolStripMenuItem, Me.TiposToolStripMenuItem, Me.CoresToolStripMenuItem, Me.EscalasToolStripMenuItem, Me.UnidadesToolStripMenuItem, Me.EpocasToolStripMenuItem, Me.MarcasToolStripMenuItem, Me.TaxasIVAToolStripMenuItem, Me.LinhasToolStripMenuItem, Me.RecodificaçãoToolStripMenuItem2})
         Me.ProdutosToolStripMenuItem.Name = "ProdutosToolStripMenuItem"
         Me.ProdutosToolStripMenuItem.Size = New System.Drawing.Size(137, 35)
         Me.ProdutosToolStripMenuItem.Text = "Produtos"
@@ -276,6 +277,12 @@ Partial Class frmMenuGirl
         Me.EpocasToolStripMenuItem.Name = "EpocasToolStripMenuItem"
         Me.EpocasToolStripMenuItem.Size = New System.Drawing.Size(292, 36)
         Me.EpocasToolStripMenuItem.Text = "Epocas"
+        '
+        'MarcasToolStripMenuItem
+        '
+        Me.MarcasToolStripMenuItem.Name = "MarcasToolStripMenuItem"
+        Me.MarcasToolStripMenuItem.Size = New System.Drawing.Size(292, 36)
+        Me.MarcasToolStripMenuItem.Text = "Marcas"
         '
         'TaxasIVAToolStripMenuItem
         '
@@ -951,4 +958,5 @@ Partial Class frmMenuGirl
     Friend WithEvents AnaliseDeVendasToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ConferênciasToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AcessóriosToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents MarcasToolStripMenuItem As ToolStripMenuItem
 End Class

@@ -911,9 +911,9 @@ Partial Class frmStockFoto
         Me.ToolStripCmds.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ToolStripCmds.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.ToolStripCmds.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmdPrimeiro, Me.cmdRetroceder, Me.lblContador, Me.cmdAvancar, Me.cmdUltimo})
-        Me.ToolStripCmds.Location = New System.Drawing.Point(845, 632)
+        Me.ToolStripCmds.Location = New System.Drawing.Point(844, 632)
         Me.ToolStripCmds.Name = "ToolStripCmds"
-        Me.ToolStripCmds.Size = New System.Drawing.Size(224, 31)
+        Me.ToolStripCmds.Size = New System.Drawing.Size(225, 31)
         Me.ToolStripCmds.TabIndex = 9
         Me.ToolStripCmds.Text = "ToolStrip1"
         '
@@ -1150,7 +1150,7 @@ Partial Class frmStockFoto
         Me.rbMB.Location = New System.Drawing.Point(405, 71)
         Me.rbMB.Margin = New System.Windows.Forms.Padding(4)
         Me.rbMB.Name = "rbMB"
-        Me.rbMB.Size = New System.Drawing.Size(49, 21)
+        Me.rbMB.Size = New System.Drawing.Size(48, 20)
         Me.rbMB.TabIndex = 29
         Me.rbMB.TabStop = True
         Me.rbMB.Text = "MB"
@@ -1162,7 +1162,7 @@ Partial Class frmStockFoto
         Me.rbDinheiro.Location = New System.Drawing.Point(352, 71)
         Me.rbDinheiro.Margin = New System.Windows.Forms.Padding(4)
         Me.rbDinheiro.Name = "rbDinheiro"
-        Me.rbDinheiro.Size = New System.Drawing.Size(45, 21)
+        Me.rbDinheiro.Size = New System.Drawing.Size(42, 20)
         Me.rbDinheiro.TabIndex = 28
         Me.rbDinheiro.TabStop = True
         Me.rbDinheiro.Text = "€€"

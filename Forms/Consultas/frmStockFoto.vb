@@ -197,6 +197,14 @@ Public Class frmStockFoto
 
             ActualizarNavegador()
 
+            If bLojaConsignacao Then
+                lbSinal.Visible = False
+                tbSinal.Visible = False
+                rbDinheiro.Visible = False
+                rbMB.Visible = False
+            End If
+
+
         Catch ex As Exception
         Finally
             If Val IsNot Nothing Then Val.Dispose()
@@ -1233,7 +1241,10 @@ Public Class frmStockFoto
 
     Private Sub btGeral_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btGeral.Click
         xEnc = False
+        cbArmazem.SelectedValue = "%"
         CarregarDados("Geral")
+        cbArmazem.SelectedValue = xArmz
+
     End Sub
 
     Private Sub ToolStripCmds_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles ToolStripCmds.Click
@@ -1312,6 +1323,7 @@ Public Class frmStockFoto
         xEnc = False
         cbArmazem.SelectedValue = "%"
         CarregarDados("Stock")
+        cbArmazem.SelectedValue = xArmz
         Me.txtModelo.Focus()
     End Sub
 
@@ -1468,6 +1480,9 @@ Public Class frmStockFoto
 
             Dim HashKey As New clsHash
             HashKey.CriarHashKey(gIdDocCab.ToString)
+
+            Dim cQrCode As New clsQrCode
+            cQrCode.CarregaQrCode(gIdDocCab.ToString)
 
             If dberror = True Or HashOK = False Then
 

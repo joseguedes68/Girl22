@@ -1,4 +1,5 @@
 ﻿Imports System.Data.SqlClient
+Imports System.IO
 
 
 Public Class frmTransfStock
@@ -51,7 +52,13 @@ Public Class frmTransfStock
 
                             If My.Computer.FileSystem.FileExists(xFotosPath + xModeloOrigem + xCor + ".jpg") = True Then
                                 If My.Computer.FileSystem.FileExists(xFotosPath + xModeloDestino + xCor + ".jpg") = False Then
-                                    My.Computer.FileSystem.CopyFile(xFotosPath + xModeloOrigem + xCor + ".jpg", xModeloDestino + xCor + ".jpg")
+
+                                    Try
+                                        My.Computer.FileSystem.CopyFile(xFotosPath + xModeloOrigem + xCor + ".jpg", xModeloDestino + xCor + ".jpg", True)
+                                    Catch ex As Exception
+                                        MessageBox.Show("Ocorreu um erro não foi possivel copiar a foto: " & ex.Message)
+                                    End Try
+
                                 End If
                             End If
 

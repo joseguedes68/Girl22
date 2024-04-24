@@ -23,8 +23,8 @@ Partial Class frmClientesLojaLista
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtNif = New System.Windows.Forms.TextBox()
         Me.btGravar = New System.Windows.Forms.Button()
@@ -57,7 +57,6 @@ Partial Class frmClientesLojaLista
         Me.IDClienteLoja = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ClientesLojaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.GirlDataSet = New GirlRootName.GirlDataSet()
-        Me.btFiltro = New System.Windows.Forms.Button()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.txtTelefone = New System.Windows.Forms.TextBox()
         Me.btCancelar = New System.Windows.Forms.Button()
@@ -83,7 +82,7 @@ Partial Class frmClientesLojaLista
         '
         Me.txtNif.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtNif.Location = New System.Drawing.Point(123, 16)
-        Me.txtNif.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtNif.Margin = New System.Windows.Forms.Padding(4)
         Me.txtNif.MaxLength = 15
         Me.txtNif.Name = "txtNif"
         Me.txtNif.Size = New System.Drawing.Size(152, 26)
@@ -96,7 +95,7 @@ Partial Class frmClientesLojaLista
         Me.btGravar.Enabled = False
         Me.btGravar.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold)
         Me.btGravar.Location = New System.Drawing.Point(675, 18)
-        Me.btGravar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btGravar.Margin = New System.Windows.Forms.Padding(4)
         Me.btGravar.Name = "btGravar"
         Me.btGravar.Size = New System.Drawing.Size(169, 54)
         Me.btGravar.TabIndex = 12
@@ -162,7 +161,7 @@ Partial Class frmClientesLojaLista
         '
         Me.txtLocalidade.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtLocalidade.Location = New System.Drawing.Point(268, 121)
-        Me.txtLocalidade.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtLocalidade.Margin = New System.Windows.Forms.Padding(4)
         Me.txtLocalidade.MaxLength = 20
         Me.txtLocalidade.Name = "txtLocalidade"
         Me.txtLocalidade.Size = New System.Drawing.Size(332, 26)
@@ -172,7 +171,7 @@ Partial Class frmClientesLojaLista
         '
         Me.txtNome.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtNome.Location = New System.Drawing.Point(123, 52)
-        Me.txtNome.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtNome.Margin = New System.Windows.Forms.Padding(4)
         Me.txtNome.MaxLength = 80
         Me.txtNome.Name = "txtNome"
         Me.txtNome.Size = New System.Drawing.Size(477, 26)
@@ -182,7 +181,7 @@ Partial Class frmClientesLojaLista
         '
         Me.txtEmail.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtEmail.Location = New System.Drawing.Point(341, 155)
-        Me.txtEmail.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtEmail.Margin = New System.Windows.Forms.Padding(4)
         Me.txtEmail.MaxLength = 60
         Me.txtEmail.Name = "txtEmail"
         Me.txtEmail.Size = New System.Drawing.Size(259, 26)
@@ -192,7 +191,7 @@ Partial Class frmClientesLojaLista
         '
         Me.txtMorada.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtMorada.Location = New System.Drawing.Point(123, 86)
-        Me.txtMorada.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtMorada.Margin = New System.Windows.Forms.Padding(4)
         Me.txtMorada.MaxLength = 160
         Me.txtMorada.Name = "txtMorada"
         Me.txtMorada.Size = New System.Drawing.Size(477, 26)
@@ -202,7 +201,7 @@ Partial Class frmClientesLojaLista
         '
         Me.txtObs.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtObs.Location = New System.Drawing.Point(123, 190)
-        Me.txtObs.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtObs.Margin = New System.Windows.Forms.Padding(4)
         Me.txtObs.MaxLength = 1000
         Me.txtObs.Multiline = True
         Me.txtObs.Name = "txtObs"
@@ -214,7 +213,7 @@ Partial Class frmClientesLojaLista
         '
         Me.txtTelemovel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtTelemovel.Location = New System.Drawing.Point(449, 16)
-        Me.txtTelemovel.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtTelemovel.Margin = New System.Windows.Forms.Padding(4)
         Me.txtTelemovel.MaxLength = 20
         Me.txtTelemovel.Name = "txtTelemovel"
         Me.txtTelemovel.Size = New System.Drawing.Size(151, 26)
@@ -235,28 +234,29 @@ Partial Class frmClientesLojaLista
         '
         Me.dgvListaClientes.AllowUserToAddRows = False
         Me.dgvListaClientes.AllowUserToDeleteRows = False
-        DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.dgvListaClientes.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.dgvListaClientes.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.dgvListaClientes.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgvListaClientes.AutoGenerateColumns = False
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvListaClientes.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvListaClientes.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.dgvListaClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvListaClientes.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Nome, Me.NIF, Me.Telemovel, Me.Localidade, Me.Email, Me.Morada, Me.CodPostal, Me.Obs, Me.Telefone, Me.ArmOrig, Me.ClienteLojaID, Me.PaisID, Me.DistritoID, Me.IDClienteLoja})
         Me.dgvListaClientes.DataSource = Me.ClientesLojaBindingSource
         Me.dgvListaClientes.Location = New System.Drawing.Point(0, 247)
-        Me.dgvListaClientes.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.dgvListaClientes.Margin = New System.Windows.Forms.Padding(4)
         Me.dgvListaClientes.MultiSelect = False
         Me.dgvListaClientes.Name = "dgvListaClientes"
         Me.dgvListaClientes.ReadOnly = True
+        Me.dgvListaClientes.RowHeadersWidth = 51
         Me.dgvListaClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvListaClientes.Size = New System.Drawing.Size(887, 322)
         Me.dgvListaClientes.TabIndex = 69
@@ -265,6 +265,7 @@ Partial Class frmClientesLojaLista
         '
         Me.Nome.DataPropertyName = "Nome"
         Me.Nome.HeaderText = "Nome"
+        Me.Nome.MinimumWidth = 6
         Me.Nome.Name = "Nome"
         Me.Nome.ReadOnly = True
         Me.Nome.Width = 120
@@ -273,95 +274,121 @@ Partial Class frmClientesLojaLista
         '
         Me.NIF.DataPropertyName = "NIF"
         Me.NIF.HeaderText = "NIF"
+        Me.NIF.MinimumWidth = 6
         Me.NIF.Name = "NIF"
         Me.NIF.ReadOnly = True
+        Me.NIF.Width = 125
         '
         'Telemovel
         '
         Me.Telemovel.DataPropertyName = "Telemovel"
         Me.Telemovel.HeaderText = "Telemovel"
+        Me.Telemovel.MinimumWidth = 6
         Me.Telemovel.Name = "Telemovel"
         Me.Telemovel.ReadOnly = True
+        Me.Telemovel.Width = 125
         '
         'Localidade
         '
         Me.Localidade.DataPropertyName = "Localidade"
         Me.Localidade.HeaderText = "Localidade"
+        Me.Localidade.MinimumWidth = 6
         Me.Localidade.Name = "Localidade"
         Me.Localidade.ReadOnly = True
+        Me.Localidade.Width = 125
         '
         'Email
         '
         Me.Email.DataPropertyName = "Email"
         Me.Email.HeaderText = "Email"
+        Me.Email.MinimumWidth = 6
         Me.Email.Name = "Email"
         Me.Email.ReadOnly = True
+        Me.Email.Width = 125
         '
         'Morada
         '
         Me.Morada.DataPropertyName = "Morada"
         Me.Morada.HeaderText = "Morada"
+        Me.Morada.MinimumWidth = 6
         Me.Morada.Name = "Morada"
         Me.Morada.ReadOnly = True
+        Me.Morada.Width = 125
         '
         'CodPostal
         '
         Me.CodPostal.DataPropertyName = "CodPostal"
         Me.CodPostal.HeaderText = "CodPostal"
+        Me.CodPostal.MinimumWidth = 6
         Me.CodPostal.Name = "CodPostal"
         Me.CodPostal.ReadOnly = True
+        Me.CodPostal.Width = 125
         '
         'Obs
         '
         Me.Obs.DataPropertyName = "Obs"
         Me.Obs.HeaderText = "Obs"
+        Me.Obs.MinimumWidth = 6
         Me.Obs.Name = "Obs"
         Me.Obs.ReadOnly = True
+        Me.Obs.Width = 125
         '
         'Telefone
         '
         Me.Telefone.DataPropertyName = "Telefone"
         Me.Telefone.HeaderText = "Telefone"
+        Me.Telefone.MinimumWidth = 6
         Me.Telefone.Name = "Telefone"
         Me.Telefone.ReadOnly = True
+        Me.Telefone.Width = 125
         '
         'ArmOrig
         '
         Me.ArmOrig.DataPropertyName = "ArmOrig"
         Me.ArmOrig.HeaderText = "Loja"
+        Me.ArmOrig.MinimumWidth = 6
         Me.ArmOrig.Name = "ArmOrig"
         Me.ArmOrig.ReadOnly = True
+        Me.ArmOrig.Width = 125
         '
         'ClienteLojaID
         '
         Me.ClienteLojaID.DataPropertyName = "ClienteLojaID"
         Me.ClienteLojaID.HeaderText = "Id"
+        Me.ClienteLojaID.MinimumWidth = 6
         Me.ClienteLojaID.Name = "ClienteLojaID"
         Me.ClienteLojaID.ReadOnly = True
+        Me.ClienteLojaID.Width = 125
         '
         'PaisID
         '
         Me.PaisID.DataPropertyName = "PaisID"
         Me.PaisID.HeaderText = "Pais"
+        Me.PaisID.MinimumWidth = 6
         Me.PaisID.Name = "PaisID"
         Me.PaisID.ReadOnly = True
         Me.PaisID.Visible = False
+        Me.PaisID.Width = 125
         '
         'DistritoID
         '
         Me.DistritoID.DataPropertyName = "DistritoID"
         Me.DistritoID.HeaderText = "Distrito"
+        Me.DistritoID.MinimumWidth = 6
         Me.DistritoID.Name = "DistritoID"
         Me.DistritoID.ReadOnly = True
         Me.DistritoID.Visible = False
+        Me.DistritoID.Width = 125
         '
         'IDClienteLoja
         '
         Me.IDClienteLoja.DataPropertyName = "IDClienteLoja"
         Me.IDClienteLoja.HeaderText = "IDClienteLoja"
+        Me.IDClienteLoja.MinimumWidth = 6
         Me.IDClienteLoja.Name = "IDClienteLoja"
         Me.IDClienteLoja.ReadOnly = True
         Me.IDClienteLoja.Visible = False
+        Me.IDClienteLoja.Width = 125
         '
         'ClientesLojaBindingSource
         '
@@ -372,18 +399,6 @@ Partial Class frmClientesLojaLista
         '
         Me.GirlDataSet.DataSetName = "GirlDataSet"
         Me.GirlDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'btFiltro
-        '
-        Me.btFiltro.BackColor = System.Drawing.Color.FromArgb(CType(CType(243, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(51, Byte), Integer))
-        Me.btFiltro.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.btFiltro.Location = New System.Drawing.Point(675, 165)
-        Me.btFiltro.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.btFiltro.Name = "btFiltro"
-        Me.btFiltro.Size = New System.Drawing.Size(169, 54)
-        Me.btFiltro.TabIndex = 72
-        Me.btFiltro.Text = "Pesquisa"
-        Me.btFiltro.UseVisualStyleBackColor = False
         '
         'Label7
         '
@@ -400,7 +415,7 @@ Partial Class frmClientesLojaLista
         '
         Me.txtTelefone.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtTelefone.Location = New System.Drawing.Point(123, 155)
-        Me.txtTelefone.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtTelefone.Margin = New System.Windows.Forms.Padding(4)
         Me.txtTelefone.MaxLength = 20
         Me.txtTelefone.Name = "txtTelefone"
         Me.txtTelefone.Size = New System.Drawing.Size(136, 26)
@@ -412,7 +427,7 @@ Partial Class frmClientesLojaLista
         Me.btCancelar.BackColor = System.Drawing.Color.FromArgb(CType(CType(243, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(51, Byte), Integer))
         Me.btCancelar.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold)
         Me.btCancelar.Location = New System.Drawing.Point(675, 80)
-        Me.btCancelar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btCancelar.Margin = New System.Windows.Forms.Padding(4)
         Me.btCancelar.Name = "btCancelar"
         Me.btCancelar.Size = New System.Drawing.Size(169, 54)
         Me.btCancelar.TabIndex = 79
@@ -441,7 +456,6 @@ Partial Class frmClientesLojaLista
         Me.Controls.Add(Me.btCancelar)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.txtTelefone)
-        Me.Controls.Add(Me.btFiltro)
         Me.Controls.Add(Me.dgvListaClientes)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.txtTelemovel)
@@ -458,7 +472,7 @@ Partial Class frmClientesLojaLista
         Me.Controls.Add(Me.txtEmail)
         Me.Controls.Add(Me.txtMorada)
         Me.Controls.Add(Me.txtObs)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "frmClientesLojaLista"
         Me.Text = "ClientesLojaLista"
         CType(Me.dgvListaClientes, System.ComponentModel.ISupportInitialize).EndInit()
@@ -487,7 +501,6 @@ Partial Class frmClientesLojaLista
     Friend WithEvents GirlDataSet As GirlRootName.GirlDataSet
     Friend WithEvents ClientesLojaBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents ClientesLojaTableAdapter As GirlRootName.GirlDataSetTableAdapters.ClientesLojaTableAdapter
-    Friend WithEvents btFiltro As System.Windows.Forms.Button
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents txtTelefone As System.Windows.Forms.TextBox
     Friend WithEvents btCancelar As System.Windows.Forms.Button
