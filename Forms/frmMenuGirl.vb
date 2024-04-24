@@ -90,7 +90,7 @@ Public Class frmMenuGirl
 
 
             RepôrCópiaToolStripMenuItem.Visible = False
-            If xUtilizador = "GUEDES" Then
+            If xUtilizador = "joseg" Then
                 MenuTestes.Visible = True
             Else
                 MenuTestes.Visible = False

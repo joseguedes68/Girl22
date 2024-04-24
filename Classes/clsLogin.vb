@@ -14,7 +14,7 @@ Public Class clsLogin
         Dim xBdadosGirl As String = ""
 
 
-        If SystemInformation.UserName <> "GUEDES" And bDesenvolvimento = True Then
+        If SystemInformation.UserName <> "joseg" And bDesenvolvimento = True Then
             MsgBox("Não é possivél aceder à Aplicação!!")
             Exit Function
         End If
