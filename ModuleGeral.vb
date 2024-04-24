@@ -58,7 +58,7 @@ Module ModuleGeral
     'Public sInstancia As String = "SQLEXPRESS"
 
 
-    Public bDesenvolvimento As Boolean = False
+    Public bDesenvolvimento As Boolean = True
     Public sAnoTestes As String = "2022"
 
 

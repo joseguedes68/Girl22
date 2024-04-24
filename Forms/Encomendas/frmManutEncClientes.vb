@@ -25,6 +25,7 @@ Public Class frmManutEncClientes
     Dim dtCor As New DataTable
     Dim dtLinha As New DataTable
     Dim DtDropDown As New DataTable
+    Dim dtMarcas As New DataTable
 
     Dim DtDetTam As New DataTable
     Dim Contador As Integer
@@ -71,6 +72,7 @@ Public Class frmManutEncClientes
     Friend WithEvents btListaConfFact As System.Windows.Forms.Button
     Friend WithEvents btForn As System.Windows.Forms.Button
     Friend WithEvents cbClientes As C1.Win.C1TrueDBGrid.C1TrueDBDropdown
+    Friend WithEvents C1TDBDMarcas As C1TrueDBDropdown
     Dim CmdBuilder As SqlCommandBuilder
 
 
@@ -175,6 +177,14 @@ Public Class frmManutEncClientes
         Dim Style54 As C1.Win.C1TrueDBGrid.Style = New C1.Win.C1TrueDBGrid.Style()
         Dim Style55 As C1.Win.C1TrueDBGrid.Style = New C1.Win.C1TrueDBGrid.Style()
         Dim Style56 As C1.Win.C1TrueDBGrid.Style = New C1.Win.C1TrueDBGrid.Style()
+        Dim Style57 As C1.Win.C1TrueDBGrid.Style = New C1.Win.C1TrueDBGrid.Style()
+        Dim Style58 As C1.Win.C1TrueDBGrid.Style = New C1.Win.C1TrueDBGrid.Style()
+        Dim Style59 As C1.Win.C1TrueDBGrid.Style = New C1.Win.C1TrueDBGrid.Style()
+        Dim Style60 As C1.Win.C1TrueDBGrid.Style = New C1.Win.C1TrueDBGrid.Style()
+        Dim Style61 As C1.Win.C1TrueDBGrid.Style = New C1.Win.C1TrueDBGrid.Style()
+        Dim Style62 As C1.Win.C1TrueDBGrid.Style = New C1.Win.C1TrueDBGrid.Style()
+        Dim Style63 As C1.Win.C1TrueDBGrid.Style = New C1.Win.C1TrueDBGrid.Style()
+        Dim Style64 As C1.Win.C1TrueDBGrid.Style = New C1.Win.C1TrueDBGrid.Style()
         Me.gbTamanhos = New System.Windows.Forms.GroupBox()
         Me.C1DGEncDetTam = New C1.Win.C1FlexGrid.C1FlexGrid()
         Me.PictureBox = New System.Windows.Forms.PictureBox()
@@ -204,6 +214,7 @@ Public Class frmManutEncClientes
         Me.cbClientes = New C1.Win.C1TrueDBGrid.C1TrueDBDropdown()
         Me.C1DGEnc = New C1.Win.C1TrueDBGrid.C1TrueDBGrid()
         Me.GirldataSet = New GirlRootName.GirlDataSet()
+        Me.C1TDBDMarcas = New C1.Win.C1TrueDBGrid.C1TrueDBDropdown()
         Me.gbTamanhos.SuspendLayout()
         CType(Me.C1DGEncDetTam, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -217,6 +228,7 @@ Public Class frmManutEncClientes
         CType(Me.cbClientes, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.C1DGEnc, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GirldataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.C1TDBDMarcas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'gbTamanhos
@@ -224,9 +236,9 @@ Public Class frmManutEncClientes
         Me.gbTamanhos.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.gbTamanhos.Controls.Add(Me.C1DGEncDetTam)
         Me.gbTamanhos.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gbTamanhos.Location = New System.Drawing.Point(8, 537)
+        Me.gbTamanhos.Location = New System.Drawing.Point(10, 524)
         Me.gbTamanhos.Name = "gbTamanhos"
-        Me.gbTamanhos.Size = New System.Drawing.Size(488, 67)
+        Me.gbTamanhos.Size = New System.Drawing.Size(585, 77)
         Me.gbTamanhos.TabIndex = 15
         Me.gbTamanhos.TabStop = False
         Me.gbTamanhos.Text = "Tamanhos"
@@ -237,11 +249,11 @@ Public Class frmManutEncClientes
         Me.C1DGEncDetTam.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.C1DGEncDetTam.KeyActionEnter = C1.Win.C1FlexGrid.KeyActionEnum.MoveAcrossOut
         Me.C1DGEncDetTam.KeyActionTab = C1.Win.C1FlexGrid.KeyActionEnum.MoveAcrossOut
-        Me.C1DGEncDetTam.Location = New System.Drawing.Point(12, 17)
+        Me.C1DGEncDetTam.Location = New System.Drawing.Point(14, 20)
         Me.C1DGEncDetTam.Name = "C1DGEncDetTam"
         Me.C1DGEncDetTam.Rows.DefaultSize = 19
         Me.C1DGEncDetTam.ScrollBars = System.Windows.Forms.ScrollBars.None
-        Me.C1DGEncDetTam.Size = New System.Drawing.Size(470, 42)
+        Me.C1DGEncDetTam.Size = New System.Drawing.Size(564, 48)
         Me.C1DGEncDetTam.Styles = New C1.Win.C1FlexGrid.CellStyleCollection(resources.GetString("C1DGEncDetTam.Styles"))
         Me.C1DGEncDetTam.TabIndex = 0
         '
@@ -250,9 +262,9 @@ Public Class frmManutEncClientes
         Me.PictureBox.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.PictureBox.BackColor = System.Drawing.SystemColors.Control
         Me.PictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.PictureBox.Location = New System.Drawing.Point(1073, 9)
+        Me.PictureBox.Location = New System.Drawing.Point(1014, 10)
         Me.PictureBox.Name = "PictureBox"
-        Me.PictureBox.Size = New System.Drawing.Size(284, 187)
+        Me.PictureBox.Size = New System.Drawing.Size(340, 216)
         Me.PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox.TabIndex = 22
         Me.PictureBox.TabStop = False
@@ -261,9 +273,9 @@ Public Class frmManutEncClientes
         '
         Me.CmdNovo.BackColor = System.Drawing.Color.FromArgb(CType(CType(243, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(51, Byte), Integer))
         Me.CmdNovo.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CmdNovo.Location = New System.Drawing.Point(8, 15)
+        Me.CmdNovo.Location = New System.Drawing.Point(10, 17)
         Me.CmdNovo.Name = "CmdNovo"
-        Me.CmdNovo.Size = New System.Drawing.Size(82, 72)
+        Me.CmdNovo.Size = New System.Drawing.Size(98, 83)
         Me.CmdNovo.TabIndex = 23
         Me.CmdNovo.Text = "Nova"
         Me.CmdNovo.UseVisualStyleBackColor = False
@@ -272,9 +284,9 @@ Public Class frmManutEncClientes
         '
         Me.CmdPrintTaloes.BackColor = System.Drawing.Color.FromArgb(CType(CType(243, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(51, Byte), Integer))
         Me.CmdPrintTaloes.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CmdPrintTaloes.Location = New System.Drawing.Point(245, 18)
+        Me.CmdPrintTaloes.Location = New System.Drawing.Point(294, 21)
         Me.CmdPrintTaloes.Name = "CmdPrintTaloes"
-        Me.CmdPrintTaloes.Size = New System.Drawing.Size(40, 21)
+        Me.CmdPrintTaloes.Size = New System.Drawing.Size(48, 24)
         Me.CmdPrintTaloes.TabIndex = 24
         Me.CmdPrintTaloes.TabStop = False
         Me.CmdPrintTaloes.Text = "..."
@@ -284,9 +296,9 @@ Public Class frmManutEncClientes
         '
         Me.btListarEncFoto.BackColor = System.Drawing.Color.FromArgb(CType(CType(243, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(51, Byte), Integer))
         Me.btListarEncFoto.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btListarEncFoto.Location = New System.Drawing.Point(143, 46)
+        Me.btListarEncFoto.Location = New System.Drawing.Point(172, 53)
         Me.btListarEncFoto.Name = "btListarEncFoto"
-        Me.btListarEncFoto.Size = New System.Drawing.Size(51, 20)
+        Me.btListarEncFoto.Size = New System.Drawing.Size(61, 23)
         Me.btListarEncFoto.TabIndex = 37
         Me.btListarEncFoto.Text = "C/Foto"
         Me.btListarEncFoto.UseVisualStyleBackColor = False
@@ -295,9 +307,9 @@ Public Class frmManutEncClientes
         '
         Me.CmdPrintEnc.BackColor = System.Drawing.Color.FromArgb(CType(CType(243, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(51, Byte), Integer))
         Me.CmdPrintEnc.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CmdPrintEnc.Location = New System.Drawing.Point(97, 46)
+        Me.CmdPrintEnc.Location = New System.Drawing.Point(116, 53)
         Me.CmdPrintEnc.Name = "CmdPrintEnc"
-        Me.CmdPrintEnc.Size = New System.Drawing.Size(40, 20)
+        Me.CmdPrintEnc.Size = New System.Drawing.Size(48, 23)
         Me.CmdPrintEnc.TabIndex = 25
         Me.CmdPrintEnc.TabStop = False
         Me.CmdPrintEnc.Text = "..."
@@ -310,9 +322,9 @@ Public Class frmManutEncClientes
         '
         Me.btRelaTaloes.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btRelaTaloes.BackColor = System.Drawing.Color.FromArgb(CType(CType(243, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(51, Byte), Integer))
-        Me.btRelaTaloes.Location = New System.Drawing.Point(1248, 560)
+        Me.btRelaTaloes.Location = New System.Drawing.Point(1224, 550)
         Me.btRelaTaloes.Name = "btRelaTaloes"
-        Me.btRelaTaloes.Size = New System.Drawing.Size(93, 49)
+        Me.btRelaTaloes.Size = New System.Drawing.Size(111, 57)
         Me.btRelaTaloes.TabIndex = 27
         Me.btRelaTaloes.Text = "Relação de Talões"
         Me.btRelaTaloes.UseVisualStyleBackColor = False
@@ -321,9 +333,9 @@ Public Class frmManutEncClientes
         '
         Me.cbExecutadas.AutoSize = True
         Me.cbExecutadas.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbExecutadas.Location = New System.Drawing.Point(501, 15)
+        Me.cbExecutadas.Location = New System.Drawing.Point(601, 17)
         Me.cbExecutadas.Name = "cbExecutadas"
-        Me.cbExecutadas.Size = New System.Drawing.Size(100, 20)
+        Me.cbExecutadas.Size = New System.Drawing.Size(117, 24)
         Me.cbExecutadas.TabIndex = 30
         Me.cbExecutadas.Text = "Ver Todas"
         Me.cbExecutadas.UseVisualStyleBackColor = True
@@ -345,7 +357,7 @@ Public Class frmManutEncClientes
         Me.cbForn.HeadingStyle = Style4
         Me.cbForn.HighLightRowStyle = Style5
         Me.cbForn.Images.Add(CType(resources.GetObject("cbForn.Images"), System.Drawing.Image))
-        Me.cbForn.Location = New System.Drawing.Point(43, 373)
+        Me.cbForn.Location = New System.Drawing.Point(52, 430)
         Me.cbForn.Name = "cbForn"
         Me.cbForn.OddRowStyle = Style6
         Me.cbForn.RecordSelectorStyle = Style7
@@ -354,7 +366,7 @@ Public Class frmManutEncClientes
         Me.cbForn.RowHeight = 15
         Me.cbForn.RowSubDividerColor = System.Drawing.Color.DarkGray
         Me.cbForn.ScrollTips = False
-        Me.cbForn.Size = New System.Drawing.Size(282, 112)
+        Me.cbForn.Size = New System.Drawing.Size(338, 130)
         Me.cbForn.Style = Style8
         Me.cbForn.TabIndex = 31
         Me.cbForn.TabStop = False
@@ -378,7 +390,7 @@ Public Class frmManutEncClientes
         Me.cbEstado.HeadingStyle = Style12
         Me.cbEstado.HighLightRowStyle = Style13
         Me.cbEstado.Images.Add(CType(resources.GetObject("cbEstado.Images"), System.Drawing.Image))
-        Me.cbEstado.Location = New System.Drawing.Point(837, 351)
+        Me.cbEstado.Location = New System.Drawing.Point(1004, 405)
         Me.cbEstado.Name = "cbEstado"
         Me.cbEstado.OddRowStyle = Style14
         Me.cbEstado.RecordSelectorStyle = Style15
@@ -387,7 +399,7 @@ Public Class frmManutEncClientes
         Me.cbEstado.RowHeight = 15
         Me.cbEstado.RowSubDividerColor = System.Drawing.Color.DarkGray
         Me.cbEstado.ScrollTips = False
-        Me.cbEstado.Size = New System.Drawing.Size(317, 97)
+        Me.cbEstado.Size = New System.Drawing.Size(381, 112)
         Me.cbEstado.Style = Style16
         Me.cbEstado.TabIndex = 32
         Me.cbEstado.TabStop = False
@@ -399,9 +411,9 @@ Public Class frmManutEncClientes
         '
         Me.btGerarRef.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btGerarRef.BackColor = System.Drawing.Color.FromArgb(CType(CType(243, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(51, Byte), Integer))
-        Me.btGerarRef.Location = New System.Drawing.Point(964, 102)
+        Me.btGerarRef.Location = New System.Drawing.Point(883, 118)
         Me.btGerarRef.Name = "btGerarRef"
-        Me.btGerarRef.Size = New System.Drawing.Size(83, 30)
+        Me.btGerarRef.Size = New System.Drawing.Size(99, 34)
         Me.btGerarRef.TabIndex = 33
         Me.btGerarRef.Text = "Gerar Refª"
         Me.btGerarRef.UseVisualStyleBackColor = False
@@ -411,9 +423,9 @@ Public Class frmManutEncClientes
         '
         Me.CmdFechar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.CmdFechar.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.CmdFechar.Location = New System.Drawing.Point(964, 15)
+        Me.CmdFechar.Location = New System.Drawing.Point(883, 17)
         Me.CmdFechar.Name = "CmdFechar"
-        Me.CmdFechar.Size = New System.Drawing.Size(83, 33)
+        Me.CmdFechar.Size = New System.Drawing.Size(99, 38)
         Me.CmdFechar.TabIndex = 34
         Me.CmdFechar.Text = "Fechar"
         Me.CmdFechar.UseVisualStyleBackColor = False
@@ -435,7 +447,7 @@ Public Class frmManutEncClientes
         Me.cbGrupo.HeadingStyle = Style20
         Me.cbGrupo.HighLightRowStyle = Style21
         Me.cbGrupo.Images.Add(CType(resources.GetObject("cbGrupo.Images"), System.Drawing.Image))
-        Me.cbGrupo.Location = New System.Drawing.Point(172, 351)
+        Me.cbGrupo.Location = New System.Drawing.Point(206, 405)
         Me.cbGrupo.Name = "cbGrupo"
         Me.cbGrupo.OddRowStyle = Style22
         Me.cbGrupo.RecordSelectorStyle = Style23
@@ -444,7 +456,7 @@ Public Class frmManutEncClientes
         Me.cbGrupo.RowHeight = 15
         Me.cbGrupo.RowSubDividerColor = System.Drawing.Color.DarkGray
         Me.cbGrupo.ScrollTips = False
-        Me.cbGrupo.Size = New System.Drawing.Size(246, 100)
+        Me.cbGrupo.Size = New System.Drawing.Size(296, 115)
         Me.cbGrupo.Style = Style24
         Me.cbGrupo.TabIndex = 31
         Me.cbGrupo.TabStop = False
@@ -469,7 +481,7 @@ Public Class frmManutEncClientes
         Me.cbTipo.HeadingStyle = Style28
         Me.cbTipo.HighLightRowStyle = Style29
         Me.cbTipo.Images.Add(CType(resources.GetObject("cbTipo.Images"), System.Drawing.Image))
-        Me.cbTipo.Location = New System.Drawing.Point(331, 385)
+        Me.cbTipo.Location = New System.Drawing.Point(397, 444)
         Me.cbTipo.Name = "cbTipo"
         Me.cbTipo.OddRowStyle = Style30
         Me.cbTipo.RecordSelectorStyle = Style31
@@ -478,7 +490,7 @@ Public Class frmManutEncClientes
         Me.cbTipo.RowHeight = 15
         Me.cbTipo.RowSubDividerColor = System.Drawing.Color.DarkGray
         Me.cbTipo.ScrollTips = False
-        Me.cbTipo.Size = New System.Drawing.Size(378, 100)
+        Me.cbTipo.Size = New System.Drawing.Size(454, 116)
         Me.cbTipo.Style = Style32
         Me.cbTipo.TabIndex = 31
         Me.cbTipo.TabStop = False
@@ -503,7 +515,7 @@ Public Class frmManutEncClientes
         Me.cbCor.HeadingStyle = Style36
         Me.cbCor.HighLightRowStyle = Style37
         Me.cbCor.Images.Add(CType(resources.GetObject("cbCor.Images"), System.Drawing.Image))
-        Me.cbCor.Location = New System.Drawing.Point(532, 337)
+        Me.cbCor.Location = New System.Drawing.Point(638, 389)
         Me.cbCor.Name = "cbCor"
         Me.cbCor.OddRowStyle = Style38
         Me.cbCor.RecordSelectorStyle = Style39
@@ -512,7 +524,7 @@ Public Class frmManutEncClientes
         Me.cbCor.RowHeight = 15
         Me.cbCor.RowSubDividerColor = System.Drawing.Color.DarkGray
         Me.cbCor.ScrollTips = False
-        Me.cbCor.Size = New System.Drawing.Size(246, 100)
+        Me.cbCor.Size = New System.Drawing.Size(296, 115)
         Me.cbCor.Style = Style40
         Me.cbCor.TabIndex = 31
         Me.cbCor.TabStop = False
@@ -537,7 +549,7 @@ Public Class frmManutEncClientes
         Me.cbLinha.HeadingStyle = Style44
         Me.cbLinha.HighLightRowStyle = Style45
         Me.cbLinha.Images.Add(CType(resources.GetObject("cbLinha.Images"), System.Drawing.Image))
-        Me.cbLinha.Location = New System.Drawing.Point(670, 385)
+        Me.cbLinha.Location = New System.Drawing.Point(804, 444)
         Me.cbLinha.Name = "cbLinha"
         Me.cbLinha.OddRowStyle = Style46
         Me.cbLinha.RecordSelectorStyle = Style47
@@ -546,7 +558,7 @@ Public Class frmManutEncClientes
         Me.cbLinha.RowHeight = 15
         Me.cbLinha.RowSubDividerColor = System.Drawing.Color.DarkGray
         Me.cbLinha.ScrollTips = False
-        Me.cbLinha.Size = New System.Drawing.Size(246, 100)
+        Me.cbLinha.Size = New System.Drawing.Size(295, 116)
         Me.cbLinha.Style = Style48
         Me.cbLinha.TabIndex = 31
         Me.cbLinha.TabStop = False
@@ -559,17 +571,17 @@ Public Class frmManutEncClientes
         Me.cbReport.DisplayMember = "RptTaloes_3x2"
         Me.cbReport.FormattingEnabled = True
         Me.cbReport.Items.AddRange(New Object() {"RptTaloes_8x2", "RptTaloes_10x4SemTam", "RptTaloes_3x2", "RptRelTaloes", "RptRelaTaloesCB"})
-        Me.cbReport.Location = New System.Drawing.Point(68, 19)
+        Me.cbReport.Location = New System.Drawing.Point(82, 22)
         Me.cbReport.Name = "cbReport"
-        Me.cbReport.Size = New System.Drawing.Size(171, 21)
+        Me.cbReport.Size = New System.Drawing.Size(205, 25)
         Me.cbReport.TabIndex = 35
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(9, 23)
+        Me.Label1.Location = New System.Drawing.Point(11, 27)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(53, 13)
+        Me.Label1.Size = New System.Drawing.Size(67, 17)
         Me.Label1.TabIndex = 36
         Me.Label1.Text = "Talões :"
         '
@@ -577,9 +589,9 @@ Public Class frmManutEncClientes
         '
         Me.btUltRef.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btUltRef.BackColor = System.Drawing.Color.FromArgb(CType(CType(243, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(51, Byte), Integer))
-        Me.btUltRef.Location = New System.Drawing.Point(964, 57)
+        Me.btUltRef.Location = New System.Drawing.Point(883, 66)
         Me.btUltRef.Name = "btUltRef"
-        Me.btUltRef.Size = New System.Drawing.Size(83, 33)
+        Me.btUltRef.Size = New System.Drawing.Size(99, 38)
         Me.btUltRef.TabIndex = 37
         Me.btUltRef.Text = "Ultima Refª"
         Me.btUltRef.UseVisualStyleBackColor = False
@@ -587,9 +599,9 @@ Public Class frmManutEncClientes
         'btFecharEncomenda
         '
         Me.btFecharEncomenda.BackColor = System.Drawing.Color.FromArgb(CType(CType(243, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(51, Byte), Integer))
-        Me.btFecharEncomenda.Location = New System.Drawing.Point(501, 40)
+        Me.btFecharEncomenda.Location = New System.Drawing.Point(601, 46)
         Me.btFecharEncomenda.Name = "btFecharEncomenda"
-        Me.btFecharEncomenda.Size = New System.Drawing.Size(93, 40)
+        Me.btFecharEncomenda.Size = New System.Drawing.Size(112, 46)
         Me.btFecharEncomenda.TabIndex = 38
         Me.btFecharEncomenda.Text = "Fechar Encomenda"
         Me.btFecharEncomenda.UseVisualStyleBackColor = False
@@ -597,9 +609,9 @@ Public Class frmManutEncClientes
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(9, 50)
+        Me.Label2.Location = New System.Drawing.Point(11, 58)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(87, 13)
+        Me.Label2.Size = New System.Drawing.Size(110, 17)
         Me.Label2.TabIndex = 39
         Me.Label2.Text = "Encomendas :"
         '
@@ -614,9 +626,9 @@ Public Class frmManutEncClientes
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.btListarEncFoto)
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox1.Location = New System.Drawing.Point(110, 11)
+        Me.GroupBox1.Location = New System.Drawing.Point(132, 13)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(308, 76)
+        Me.GroupBox1.Size = New System.Drawing.Size(370, 87)
         Me.GroupBox1.TabIndex = 40
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Listagens"
@@ -625,9 +637,9 @@ Public Class frmManutEncClientes
         '
         Me.btListaConfFact.BackColor = System.Drawing.Color.FromArgb(CType(CType(243, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(51, Byte), Integer))
         Me.btListaConfFact.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btListaConfFact.Location = New System.Drawing.Point(200, 46)
+        Me.btListaConfFact.Location = New System.Drawing.Point(240, 53)
         Me.btListaConfFact.Name = "btListaConfFact"
-        Me.btListaConfFact.Size = New System.Drawing.Size(85, 20)
+        Me.btListaConfFact.Size = New System.Drawing.Size(102, 23)
         Me.btListaConfFact.TabIndex = 40
         Me.btListaConfFact.Text = "Conferência"
         Me.btListaConfFact.UseVisualStyleBackColor = False
@@ -636,9 +648,9 @@ Public Class frmManutEncClientes
         '
         Me.btForn.BackColor = System.Drawing.Color.FromArgb(CType(CType(243, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(51, Byte), Integer))
         Me.btForn.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btForn.Location = New System.Drawing.Point(8, 112)
+        Me.btForn.Location = New System.Drawing.Point(10, 129)
         Me.btForn.Name = "btForn"
-        Me.btForn.Size = New System.Drawing.Size(127, 32)
+        Me.btForn.Size = New System.Drawing.Size(152, 37)
         Me.btForn.TabIndex = 42
         Me.btForn.TabStop = False
         Me.btForn.Text = "Terceiros"
@@ -661,7 +673,7 @@ Public Class frmManutEncClientes
         Me.cbClientes.HeadingStyle = Style52
         Me.cbClientes.HighLightRowStyle = Style53
         Me.cbClientes.Images.Add(CType(resources.GetObject("cbClientes.Images"), System.Drawing.Image))
-        Me.cbClientes.Location = New System.Drawing.Point(1029, 312)
+        Me.cbClientes.Location = New System.Drawing.Point(294, 270)
         Me.cbClientes.Name = "cbClientes"
         Me.cbClientes.OddRowStyle = Style54
         Me.cbClientes.RecordSelectorStyle = Style55
@@ -670,7 +682,7 @@ Public Class frmManutEncClientes
         Me.cbClientes.RowHeight = 15
         Me.cbClientes.RowSubDividerColor = System.Drawing.Color.DarkGray
         Me.cbClientes.ScrollTips = False
-        Me.cbClientes.Size = New System.Drawing.Size(282, 112)
+        Me.cbClientes.Size = New System.Drawing.Size(338, 129)
         Me.cbClientes.Style = Style56
         Me.cbClientes.TabIndex = 43
         Me.cbClientes.TabStop = False
@@ -694,19 +706,19 @@ Public Class frmManutEncClientes
         Me.C1DGEnc.Images.Add(CType(resources.GetObject("C1DGEnc.Images1"), System.Drawing.Image))
         Me.C1DGEnc.Images.Add(CType(resources.GetObject("C1DGEnc.Images2"), System.Drawing.Image))
         Me.C1DGEnc.LinesPerRow = 3
-        Me.C1DGEnc.Location = New System.Drawing.Point(8, 202)
+        Me.C1DGEnc.Location = New System.Drawing.Point(10, 233)
         Me.C1DGEnc.MarqueeStyle = C1.Win.C1TrueDBGrid.MarqueeEnum.DottedCellBorder
         Me.C1DGEnc.Name = "C1DGEnc"
         Me.C1DGEnc.PreviewInfo.Location = New System.Drawing.Point(0, 0)
         Me.C1DGEnc.PreviewInfo.Size = New System.Drawing.Size(0, 0)
         Me.C1DGEnc.PreviewInfo.ZoomFactor = 75.0R
         Me.C1DGEnc.PrintInfo.PageSettings = CType(resources.GetObject("C1DGEnc.PrintInfo.PageSettings"), System.Drawing.Printing.PageSettings)
-        Me.C1DGEnc.RecordSelectorWidth = 17
+        Me.C1DGEnc.RecordSelectorWidth = 21
         Me.C1DGEnc.RowDivider.Color = System.Drawing.Color.DarkGray
         Me.C1DGEnc.RowDivider.Style = C1.Win.C1TrueDBGrid.LineStyleEnum.[Single]
         Me.C1DGEnc.RowHeight = 15
         Me.C1DGEnc.RowSubDividerColor = System.Drawing.Color.DarkGray
-        Me.C1DGEnc.Size = New System.Drawing.Size(1353, 321)
+        Me.C1DGEnc.Size = New System.Drawing.Size(1349, 274)
         Me.C1DGEnc.TabAction = C1.Win.C1TrueDBGrid.TabActionEnum.GridNavigation
         Me.C1DGEnc.TabIndex = 7
         Me.C1DGEnc.Text = "C1TrueDBGrid2"
@@ -718,11 +730,46 @@ Public Class frmManutEncClientes
         Me.GirldataSet.Locale = New System.Globalization.CultureInfo("pt-PT")
         Me.GirldataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
+        'C1TDBDMarcas
+        '
+        Me.C1TDBDMarcas.AllowColMove = True
+        Me.C1TDBDMarcas.AllowColSelect = True
+        Me.C1TDBDMarcas.AllowRowSizing = C1.Win.C1TrueDBGrid.RowSizingEnum.AllRows
+        Me.C1TDBDMarcas.AlternatingRows = True
+        Me.C1TDBDMarcas.CaptionHeight = 17
+        Me.C1TDBDMarcas.CaptionStyle = Style57
+        Me.C1TDBDMarcas.ColumnCaptionHeight = 17
+        Me.C1TDBDMarcas.ColumnFooterHeight = 17
+        Me.C1TDBDMarcas.Cursor = System.Windows.Forms.Cursors.Default
+        Me.C1TDBDMarcas.EvenRowStyle = Style58
+        Me.C1TDBDMarcas.FetchRowStyles = False
+        Me.C1TDBDMarcas.FooterStyle = Style59
+        Me.C1TDBDMarcas.HeadingStyle = Style60
+        Me.C1TDBDMarcas.HighLightRowStyle = Style61
+        Me.C1TDBDMarcas.Images.Add(CType(resources.GetObject("C1TDBDMarcas.Images"), System.Drawing.Image))
+        Me.C1TDBDMarcas.Location = New System.Drawing.Point(682, 270)
+        Me.C1TDBDMarcas.Name = "C1TDBDMarcas"
+        Me.C1TDBDMarcas.OddRowStyle = Style62
+        Me.C1TDBDMarcas.RecordSelectorStyle = Style63
+        Me.C1TDBDMarcas.RowDivider.Color = System.Drawing.Color.DarkGray
+        Me.C1TDBDMarcas.RowDivider.Style = C1.Win.C1TrueDBGrid.LineStyleEnum.[Single]
+        Me.C1TDBDMarcas.RowHeight = 15
+        Me.C1TDBDMarcas.RowSubDividerColor = System.Drawing.Color.DarkGray
+        Me.C1TDBDMarcas.ScrollTips = False
+        Me.C1TDBDMarcas.Size = New System.Drawing.Size(338, 129)
+        Me.C1TDBDMarcas.Style = Style64
+        Me.C1TDBDMarcas.TabIndex = 44
+        Me.C1TDBDMarcas.TabStop = False
+        Me.C1TDBDMarcas.Text = "C1TDBDMarcas"
+        Me.C1TDBDMarcas.Visible = False
+        Me.C1TDBDMarcas.PropBag = resources.GetString("C1TDBDMarcas.PropBag")
+        '
         'frmManutEncClientes
         '
-        Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
+        Me.AutoScaleBaseSize = New System.Drawing.Size(6, 15)
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1369, 623)
+        Me.Controls.Add(Me.C1TDBDMarcas)
         Me.Controls.Add(Me.cbClientes)
         Me.Controls.Add(Me.btForn)
         Me.Controls.Add(Me.GroupBox1)
@@ -759,6 +806,7 @@ Public Class frmManutEncClientes
         CType(Me.cbClientes, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.C1DGEnc, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GirldataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.C1TDBDMarcas, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -811,6 +859,22 @@ Public Class frmManutEncClientes
                 .AlternatingRows = True
                 .EvenRowStyle.BackColor = Color.Ivory
             End With
+
+
+            'Carregar DropDown Marcas
+            Sql = "SELECT MarcaID, MarcaDescr FROM Marcas order by MarcaDescr"
+            da = New SqlDataAdapter(Sql, cn)
+            da.Fill(dtMarcas)
+            With C1TDBDMarcas
+                .Width = 250
+                .DataSource = dtMarcas
+                .DisplayColumns(0).Width = 40
+                .DisplayColumns(1).Width = 180
+                .AlternatingRows = True
+                .EvenRowStyle.BackColor = Color.Ivory
+            End With
+
+
 
 
             'Carregar DropDown Grupos
