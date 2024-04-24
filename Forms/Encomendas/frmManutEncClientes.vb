@@ -37,6 +37,7 @@ Public Class frmManutEncClientes
     Dim xNrLn As String
     Dim xForn As String
     Dim xCliente As String
+    Dim xMarca As String
     Dim xRefForn As String
     Dim xCorForn As String
     Dim xPrCusto As String
@@ -703,8 +704,6 @@ Public Class frmManutEncClientes
         Me.C1DGEnc.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.C1DGEnc.GroupByCaption = "Drag a column header here to group by that column"
         Me.C1DGEnc.Images.Add(CType(resources.GetObject("C1DGEnc.Images"), System.Drawing.Image))
-        Me.C1DGEnc.Images.Add(CType(resources.GetObject("C1DGEnc.Images1"), System.Drawing.Image))
-        Me.C1DGEnc.Images.Add(CType(resources.GetObject("C1DGEnc.Images2"), System.Drawing.Image))
         Me.C1DGEnc.LinesPerRow = 3
         Me.C1DGEnc.Location = New System.Drawing.Point(10, 233)
         Me.C1DGEnc.MarqueeStyle = C1.Win.C1TrueDBGrid.MarqueeEnum.DottedCellBorder
@@ -756,7 +755,7 @@ Public Class frmManutEncClientes
         Me.C1TDBDMarcas.RowHeight = 15
         Me.C1TDBDMarcas.RowSubDividerColor = System.Drawing.Color.DarkGray
         Me.C1TDBDMarcas.ScrollTips = False
-        Me.C1TDBDMarcas.Size = New System.Drawing.Size(338, 129)
+        Me.C1TDBDMarcas.Size = New System.Drawing.Size(338, 322)
         Me.C1TDBDMarcas.Style = Style64
         Me.C1TDBDMarcas.TabIndex = 44
         Me.C1TDBDMarcas.TabStop = False
@@ -862,7 +861,7 @@ Public Class frmManutEncClientes
 
 
             'Carregar DropDown Marcas
-            Sql = "SELECT MarcaID, MarcaDescr FROM Marcas order by MarcaDescr"
+            Sql = "SELECT MarcaID as Marca, MarcaDescr as Descrição FROM Marcas order by MarcaDescr"
             da = New SqlDataAdapter(Sql, cn)
             da.Fill(dtMarcas)
             With C1TDBDMarcas
@@ -872,6 +871,7 @@ Public Class frmManutEncClientes
                 .DisplayColumns(1).Width = 180
                 .AlternatingRows = True
                 .EvenRowStyle.BackColor = Color.Ivory
+
             End With
 
 
@@ -1676,13 +1676,13 @@ Public Class frmManutEncClientes
             'CARREGAR DATASET NA TABELA ENCOMENDAS
             GirldataSet.Tables("Encomendas").Clear()
             If cbExecutadas.Checked = True Then
-                Sql = "SELECT EmpresaID, ArmazemID, NrEnc, LnEnc, FornId, RefForn, CorForn, PrCusto, DtEntrega, GrupoID, TipoID, Altura, ModeloID, CorID, ModCorDescr, LinhaID, PrecoEtiqueta, EstadoEnc, TGerado, Obs, QtdEnc, DataDoc, OperadorID, DtRegisto, ClienteID " &
+                Sql = "SELECT EmpresaID, ArmazemID, NrEnc, LnEnc, FornId, RefForn, CorForn, PrCusto, DtEntrega, GrupoID, TipoID, Altura, ModeloID, CorID, ModCorDescr, LinhaID, PrecoEtiqueta, EstadoEnc, TGerado, Obs, QtdEnc, DataDoc, OperadorID, DtRegisto, ClienteID, MarcaID " &
                       "FROM Encomendas " &
                       "WHERE EmpresaID = '" & xEmp & "'  " &
                       "AND ArmazemID = '" & xArmz & "' "
                 '"And EstadoEnc = 'E'"
             Else
-                Sql = "SELECT EmpresaID, ArmazemID, NrEnc, LnEnc, FornId, RefForn, CorForn, PrCusto, DtEntrega, GrupoID, TipoID, Altura, ModeloID, CorID, ModCorDescr, LinhaID, PrecoEtiqueta, EstadoEnc, TGerado, Obs, QtdEnc, DataDoc, OperadorID, DtRegisto, ClienteID " &
+                Sql = "SELECT EmpresaID, ArmazemID, NrEnc, LnEnc, FornId, RefForn, CorForn, PrCusto, DtEntrega, GrupoID, TipoID, Altura, ModeloID, CorID, ModCorDescr, LinhaID, PrecoEtiqueta, EstadoEnc, TGerado, Obs, QtdEnc, DataDoc, OperadorID, DtRegisto, ClienteID, MarcaID " &
                         "FROM Encomendas " &
                         "WHERE EmpresaID = '" & xEmp & "'  " &
                         "AND ArmazemID = '" & xArmz & "' " &
@@ -1781,6 +1781,8 @@ Public Class frmManutEncClientes
                 .Splits(0).DisplayColumns("RefForn").Width = 50
                 .Splits(0).DisplayColumns("CorForn").Width = 75
                 .Splits(0).DisplayColumns("ModCorDescr").Width = 75
+                .Splits(0).DisplayColumns("MarcaID").Width = 75
+
 
                 .Splits(0).DisplayColumns("FornId").Style.HorizontalAlignment = AlignHorzEnum.Center
                 '.Splits(0).DisplayColumns("ClienteID").Style.HorizontalAlignment = AlignHorzEnum.Center
@@ -1789,6 +1791,7 @@ Public Class frmManutEncClientes
                 .Splits(0).DisplayColumns("CorID").Style.HorizontalAlignment = AlignHorzEnum.Center
                 .Splits(0).DisplayColumns("LinhaId").Style.HorizontalAlignment = AlignHorzEnum.Center
                 .Splits(0).DisplayColumns("EstadoEnc").Style.HorizontalAlignment = AlignHorzEnum.Center
+                .Splits(0).DisplayColumns("MarcaID").Style.HorizontalAlignment = AlignHorzEnum.Center
 
             End With
             Me.C1DGEnc.Focus()
@@ -2513,6 +2516,7 @@ Public Class frmManutEncClientes
         Dim db As New ClsSqlBDados
         Try
 
+
             'GirldataSet.Encomendas.AcceptChanges()
             'If Not GirldataSet.Encomendas.GetChanges Is Nothing Then
             If Not Me.C1DGEnc(Me.C1DGEnc.Row, "NrEnc") Is DBNull.Value Then
@@ -2521,6 +2525,7 @@ Public Class frmManutEncClientes
                     xNrLn = Me.C1DGEnc(Me.C1DGEnc.Row, "LnEnc")
                     xForn = IIf(Me.C1DGEnc(Me.C1DGEnc.Row, "FornID") Is DBNull.Value, "", Me.C1DGEnc(Me.C1DGEnc.Row, "FornID"))
                     xCliente = IIf(Me.C1DGEnc(Me.C1DGEnc.Row, "ClienteID") Is DBNull.Value, "", Me.C1DGEnc(Me.C1DGEnc.Row, "ClienteID"))
+                    xMarca = IIf(Me.C1DGEnc(Me.C1DGEnc.Row, "MarcaID") Is DBNull.Value, "", Me.C1DGEnc(Me.C1DGEnc.Row, "MarcaID"))
                     xRefForn = IIf(Me.C1DGEnc(Me.C1DGEnc.Row, "RefForn") Is DBNull.Value, "", Me.C1DGEnc(Me.C1DGEnc.Row, "RefForn"))
                     xCorForn = IIf(Me.C1DGEnc(Me.C1DGEnc.Row, "CorForn") Is DBNull.Value, "", Me.C1DGEnc(Me.C1DGEnc.Row, "CorForn"))
                     xPrCusto = IIf(Me.C1DGEnc(Me.C1DGEnc.Row, "PrCusto") Is DBNull.Value, "Null", Me.C1DGEnc(Me.C1DGEnc.Row, "PrCusto"))
@@ -2551,6 +2556,7 @@ Public Class frmManutEncClientes
                           "SET FornId ='" & Trim(xForn) & "', " &
                           "RefForn ='" & Trim(xRefForn) & "', " &
                           "ClienteID ='" & Trim(xCliente) & "', " &
+                          "MarcaID ='" & Trim(xMarca) & "', " &
                           "CorForn ='" & Trim(xCorForn) & "', " &
                           "PrCusto =" & Trim(xPrCusto) & ", " &
                           "DtEntrega ='" & Trim(xDtEntrega) & "', " &
