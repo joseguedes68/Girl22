@@ -218,9 +218,7 @@ Public Class frmArtigos
             Dim comboCell As DataGridViewComboBoxCell = CType(dgvModelos.Rows(e.RowIndex).Cells(e.ColumnIndex), DataGridViewComboBoxCell)
             If Not comboCell.Items.Contains(e.FormattedValue) Then
                 ' Valor não válido, exibir mensagem de erro com informações adicionais
-                e.Cancel = True
-                Dim validOptions As String = String.Join(", ", comboCell.Items.Cast(Of Object)().Select(Function(item) item.ToString()).ToArray())
-                MessageBox.Show($"Valor selecionado não é válido para esta célula! Opções válidas: {validOptions}")
+                'e.Cancel = True
             End If
         End If
     End Sub

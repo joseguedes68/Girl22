@@ -123,23 +123,24 @@ Partial Class frmArtigos
         Me.ModelosBindingNavigator.DeleteItem = Nothing
         Me.ModelosBindingNavigator.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.ModelosBindingNavigator.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ModelosBindingNavigator.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.ModelosBindingNavigator.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BindingNavigatorMoveFirstItem, Me.BindingNavigatorMovePreviousItem, Me.BindingNavigatorSeparator, Me.BindingNavigatorPositionItem, Me.BindingNavigatorCountItem, Me.BindingNavigatorSeparator1, Me.BindingNavigatorMoveNextItem, Me.BindingNavigatorMoveLastItem, Me.BindingNavigatorSeparator2})
-        Me.ModelosBindingNavigator.Location = New System.Drawing.Point(0, 500)
+        Me.ModelosBindingNavigator.Location = New System.Drawing.Point(0, 617)
         Me.ModelosBindingNavigator.MoveFirstItem = Me.BindingNavigatorMoveFirstItem
         Me.ModelosBindingNavigator.MoveLastItem = Me.BindingNavigatorMoveLastItem
         Me.ModelosBindingNavigator.MoveNextItem = Me.BindingNavigatorMoveNextItem
         Me.ModelosBindingNavigator.MovePreviousItem = Me.BindingNavigatorMovePreviousItem
         Me.ModelosBindingNavigator.Name = "ModelosBindingNavigator"
         Me.ModelosBindingNavigator.PositionItem = Me.BindingNavigatorPositionItem
-        Me.ModelosBindingNavigator.Size = New System.Drawing.Size(1008, 27)
+        Me.ModelosBindingNavigator.Size = New System.Drawing.Size(1344, 32)
         Me.ModelosBindingNavigator.TabIndex = 0
         Me.ModelosBindingNavigator.Text = "BindingNavigator1"
         '
         'BindingNavigatorCountItem
         '
         Me.BindingNavigatorCountItem.Name = "BindingNavigatorCountItem"
-        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(60, 24)
-        Me.BindingNavigatorCountItem.Text = "of {0}"
+        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(78, 29)
+        Me.BindingNavigatorCountItem.Text = "de {0}"
         Me.BindingNavigatorCountItem.ToolTipText = "Total number of items"
         '
         'BindingNavigatorMoveFirstItem
@@ -148,7 +149,7 @@ Partial Class frmArtigos
         Me.BindingNavigatorMoveFirstItem.Image = CType(resources.GetObject("BindingNavigatorMoveFirstItem.Image"), System.Drawing.Image)
         Me.BindingNavigatorMoveFirstItem.Name = "BindingNavigatorMoveFirstItem"
         Me.BindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorMoveFirstItem.Size = New System.Drawing.Size(23, 24)
+        Me.BindingNavigatorMoveFirstItem.Size = New System.Drawing.Size(29, 29)
         Me.BindingNavigatorMoveFirstItem.Text = "Move first"
         '
         'BindingNavigatorMovePreviousItem
@@ -157,13 +158,13 @@ Partial Class frmArtigos
         Me.BindingNavigatorMovePreviousItem.Image = CType(resources.GetObject("BindingNavigatorMovePreviousItem.Image"), System.Drawing.Image)
         Me.BindingNavigatorMovePreviousItem.Name = "BindingNavigatorMovePreviousItem"
         Me.BindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorMovePreviousItem.Size = New System.Drawing.Size(23, 24)
+        Me.BindingNavigatorMovePreviousItem.Size = New System.Drawing.Size(29, 29)
         Me.BindingNavigatorMovePreviousItem.Text = "Move previous"
         '
         'BindingNavigatorSeparator
         '
         Me.BindingNavigatorSeparator.Name = "BindingNavigatorSeparator"
-        Me.BindingNavigatorSeparator.Size = New System.Drawing.Size(6, 27)
+        Me.BindingNavigatorSeparator.Size = New System.Drawing.Size(6, 32)
         '
         'BindingNavigatorPositionItem
         '
@@ -171,14 +172,14 @@ Partial Class frmArtigos
         Me.BindingNavigatorPositionItem.AutoSize = False
         Me.BindingNavigatorPositionItem.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BindingNavigatorPositionItem.Name = "BindingNavigatorPositionItem"
-        Me.BindingNavigatorPositionItem.Size = New System.Drawing.Size(50, 27)
+        Me.BindingNavigatorPositionItem.Size = New System.Drawing.Size(65, 32)
         Me.BindingNavigatorPositionItem.Text = "0"
         Me.BindingNavigatorPositionItem.ToolTipText = "Current position"
         '
         'BindingNavigatorSeparator1
         '
         Me.BindingNavigatorSeparator1.Name = "BindingNavigatorSeparator1"
-        Me.BindingNavigatorSeparator1.Size = New System.Drawing.Size(6, 27)
+        Me.BindingNavigatorSeparator1.Size = New System.Drawing.Size(6, 32)
         '
         'BindingNavigatorMoveNextItem
         '
@@ -186,7 +187,7 @@ Partial Class frmArtigos
         Me.BindingNavigatorMoveNextItem.Image = CType(resources.GetObject("BindingNavigatorMoveNextItem.Image"), System.Drawing.Image)
         Me.BindingNavigatorMoveNextItem.Name = "BindingNavigatorMoveNextItem"
         Me.BindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorMoveNextItem.Size = New System.Drawing.Size(23, 24)
+        Me.BindingNavigatorMoveNextItem.Size = New System.Drawing.Size(29, 29)
         Me.BindingNavigatorMoveNextItem.Text = "Move next"
         '
         'BindingNavigatorMoveLastItem
@@ -195,13 +196,13 @@ Partial Class frmArtigos
         Me.BindingNavigatorMoveLastItem.Image = CType(resources.GetObject("BindingNavigatorMoveLastItem.Image"), System.Drawing.Image)
         Me.BindingNavigatorMoveLastItem.Name = "BindingNavigatorMoveLastItem"
         Me.BindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorMoveLastItem.Size = New System.Drawing.Size(23, 24)
+        Me.BindingNavigatorMoveLastItem.Size = New System.Drawing.Size(29, 29)
         Me.BindingNavigatorMoveLastItem.Text = "Move last"
         '
         'BindingNavigatorSeparator2
         '
         Me.BindingNavigatorSeparator2.Name = "BindingNavigatorSeparator2"
-        Me.BindingNavigatorSeparator2.Size = New System.Drawing.Size(6, 27)
+        Me.BindingNavigatorSeparator2.Size = New System.Drawing.Size(6, 32)
         '
         'dgvModelos
         '
@@ -210,17 +211,21 @@ Partial Class frmArtigos
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgvModelos.AutoGenerateColumns = False
+        Me.dgvModelos.ColumnHeadersHeight = 29
         Me.dgvModelos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ModeloID, Me.GrupoID, Me.TipoID, Me.DataGridViewTextBoxColumn4, Me.LinhaID, Me.UnidID, Me.Altura, Me.EpocaID, Me.EscalaID, Me.DataGridViewTextBoxColumn10})
         Me.dgvModelos.DataSource = Me.ModelosBindingSource
-        Me.dgvModelos.Location = New System.Drawing.Point(12, 39)
+        Me.dgvModelos.Location = New System.Drawing.Point(16, 48)
+        Me.dgvModelos.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.dgvModelos.Name = "dgvModelos"
-        Me.dgvModelos.Size = New System.Drawing.Size(748, 297)
+        Me.dgvModelos.RowHeadersWidth = 51
+        Me.dgvModelos.Size = New System.Drawing.Size(997, 366)
         Me.dgvModelos.TabIndex = 1
         '
         'ModeloID
         '
         Me.ModeloID.DataPropertyName = "ModeloID"
         Me.ModeloID.HeaderText = "Modelo"
+        Me.ModeloID.MinimumWidth = 6
         Me.ModeloID.Name = "ModeloID"
         Me.ModeloID.Width = 50
         '
@@ -231,6 +236,7 @@ Partial Class frmArtigos
         Me.GrupoID.DisplayMember = "GrupoDesc"
         Me.GrupoID.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.[Nothing]
         Me.GrupoID.HeaderText = "Grupo"
+        Me.GrupoID.MinimumWidth = 6
         Me.GrupoID.Name = "GrupoID"
         Me.GrupoID.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         Me.GrupoID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
@@ -246,14 +252,18 @@ Partial Class frmArtigos
         '
         Me.TipoID.DataPropertyName = "TipoID"
         Me.TipoID.HeaderText = "Tipo"
+        Me.TipoID.MinimumWidth = 6
         Me.TipoID.Name = "TipoID"
+        Me.TipoID.Width = 125
         '
         'DataGridViewTextBoxColumn4
         '
         Me.DataGridViewTextBoxColumn4.DataPropertyName = "FamiliaID"
         Me.DataGridViewTextBoxColumn4.HeaderText = "FamiliaID"
+        Me.DataGridViewTextBoxColumn4.MinimumWidth = 6
         Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
         Me.DataGridViewTextBoxColumn4.Visible = False
+        Me.DataGridViewTextBoxColumn4.Width = 125
         '
         'LinhaID
         '
@@ -262,6 +272,7 @@ Partial Class frmArtigos
         Me.LinhaID.DisplayMember = "DescrLinha"
         Me.LinhaID.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.[Nothing]
         Me.LinhaID.HeaderText = "Linha"
+        Me.LinhaID.MinimumWidth = 6
         Me.LinhaID.Name = "LinhaID"
         Me.LinhaID.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         Me.LinhaID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
@@ -280,6 +291,7 @@ Partial Class frmArtigos
         Me.UnidID.DisplayMember = "UnidDescr"
         Me.UnidID.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.[Nothing]
         Me.UnidID.HeaderText = "Unid"
+        Me.UnidID.MinimumWidth = 6
         Me.UnidID.Name = "UnidID"
         Me.UnidID.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         Me.UnidID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
@@ -295,6 +307,7 @@ Partial Class frmArtigos
         '
         Me.Altura.DataPropertyName = "Altura"
         Me.Altura.HeaderText = "Altura"
+        Me.Altura.MinimumWidth = 6
         Me.Altura.Name = "Altura"
         Me.Altura.Width = 37
         '
@@ -304,6 +317,7 @@ Partial Class frmArtigos
         Me.EpocaID.DataSource = Me.EpocasBindingSource
         Me.EpocaID.DisplayMember = "EpocaDescr"
         Me.EpocaID.HeaderText = "Epoca"
+        Me.EpocaID.MinimumWidth = 6
         Me.EpocaID.Name = "EpocaID"
         Me.EpocaID.ValueMember = "EpocaID"
         Me.EpocaID.Width = 60
@@ -317,6 +331,7 @@ Partial Class frmArtigos
         '
         Me.EscalaID.DataPropertyName = "EscalaID"
         Me.EscalaID.HeaderText = "Escala"
+        Me.EscalaID.MinimumWidth = 6
         Me.EscalaID.Name = "EscalaID"
         Me.EscalaID.Width = 43
         '
@@ -324,8 +339,10 @@ Partial Class frmArtigos
         '
         Me.DataGridViewTextBoxColumn10.DataPropertyName = "Volume"
         Me.DataGridViewTextBoxColumn10.HeaderText = "Volume"
+        Me.DataGridViewTextBoxColumn10.MinimumWidth = 6
         Me.DataGridViewTextBoxColumn10.Name = "DataGridViewTextBoxColumn10"
         Me.DataGridViewTextBoxColumn10.Visible = False
+        Me.DataGridViewTextBoxColumn10.Width = 125
         '
         'ModeloCorBindingSource
         '
@@ -342,31 +359,39 @@ Partial Class frmArtigos
         Me.dgvModeloCor.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgvModeloCor.AutoGenerateColumns = False
+        Me.dgvModeloCor.ColumnHeadersHeight = 29
         Me.dgvModeloCor.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn11, Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn13, Me.DataGridViewTextBoxColumn15, Me.DataGridViewTextBoxColumn16, Me.DataGridViewTextBoxColumn17, Me.DataGridViewTextBoxColumn18, Me.DataGridViewTextBoxColumn14})
         Me.dgvModeloCor.DataSource = Me.ModeloCorBindingSource
-        Me.dgvModeloCor.Location = New System.Drawing.Point(12, 342)
+        Me.dgvModeloCor.Location = New System.Drawing.Point(16, 421)
+        Me.dgvModeloCor.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.dgvModeloCor.Name = "dgvModeloCor"
-        Me.dgvModeloCor.Size = New System.Drawing.Size(984, 141)
+        Me.dgvModeloCor.RowHeadersWidth = 51
+        Me.dgvModeloCor.Size = New System.Drawing.Size(1312, 174)
         Me.dgvModeloCor.TabIndex = 2
         '
         'DataGridViewTextBoxColumn11
         '
         Me.DataGridViewTextBoxColumn11.DataPropertyName = "ModeloID"
         Me.DataGridViewTextBoxColumn11.HeaderText = "ModeloID"
+        Me.DataGridViewTextBoxColumn11.MinimumWidth = 6
         Me.DataGridViewTextBoxColumn11.Name = "DataGridViewTextBoxColumn11"
         Me.DataGridViewTextBoxColumn11.Visible = False
+        Me.DataGridViewTextBoxColumn11.Width = 125
         '
         'DataGridViewTextBoxColumn12
         '
         Me.DataGridViewTextBoxColumn12.DataPropertyName = "CorID"
         Me.DataGridViewTextBoxColumn12.HeaderText = "Cor"
+        Me.DataGridViewTextBoxColumn12.MinimumWidth = 6
         Me.DataGridViewTextBoxColumn12.Name = "DataGridViewTextBoxColumn12"
         Me.DataGridViewTextBoxColumn12.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridViewTextBoxColumn12.Width = 125
         '
         'DataGridViewTextBoxColumn13
         '
         Me.DataGridViewTextBoxColumn13.DataPropertyName = "ModCorDescr"
         Me.DataGridViewTextBoxColumn13.HeaderText = "Descrição"
+        Me.DataGridViewTextBoxColumn13.MinimumWidth = 6
         Me.DataGridViewTextBoxColumn13.Name = "DataGridViewTextBoxColumn13"
         Me.DataGridViewTextBoxColumn13.Width = 225
         '
@@ -376,9 +401,11 @@ Partial Class frmArtigos
         Me.DataGridViewTextBoxColumn15.DataSource = Me.TerceirosBindingSource
         Me.DataGridViewTextBoxColumn15.DisplayMember = "NomeAbrev"
         Me.DataGridViewTextBoxColumn15.HeaderText = "Fornecedor"
+        Me.DataGridViewTextBoxColumn15.MinimumWidth = 6
         Me.DataGridViewTextBoxColumn15.Name = "DataGridViewTextBoxColumn15"
         Me.DataGridViewTextBoxColumn15.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         Me.DataGridViewTextBoxColumn15.ValueMember = "TercID"
+        Me.DataGridViewTextBoxColumn15.Width = 125
         '
         'TerceirosBindingSource
         '
@@ -389,6 +416,7 @@ Partial Class frmArtigos
         '
         Me.DataGridViewTextBoxColumn16.DataPropertyName = "RefForn"
         Me.DataGridViewTextBoxColumn16.HeaderText = "RefForn"
+        Me.DataGridViewTextBoxColumn16.MinimumWidth = 6
         Me.DataGridViewTextBoxColumn16.Name = "DataGridViewTextBoxColumn16"
         Me.DataGridViewTextBoxColumn16.Width = 75
         '
@@ -396,7 +424,9 @@ Partial Class frmArtigos
         '
         Me.DataGridViewTextBoxColumn17.DataPropertyName = "CorForn"
         Me.DataGridViewTextBoxColumn17.HeaderText = "CorForn"
+        Me.DataGridViewTextBoxColumn17.MinimumWidth = 6
         Me.DataGridViewTextBoxColumn17.Name = "DataGridViewTextBoxColumn17"
+        Me.DataGridViewTextBoxColumn17.Width = 125
         '
         'DataGridViewTextBoxColumn18
         '
@@ -405,6 +435,7 @@ Partial Class frmArtigos
         DataGridViewCellStyle1.NullValue = Nothing
         Me.DataGridViewTextBoxColumn18.DefaultCellStyle = DataGridViewCellStyle1
         Me.DataGridViewTextBoxColumn18.HeaderText = "PrCusto"
+        Me.DataGridViewTextBoxColumn18.MinimumWidth = 6
         Me.DataGridViewTextBoxColumn18.Name = "DataGridViewTextBoxColumn18"
         Me.DataGridViewTextBoxColumn18.Width = 65
         '
@@ -415,6 +446,7 @@ Partial Class frmArtigos
         DataGridViewCellStyle2.NullValue = Nothing
         Me.DataGridViewTextBoxColumn14.DefaultCellStyle = DataGridViewCellStyle2
         Me.DataGridViewTextBoxColumn14.HeaderText = "PrEtiqueta"
+        Me.DataGridViewTextBoxColumn14.MinimumWidth = 6
         Me.DataGridViewTextBoxColumn14.Name = "DataGridViewTextBoxColumn14"
         Me.DataGridViewTextBoxColumn14.Width = 65
         '
@@ -446,9 +478,10 @@ Partial Class frmArtigos
         'PicBox
         '
         Me.PicBox.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.PicBox.Location = New System.Drawing.Point(766, 98)
+        Me.PicBox.Location = New System.Drawing.Point(1021, 121)
+        Me.PicBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.PicBox.Name = "PicBox"
-        Me.PicBox.Size = New System.Drawing.Size(230, 165)
+        Me.PicBox.Size = New System.Drawing.Size(307, 203)
         Me.PicBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PicBox.TabIndex = 4
         Me.PicBox.TabStop = False
@@ -457,9 +490,10 @@ Partial Class frmArtigos
         '
         Me.cmdGravar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cmdGravar.BackColor = System.Drawing.Color.FromArgb(CType(CType(243, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(51, Byte), Integer))
-        Me.cmdGravar.Location = New System.Drawing.Point(775, 12)
+        Me.cmdGravar.Location = New System.Drawing.Point(1033, 15)
+        Me.cmdGravar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.cmdGravar.Name = "cmdGravar"
-        Me.cmdGravar.Size = New System.Drawing.Size(72, 25)
+        Me.cmdGravar.Size = New System.Drawing.Size(96, 31)
         Me.cmdGravar.TabIndex = 5
         Me.cmdGravar.Text = "Gravar"
         Me.cmdGravar.UseVisualStyleBackColor = False
@@ -468,9 +502,10 @@ Partial Class frmArtigos
         '
         Me.cmdCancelar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cmdCancelar.BackColor = System.Drawing.Color.FromArgb(CType(CType(243, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(51, Byte), Integer))
-        Me.cmdCancelar.Location = New System.Drawing.Point(853, 12)
+        Me.cmdCancelar.Location = New System.Drawing.Point(1137, 15)
+        Me.cmdCancelar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.cmdCancelar.Name = "cmdCancelar"
-        Me.cmdCancelar.Size = New System.Drawing.Size(72, 25)
+        Me.cmdCancelar.Size = New System.Drawing.Size(96, 31)
         Me.cmdCancelar.TabIndex = 6
         Me.cmdCancelar.Text = "Cancelar"
         Me.cmdCancelar.UseVisualStyleBackColor = False
@@ -479,9 +514,10 @@ Partial Class frmArtigos
         '
         Me.cmdFechar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cmdFechar.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.cmdFechar.Location = New System.Drawing.Point(931, 12)
+        Me.cmdFechar.Location = New System.Drawing.Point(1241, 15)
+        Me.cmdFechar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.cmdFechar.Name = "cmdFechar"
-        Me.cmdFechar.Size = New System.Drawing.Size(72, 25)
+        Me.cmdFechar.Size = New System.Drawing.Size(96, 31)
         Me.cmdFechar.TabIndex = 7
         Me.cmdFechar.Text = "Fechar"
         Me.cmdFechar.UseVisualStyleBackColor = False
@@ -493,9 +529,10 @@ Partial Class frmArtigos
         '
         'txtModelos
         '
-        Me.txtModelos.Location = New System.Drawing.Point(57, 12)
+        Me.txtModelos.Location = New System.Drawing.Point(76, 15)
+        Me.txtModelos.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtModelos.Name = "txtModelos"
-        Me.txtModelos.Size = New System.Drawing.Size(61, 20)
+        Me.txtModelos.Size = New System.Drawing.Size(80, 22)
         Me.txtModelos.TabIndex = 8
         Me.txtModelos.Text = "MODELOS"
         Me.txtModelos.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -505,18 +542,20 @@ Partial Class frmArtigos
         Me.cbGrupos.DataSource = Me.GruposBindingSource
         Me.cbGrupos.DisplayMember = "GrupoDesc"
         Me.cbGrupos.FormattingEnabled = True
-        Me.cbGrupos.Location = New System.Drawing.Point(131, 12)
+        Me.cbGrupos.Location = New System.Drawing.Point(175, 15)
+        Me.cbGrupos.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.cbGrupos.Name = "cbGrupos"
-        Me.cbGrupos.Size = New System.Drawing.Size(116, 21)
+        Me.cbGrupos.Size = New System.Drawing.Size(153, 24)
         Me.cbGrupos.TabIndex = 9
         Me.cbGrupos.ValueMember = "GrupoID"
         '
         'cbTipos
         '
         Me.cbTipos.FormattingEnabled = True
-        Me.cbTipos.Location = New System.Drawing.Point(253, 12)
+        Me.cbTipos.Location = New System.Drawing.Point(337, 15)
+        Me.cbTipos.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.cbTipos.Name = "cbTipos"
-        Me.cbTipos.Size = New System.Drawing.Size(303, 21)
+        Me.cbTipos.Size = New System.Drawing.Size(403, 24)
         Me.cbTipos.TabIndex = 9
         '
         'cbLinhas
@@ -524,18 +563,20 @@ Partial Class frmArtigos
         Me.cbLinhas.DataSource = Me.LinhasBindingSource
         Me.cbLinhas.DisplayMember = "DescrLinha"
         Me.cbLinhas.FormattingEnabled = True
-        Me.cbLinhas.Location = New System.Drawing.Point(562, 12)
+        Me.cbLinhas.Location = New System.Drawing.Point(749, 15)
+        Me.cbLinhas.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.cbLinhas.Name = "cbLinhas"
-        Me.cbLinhas.Size = New System.Drawing.Size(124, 21)
+        Me.cbLinhas.Size = New System.Drawing.Size(164, 24)
         Me.cbLinhas.TabIndex = 9
         Me.cbLinhas.ValueMember = "LinhaID"
         '
         'btFiltro
         '
         Me.btFiltro.BackColor = System.Drawing.Color.FromArgb(CType(CType(243, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(51, Byte), Integer))
-        Me.btFiltro.Location = New System.Drawing.Point(692, 13)
+        Me.btFiltro.Location = New System.Drawing.Point(923, 16)
+        Me.btFiltro.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btFiltro.Name = "btFiltro"
-        Me.btFiltro.Size = New System.Drawing.Size(45, 23)
+        Me.btFiltro.Size = New System.Drawing.Size(60, 28)
         Me.btFiltro.TabIndex = 10
         Me.btFiltro.Text = "Filtrar"
         Me.btFiltro.UseVisualStyleBackColor = False
@@ -548,9 +589,10 @@ Partial Class frmArtigos
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(9, 15)
+        Me.Label1.Location = New System.Drawing.Point(12, 18)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(48, 13)
+        Me.Label1.Size = New System.Drawing.Size(59, 16)
         Me.Label1.TabIndex = 11
         Me.Label1.Text = "Modelo :"
         '
@@ -564,10 +606,10 @@ Partial Class frmArtigos
         '
         'frmArtigos
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(1008, 527)
+        Me.ClientSize = New System.Drawing.Size(1344, 649)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btFiltro)
         Me.Controls.Add(Me.cbLinhas)
@@ -581,6 +623,7 @@ Partial Class frmArtigos
         Me.Controls.Add(Me.dgvModeloCor)
         Me.Controls.Add(Me.dgvModelos)
         Me.Controls.Add(Me.ModelosBindingNavigator)
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "frmArtigos"
         Me.Text = "Artigos"
         CType(Me.GirlDataSet, System.ComponentModel.ISupportInitialize).EndInit()
