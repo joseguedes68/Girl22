@@ -119,7 +119,7 @@ Partial Class frmConsultaTalao
         Me.Label1.Location = New System.Drawing.Point(287, 239)
         Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(620, 17)
+        Me.Label1.Size = New System.Drawing.Size(562, 16)
         Me.Label1.TabIndex = 5
         Me.Label1.Text = "Legenda :  G - Gerada  |  S - Stock  |  T - Transito  |   V - Vendida  |  R - Rec" &
     "olhida   |  A - Anulado"

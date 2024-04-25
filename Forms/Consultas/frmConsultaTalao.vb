@@ -16,6 +16,7 @@ Public Class frmConsultaTalao
     Dim xFiltraTaloes As String
     Dim xArmzAux As String
     Dim dComissaoAux As Double
+    Dim lblForn As New Label
 
     Dim WithEvents Dgrid As New DataGridView
 
@@ -106,6 +107,7 @@ Public Class frmConsultaTalao
                     .DisplayColumns("DocNr").Visible = True
                     .DisplayColumns("Obs").Width = 150
                     .DisplayColumns("Obs1").Width = 150
+                    .DisplayColumns("Obs3").Width = 150
                     .DisplayColumns("Descrição").Style.HorizontalAlignment = AlignHorzEnum.Near
                     .DisplayColumns("Loja").Style.HorizontalAlignment = AlignHorzEnum.Near
                     .DisplayColumns("PrTalão").Style.HorizontalAlignment = AlignHorzEnum.Far
@@ -143,7 +145,6 @@ Public Class frmConsultaTalao
                         .DisplayColumns("FornID").Visible = False
                         .DisplayColumns("DtUltMov").Visible = False
                         .DisplayColumns("DocNr").Visible = False
-
 
 
 
@@ -748,10 +749,6 @@ Public Class frmConsultaTalao
     End Sub
 
 
-
-
-
-
     'FUNÇÕES
 
 
@@ -802,46 +799,46 @@ Public Class frmConsultaTalao
 
                 If cbVerTodas.Checked = True Then
 
-                    Sql = "SELECT Serie.SerieID AS Talão, Serie.ProductCode, Modelos.EpocaID AS Ep, Modelos.GrupoID AS Gr, Modelos.TipoID AS Tip, Modelos.Altura AS Alt, Serie.ModeloID AS Modelo, Serie.CorID AS Cor, RTRIM(ModeloCor.ModCorDescr) AS Descrição, Serie.TamID AS Tam, RTRIM(Serie.ArmazemID) + ' - ' + RTRIM(Armazens.ArmAbrev) " & _
-                        "AS Loja, Serie.EstadoID AS Est, Modelos.LinhaID AS Ln, Serie.PrecoEtiqueta AS PrTalão, Serie.PrecoVenda AS PrVnd, Serie.PVndReal AS PrVndReal, Serie.Comissao, SERIE.VENDEDOR AS Vendedor, DocNr, Serie.DtSaida AS DtUltMov, Serie.PrFixo, Serie.Obs, Serie.Obs1, ModeloCor.FornID " & _
-                        "FROM Serie LEFT OUTER JOIN Modelos ON Serie.ModeloID = Modelos.ModeloID LEFT OUTER JOIN " & _
-                        "ModeloCor ON Serie.CorID = ModeloCor.CorID AND Serie.ModeloID = ModeloCor.ModeloID LEFT OUTER JOIN " & _
-                        "Armazens ON Serie.ArmazemID = Armazens.ArmazemID " & _
+                    Sql = "SELECT Serie.SerieID AS Talão, Serie.ProductCode, Modelos.EpocaID AS Ep, Modelos.GrupoID AS Gr, Modelos.TipoID AS Tip, Modelos.Altura AS Alt, Serie.ModeloID AS Modelo, Serie.CorID AS Cor, RTRIM(ModeloCor.ModCorDescr) AS Descrição, Serie.TamID AS Tam, RTRIM(Serie.ArmazemID) + ' - ' + RTRIM(Armazens.ArmAbrev) " &
+                        "AS Loja, Serie.EstadoID AS Est, Modelos.LinhaID AS Ln, Serie.PrecoEtiqueta AS PrTalão, Serie.PrecoVenda AS PrVnd, Serie.PVndReal AS PrVndReal, Serie.Comissao, SERIE.VENDEDOR AS Vendedor, DocNr, Serie.DtSaida AS DtUltMov, Serie.PrFixo, Serie.Obs, Serie.Obs1, ModeloCor.FornID , Serie.Obs3 " &
+                        "FROM Serie LEFT OUTER JOIN Modelos ON Serie.ModeloID = Modelos.ModeloID LEFT OUTER JOIN " &
+                        "ModeloCor ON Serie.CorID = ModeloCor.CorID AND Serie.ModeloID = ModeloCor.ModeloID LEFT OUTER JOIN " &
+                        "Armazens ON Serie.ArmazemID = Armazens.ArmazemID " &
                         "WHERE Serie.ArmazemID LIKE '" & xArmzAux & "' order by Serie.DtSaida desc"
                 Else
 
                     If xArmz = "0000" Then
-                        Sql = "SELECT Serie.SerieID AS Talão, Serie.ProductCode, Modelos.EpocaID AS Ep, Modelos.GrupoID AS Gr, Modelos.TipoID AS Tip, Modelos.Altura AS Alt, Serie.ModeloID AS Modelo, Serie.CorID AS Cor,  " & _
-                        "RTRIM(ModeloCor.ModCorDescr) AS Descrição, Serie.TamID AS Tam, RTRIM(Serie.ArmazemID) + ' - ' + RTRIM(Armazens.ArmAbrev) AS Loja,  " & _
-                        "Serie.EstadoID AS Est, Modelos.LinhaID AS Ln, Serie.PrecoEtiqueta AS PrTalão, Serie.PrecoVenda AS PrVnd, Serie.PVndReal AS PrVndReal, Serie.Comissao, SERIE.VENDEDOR AS Vendedor, DocNr, Serie.DtSaida AS DtUltMov, Serie.PrFixo, Serie.Obs, Serie.Obs1, ModeloCor.FornID " & _
-                        "FROM Modelos RIGHT OUTER JOIN " & _
-                        "Serie ON Modelos.ModeloID = Serie.ModeloID LEFT OUTER JOIN " & _
-                        "ModeloCor ON Serie.CorID = ModeloCor.CorID AND Serie.ModeloID = ModeloCor.ModeloID LEFT OUTER JOIN " & _
-                        "Armazens ON Serie.ArmazemID = Armazens.ArmazemID " & _
+                        Sql = "SELECT Serie.SerieID AS Talão, Serie.ProductCode, Modelos.EpocaID AS Ep, Modelos.GrupoID AS Gr, Modelos.TipoID AS Tip, Modelos.Altura AS Alt, Serie.ModeloID AS Modelo, Serie.CorID AS Cor,  " &
+                        "RTRIM(ModeloCor.ModCorDescr) AS Descrição, Serie.TamID AS Tam, RTRIM(Serie.ArmazemID) + ' - ' + RTRIM(Armazens.ArmAbrev) AS Loja,  " &
+                        "Serie.EstadoID AS Est, Modelos.LinhaID AS Ln, Serie.PrecoEtiqueta AS PrTalão, Serie.PrecoVenda AS PrVnd, Serie.PVndReal AS PrVndReal, Serie.Comissao, SERIE.VENDEDOR AS Vendedor, DocNr, Serie.DtSaida AS DtUltMov, Serie.PrFixo, Serie.Obs, Serie.Obs1, ModeloCor.FornID , Serie.Obs3  " &
+                        "FROM Modelos RIGHT OUTER JOIN " &
+                        "Serie ON Modelos.ModeloID = Serie.ModeloID LEFT OUTER JOIN " &
+                        "ModeloCor ON Serie.CorID = ModeloCor.CorID AND Serie.ModeloID = ModeloCor.ModeloID LEFT OUTER JOIN " &
+                        "Armazens ON Serie.ArmazemID = Armazens.ArmazemID " &
                         "WHERE Serie.ArmazemID LIKE '%' AND (Serie.EstadoID NOT IN ('R') OR (Serie.EstadoID IN ('R') AND (Serie.DtRegisto > (GETDATE() - " & xTempoDev & ")))) order by Serie.DtSaida desc"
                         '"WHERE Serie.EstadoID in ('S','T') AND Serie.ArmazemID like '" & xArmzAux & "'"
 
 
 
                     Else
-                        Sql = "SELECT Serie.SerieID AS Talão, Serie.ProductCode, Modelos.EpocaID AS Ep, Modelos.GrupoID AS Gr, Modelos.TipoID AS Tip, Modelos.Altura AS Alt, Serie.ModeloID AS Modelo, Serie.CorID AS Cor,  " & _
-                        "RTRIM(ModeloCor.ModCorDescr) AS Descrição, Serie.TamID AS Tam, RTRIM(Serie.ArmazemID) + ' - ' + RTRIM(Armazens.ArmAbrev) AS Loja,  " & _
-                        "Serie.EstadoID AS Est, Modelos.LinhaID AS Ln, Serie.PrecoEtiqueta AS PrTalão, Serie.PrecoVenda AS PrVnd, Serie.PVndReal AS PrVndReal, Serie.Comissao, SERIE.VENDEDOR AS Vendedor, DocNr, Serie.DtSaida AS DtUltMov,  Serie.PrFixo, Serie.Obs, Serie.Obs1, ModeloCor.FornID " & _
-                        "FROM Modelos RIGHT OUTER JOIN " & _
-                        "Serie ON Modelos.ModeloID = Serie.ModeloID LEFT OUTER JOIN " & _
-                        "ModeloCor ON Serie.CorID = ModeloCor.CorID AND Serie.ModeloID = ModeloCor.ModeloID LEFT OUTER JOIN " & _
-                        "Armazens ON Serie.ArmazemID = Armazens.ArmazemID " & _
+                        Sql = "SELECT Serie.SerieID AS Talão, Serie.ProductCode, Modelos.EpocaID AS Ep, Modelos.GrupoID AS Gr, Modelos.TipoID AS Tip, Modelos.Altura AS Alt, Serie.ModeloID AS Modelo, Serie.CorID AS Cor,  " &
+                        "RTRIM(ModeloCor.ModCorDescr) AS Descrição, Serie.TamID AS Tam, RTRIM(Serie.ArmazemID) + ' - ' + RTRIM(Armazens.ArmAbrev) AS Loja,  " &
+                        "Serie.EstadoID AS Est, Modelos.LinhaID AS Ln, Serie.PrecoEtiqueta AS PrTalão, Serie.PrecoVenda AS PrVnd, Serie.PVndReal AS PrVndReal, Serie.Comissao, SERIE.VENDEDOR AS Vendedor, DocNr, Serie.DtSaida AS DtUltMov,  Serie.PrFixo, Serie.Obs, Serie.Obs1, ModeloCor.FornID , Serie.Obs3 " &
+                        "FROM Modelos RIGHT OUTER JOIN " &
+                        "Serie ON Modelos.ModeloID = Serie.ModeloID LEFT OUTER JOIN " &
+                        "ModeloCor ON Serie.CorID = ModeloCor.CorID AND Serie.ModeloID = ModeloCor.ModeloID LEFT OUTER JOIN " &
+                        "Armazens ON Serie.ArmazemID = Armazens.ArmazemID " &
                         "WHERE Serie.ArmazemID LIKE '" & xArmzAux & "' AND (Serie.EstadoID NOT IN ('R') OR (Serie.EstadoID IN ('R') AND (Serie.DtRegisto > (GETDATE() - " & xTempoDev & ")))) order by Serie.DtSaida desc"
                     End If
                 End If
             Else
-                Sql = "SELECT Serie.SerieID AS Talão, Serie.ProductCode, Modelos.EpocaID AS Ep, Modelos.GrupoID AS Gr, Modelos.TipoID AS Tip, Modelos.Altura AS Alt, Serie.ModeloID AS Modelo, " & _
-                        "Serie.CorID AS Cor, RTRIM(ModeloCor.ModCorDescr) AS Descrição, Serie.TamID AS Tam, RTRIM(Serie.ArmazemID) + ' - ' + RTRIM(Armazens.ArmAbrev) " & _
-                        "AS Loja, Serie.EstadoID AS Est, Modelos.LinhaID AS Ln, Serie.PrecoEtiqueta AS PrTalão, Serie.PrecoVenda AS PrVnd, Serie.PVndReal AS PrVndReal, Serie.Comissao, SERIE.VENDEDOR AS Vendedor, DocNr, Serie.DtSaida AS DtUltMov, Serie.PrFixo, Serie.Obs, Serie.Obs1, ModeloCor.FornID " & _
-                        "FROM Serie LEFT OUTER JOIN " & _
-                        "Modelos ON Serie.ModeloID = Modelos.ModeloID LEFT OUTER JOIN " & _
-                        "ModeloCor ON Serie.CorID = ModeloCor.CorID AND Serie.ModeloID = ModeloCor.ModeloID LEFT OUTER JOIN " & _
-                        "Armazens ON Serie.ArmazemID = Armazens.ArmazemID " & _
+                Sql = "SELECT Serie.SerieID AS Talão, Serie.ProductCode, Modelos.EpocaID AS Ep, Modelos.GrupoID AS Gr, Modelos.TipoID AS Tip, Modelos.Altura AS Alt, Serie.ModeloID AS Modelo, " &
+                        "Serie.CorID AS Cor, RTRIM(ModeloCor.ModCorDescr) AS Descrição, Serie.TamID AS Tam, RTRIM(Serie.ArmazemID) + ' - ' + RTRIM(Armazens.ArmAbrev) " &
+                        "AS Loja, Serie.EstadoID AS Est, Modelos.LinhaID AS Ln, Serie.PrecoEtiqueta AS PrTalão, Serie.PrecoVenda AS PrVnd, Serie.PVndReal AS PrVndReal, Serie.Comissao, SERIE.VENDEDOR AS Vendedor, DocNr, Serie.DtSaida AS DtUltMov, Serie.PrFixo, Serie.Obs, Serie.Obs1, ModeloCor.FornID, Serie.Obs3  " &
+                        "FROM Serie LEFT OUTER JOIN " &
+                        "Modelos ON Serie.ModeloID = Modelos.ModeloID LEFT OUTER JOIN " &
+                        "ModeloCor ON Serie.CorID = ModeloCor.CorID AND Serie.ModeloID = ModeloCor.ModeloID LEFT OUTER JOIN " &
+                        "Armazens ON Serie.ArmazemID = Armazens.ArmazemID " &
                         "WHERE Serie.ArmazemID='xxxx' order by Serie.DtSaida desc"
 
             End If
@@ -957,7 +954,31 @@ Public Class frmConsultaTalao
 
     End Sub
 
+    Private Sub C1TDBGCTaloes_MouseClick(sender As Object, e As MouseEventArgs) Handles C1TDBGCTaloes.MouseClick
+        Dim db As New ClsSqlBDados
+        Try
 
+            If e.Button = Windows.Forms.MouseButtons.Left Then
+                'validar se a celula é fornid
+                If Me.C1TDBGCTaloes.Splits(0).DisplayColumns(C1TDBGCTaloes.Col).Name = "FornID" Then
+                    Sql = "SELECT NomeAbrev FROM Terceiros WHERE TercID='" & C1TDBGCTaloes(C1TDBGCTaloes.Row, "FornID") & "' "
+
+                    lblForn.Text = db.GetDataValue(Sql)
+                    lblForn.AutoSize = True
+                    lblForn.Location = New Point(e.X, e.Y)
+                    C1TDBGCTaloes.Controls.Add(lblForn)
+                Else
+                    If lblForn IsNot Nothing Then
+                        lblForn.Text = ""
+                    End If
+                End If
+            End If
+
+        Catch ex As Exception
+
+        End Try
+
+    End Sub
 
 
 End Class
