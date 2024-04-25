@@ -26,6 +26,8 @@ Public Class frmManutEncClientes
     Dim dtLinha As New DataTable
     Dim DtDropDown As New DataTable
     Dim dtMarcas As New DataTable
+    Dim lblMarca As New Label
+    Dim lblForn As New Label
 
     Dim DtDetTam As New DataTable
     Dim Contador As Integer
@@ -358,7 +360,7 @@ Public Class frmManutEncClientes
         Me.cbForn.HeadingStyle = Style4
         Me.cbForn.HighLightRowStyle = Style5
         Me.cbForn.Images.Add(CType(resources.GetObject("cbForn.Images"), System.Drawing.Image))
-        Me.cbForn.Location = New System.Drawing.Point(52, 430)
+        Me.cbForn.Location = New System.Drawing.Point(132, 308)
         Me.cbForn.Name = "cbForn"
         Me.cbForn.OddRowStyle = Style6
         Me.cbForn.RecordSelectorStyle = Style7
@@ -391,7 +393,7 @@ Public Class frmManutEncClientes
         Me.cbEstado.HeadingStyle = Style12
         Me.cbEstado.HighLightRowStyle = Style13
         Me.cbEstado.Images.Add(CType(resources.GetObject("cbEstado.Images"), System.Drawing.Image))
-        Me.cbEstado.Location = New System.Drawing.Point(1004, 405)
+        Me.cbEstado.Location = New System.Drawing.Point(940, 287)
         Me.cbEstado.Name = "cbEstado"
         Me.cbEstado.OddRowStyle = Style14
         Me.cbEstado.RecordSelectorStyle = Style15
@@ -400,7 +402,7 @@ Public Class frmManutEncClientes
         Me.cbEstado.RowHeight = 15
         Me.cbEstado.RowSubDividerColor = System.Drawing.Color.DarkGray
         Me.cbEstado.ScrollTips = False
-        Me.cbEstado.Size = New System.Drawing.Size(381, 112)
+        Me.cbEstado.Size = New System.Drawing.Size(301, 112)
         Me.cbEstado.Style = Style16
         Me.cbEstado.TabIndex = 32
         Me.cbEstado.TabStop = False
@@ -448,7 +450,7 @@ Public Class frmManutEncClientes
         Me.cbGrupo.HeadingStyle = Style20
         Me.cbGrupo.HighLightRowStyle = Style21
         Me.cbGrupo.Images.Add(CType(resources.GetObject("cbGrupo.Images"), System.Drawing.Image))
-        Me.cbGrupo.Location = New System.Drawing.Point(206, 405)
+        Me.cbGrupo.Location = New System.Drawing.Point(69, 284)
         Me.cbGrupo.Name = "cbGrupo"
         Me.cbGrupo.OddRowStyle = Style22
         Me.cbGrupo.RecordSelectorStyle = Style23
@@ -482,7 +484,7 @@ Public Class frmManutEncClientes
         Me.cbTipo.HeadingStyle = Style28
         Me.cbTipo.HighLightRowStyle = Style29
         Me.cbTipo.Images.Add(CType(resources.GetObject("cbTipo.Images"), System.Drawing.Image))
-        Me.cbTipo.Location = New System.Drawing.Point(397, 444)
+        Me.cbTipo.Location = New System.Drawing.Point(353, 350)
         Me.cbTipo.Name = "cbTipo"
         Me.cbTipo.OddRowStyle = Style30
         Me.cbTipo.RecordSelectorStyle = Style31
@@ -704,6 +706,8 @@ Public Class frmManutEncClientes
         Me.C1DGEnc.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.C1DGEnc.GroupByCaption = "Drag a column header here to group by that column"
         Me.C1DGEnc.Images.Add(CType(resources.GetObject("C1DGEnc.Images"), System.Drawing.Image))
+        Me.C1DGEnc.Images.Add(CType(resources.GetObject("C1DGEnc.Images1"), System.Drawing.Image))
+        Me.C1DGEnc.Images.Add(CType(resources.GetObject("C1DGEnc.Images2"), System.Drawing.Image))
         Me.C1DGEnc.LinesPerRow = 3
         Me.C1DGEnc.Location = New System.Drawing.Point(10, 233)
         Me.C1DGEnc.MarqueeStyle = C1.Win.C1TrueDBGrid.MarqueeEnum.DottedCellBorder
@@ -944,6 +948,7 @@ Public Class frmManutEncClientes
                 .Width = 115
                 .EvenRowStyle.BackColor = Color.Khaki
             End With
+
 
         Catch ex As SqlException
             ErroSQL(ex.Number, ex.Message, "frmManutEnc_Load")
@@ -1610,7 +1615,46 @@ Public Class frmManutEncClientes
         'DataGrid.SelectedRows.Clear()
     End Sub
 
+    Private Sub C1DGEnc_MouseClick(sender As Object, e As MouseEventArgs) Handles C1DGEnc.MouseClick
+        Dim db As New ClsSqlBDados
+        Try
 
+            If e.Button = Windows.Forms.MouseButtons.Left Then
+                'validar se a celula é fornid
+                If Me.C1DGEnc.Splits(0).DisplayColumns(C1DGEnc.Col).Name = "Forn" Then
+                    Sql = "SELECT NomeAbrev FROM Terceiros WHERE TercID='" & C1DGEnc(C1DGEnc.Row, "FornID") & "' "
+
+                    lblForn.Text = db.GetDataValue(Sql)
+                    lblForn.AutoSize = True
+                    lblForn.Location = New Point(e.X, e.Y)
+                    C1DGEnc.Controls.Add(lblForn)
+                Else
+                    If lblForn IsNot Nothing Then
+                        lblForn.Text = ""
+                    End If
+                End If
+                'validar se a celula é marca
+                If Me.C1DGEnc.Splits(0).DisplayColumns(C1DGEnc.Col).Name = "Marca" Then
+                    Sql = "SELECT MarcaDescr FROM Marcas WHERE MarcaId='" & C1DGEnc(C1DGEnc.Row, "MarcaId") & "' "
+
+                    lblMarca.Text = db.GetDataValue(Sql)
+                    lblMarca.AutoSize = True
+                    lblMarca.Location = New Point(e.X, e.Y)
+                    C1DGEnc.Controls.Add(lblMarca)
+                Else
+                    If lblMarca IsNot Nothing Then
+                        lblMarca.Text = ""
+                    End If
+                End If
+
+
+            End If
+
+        Catch ex As Exception
+
+        End Try
+
+    End Sub
 
 
     ' EVENTOS NA GRID C1DGEncDetTam
@@ -1734,7 +1778,7 @@ Public Class frmManutEncClientes
                 .FetchRowStyles = True
                 .MarqueeStyle = MarqueeEnum.HighlightRowRaiseCell
                 .Styles("HighlightRow").BackColor = Color.Pink
-                .Columns("FornId").Caption = "Forn "
+                .Columns("FornId").Caption = "Forn"
                 '.Columns("ClienteID").Caption = "Cliente"
                 .Columns("RefForn").Caption = "RefForn"
                 .Columns("CorForn").Caption = "CorForn"
@@ -1782,7 +1826,8 @@ Public Class frmManutEncClientes
                 .Splits(0).DisplayColumns("CorForn").Width = 75
                 .Splits(0).DisplayColumns("ModCorDescr").Width = 75
                 .Splits(0).DisplayColumns("MarcaID").Width = 75
-
+                '.Splits(0).DisplayColumns("MarcaID").DataColumn.DropDown.ValueTranslate = True
+                ''na celula da coluna marcaid mostrar a Descrição
 
                 .Splits(0).DisplayColumns("FornId").Style.HorizontalAlignment = AlignHorzEnum.Center
                 '.Splits(0).DisplayColumns("ClienteID").Style.HorizontalAlignment = AlignHorzEnum.Center
@@ -1975,6 +2020,8 @@ Public Class frmManutEncClientes
                 If Trim(Me.C1DGEnc(.Row, "Altura")).Length = 0 Then Exit Function
                 If Me.C1DGEnc(.Row, "LinhaID") Is DBNull.Value Then Exit Function
                 If Trim(Me.C1DGEnc(.Row, "LinhaID")).Length = 0 Then Exit Function
+                If Me.C1DGEnc(.Row, "MarcaID") Is DBNull.Value Then Exit Function
+                If Trim(Me.C1DGEnc(.Row, "MarcaID")).Length = 0 Then Exit Function
                 If Me.C1DGEnc(.Row, "ModCorDescr") Is DBNull.Value Then Exit Function
                 If Trim(Me.C1DGEnc(.Row, "ModCorDescr")).Length = 0 Then Exit Function
                 If Me.C1DGEnc(.Row, "FornId") Is DBNull.Value Then Exit Function
@@ -1998,6 +2045,7 @@ Public Class frmManutEncClientes
                 xFornId = Me.C1DGEnc(.Row, "FornId")
                 xPrCusto = Me.C1DGEnc(.Row, "PrCusto")
                 xPrVnd = Me.C1DGEnc(.Row, "PrecoEtiqueta")
+                xMarca = Me.C1DGEnc(.Row, "Marca")
             End With
 
 
@@ -2078,8 +2126,8 @@ Public Class frmManutEncClientes
 
 
 
-                Sql = "INSERT INTO Modelos (ModeloID, GrupoID, TipoID, Altura, EpocaID, LinhaID, UnidId, EscalaId, OperadorID) " &
-                        "VALUES ('" & xModeloID & "', '" & xGrupoID & "', '" & xTipoID & "', '" & xAltura & "', '" & xEpoca & "', '" & xLinhaID & "', '" & xUnid & "', '" & xEscala & "', '" & xUtilizador & "') "
+                Sql = "INSERT INTO Modelos (ModeloID, GrupoID, TipoID, Altura, EpocaID, LinhaID, UnidId, EscalaId, OperadorID, MarcaID) " &
+                        "VALUES ('" & xModeloID & "', '" & xGrupoID & "', '" & xTipoID & "', '" & xAltura & "', '" & xEpoca & "', '" & xLinhaID & "', '" & xUnid & "', '" & xEscala & "', '" & xUtilizador & "',  '" & xMarca & "') "
                 Cmd = New SqlCommand(Sql, cn)
                 If cn.State = ConnectionState.Closed Then cn.Open()
                 Cmd.ExecuteNonQuery()
