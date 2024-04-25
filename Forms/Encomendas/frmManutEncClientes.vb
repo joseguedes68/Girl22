@@ -708,6 +708,7 @@ Public Class frmManutEncClientes
         Me.C1DGEnc.Images.Add(CType(resources.GetObject("C1DGEnc.Images"), System.Drawing.Image))
         Me.C1DGEnc.Images.Add(CType(resources.GetObject("C1DGEnc.Images1"), System.Drawing.Image))
         Me.C1DGEnc.Images.Add(CType(resources.GetObject("C1DGEnc.Images2"), System.Drawing.Image))
+        Me.C1DGEnc.Images.Add(CType(resources.GetObject("C1DGEnc.Images3"), System.Drawing.Image))
         Me.C1DGEnc.LinesPerRow = 3
         Me.C1DGEnc.Location = New System.Drawing.Point(10, 233)
         Me.C1DGEnc.MarqueeStyle = C1.Win.C1TrueDBGrid.MarqueeEnum.DottedCellBorder
