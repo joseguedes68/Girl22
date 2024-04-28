@@ -60,7 +60,7 @@ Partial Class frmConsultaTalao
         Me.C1TDBGCTaloes.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.C1TDBGCTaloes.GroupByCaption = "Drag a column header here to group by that column"
         Me.C1TDBGCTaloes.Images.Add(CType(resources.GetObject("C1TDBGCTaloes.Images"), System.Drawing.Image))
-        Me.C1TDBGCTaloes.Location = New System.Drawing.Point(0, 260)
+        Me.C1TDBGCTaloes.Location = New System.Drawing.Point(5, 260)
         Me.C1TDBGCTaloes.Margin = New System.Windows.Forms.Padding(4)
         Me.C1TDBGCTaloes.MarqueeStyle = C1.Win.C1TrueDBGrid.MarqueeEnum.DottedCellBorder
         Me.C1TDBGCTaloes.Name = "C1TDBGCTaloes"
@@ -73,21 +73,20 @@ Partial Class frmConsultaTalao
         Me.C1TDBGCTaloes.RowDivider.Style = C1.Win.C1TrueDBGrid.LineStyleEnum.[Single]
         Me.C1TDBGCTaloes.RowHeight = 20
         Me.C1TDBGCTaloes.RowSubDividerColor = System.Drawing.Color.DarkGray
-        Me.C1TDBGCTaloes.Size = New System.Drawing.Size(1666, 428)
+        Me.C1TDBGCTaloes.Size = New System.Drawing.Size(1658, 428)
         Me.C1TDBGCTaloes.TabIndex = 0
         Me.C1TDBGCTaloes.Text = "C1TrueDBGrid1"
         Me.C1TDBGCTaloes.PropBag = resources.GetString("C1TDBGCTaloes.PropBag")
         '
         'CmdFechar
         '
-        Me.CmdFechar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.CmdFechar.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.CmdFechar.DialogResult = System.Windows.Forms.DialogResult.Yes
         Me.CmdFechar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CmdFechar.Location = New System.Drawing.Point(1492, 18)
+        Me.CmdFechar.Location = New System.Drawing.Point(1417, 18)
         Me.CmdFechar.Margin = New System.Windows.Forms.Padding(4)
         Me.CmdFechar.Name = "CmdFechar"
-        Me.CmdFechar.Size = New System.Drawing.Size(175, 39)
+        Me.CmdFechar.Size = New System.Drawing.Size(133, 39)
         Me.CmdFechar.TabIndex = 2
         Me.CmdFechar.Text = "Fechar"
         Me.CmdFechar.UseVisualStyleBackColor = False
@@ -141,11 +140,10 @@ Partial Class frmConsultaTalao
         '
         'PictureBox
         '
-        Me.PictureBox.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.PictureBox.Location = New System.Drawing.Point(1149, 10)
+        Me.PictureBox.Location = New System.Drawing.Point(1099, 10)
         Me.PictureBox.Margin = New System.Windows.Forms.Padding(4)
         Me.PictureBox.Name = "PictureBox"
-        Me.PictureBox.Size = New System.Drawing.Size(335, 241)
+        Me.PictureBox.Size = New System.Drawing.Size(310, 241)
         Me.PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox.TabIndex = 7
         Me.PictureBox.TabStop = False
@@ -246,14 +244,13 @@ Partial Class frmConsultaTalao
         '
         'btDev
         '
-        Me.btDev.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btDev.BackColor = System.Drawing.Color.FromArgb(CType(CType(243, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(51, Byte), Integer))
         Me.btDev.DialogResult = System.Windows.Forms.DialogResult.Yes
         Me.btDev.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold)
-        Me.btDev.Location = New System.Drawing.Point(1492, 107)
+        Me.btDev.Location = New System.Drawing.Point(1417, 107)
         Me.btDev.Margin = New System.Windows.Forms.Padding(4)
         Me.btDev.Name = "btDev"
-        Me.btDev.Size = New System.Drawing.Size(175, 39)
+        Me.btDev.Size = New System.Drawing.Size(133, 39)
         Me.btDev.TabIndex = 46
         Me.btDev.Text = "Devoluções"
         Me.btDev.UseVisualStyleBackColor = False
@@ -261,14 +258,13 @@ Partial Class frmConsultaTalao
         '
         'btAnular
         '
-        Me.btAnular.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btAnular.BackColor = System.Drawing.Color.FromArgb(CType(CType(243, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(51, Byte), Integer))
         Me.btAnular.DialogResult = System.Windows.Forms.DialogResult.Yes
         Me.btAnular.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold)
-        Me.btAnular.Location = New System.Drawing.Point(1492, 60)
+        Me.btAnular.Location = New System.Drawing.Point(1417, 60)
         Me.btAnular.Margin = New System.Windows.Forms.Padding(4)
         Me.btAnular.Name = "btAnular"
-        Me.btAnular.Size = New System.Drawing.Size(175, 39)
+        Me.btAnular.Size = New System.Drawing.Size(133, 39)
         Me.btAnular.TabIndex = 47
         Me.btAnular.Text = "Anular"
         Me.btAnular.UseVisualStyleBackColor = False
@@ -301,14 +297,13 @@ Partial Class frmConsultaTalao
         '
         'btForn
         '
-        Me.btForn.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btForn.BackColor = System.Drawing.Color.FromArgb(CType(CType(243, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(51, Byte), Integer))
         Me.btForn.DialogResult = System.Windows.Forms.DialogResult.Yes
         Me.btForn.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold)
-        Me.btForn.Location = New System.Drawing.Point(1492, 201)
+        Me.btForn.Location = New System.Drawing.Point(1417, 201)
         Me.btForn.Margin = New System.Windows.Forms.Padding(4)
         Me.btForn.Name = "btForn"
-        Me.btForn.Size = New System.Drawing.Size(175, 39)
+        Me.btForn.Size = New System.Drawing.Size(133, 39)
         Me.btForn.TabIndex = 50
         Me.btForn.TabStop = False
         Me.btForn.Text = "Fornecedores"
@@ -321,7 +316,7 @@ Partial Class frmConsultaTalao
         Me.btValidaTalao.Location = New System.Drawing.Point(943, 26)
         Me.btValidaTalao.Margin = New System.Windows.Forms.Padding(4)
         Me.btValidaTalao.Name = "btValidaTalao"
-        Me.btValidaTalao.Size = New System.Drawing.Size(169, 78)
+        Me.btValidaTalao.Size = New System.Drawing.Size(151, 78)
         Me.btValidaTalao.TabIndex = 51
         Me.btValidaTalao.Text = "Validar Talões"
         Me.btValidaTalao.UseVisualStyleBackColor = False
@@ -333,7 +328,7 @@ Partial Class frmConsultaTalao
         Me.btCancelar.Location = New System.Drawing.Point(943, 107)
         Me.btCancelar.Margin = New System.Windows.Forms.Padding(4)
         Me.btCancelar.Name = "btCancelar"
-        Me.btCancelar.Size = New System.Drawing.Size(169, 78)
+        Me.btCancelar.Size = New System.Drawing.Size(151, 78)
         Me.btCancelar.TabIndex = 52
         Me.btCancelar.Text = "Cancelar"
         Me.btCancelar.UseVisualStyleBackColor = False
@@ -342,7 +337,7 @@ Partial Class frmConsultaTalao
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1683, 688)
+        Me.ClientSize = New System.Drawing.Size(1676, 688)
         Me.Controls.Add(Me.btCancelar)
         Me.Controls.Add(Me.btValidaTalao)
         Me.Controls.Add(Me.btForn)

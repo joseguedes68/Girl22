@@ -685,7 +685,7 @@ Public Class frmMenuGirl
     Private Sub EtiquetasToolStripMenuItem1_Click(sender As System.Object, e As System.EventArgs) Handles EtiquetasToolStripMenuItem1.Click
         Application.DoEvents()
         frmConsultaTalao.MdiParent = Me
-        frmConsultaTalao.WindowState = FormWindowState.Minimized
+        frmConsultaTalao.WindowState = FormWindowState.Maximized
         frmConsultaTalao.StartPosition = FormStartPosition.CenterScreen
         frmConsultaTalao.WindowState = FormWindowState.Normal
         frmConsultaTalao.Show()

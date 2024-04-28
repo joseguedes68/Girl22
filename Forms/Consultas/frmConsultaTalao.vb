@@ -236,7 +236,7 @@ Public Class frmConsultaTalao
 
                 Sql = "SELECT Serie.SerieID AS Talão, Serie.ProductCode, Modelos.EpocaID AS Ep, Modelos.GrupoID AS Gr, Modelos.TipoID AS Tip, Modelos.Altura AS Alt, Serie.ModeloID AS Modelo, " &
                "Serie.CorID AS Cor, RTRIM(ModeloCor.ModCorDescr) AS Descrição, Serie.TamID AS Tam, RTRIM(Serie.ArmazemID) + ' - ' + RTRIM(Armazens.ArmAbrev) " &
-               "AS Loja, Serie.EstadoID AS Est, Modelos.LinhaID AS Ln, Serie.PrecoEtiqueta AS PrTalão, Serie.PrecoVenda AS PrVnd, Serie.PVndReal AS PrVndReal , Serie.Comissao, DocNr, Serie.DtSaida AS DtUltMov, Serie.Obs, Serie.Obs1, ModeloCor.FornID " &
+               "AS Loja, Serie.EstadoID AS Est, Modelos.LinhaID AS Ln, Serie.PrecoEtiqueta AS PrTalão, Serie.PrecoVenda AS PrVnd, Serie.PVndReal AS PrVndReal , Serie.Comissao, DocNr, Serie.DtSaida AS DtUltMov, Serie.Obs, Serie.Obs1, ModeloCor.FornID, Serie.Obs3 " &
                "FROM Serie LEFT OUTER JOIN " &
                "Modelos ON Serie.ModeloID = Modelos.ModeloID LEFT OUTER JOIN " &
                "ModeloCor ON Serie.CorID = ModeloCor.CorID AND Serie.ModeloID = ModeloCor.ModeloID LEFT OUTER JOIN " &
@@ -259,7 +259,7 @@ Public Class frmConsultaTalao
                     ' ISTO FOI FEITO À PRESSA PARA MOSTRAR OS TALÕES NAS LOJAS....
                     Sql = "SELECT Serie.SerieID AS Talão, Serie.ProductCode, Modelos.EpocaID AS Ep, Modelos.GrupoID AS Gr, Modelos.TipoID AS Tip, Modelos.Altura AS Alt, Serie.ModeloID AS Modelo, Serie.CorID AS Cor,  " &
                         "RTRIM(ModeloCor.ModCorDescr) AS Descrição, Serie.TamID AS Tam, RTRIM(Serie.ArmazemID) + ' - ' + RTRIM(Armazens.ArmAbrev) AS Loja,  " &
-                        "Serie.EstadoID AS Est, Modelos.LinhaID AS Ln, Serie.PrecoEtiqueta AS PrTalão, Serie.PrecoVenda AS PrVnd, Serie.PVndReal AS PrVndReal, Serie.Comissao, SERIE.VENDEDOR AS Vendedor, DocNr, Serie.DtSaida AS DtUltMov,  Serie.PrFixo, Serie.Obs, Serie.Obs1, Serie.Obs3, ModeloCor.FornID " &
+                        "Serie.EstadoID AS Est, Modelos.LinhaID AS Ln, Serie.PrecoEtiqueta AS PrTalão, Serie.PrecoVenda AS PrVnd, Serie.PVndReal AS PrVndReal, Serie.Comissao, SERIE.VENDEDOR AS Vendedor, DocNr, Serie.DtSaida AS DtUltMov,  Serie.PrFixo, Serie.Obs, Serie.Obs1, Serie.Obs3, ModeloCor.FornID, Serie.Obs3 " &
                         "FROM Modelos RIGHT OUTER JOIN " &
                         "Serie ON Modelos.ModeloID = Serie.ModeloID LEFT OUTER JOIN " &
                         "ModeloCor ON Serie.CorID = ModeloCor.CorID AND Serie.ModeloID = ModeloCor.ModeloID LEFT OUTER JOIN " &
