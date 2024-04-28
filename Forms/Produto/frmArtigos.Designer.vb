@@ -37,10 +37,18 @@ Partial Class frmArtigos
         Me.BindingNavigatorMoveLastItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.dgvModelos = New System.Windows.Forms.DataGridView()
+        Me.ModeloID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.GrupoID = New System.Windows.Forms.DataGridViewComboBoxColumn()
         Me.GruposBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.TipoID = New System.Windows.Forms.DataGridViewComboBoxColumn()
+        Me.UnidID = New System.Windows.Forms.DataGridViewComboBoxColumn()
         Me.UnidadesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Altura = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.EpocaID = New System.Windows.Forms.DataGridViewComboBoxColumn()
         Me.EpocasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.MarcaID = New System.Windows.Forms.DataGridViewComboBoxColumn()
         Me.MarcasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.EscalaID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.LinhasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ModeloCorBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ModeloCorTableAdapter = New GirlRootName.GirlDataSetTableAdapters.ModeloCorTableAdapter()
@@ -75,14 +83,6 @@ Partial Class frmArtigos
         Me.EpocasTableAdapter = New GirlRootName.GirlDataSetTableAdapters.EpocasTableAdapter()
         Me.TerceirosTableAdapter = New GirlRootName.GirlDataSetTableAdapters.TerceirosTableAdapter()
         Me.MarcasTableAdapter = New GirlRootName.GirlDataSetTableAdapters.MarcasTableAdapter()
-        Me.ModeloID = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.GrupoID = New System.Windows.Forms.DataGridViewComboBoxColumn()
-        Me.TipoID = New System.Windows.Forms.DataGridViewComboBoxColumn()
-        Me.UnidID = New System.Windows.Forms.DataGridViewComboBoxColumn()
-        Me.Altura = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.EpocaID = New System.Windows.Forms.DataGridViewComboBoxColumn()
-        Me.MarcaID = New System.Windows.Forms.DataGridViewComboBoxColumn()
-        Me.EscalaID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.GirlDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ModelosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ModelosBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -222,25 +222,105 @@ Partial Class frmArtigos
         Me.dgvModelos.Size = New System.Drawing.Size(1065, 401)
         Me.dgvModelos.TabIndex = 1
         '
+        'ModeloID
+        '
+        Me.ModeloID.DataPropertyName = "ModeloID"
+        Me.ModeloID.HeaderText = "Modelo"
+        Me.ModeloID.MinimumWidth = 6
+        Me.ModeloID.Name = "ModeloID"
+        Me.ModeloID.Width = 50
+        '
+        'GrupoID
+        '
+        Me.GrupoID.DataPropertyName = "GrupoID"
+        Me.GrupoID.DataSource = Me.GruposBindingSource
+        Me.GrupoID.DisplayMember = "GrupoDesc"
+        Me.GrupoID.HeaderText = "Grupo"
+        Me.GrupoID.MinimumWidth = 6
+        Me.GrupoID.Name = "GrupoID"
+        Me.GrupoID.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.GrupoID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.GrupoID.ValueMember = "GrupoID"
+        Me.GrupoID.Width = 180
+        '
         'GruposBindingSource
         '
         Me.GruposBindingSource.DataMember = "Grupos"
         Me.GruposBindingSource.DataSource = Me.GirlDataSet
+        '
+        'TipoID
+        '
+        Me.TipoID.DataPropertyName = "TipoID"
+        Me.TipoID.HeaderText = "Tipo"
+        Me.TipoID.MinimumWidth = 6
+        Me.TipoID.Name = "TipoID"
+        Me.TipoID.Width = 125
+        '
+        'UnidID
+        '
+        Me.UnidID.DataPropertyName = "UnidID"
+        Me.UnidID.DataSource = Me.UnidadesBindingSource
+        Me.UnidID.DisplayMember = "UnidDescr"
+        Me.UnidID.HeaderText = "Unid"
+        Me.UnidID.MinimumWidth = 6
+        Me.UnidID.Name = "UnidID"
+        Me.UnidID.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.UnidID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.UnidID.ValueMember = "UnidID"
+        Me.UnidID.Width = 46
         '
         'UnidadesBindingSource
         '
         Me.UnidadesBindingSource.DataMember = "Unidades"
         Me.UnidadesBindingSource.DataSource = Me.GirlDataSet
         '
+        'Altura
+        '
+        Me.Altura.DataPropertyName = "Altura"
+        Me.Altura.HeaderText = "Altura"
+        Me.Altura.MinimumWidth = 6
+        Me.Altura.Name = "Altura"
+        Me.Altura.Width = 50
+        '
+        'EpocaID
+        '
+        Me.EpocaID.DataPropertyName = "EpocaID"
+        Me.EpocaID.DataSource = Me.EpocasBindingSource
+        Me.EpocaID.DisplayMember = "EpocaDescr"
+        Me.EpocaID.HeaderText = "Epoca"
+        Me.EpocaID.MinimumWidth = 6
+        Me.EpocaID.Name = "EpocaID"
+        Me.EpocaID.ValueMember = "EpocaID"
+        Me.EpocaID.Width = 60
+        '
         'EpocasBindingSource
         '
         Me.EpocasBindingSource.DataMember = "Epocas"
         Me.EpocasBindingSource.DataSource = Me.GirlDataSet
         '
+        'MarcaID
+        '
+        Me.MarcaID.DataPropertyName = "MarcaID"
+        Me.MarcaID.DataSource = Me.MarcasBindingSource
+        Me.MarcaID.DisplayMember = "MarcaDescr"
+        Me.MarcaID.HeaderText = "Marca"
+        Me.MarcaID.MinimumWidth = 6
+        Me.MarcaID.Name = "MarcaID"
+        Me.MarcaID.ValueMember = "MarcaID"
+        Me.MarcaID.Width = 200
+        '
         'MarcasBindingSource
         '
         Me.MarcasBindingSource.DataMember = "Marcas"
         Me.MarcasBindingSource.DataSource = Me.GirlDataSet
+        '
+        'EscalaID
+        '
+        Me.EscalaID.DataPropertyName = "EscalaID"
+        Me.EscalaID.HeaderText = "Escala"
+        Me.EscalaID.MinimumWidth = 6
+        Me.EscalaID.Name = "EscalaID"
+        Me.EscalaID.Width = 55
         '
         'LinhasBindingSource
         '
@@ -514,86 +594,6 @@ Partial Class frmArtigos
         'MarcasTableAdapter
         '
         Me.MarcasTableAdapter.ClearBeforeFill = True
-        '
-        'ModeloID
-        '
-        Me.ModeloID.DataPropertyName = "ModeloID"
-        Me.ModeloID.HeaderText = "Modelo"
-        Me.ModeloID.MinimumWidth = 6
-        Me.ModeloID.Name = "ModeloID"
-        Me.ModeloID.Width = 50
-        '
-        'GrupoID
-        '
-        Me.GrupoID.DataPropertyName = "GrupoID"
-        Me.GrupoID.DataSource = Me.GruposBindingSource
-        Me.GrupoID.DisplayMember = "GrupoDesc"
-        Me.GrupoID.HeaderText = "Grupo"
-        Me.GrupoID.MinimumWidth = 6
-        Me.GrupoID.Name = "GrupoID"
-        Me.GrupoID.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.GrupoID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.GrupoID.ValueMember = "GrupoID"
-        Me.GrupoID.Width = 180
-        '
-        'TipoID
-        '
-        Me.TipoID.DataPropertyName = "TipoID"
-        Me.TipoID.HeaderText = "Tipo"
-        Me.TipoID.MinimumWidth = 6
-        Me.TipoID.Name = "TipoID"
-        Me.TipoID.Width = 125
-        '
-        'UnidID
-        '
-        Me.UnidID.DataPropertyName = "UnidID"
-        Me.UnidID.DataSource = Me.UnidadesBindingSource
-        Me.UnidID.DisplayMember = "UnidDescr"
-        Me.UnidID.HeaderText = "Unid"
-        Me.UnidID.MinimumWidth = 6
-        Me.UnidID.Name = "UnidID"
-        Me.UnidID.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.UnidID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.UnidID.ValueMember = "UnidID"
-        Me.UnidID.Width = 46
-        '
-        'Altura
-        '
-        Me.Altura.DataPropertyName = "Altura"
-        Me.Altura.HeaderText = "Altura"
-        Me.Altura.MinimumWidth = 6
-        Me.Altura.Name = "Altura"
-        Me.Altura.Width = 50
-        '
-        'EpocaID
-        '
-        Me.EpocaID.DataPropertyName = "EpocaID"
-        Me.EpocaID.DataSource = Me.EpocasBindingSource
-        Me.EpocaID.DisplayMember = "EpocaDescr"
-        Me.EpocaID.HeaderText = "Epoca"
-        Me.EpocaID.MinimumWidth = 6
-        Me.EpocaID.Name = "EpocaID"
-        Me.EpocaID.ValueMember = "EpocaID"
-        Me.EpocaID.Width = 60
-        '
-        'MarcaID
-        '
-        Me.MarcaID.DataPropertyName = "MarcaID"
-        Me.MarcaID.DataSource = Me.MarcasBindingSource
-        Me.MarcaID.DisplayMember = "MarcaDescr"
-        Me.MarcaID.HeaderText = "Marca"
-        Me.MarcaID.MinimumWidth = 6
-        Me.MarcaID.Name = "MarcaID"
-        Me.MarcaID.ValueMember = "MarcaID"
-        Me.MarcaID.Width = 200
-        '
-        'EscalaID
-        '
-        Me.EscalaID.DataPropertyName = "EscalaID"
-        Me.EscalaID.HeaderText = "Escala"
-        Me.EscalaID.MinimumWidth = 6
-        Me.EscalaID.Name = "EscalaID"
-        Me.EscalaID.Width = 55
         '
         'frmArtigos
         '

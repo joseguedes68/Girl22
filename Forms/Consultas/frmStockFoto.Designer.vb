@@ -77,6 +77,10 @@ Partial Class frmStockFoto
         Me.lbForn = New System.Windows.Forms.Label()
         Me.txtForn = New System.Windows.Forms.TextBox()
         Me.cmdPesqForn = New System.Windows.Forms.Button()
+        Me.cbMarcas = New System.Windows.Forms.ComboBox()
+        Me.MarcasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.GirlDataSetBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.GirlDataSet = New GirlRootName.GirlDataSet()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.PictureBoxZoom = New System.Windows.Forms.PictureBox()
         Me.ToolStripCmds = New System.Windows.Forms.ToolStrip()
@@ -128,6 +132,7 @@ Partial Class frmStockFoto
         Me.Button1 = New System.Windows.Forms.Button()
         Me.BtStockLoja = New System.Windows.Forms.Button()
         Me.btStockGeral = New System.Windows.Forms.Button()
+        Me.MarcasTableAdapter = New GirlRootName.GirlDataSetTableAdapters.MarcasTableAdapter()
         Me.Panel1.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -162,6 +167,9 @@ Partial Class frmStockFoto
         CType(Me.PictureBox30, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel3.SuspendLayout()
         Me.TableLayoutPanel3.SuspendLayout()
+        CType(Me.MarcasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GirlDataSetBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GirlDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
         CType(Me.PictureBoxZoom, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ToolStripCmds.SuspendLayout()
@@ -605,6 +613,7 @@ Partial Class frmStockFoto
         Me.TableLayoutPanel3.Controls.Add(Me.lbForn, 0, 7)
         Me.TableLayoutPanel3.Controls.Add(Me.txtForn, 1, 7)
         Me.TableLayoutPanel3.Controls.Add(Me.cmdPesqForn, 2, 7)
+        Me.TableLayoutPanel3.Controls.Add(Me.cbMarcas, 0, 9)
         Me.TableLayoutPanel3.Location = New System.Drawing.Point(0, 0)
         Me.TableLayoutPanel3.Margin = New System.Windows.Forms.Padding(4)
         Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
@@ -882,6 +891,40 @@ Partial Class frmStockFoto
         Me.cmdPesqForn.Text = "..."
         Me.cmdPesqForn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.cmdPesqForn.UseVisualStyleBackColor = False
+        '
+        'cbMarcas
+        '
+        Me.cbMarcas.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
+        Me.cbMarcas.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
+        Me.TableLayoutPanel3.SetColumnSpan(Me.cbMarcas, 3)
+        Me.cbMarcas.Cursor = System.Windows.Forms.Cursors.Arrow
+        Me.cbMarcas.DataSource = Me.MarcasBindingSource
+        Me.cbMarcas.DisplayMember = "MarcaDescr"
+        Me.cbMarcas.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.cbMarcas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbMarcas.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.cbMarcas.FormattingEnabled = True
+        Me.cbMarcas.Location = New System.Drawing.Point(3, 291)
+        Me.cbMarcas.MaxDropDownItems = 12
+        Me.cbMarcas.Name = "cbMarcas"
+        Me.cbMarcas.Size = New System.Drawing.Size(274, 33)
+        Me.cbMarcas.TabIndex = 11
+        Me.cbMarcas.ValueMember = "MarcaID"
+        '
+        'MarcasBindingSource
+        '
+        Me.MarcasBindingSource.DataMember = "Marcas"
+        Me.MarcasBindingSource.DataSource = Me.GirlDataSetBindingSource
+        '
+        'GirlDataSetBindingSource
+        '
+        Me.GirlDataSetBindingSource.DataSource = Me.GirlDataSet
+        Me.GirlDataSetBindingSource.Position = 0
+        '
+        'GirlDataSet
+        '
+        Me.GirlDataSet.DataSetName = "GirlDataSet"
+        Me.GirlDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'Panel2
         '
@@ -1488,6 +1531,10 @@ Partial Class frmStockFoto
         Me.btStockGeral.Text = "Stock Geral"
         Me.btStockGeral.UseVisualStyleBackColor = False
         '
+        'MarcasTableAdapter
+        '
+        Me.MarcasTableAdapter.ClearBeforeFill = True
+        '
         'frmStockFoto
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
@@ -1550,6 +1597,9 @@ Partial Class frmStockFoto
         Me.Panel3.ResumeLayout(False)
         Me.TableLayoutPanel3.ResumeLayout(False)
         Me.TableLayoutPanel3.PerformLayout()
+        CType(Me.MarcasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GirlDataSetBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GirlDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
         CType(Me.PictureBoxZoom, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ToolStripCmds.ResumeLayout(False)
@@ -1673,4 +1723,9 @@ Partial Class frmStockFoto
     Friend WithEvents btdetalhe As Button
     Friend WithEvents BtStockLoja As Button
     Friend WithEvents btStockGeral As Button
+    Friend WithEvents cbMarcas As ComboBox
+    Friend WithEvents GirlDataSetBindingSource As BindingSource
+    Friend WithEvents GirlDataSet As GirlDataSet
+    Friend WithEvents MarcasBindingSource As BindingSource
+    Friend WithEvents MarcasTableAdapter As GirlDataSetTableAdapters.MarcasTableAdapter
 End Class

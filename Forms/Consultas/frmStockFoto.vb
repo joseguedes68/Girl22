@@ -32,6 +32,7 @@ Public Class frmStockFoto
     Dim dtArmazens As New DataTable
     Dim xEnc As Boolean = False
     Dim uIdDocCabSinal As String = "Null"
+    Dim xMarca As String
 
     Dim sClienteLojaIdAux As String
     Dim sNIFAux As String
@@ -42,6 +43,8 @@ Public Class frmStockFoto
 
 
     Private Sub frmStockFoto_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        'TODO: esta linha de código carrega dados na tabela 'GirlDataSet.Marcas'. Você pode movê-la ou removê-la conforme necessário.
+        Me.MarcasTableAdapter.Fill(Me.GirlDataSet.Marcas)
         Dim Val As New clsValidacoes(Me.Name)
         Try
 
@@ -130,6 +133,7 @@ Public Class frmStockFoto
                 btStockGeral.Visible = True
                 BtStockLoja.Visible = True
                 cbArmazem.Visible = False
+                cbMarcas.Visible = False
 
             Else
                 btStkArmz.Visible = True
@@ -174,6 +178,11 @@ Public Class frmStockFoto
             Me.cbArmazem.DataSource = dtArmazens
             Me.cbArmazem.DisplayMember = "Destino"
             Me.cbArmazem.ValueMember = "ArmazemID"
+
+            Me.MarcasTableAdapter.Fill(Me.GirlDataSet.Marcas)
+            Me.GirlDataSet.Marcas.AddMarcasRow(0, "Todas as Marcas")
+            Me.cbMarcas.SelectedValue = 0
+
 
             If xAplicacao = "POS" And bAtrai = False Then
                 Me.cbArmazem.SelectedValue = xArmz
@@ -358,6 +367,14 @@ Public Class frmStockFoto
                 sQuery += " AND ModeloID = '" + xModelo + "' "
             Else
                 sQuery += " WHERE ModeloID = '" + xModelo + "' "
+            End If
+        End If
+
+        If cbMarcas.SelectedValue <> 0 Then
+            If sQuery.Length > 0 Then
+                sQuery += " AND MarcaID = " + cbMarcas.SelectedValue
+            Else
+                sQuery += " WHERE MarcaID = " + cbMarcas.SelectedValue.ToString
             End If
         End If
 
@@ -610,6 +627,8 @@ Public Class frmStockFoto
                     Sql = "SELECT TipoID Cod, DescrTipo Descricao FROM Tipos order by Ordem"
                 Case "cmdPesqForn"
                     Sql = "SELECT TERCID,NOMEABREV FROM TERCEIROS WHERE TIPOTERC='F' ORDER BY NOMEABREV"
+                Case "cmdPesqMarca"
+                    Sql = "SELECT MarcaID,MarcaDescr FROM MARCAS ORDER BY MARCADESCR"
             End Select
             db.GetData(Sql, dt)
             With Dgrid
@@ -728,9 +747,6 @@ Public Class frmStockFoto
         End Try
     End Sub
 
-
-
-
     Private Sub ConstroiFiltro(ByVal CodArtigo As String)
         Select Case BotaoPesquisa
             Case "cmdPesqGrupo"
@@ -758,10 +774,10 @@ Public Class frmStockFoto
             Case "cmdPesqForn"
                 Me.txtForn.Text = CodArtigo
 
+
+
         End Select
     End Sub
-
-
 
     Private Sub rbDinheiro_CheckedChanged(sender As Object, e As System.EventArgs) Handles rbDinheiro.CheckedChanged
         Try
@@ -1848,6 +1864,7 @@ Public Class frmStockFoto
 
 
     End Sub
+
 
 
     'Private Sub CFGDet_CellFormatting(ByVal sender As Object, ByVal e As DataGridViewCellFormattingEventArgs) Handles customerDataGridView.CellFormatting
