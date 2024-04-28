@@ -21,8 +21,8 @@ Partial Class frmArtigos
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmArtigos))
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.GirlDataSet = New GirlRootName.GirlDataSet()
         Me.ModelosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ModelosTableAdapter = New GirlRootName.GirlDataSetTableAdapters.ModelosTableAdapter()
@@ -215,11 +215,11 @@ Partial Class frmArtigos
         Me.dgvModelos.ColumnHeadersHeight = 29
         Me.dgvModelos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ModeloID, Me.GrupoID, Me.TipoID, Me.UnidID, Me.Altura, Me.EpocaID, Me.MarcaID, Me.EscalaID})
         Me.dgvModelos.DataSource = Me.ModelosBindingSource
-        Me.dgvModelos.Location = New System.Drawing.Point(16, 48)
+        Me.dgvModelos.Location = New System.Drawing.Point(16, 13)
         Me.dgvModelos.Margin = New System.Windows.Forms.Padding(4)
         Me.dgvModelos.Name = "dgvModelos"
         Me.dgvModelos.RowHeadersWidth = 51
-        Me.dgvModelos.Size = New System.Drawing.Size(1065, 366)
+        Me.dgvModelos.Size = New System.Drawing.Size(1065, 401)
         Me.dgvModelos.TabIndex = 1
         '
         'GruposBindingSource
@@ -269,7 +269,7 @@ Partial Class frmArtigos
         Me.dgvModeloCor.Margin = New System.Windows.Forms.Padding(4)
         Me.dgvModeloCor.Name = "dgvModeloCor"
         Me.dgvModeloCor.RowHeadersWidth = 51
-        Me.dgvModeloCor.Size = New System.Drawing.Size(1380, 174)
+        Me.dgvModeloCor.Size = New System.Drawing.Size(1065, 174)
         Me.dgvModeloCor.TabIndex = 2
         '
         'DataGridViewTextBoxColumn11
@@ -334,9 +334,9 @@ Partial Class frmArtigos
         'DataGridViewTextBoxColumn18
         '
         Me.DataGridViewTextBoxColumn18.DataPropertyName = "PrCusto"
-        DataGridViewCellStyle3.Format = "C2"
-        DataGridViewCellStyle3.NullValue = Nothing
-        Me.DataGridViewTextBoxColumn18.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle1.Format = "C2"
+        DataGridViewCellStyle1.NullValue = Nothing
+        Me.DataGridViewTextBoxColumn18.DefaultCellStyle = DataGridViewCellStyle1
         Me.DataGridViewTextBoxColumn18.HeaderText = "PrCusto"
         Me.DataGridViewTextBoxColumn18.MinimumWidth = 6
         Me.DataGridViewTextBoxColumn18.Name = "DataGridViewTextBoxColumn18"
@@ -345,9 +345,9 @@ Partial Class frmArtigos
         'DataGridViewTextBoxColumn14
         '
         Me.DataGridViewTextBoxColumn14.DataPropertyName = "PrVnd"
-        DataGridViewCellStyle4.Format = "C4"
-        DataGridViewCellStyle4.NullValue = Nothing
-        Me.DataGridViewTextBoxColumn14.DefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle2.Format = "C4"
+        DataGridViewCellStyle2.NullValue = Nothing
+        Me.DataGridViewTextBoxColumn14.DefaultCellStyle = DataGridViewCellStyle2
         Me.DataGridViewTextBoxColumn14.HeaderText = "PrEtiqueta"
         Me.DataGridViewTextBoxColumn14.MinimumWidth = 6
         Me.DataGridViewTextBoxColumn14.Name = "DataGridViewTextBoxColumn14"
@@ -381,7 +381,7 @@ Partial Class frmArtigos
         'PicBox
         '
         Me.PicBox.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.PicBox.Location = New System.Drawing.Point(1089, 121)
+        Me.PicBox.Location = New System.Drawing.Point(1089, 63)
         Me.PicBox.Margin = New System.Windows.Forms.Padding(4)
         Me.PicBox.Name = "PicBox"
         Me.PicBox.Size = New System.Drawing.Size(307, 203)
@@ -432,7 +432,8 @@ Partial Class frmArtigos
         '
         'txtModelos
         '
-        Me.txtModelos.Location = New System.Drawing.Point(76, 15)
+        Me.txtModelos.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtModelos.Location = New System.Drawing.Point(1159, 288)
         Me.txtModelos.Margin = New System.Windows.Forms.Padding(4)
         Me.txtModelos.Name = "txtModelos"
         Me.txtModelos.Size = New System.Drawing.Size(80, 22)
@@ -442,41 +443,46 @@ Partial Class frmArtigos
         '
         'cbGrupos
         '
+        Me.cbGrupos.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cbGrupos.DataSource = Me.GruposBindingSource
         Me.cbGrupos.DisplayMember = "GrupoDesc"
         Me.cbGrupos.FormattingEnabled = True
-        Me.cbGrupos.Location = New System.Drawing.Point(175, 15)
+        Me.cbGrupos.Location = New System.Drawing.Point(1089, 328)
         Me.cbGrupos.Margin = New System.Windows.Forms.Padding(4)
         Me.cbGrupos.Name = "cbGrupos"
-        Me.cbGrupos.Size = New System.Drawing.Size(255, 24)
+        Me.cbGrupos.Size = New System.Drawing.Size(307, 24)
         Me.cbGrupos.TabIndex = 9
         Me.cbGrupos.ValueMember = "GrupoID"
         '
         'cbTipos
         '
+        Me.cbTipos.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cbTipos.FormattingEnabled = True
-        Me.cbTipos.Location = New System.Drawing.Point(438, 15)
+        Me.cbTipos.Location = New System.Drawing.Point(1089, 375)
         Me.cbTipos.Margin = New System.Windows.Forms.Padding(4)
         Me.cbTipos.Name = "cbTipos"
-        Me.cbTipos.Size = New System.Drawing.Size(403, 24)
+        Me.cbTipos.Size = New System.Drawing.Size(307, 24)
         Me.cbTipos.TabIndex = 9
         '
         'cbMarcas
         '
+        Me.cbMarcas.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cbMarcas.FormattingEnabled = True
-        Me.cbMarcas.Location = New System.Drawing.Point(849, 15)
+        Me.cbMarcas.Location = New System.Drawing.Point(1089, 421)
         Me.cbMarcas.Margin = New System.Windows.Forms.Padding(4)
         Me.cbMarcas.Name = "cbMarcas"
-        Me.cbMarcas.Size = New System.Drawing.Size(164, 24)
+        Me.cbMarcas.Size = New System.Drawing.Size(307, 24)
         Me.cbMarcas.TabIndex = 9
         '
         'btFiltro
         '
+        Me.btFiltro.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btFiltro.BackColor = System.Drawing.Color.FromArgb(CType(CType(243, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(51, Byte), Integer))
-        Me.btFiltro.Location = New System.Drawing.Point(1021, 15)
+        Me.btFiltro.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btFiltro.Location = New System.Drawing.Point(1268, 468)
         Me.btFiltro.Margin = New System.Windows.Forms.Padding(4)
         Me.btFiltro.Name = "btFiltro"
-        Me.btFiltro.Size = New System.Drawing.Size(60, 28)
+        Me.btFiltro.Size = New System.Drawing.Size(128, 60)
         Me.btFiltro.TabIndex = 10
         Me.btFiltro.Text = "Filtrar"
         Me.btFiltro.UseVisualStyleBackColor = False
@@ -488,8 +494,9 @@ Partial Class frmArtigos
         '
         'Label1
         '
+        Me.Label1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(12, 18)
+        Me.Label1.Location = New System.Drawing.Point(1095, 291)
         Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(59, 16)

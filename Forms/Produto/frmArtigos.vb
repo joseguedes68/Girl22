@@ -128,25 +128,26 @@ Public Class frmArtigos
 
     End Sub
 
-
-
-
     Private Sub DgvModelos_DataError(sender As Object, e As DataGridViewDataErrorEventArgs) Handles dgvModelos.DataError
         Try
-            MsgBox(e.Context)
-            e.Cancel = True
-
-        Catch ex As SqlException
-            ErroSQL(ex.Number, ex.Message, "DgvModelos_DataError")
+            Me.dgvModelos.Visible = False
+            Me.dgvModeloCor.Visible = False
         Catch ex As Exception
-            ErroVB(ex.Message, "DgvModelos_DataError")
+
         End Try
 
     End Sub
 
     Private Sub DgvModeloCor_DataError(sender As Object, e As DataGridViewDataErrorEventArgs) Handles dgvModeloCor.DataError
-        MsgBox("ERRO NOS MODELOSCOR")
-        e.Cancel = True
+
+        Try
+            Me.dgvModelos.Visible = False
+            Me.dgvModeloCor.Visible = False
+
+        Catch ex As Exception
+
+        End Try
+
     End Sub
 
 
