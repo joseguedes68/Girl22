@@ -21,8 +21,8 @@ Partial Class frmArtigos
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmArtigos))
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.GirlDataSet = New GirlRootName.GirlDataSet()
         Me.ModelosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ModelosTableAdapter = New GirlRootName.GirlDataSetTableAdapters.ModelosTableAdapter()
@@ -38,10 +38,10 @@ Partial Class frmArtigos
         Me.BindingNavigatorSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.dgvModelos = New System.Windows.Forms.DataGridView()
         Me.GruposBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.LinhasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.UnidadesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.EpocasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.MarcasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.LinhasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ModeloCorBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ModeloCorTableAdapter = New GirlRootName.GirlDataSetTableAdapters.ModeloCorTableAdapter()
         Me.dgvModeloCor = New System.Windows.Forms.DataGridView()
@@ -89,10 +89,10 @@ Partial Class frmArtigos
         Me.ModelosBindingNavigator.SuspendLayout()
         CType(Me.dgvModelos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GruposBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LinhasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UnidadesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EpocasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MarcasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LinhasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ModeloCorBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvModeloCor, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TerceirosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -227,11 +227,6 @@ Partial Class frmArtigos
         Me.GruposBindingSource.DataMember = "Grupos"
         Me.GruposBindingSource.DataSource = Me.GirlDataSet
         '
-        'LinhasBindingSource
-        '
-        Me.LinhasBindingSource.DataMember = "Linhas"
-        Me.LinhasBindingSource.DataSource = Me.GirlDataSet
-        '
         'UnidadesBindingSource
         '
         Me.UnidadesBindingSource.DataMember = "Unidades"
@@ -246,6 +241,11 @@ Partial Class frmArtigos
         '
         Me.MarcasBindingSource.DataMember = "Marcas"
         Me.MarcasBindingSource.DataSource = Me.GirlDataSet
+        '
+        'LinhasBindingSource
+        '
+        Me.LinhasBindingSource.DataMember = "Linhas"
+        Me.LinhasBindingSource.DataSource = Me.GirlDataSet
         '
         'ModeloCorBindingSource
         '
@@ -334,9 +334,9 @@ Partial Class frmArtigos
         'DataGridViewTextBoxColumn18
         '
         Me.DataGridViewTextBoxColumn18.DataPropertyName = "PrCusto"
-        DataGridViewCellStyle1.Format = "C2"
-        DataGridViewCellStyle1.NullValue = Nothing
-        Me.DataGridViewTextBoxColumn18.DefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle3.Format = "C2"
+        DataGridViewCellStyle3.NullValue = Nothing
+        Me.DataGridViewTextBoxColumn18.DefaultCellStyle = DataGridViewCellStyle3
         Me.DataGridViewTextBoxColumn18.HeaderText = "PrCusto"
         Me.DataGridViewTextBoxColumn18.MinimumWidth = 6
         Me.DataGridViewTextBoxColumn18.Name = "DataGridViewTextBoxColumn18"
@@ -345,9 +345,9 @@ Partial Class frmArtigos
         'DataGridViewTextBoxColumn14
         '
         Me.DataGridViewTextBoxColumn14.DataPropertyName = "PrVnd"
-        DataGridViewCellStyle2.Format = "C4"
-        DataGridViewCellStyle2.NullValue = Nothing
-        Me.DataGridViewTextBoxColumn14.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle4.Format = "C4"
+        DataGridViewCellStyle4.NullValue = Nothing
+        Me.DataGridViewTextBoxColumn14.DefaultCellStyle = DataGridViewCellStyle4
         Me.DataGridViewTextBoxColumn14.HeaderText = "PrEtiqueta"
         Me.DataGridViewTextBoxColumn14.MinimumWidth = 6
         Me.DataGridViewTextBoxColumn14.Name = "DataGridViewTextBoxColumn14"
@@ -617,10 +617,10 @@ Partial Class frmArtigos
         Me.ModelosBindingNavigator.PerformLayout()
         CType(Me.dgvModelos, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GruposBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LinhasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UnidadesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EpocasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.MarcasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LinhasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ModeloCorBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgvModeloCor, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TerceirosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
