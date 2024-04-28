@@ -34241,7 +34241,7 @@ Namespace GirlDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(1) {}
+            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(2) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT ModeloID, GrupoID, TipoID, FamiliaID, LinhaID, UnidID, Altura, EpocaID, Es"& _ 
@@ -34251,12 +34251,21 @@ Namespace GirlDataSetTableAdapters
             Me._commandCollection(1).Connection = Me.Connection
             Me._commandCollection(1).CommandText = "SELECT Altura, EpocaID, EscalaID, FamiliaID, GrupoID, LinhaID, MarcaID, ModeloID,"& _ 
                 " TipoID, UnidID, Volume FROM Modelos WHERE (ModeloID LIKE @Modelo) AND (GrupoID "& _ 
-                "LIKE @Grupo) AND (TipoID LIKE @Tipo) AND (LinhaID LIKE @Linha)"
+                "LIKE @Grupo) AND (TipoID LIKE @Tipo)"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Modelo", Global.System.Data.SqlDbType.VarChar, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "ModeloID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Modelo", Global.System.Data.SqlDbType.VarChar, 18, Global.System.Data.ParameterDirection.Input, 0, 0, "ModeloID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Grupo", Global.System.Data.SqlDbType.VarChar, 2, Global.System.Data.ParameterDirection.Input, 0, 0, "GrupoID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Tipo", Global.System.Data.SqlDbType.VarChar, 2, Global.System.Data.ParameterDirection.Input, 0, 0, "TipoID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Linha", Global.System.Data.SqlDbType.VarChar, 2, Global.System.Data.ParameterDirection.Input, 0, 0, "LinhaID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(2).Connection = Me.Connection
+            Me._commandCollection(2).CommandText = "SELECT Altura, EpocaID, EscalaID, FamiliaID, GrupoID, LinhaID, MarcaID, ModeloID,"& _ 
+                " TipoID, UnidID, Volume FROM Modelos WHERE (ModeloID LIKE @Modelo) AND (GrupoID "& _ 
+                "LIKE @Grupo) AND (TipoID LIKE @Tipo) AND (MarcaID LIKE @Marca)"
+            Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Modelo", Global.System.Data.SqlDbType.VarChar, 18, Global.System.Data.ParameterDirection.Input, 0, 0, "ModeloID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Grupo", Global.System.Data.SqlDbType.VarChar, 2, Global.System.Data.ParameterDirection.Input, 0, 0, "GrupoID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Tipo", Global.System.Data.SqlDbType.VarChar, 2, Global.System.Data.ParameterDirection.Input, 0, 0, "TipoID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Marca", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "MarcaID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -34287,7 +34296,7 @@ Namespace GirlDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillByFiltro(ByVal dataTable As GirlDataSet.ModelosDataTable, ByVal Modelo As String, ByVal Grupo As String, ByVal Tipo As String, ByVal Linha As String) As Integer
+        Public Overloads Overridable Function FillByFiltro(ByVal dataTable As GirlDataSet.ModelosDataTable, ByVal Modelo As String, ByVal Grupo As String, ByVal Tipo As String) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
             If (Modelo Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Modelo")
@@ -34303,11 +34312,6 @@ Namespace GirlDataSetTableAdapters
                 Me.Adapter.SelectCommand.Parameters(2).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.SelectCommand.Parameters(2).Value = CType(Tipo,String)
-            End If
-            If (Linha Is Nothing) Then
-                Me.Adapter.SelectCommand.Parameters(3).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.SelectCommand.Parameters(3).Value = CType(Linha,String)
             End If
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
@@ -34320,7 +34324,7 @@ Namespace GirlDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDataByFiltro(ByVal Modelo As String, ByVal Grupo As String, ByVal Tipo As String, ByVal Linha As String) As GirlDataSet.ModelosDataTable
+        Public Overloads Overridable Function GetDataByFiltro(ByVal Modelo As String, ByVal Grupo As String, ByVal Tipo As String) As GirlDataSet.ModelosDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
             If (Modelo Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Modelo")
@@ -34337,10 +34341,69 @@ Namespace GirlDataSetTableAdapters
             Else
                 Me.Adapter.SelectCommand.Parameters(2).Value = CType(Tipo,String)
             End If
-            If (Linha Is Nothing) Then
-                Me.Adapter.SelectCommand.Parameters(3).Value = Global.System.DBNull.Value
+            Dim dataTable As GirlDataSet.ModelosDataTable = New GirlDataSet.ModelosDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillByFiltroMarca(ByVal dataTable As GirlDataSet.ModelosDataTable, ByVal Modelo As String, ByVal Grupo As String, ByVal Tipo As String, ByVal Marca As Global.System.Nullable(Of Integer)) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(2)
+            If (Modelo Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Modelo")
             Else
-                Me.Adapter.SelectCommand.Parameters(3).Value = CType(Linha,String)
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(Modelo,String)
+            End If
+            If (Grupo Is Nothing) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(Grupo,String)
+            End If
+            If (Tipo Is Nothing) Then
+                Me.Adapter.SelectCommand.Parameters(2).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.SelectCommand.Parameters(2).Value = CType(Tipo,String)
+            End If
+            If (Marca.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(3).Value = CType(Marca.Value,Integer)
+            Else
+                Me.Adapter.SelectCommand.Parameters(3).Value = Global.System.DBNull.Value
+            End If
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataByFiltroMarca(ByVal Modelo As String, ByVal Grupo As String, ByVal Tipo As String, ByVal Marca As Global.System.Nullable(Of Integer)) As GirlDataSet.ModelosDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(2)
+            If (Modelo Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Modelo")
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(Modelo,String)
+            End If
+            If (Grupo Is Nothing) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(Grupo,String)
+            End If
+            If (Tipo Is Nothing) Then
+                Me.Adapter.SelectCommand.Parameters(2).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.SelectCommand.Parameters(2).Value = CType(Tipo,String)
+            End If
+            If (Marca.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(3).Value = CType(Marca.Value,Integer)
+            Else
+                Me.Adapter.SelectCommand.Parameters(3).Value = Global.System.DBNull.Value
             End If
             Dim dataTable As GirlDataSet.ModelosDataTable = New GirlDataSet.ModelosDataTable()
             Me.Adapter.Fill(dataTable)

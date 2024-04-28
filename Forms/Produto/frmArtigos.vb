@@ -1,6 +1,7 @@
 
 Imports System.Data.SqlClient
 Imports System.Linq
+Imports MS.Internal
 
 Public Class frmArtigos
 
@@ -24,7 +25,7 @@ Public Class frmArtigos
             Me.TiposTableAdapter.FillByCombo(Me.GirlDataSet.Tipos)
             Me.GruposTableAdapter.Fill(Me.GirlDataSet.Grupos)
             Me.ModeloCorTableAdapter.Fill(Me.GirlDataSet.ModeloCor)
-
+            Me.MarcasTableAdapter.Fill(Me.GirlDataSet.Marcas)
 
             Me.txtModelos.Text = ""
 
@@ -40,13 +41,17 @@ Public Class frmArtigos
             Me.GirlDataSet.Tipos.AddTiposRow("%", "Todos os Tipos", "", "", 0, "", "", 0, "", Now)
             Me.cbTipos.SelectedValue = "%"
 
-            Me.cbLinhas.DataSource = Me.GirlDataSet.Linhas
-            Me.cbLinhas.DisplayMember = "DescrLinha"
-            Me.cbLinhas.ValueMember = "LinhaID"
-            Me.GirlDataSet.Linhas.AddLinhasRow("%", "Todas Linhas", "", Now)
-            Me.cbLinhas.SelectedValue = "%"
+            Me.cbMarcas.DataSource = Me.GirlDataSet.Marcas
+            Me.cbMarcas.DisplayMember = "MarcaDescr"
+            Me.cbMarcas.ValueMember = "MarcaID"
+            Me.GirlDataSet.Marcas.AddMarcasRow(0, "Todas as Marcas")
+            Me.cbMarcas.SelectedValue = 0
 
-            Me.ModelosTableAdapter.FillByFiltro(Me.GirlDataSet.Modelos, "%", "%", "%", "%")
+
+            'o quarto parametro é inteiro 
+            'se for zero quero que devolva tudo
+            'se for diferente de zero quero que devolva o que está no parametro
+            Me.ModelosTableAdapter.FillByFiltro(Me.GirlDataSet.Modelos, "%", "%", "%")
 
 
             'DataGridViewTextBoxColumn3
@@ -89,13 +94,7 @@ Public Class frmArtigos
             Me.DataGridViewTextBoxColumn15.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
             Me.DataGridViewTextBoxColumn15.Width = 170
 
-            'If sAplicacao = "CELFGEST" Then
-            '    dgvModelos.AllowUserToAddRows = True
-            '    dgvModeloCor.AllowUserToAddRows = True
-            'Else
-            '    dgvModelos.AllowUserToAddRows = False
-            '    dgvModeloCor.AllowUserToAddRows = False
-            'End If
+
 
             dgvModelos.AllowUserToAddRows = True
             dgvModeloCor.AllowUserToAddRows = True
@@ -111,54 +110,44 @@ Public Class frmArtigos
 
     End Sub
 
-    'Private Sub frmArtigos_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
-    '    Try
+    Private Sub frmArtigos_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
+        Try
 
 
-    '        If GirlDataSet.Modelos.GetChanges Is Nothing And GirlDataSet.ModeloCor.GetChanges Is Nothing Then
-    '        Else
-    '            If MsgBox("Pretende gravar?", MsgBoxStyle.Question + MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
-    '                cmdGravar_Click(sender, e)
-    '            End If
-    '        End If
-
-
-    '    Catch ex As Exception
-    '        ErroVB(ex.Message, Me.Name + ": frmArtigos_FormClosing")
-    '    End Try
-
-    'End Sub
-
-
-
-    Private Sub Form1_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-        ' Itera sobre as células do DataGridView
-        For Each row As DataGridViewRow In dgvModelos.Rows
-            For Each cell As DataGridViewCell In row.Cells
-                ' Verifica se a célula é do tipo DataGridViewComboBoxCell
-                If TypeOf cell Is DataGridViewComboBoxCell Then
-                    Dim comboCell As DataGridViewComboBoxCell = CType(cell, DataGridViewComboBoxCell)
-                    ' Verifica se o valor selecionado é inválido
-                    If Not comboCell.Items.Contains(cell.Value) Then
-                        ' Valor não válido, exibir mensagem de erro com informações adicionais
-                        Dim validOptions As String = String.Join(", ", comboCell.Items.Cast(Of Object)().Select(Function(item) item.ToString()).ToArray())
-                        MessageBox.Show($"Valor selecionado não é válido para a célula na linha {row.Index}, coluna {cell.ColumnIndex}! Opções válidas: {validOptions}")
-
-                        ' Impede o fechamento do formulário
-                        e.Cancel = True
-                        Return
-                    End If
+            If GirlDataSet.Modelos.GetChanges Is Nothing And GirlDataSet.ModeloCor.GetChanges Is Nothing Then
+            Else
+                If MsgBox("Pretende gravar?", MsgBoxStyle.Question + MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+                    cmdGravar_Click(sender, e)
                 End If
-            Next
-        Next
+            End If
+
+
+        Catch ex As Exception
+            ErroVB(ex.Message, Me.Name + ": frmArtigos_FormClosing")
+        End Try
+
     End Sub
 
-    Private Sub DataGridView1_DataError(sender As Object, e As DataGridViewDataErrorEventArgs) Handles dgvModelos.DataError
-        ' Impede que o DataGridView gere um erro não controlado
+
+
+
+    Private Sub DgvModelos_DataError(sender As Object, e As DataGridViewDataErrorEventArgs) Handles dgvModelos.DataError
+        Try
+            MsgBox(e.Context)
+            e.Cancel = True
+
+        Catch ex As SqlException
+            ErroSQL(ex.Number, ex.Message, "DgvModelos_DataError")
+        Catch ex As Exception
+            ErroVB(ex.Message, "DgvModelos_DataError")
+        End Try
+
+    End Sub
+
+    Private Sub DgvModeloCor_DataError(sender As Object, e As DataGridViewDataErrorEventArgs) Handles dgvModeloCor.DataError
+        MsgBox("ERRO NOS MODELOSCOR")
         e.Cancel = True
     End Sub
-
-
 
 
 
@@ -239,7 +228,11 @@ Public Class frmArtigos
                 End If
             End If
 
-            Me.ModelosTableAdapter.FillByFiltro(Me.GirlDataSet.Modelos, IIf(Me.txtModelos.Text = "", "%", Me.txtModelos.Text), Me.cbGrupos.SelectedValue, Me.cbTipos.SelectedValue, Me.cbLinhas.SelectedValue)
+            If Me.cbMarcas.SelectedValue = 0 Then
+                Me.ModelosTableAdapter.FillByFiltro(Me.GirlDataSet.Modelos, IIf(Me.txtModelos.Text = "", "%", Me.txtModelos.Text), Me.cbGrupos.SelectedValue, Me.cbTipos.SelectedValue)
+            Else
+                Me.ModelosTableAdapter.FillByFiltroMarca(Me.GirlDataSet.Modelos, IIf(Me.txtModelos.Text = "", "%", Me.txtModelos.Text), Me.cbGrupos.SelectedValue, Me.cbTipos.SelectedValue, Me.cbMarcas.SelectedValue)
+            End If
 
         Catch ex As Exception
             ErroVB(ex.Message, Me.Name + ": btFiltro_Click")

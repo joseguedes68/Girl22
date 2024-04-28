@@ -618,12 +618,6 @@
     <Compile Include="Forms\MovimentosStock\frmSepConsignacao.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Produto\frmArtigosNovo.Designer.vb">
-      <DependentUpon>frmArtigosNovo.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Produto\frmArtigosNovo.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Forms\Produto\frmMarcas.Designer.vb">
       <DependentUpon>frmMarcas.vb</DependentUpon>
     </Compile>
@@ -1179,9 +1173,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MovimentosStock\frmSepConsignacao.resx">
       <DependentUpon>frmSepConsignacao.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Produto\frmArtigosNovo.resx">
-      <DependentUpon>frmArtigosNovo.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Produto\frmMarcas.resx">
       <DependentUpon>frmMarcas.vb</DependentUpon>

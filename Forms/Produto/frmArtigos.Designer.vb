@@ -37,20 +37,11 @@ Partial Class frmArtigos
         Me.BindingNavigatorMoveLastItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.dgvModelos = New System.Windows.Forms.DataGridView()
-        Me.ModeloID = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.GrupoID = New System.Windows.Forms.DataGridViewComboBoxColumn()
         Me.GruposBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.TipoID = New System.Windows.Forms.DataGridViewComboBoxColumn()
-        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.LinhaID = New System.Windows.Forms.DataGridViewComboBoxColumn()
         Me.LinhasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.UnidID = New System.Windows.Forms.DataGridViewComboBoxColumn()
         Me.UnidadesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Altura = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.EpocaID = New System.Windows.Forms.DataGridViewComboBoxColumn()
         Me.EpocasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.EscalaID = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.MarcasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ModeloCorBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ModeloCorTableAdapter = New GirlRootName.GirlDataSetTableAdapters.ModeloCorTableAdapter()
         Me.dgvModeloCor = New System.Windows.Forms.DataGridView()
@@ -77,12 +68,23 @@ Partial Class frmArtigos
         Me.txtModelos = New System.Windows.Forms.TextBox()
         Me.cbGrupos = New System.Windows.Forms.ComboBox()
         Me.cbTipos = New System.Windows.Forms.ComboBox()
-        Me.cbLinhas = New System.Windows.Forms.ComboBox()
+        Me.cbMarcas = New System.Windows.Forms.ComboBox()
         Me.btFiltro = New System.Windows.Forms.Button()
         Me.FKModelosTiposBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Label1 = New System.Windows.Forms.Label()
         Me.EpocasTableAdapter = New GirlRootName.GirlDataSetTableAdapters.EpocasTableAdapter()
         Me.TerceirosTableAdapter = New GirlRootName.GirlDataSetTableAdapters.TerceirosTableAdapter()
+        Me.MarcasTableAdapter = New GirlRootName.GirlDataSetTableAdapters.MarcasTableAdapter()
+        Me.ModeloID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.GrupoID = New System.Windows.Forms.DataGridViewComboBoxColumn()
+        Me.TipoID = New System.Windows.Forms.DataGridViewComboBoxColumn()
+        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.LinhaID = New System.Windows.Forms.DataGridViewComboBoxColumn()
+        Me.UnidID = New System.Windows.Forms.DataGridViewComboBoxColumn()
+        Me.Altura = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.EpocaID = New System.Windows.Forms.DataGridViewComboBoxColumn()
+        Me.MarcaID = New System.Windows.Forms.DataGridViewComboBoxColumn()
+        Me.EscalaID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.GirlDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ModelosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ModelosBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -92,6 +94,7 @@ Partial Class frmArtigos
         CType(Me.LinhasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UnidadesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EpocasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.MarcasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ModeloCorBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvModeloCor, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TerceirosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -132,7 +135,7 @@ Partial Class frmArtigos
         Me.ModelosBindingNavigator.MovePreviousItem = Me.BindingNavigatorMovePreviousItem
         Me.ModelosBindingNavigator.Name = "ModelosBindingNavigator"
         Me.ModelosBindingNavigator.PositionItem = Me.BindingNavigatorPositionItem
-        Me.ModelosBindingNavigator.Size = New System.Drawing.Size(1344, 32)
+        Me.ModelosBindingNavigator.Size = New System.Drawing.Size(1412, 32)
         Me.ModelosBindingNavigator.TabIndex = 0
         Me.ModelosBindingNavigator.Text = "BindingNavigator1"
         '
@@ -212,137 +215,39 @@ Partial Class frmArtigos
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgvModelos.AutoGenerateColumns = False
         Me.dgvModelos.ColumnHeadersHeight = 29
-        Me.dgvModelos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ModeloID, Me.GrupoID, Me.TipoID, Me.DataGridViewTextBoxColumn4, Me.LinhaID, Me.UnidID, Me.Altura, Me.EpocaID, Me.EscalaID, Me.DataGridViewTextBoxColumn10})
+        Me.dgvModelos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ModeloID, Me.GrupoID, Me.TipoID, Me.DataGridViewTextBoxColumn4, Me.LinhaID, Me.UnidID, Me.Altura, Me.EpocaID, Me.MarcaID, Me.EscalaID})
         Me.dgvModelos.DataSource = Me.ModelosBindingSource
         Me.dgvModelos.Location = New System.Drawing.Point(16, 48)
-        Me.dgvModelos.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.dgvModelos.Margin = New System.Windows.Forms.Padding(4)
         Me.dgvModelos.Name = "dgvModelos"
         Me.dgvModelos.RowHeadersWidth = 51
-        Me.dgvModelos.Size = New System.Drawing.Size(997, 366)
+        Me.dgvModelos.Size = New System.Drawing.Size(1065, 366)
         Me.dgvModelos.TabIndex = 1
-        '
-        'ModeloID
-        '
-        Me.ModeloID.DataPropertyName = "ModeloID"
-        Me.ModeloID.HeaderText = "Modelo"
-        Me.ModeloID.MinimumWidth = 6
-        Me.ModeloID.Name = "ModeloID"
-        Me.ModeloID.Width = 50
-        '
-        'GrupoID
-        '
-        Me.GrupoID.DataPropertyName = "GrupoID"
-        Me.GrupoID.DataSource = Me.GruposBindingSource
-        Me.GrupoID.DisplayMember = "GrupoDesc"
-        Me.GrupoID.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.[Nothing]
-        Me.GrupoID.HeaderText = "Grupo"
-        Me.GrupoID.MinimumWidth = 6
-        Me.GrupoID.Name = "GrupoID"
-        Me.GrupoID.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.GrupoID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.GrupoID.ValueMember = "GrupoID"
-        Me.GrupoID.Width = 90
         '
         'GruposBindingSource
         '
         Me.GruposBindingSource.DataMember = "Grupos"
         Me.GruposBindingSource.DataSource = Me.GirlDataSet
         '
-        'TipoID
-        '
-        Me.TipoID.DataPropertyName = "TipoID"
-        Me.TipoID.HeaderText = "Tipo"
-        Me.TipoID.MinimumWidth = 6
-        Me.TipoID.Name = "TipoID"
-        Me.TipoID.Width = 125
-        '
-        'DataGridViewTextBoxColumn4
-        '
-        Me.DataGridViewTextBoxColumn4.DataPropertyName = "FamiliaID"
-        Me.DataGridViewTextBoxColumn4.HeaderText = "FamiliaID"
-        Me.DataGridViewTextBoxColumn4.MinimumWidth = 6
-        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
-        Me.DataGridViewTextBoxColumn4.Visible = False
-        Me.DataGridViewTextBoxColumn4.Width = 125
-        '
-        'LinhaID
-        '
-        Me.LinhaID.DataPropertyName = "LinhaID"
-        Me.LinhaID.DataSource = Me.LinhasBindingSource
-        Me.LinhaID.DisplayMember = "DescrLinha"
-        Me.LinhaID.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.[Nothing]
-        Me.LinhaID.HeaderText = "Linha"
-        Me.LinhaID.MinimumWidth = 6
-        Me.LinhaID.Name = "LinhaID"
-        Me.LinhaID.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.LinhaID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.LinhaID.ValueMember = "LinhaID"
-        Me.LinhaID.Width = 72
-        '
         'LinhasBindingSource
         '
         Me.LinhasBindingSource.DataMember = "Linhas"
         Me.LinhasBindingSource.DataSource = Me.GirlDataSet
-        '
-        'UnidID
-        '
-        Me.UnidID.DataPropertyName = "UnidID"
-        Me.UnidID.DataSource = Me.UnidadesBindingSource
-        Me.UnidID.DisplayMember = "UnidDescr"
-        Me.UnidID.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.[Nothing]
-        Me.UnidID.HeaderText = "Unid"
-        Me.UnidID.MinimumWidth = 6
-        Me.UnidID.Name = "UnidID"
-        Me.UnidID.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.UnidID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.UnidID.ValueMember = "UnidID"
-        Me.UnidID.Width = 46
         '
         'UnidadesBindingSource
         '
         Me.UnidadesBindingSource.DataMember = "Unidades"
         Me.UnidadesBindingSource.DataSource = Me.GirlDataSet
         '
-        'Altura
-        '
-        Me.Altura.DataPropertyName = "Altura"
-        Me.Altura.HeaderText = "Altura"
-        Me.Altura.MinimumWidth = 6
-        Me.Altura.Name = "Altura"
-        Me.Altura.Width = 37
-        '
-        'EpocaID
-        '
-        Me.EpocaID.DataPropertyName = "EpocaID"
-        Me.EpocaID.DataSource = Me.EpocasBindingSource
-        Me.EpocaID.DisplayMember = "EpocaDescr"
-        Me.EpocaID.HeaderText = "Epoca"
-        Me.EpocaID.MinimumWidth = 6
-        Me.EpocaID.Name = "EpocaID"
-        Me.EpocaID.ValueMember = "EpocaID"
-        Me.EpocaID.Width = 60
-        '
         'EpocasBindingSource
         '
         Me.EpocasBindingSource.DataMember = "Epocas"
         Me.EpocasBindingSource.DataSource = Me.GirlDataSet
         '
-        'EscalaID
+        'MarcasBindingSource
         '
-        Me.EscalaID.DataPropertyName = "EscalaID"
-        Me.EscalaID.HeaderText = "Escala"
-        Me.EscalaID.MinimumWidth = 6
-        Me.EscalaID.Name = "EscalaID"
-        Me.EscalaID.Width = 43
-        '
-        'DataGridViewTextBoxColumn10
-        '
-        Me.DataGridViewTextBoxColumn10.DataPropertyName = "Volume"
-        Me.DataGridViewTextBoxColumn10.HeaderText = "Volume"
-        Me.DataGridViewTextBoxColumn10.MinimumWidth = 6
-        Me.DataGridViewTextBoxColumn10.Name = "DataGridViewTextBoxColumn10"
-        Me.DataGridViewTextBoxColumn10.Visible = False
-        Me.DataGridViewTextBoxColumn10.Width = 125
+        Me.MarcasBindingSource.DataMember = "Marcas"
+        Me.MarcasBindingSource.DataSource = Me.GirlDataSet
         '
         'ModeloCorBindingSource
         '
@@ -363,10 +268,10 @@ Partial Class frmArtigos
         Me.dgvModeloCor.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn11, Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn13, Me.DataGridViewTextBoxColumn15, Me.DataGridViewTextBoxColumn16, Me.DataGridViewTextBoxColumn17, Me.DataGridViewTextBoxColumn18, Me.DataGridViewTextBoxColumn14})
         Me.dgvModeloCor.DataSource = Me.ModeloCorBindingSource
         Me.dgvModeloCor.Location = New System.Drawing.Point(16, 421)
-        Me.dgvModeloCor.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.dgvModeloCor.Margin = New System.Windows.Forms.Padding(4)
         Me.dgvModeloCor.Name = "dgvModeloCor"
         Me.dgvModeloCor.RowHeadersWidth = 51
-        Me.dgvModeloCor.Size = New System.Drawing.Size(1312, 174)
+        Me.dgvModeloCor.Size = New System.Drawing.Size(1380, 174)
         Me.dgvModeloCor.TabIndex = 2
         '
         'DataGridViewTextBoxColumn11
@@ -478,8 +383,8 @@ Partial Class frmArtigos
         'PicBox
         '
         Me.PicBox.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.PicBox.Location = New System.Drawing.Point(1021, 121)
-        Me.PicBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.PicBox.Location = New System.Drawing.Point(1089, 121)
+        Me.PicBox.Margin = New System.Windows.Forms.Padding(4)
         Me.PicBox.Name = "PicBox"
         Me.PicBox.Size = New System.Drawing.Size(307, 203)
         Me.PicBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -490,8 +395,8 @@ Partial Class frmArtigos
         '
         Me.cmdGravar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cmdGravar.BackColor = System.Drawing.Color.FromArgb(CType(CType(243, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(51, Byte), Integer))
-        Me.cmdGravar.Location = New System.Drawing.Point(1033, 15)
-        Me.cmdGravar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cmdGravar.Location = New System.Drawing.Point(1101, 15)
+        Me.cmdGravar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmdGravar.Name = "cmdGravar"
         Me.cmdGravar.Size = New System.Drawing.Size(96, 31)
         Me.cmdGravar.TabIndex = 5
@@ -502,8 +407,8 @@ Partial Class frmArtigos
         '
         Me.cmdCancelar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cmdCancelar.BackColor = System.Drawing.Color.FromArgb(CType(CType(243, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(51, Byte), Integer))
-        Me.cmdCancelar.Location = New System.Drawing.Point(1137, 15)
-        Me.cmdCancelar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cmdCancelar.Location = New System.Drawing.Point(1205, 15)
+        Me.cmdCancelar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmdCancelar.Name = "cmdCancelar"
         Me.cmdCancelar.Size = New System.Drawing.Size(96, 31)
         Me.cmdCancelar.TabIndex = 6
@@ -514,8 +419,8 @@ Partial Class frmArtigos
         '
         Me.cmdFechar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cmdFechar.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.cmdFechar.Location = New System.Drawing.Point(1241, 15)
-        Me.cmdFechar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cmdFechar.Location = New System.Drawing.Point(1309, 15)
+        Me.cmdFechar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmdFechar.Name = "cmdFechar"
         Me.cmdFechar.Size = New System.Drawing.Size(96, 31)
         Me.cmdFechar.TabIndex = 7
@@ -530,7 +435,7 @@ Partial Class frmArtigos
         'txtModelos
         '
         Me.txtModelos.Location = New System.Drawing.Point(76, 15)
-        Me.txtModelos.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtModelos.Margin = New System.Windows.Forms.Padding(4)
         Me.txtModelos.Name = "txtModelos"
         Me.txtModelos.Size = New System.Drawing.Size(80, 22)
         Me.txtModelos.TabIndex = 8
@@ -543,38 +448,35 @@ Partial Class frmArtigos
         Me.cbGrupos.DisplayMember = "GrupoDesc"
         Me.cbGrupos.FormattingEnabled = True
         Me.cbGrupos.Location = New System.Drawing.Point(175, 15)
-        Me.cbGrupos.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cbGrupos.Margin = New System.Windows.Forms.Padding(4)
         Me.cbGrupos.Name = "cbGrupos"
-        Me.cbGrupos.Size = New System.Drawing.Size(153, 24)
+        Me.cbGrupos.Size = New System.Drawing.Size(255, 24)
         Me.cbGrupos.TabIndex = 9
         Me.cbGrupos.ValueMember = "GrupoID"
         '
         'cbTipos
         '
         Me.cbTipos.FormattingEnabled = True
-        Me.cbTipos.Location = New System.Drawing.Point(337, 15)
-        Me.cbTipos.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cbTipos.Location = New System.Drawing.Point(438, 15)
+        Me.cbTipos.Margin = New System.Windows.Forms.Padding(4)
         Me.cbTipos.Name = "cbTipos"
         Me.cbTipos.Size = New System.Drawing.Size(403, 24)
         Me.cbTipos.TabIndex = 9
         '
-        'cbLinhas
+        'cbMarcas
         '
-        Me.cbLinhas.DataSource = Me.LinhasBindingSource
-        Me.cbLinhas.DisplayMember = "DescrLinha"
-        Me.cbLinhas.FormattingEnabled = True
-        Me.cbLinhas.Location = New System.Drawing.Point(749, 15)
-        Me.cbLinhas.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.cbLinhas.Name = "cbLinhas"
-        Me.cbLinhas.Size = New System.Drawing.Size(164, 24)
-        Me.cbLinhas.TabIndex = 9
-        Me.cbLinhas.ValueMember = "LinhaID"
+        Me.cbMarcas.FormattingEnabled = True
+        Me.cbMarcas.Location = New System.Drawing.Point(849, 15)
+        Me.cbMarcas.Margin = New System.Windows.Forms.Padding(4)
+        Me.cbMarcas.Name = "cbMarcas"
+        Me.cbMarcas.Size = New System.Drawing.Size(164, 24)
+        Me.cbMarcas.TabIndex = 9
         '
         'btFiltro
         '
         Me.btFiltro.BackColor = System.Drawing.Color.FromArgb(CType(CType(243, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(51, Byte), Integer))
-        Me.btFiltro.Location = New System.Drawing.Point(923, 16)
-        Me.btFiltro.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btFiltro.Location = New System.Drawing.Point(1021, 15)
+        Me.btFiltro.Margin = New System.Windows.Forms.Padding(4)
         Me.btFiltro.Name = "btFiltro"
         Me.btFiltro.Size = New System.Drawing.Size(60, 28)
         Me.btFiltro.TabIndex = 10
@@ -604,15 +506,124 @@ Partial Class frmArtigos
         '
         Me.TerceirosTableAdapter.ClearBeforeFill = True
         '
+        'MarcasTableAdapter
+        '
+        Me.MarcasTableAdapter.ClearBeforeFill = True
+        '
+        'ModeloID
+        '
+        Me.ModeloID.DataPropertyName = "ModeloID"
+        Me.ModeloID.HeaderText = "Modelo"
+        Me.ModeloID.MinimumWidth = 6
+        Me.ModeloID.Name = "ModeloID"
+        Me.ModeloID.Width = 50
+        '
+        'GrupoID
+        '
+        Me.GrupoID.DataPropertyName = "GrupoID"
+        Me.GrupoID.DataSource = Me.GruposBindingSource
+        Me.GrupoID.DisplayMember = "GrupoDesc"
+        Me.GrupoID.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.[Nothing]
+        Me.GrupoID.HeaderText = "Grupo"
+        Me.GrupoID.MinimumWidth = 6
+        Me.GrupoID.Name = "GrupoID"
+        Me.GrupoID.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.GrupoID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.GrupoID.ValueMember = "GrupoID"
+        Me.GrupoID.Width = 180
+        '
+        'TipoID
+        '
+        Me.TipoID.DataPropertyName = "TipoID"
+        Me.TipoID.HeaderText = "Tipo"
+        Me.TipoID.MinimumWidth = 6
+        Me.TipoID.Name = "TipoID"
+        Me.TipoID.Width = 125
+        '
+        'DataGridViewTextBoxColumn4
+        '
+        Me.DataGridViewTextBoxColumn4.DataPropertyName = "FamiliaID"
+        Me.DataGridViewTextBoxColumn4.HeaderText = "FamiliaID"
+        Me.DataGridViewTextBoxColumn4.MinimumWidth = 6
+        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        Me.DataGridViewTextBoxColumn4.Visible = False
+        Me.DataGridViewTextBoxColumn4.Width = 125
+        '
+        'LinhaID
+        '
+        Me.LinhaID.DataPropertyName = "LinhaID"
+        Me.LinhaID.DataSource = Me.LinhasBindingSource
+        Me.LinhaID.DisplayMember = "DescrLinha"
+        Me.LinhaID.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.[Nothing]
+        Me.LinhaID.HeaderText = "Linha"
+        Me.LinhaID.MinimumWidth = 6
+        Me.LinhaID.Name = "LinhaID"
+        Me.LinhaID.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.LinhaID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.LinhaID.ValueMember = "LinhaID"
+        Me.LinhaID.Width = 72
+        '
+        'UnidID
+        '
+        Me.UnidID.DataPropertyName = "UnidID"
+        Me.UnidID.DataSource = Me.UnidadesBindingSource
+        Me.UnidID.DisplayMember = "UnidDescr"
+        Me.UnidID.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.[Nothing]
+        Me.UnidID.HeaderText = "Unid"
+        Me.UnidID.MinimumWidth = 6
+        Me.UnidID.Name = "UnidID"
+        Me.UnidID.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.UnidID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.UnidID.ValueMember = "UnidID"
+        Me.UnidID.Width = 46
+        '
+        'Altura
+        '
+        Me.Altura.DataPropertyName = "Altura"
+        Me.Altura.HeaderText = "Altura"
+        Me.Altura.MinimumWidth = 6
+        Me.Altura.Name = "Altura"
+        Me.Altura.Width = 50
+        '
+        'EpocaID
+        '
+        Me.EpocaID.DataPropertyName = "EpocaID"
+        Me.EpocaID.DataSource = Me.EpocasBindingSource
+        Me.EpocaID.DisplayMember = "EpocaDescr"
+        Me.EpocaID.HeaderText = "Epoca"
+        Me.EpocaID.MinimumWidth = 6
+        Me.EpocaID.Name = "EpocaID"
+        Me.EpocaID.ValueMember = "EpocaID"
+        Me.EpocaID.Width = 60
+        '
+        'MarcaID
+        '
+        Me.MarcaID.DataPropertyName = "MarcaID"
+        Me.MarcaID.DataSource = Me.MarcasBindingSource
+        Me.MarcaID.DisplayMember = "MarcaDescr"
+        Me.MarcaID.HeaderText = "Marca"
+        Me.MarcaID.MinimumWidth = 6
+        Me.MarcaID.Name = "MarcaID"
+        Me.MarcaID.ValueMember = "MarcaID"
+        Me.MarcaID.Width = 200
+        '
+        'EscalaID
+        '
+        Me.EscalaID.DataPropertyName = "EscalaID"
+        Me.EscalaID.HeaderText = "Escala"
+        Me.EscalaID.MinimumWidth = 6
+        Me.EscalaID.Name = "EscalaID"
+        Me.EscalaID.Width = 55
+        '
         'frmArtigos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(1344, 649)
+        Me.ClientSize = New System.Drawing.Size(1412, 649)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btFiltro)
-        Me.Controls.Add(Me.cbLinhas)
+        Me.Controls.Add(Me.cbMarcas)
         Me.Controls.Add(Me.cbTipos)
         Me.Controls.Add(Me.cbGrupos)
         Me.Controls.Add(Me.txtModelos)
@@ -623,7 +634,7 @@ Partial Class frmArtigos
         Me.Controls.Add(Me.dgvModeloCor)
         Me.Controls.Add(Me.dgvModelos)
         Me.Controls.Add(Me.ModelosBindingNavigator)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "frmArtigos"
         Me.Text = "Artigos"
         CType(Me.GirlDataSet, System.ComponentModel.ISupportInitialize).EndInit()
@@ -636,6 +647,7 @@ Partial Class frmArtigos
         CType(Me.LinhasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UnidadesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EpocasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.MarcasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ModeloCorBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgvModeloCor, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TerceirosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
@@ -681,23 +693,13 @@ Partial Class frmArtigos
     Friend WithEvents txtModelos As System.Windows.Forms.TextBox
     Friend WithEvents cbGrupos As System.Windows.Forms.ComboBox
     Friend WithEvents cbTipos As System.Windows.Forms.ComboBox
-    Friend WithEvents cbLinhas As System.Windows.Forms.ComboBox
+    Friend WithEvents cbMarcas As System.Windows.Forms.ComboBox
     Friend WithEvents btFiltro As System.Windows.Forms.Button
     Friend WithEvents FKModelosTiposBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents DataGridViewTextBoxColumn1 As System.Windows.Forms.DataGridViewComboBoxColumn
     Friend WithEvents EpocasBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents EpocasTableAdapter As GirlRootName.GirlDataSetTableAdapters.EpocasTableAdapter
-    Friend WithEvents ModeloID As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents GrupoID As System.Windows.Forms.DataGridViewComboBoxColumn
-    Friend WithEvents TipoID As System.Windows.Forms.DataGridViewComboBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn4 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents LinhaID As System.Windows.Forms.DataGridViewComboBoxColumn
-    Friend WithEvents UnidID As System.Windows.Forms.DataGridViewComboBoxColumn
-    Friend WithEvents Altura As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents EpocaID As System.Windows.Forms.DataGridViewComboBoxColumn
-    Friend WithEvents EscalaID As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn10 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents TerceirosBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents TerceirosTableAdapter As GirlRootName.GirlDataSetTableAdapters.TerceirosTableAdapter
     Friend WithEvents DataGridViewTextBoxColumn11 As System.Windows.Forms.DataGridViewTextBoxColumn
@@ -708,4 +710,16 @@ Partial Class frmArtigos
     Friend WithEvents DataGridViewTextBoxColumn17 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn18 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn14 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents MarcasBindingSource As BindingSource
+    Friend WithEvents MarcasTableAdapter As GirlDataSetTableAdapters.MarcasTableAdapter
+    Friend WithEvents ModeloID As DataGridViewTextBoxColumn
+    Friend WithEvents GrupoID As DataGridViewComboBoxColumn
+    Friend WithEvents TipoID As DataGridViewComboBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
+    Friend WithEvents LinhaID As DataGridViewComboBoxColumn
+    Friend WithEvents UnidID As DataGridViewComboBoxColumn
+    Friend WithEvents Altura As DataGridViewTextBoxColumn
+    Friend WithEvents EpocaID As DataGridViewComboBoxColumn
+    Friend WithEvents MarcaID As DataGridViewComboBoxColumn
+    Friend WithEvents EscalaID As DataGridViewTextBoxColumn
 End Class

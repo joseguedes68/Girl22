@@ -7,7 +7,7 @@
 <DiagramLayout xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ex:showrelationlabel="True" ViewPortX="-129" ViewPortY="-66" xmlns:ex="urn:schemas-microsoft-com:xml-msdatasource-layout-extended" xmlns="urn:schemas-microsoft-com:xml-msdatasource-layout">
   <Shapes>
     <Shape ID="DesignTable:DocCaixa" ZOrder="38" X="98" Y="152" Height="50" Width="179" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="41" OldDataTableHeight="160" SplitterPosition="22" />
-    <Shape ID="DesignTable:Modelos" ZOrder="4" X="852" Y="134" Height="62" Width="300" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="76" OldDataTableHeight="283" SplitterPosition="28" />
+    <Shape ID="DesignTable:Modelos" ZOrder="1" X="852" Y="134" Height="63" Width="159" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="98" OldDataTableHeight="283" SplitterPosition="29" />
     <Shape ID="DesignTable:ModeloCor" ZOrder="21" X="763" Y="222" Height="54" Width="209" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="45" OldDataTableHeight="178" SplitterPosition="24" />
     <Shape ID="DesignTable:Grupos" ZOrder="44" X="1168" Y="53" Height="52" Width="182" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="41" OldDataTableHeight="109" SplitterPosition="22" />
     <Shape ID="DesignTable:Cores" ZOrder="18" X="568" Y="298" Height="52" Width="164" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="58" OldDataTableHeight="75" SplitterPosition="24" />
@@ -24,13 +24,13 @@
     <Shape ID="DesignTable:Escalas" ZOrder="46" X="-114" Y="-56" Height="62" Width="173" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="58" OldDataTableHeight="75" SplitterPosition="28" />
     <Shape ID="DesignTable:DocDet" ZOrder="13" X="91" Y="402" Height="66" Width="216" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="142" OldDataTableHeight="358" SplitterPosition="28" />
     <Shape ID="DesignTable:TaxIVA" ZOrder="35" X="-117" Y="376" Height="52" Width="183" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="41" OldDataTableHeight="109" SplitterPosition="24" />
-    <Shape ID="DesignTable:Terceiros" ZOrder="5" X="1217" Y="549" Height="198" Width="301" AdapterExpanded="true" DataTableExpanded="false" OldAdapterHeight="64" OldDataTableHeight="254" SplitterPosition="24" />
+    <Shape ID="DesignTable:Terceiros" ZOrder="5" X="1217" Y="549" Height="58" Width="301" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="168" OldDataTableHeight="254" SplitterPosition="24" />
     <Shape ID="DesignTable:EncDetTam" ZOrder="37" X="100" Y="29" Height="50" Width="174" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="41" OldDataTableHeight="126" SplitterPosition="22" />
-    <Shape ID="DesignTable:Encomendas" ZOrder="1" X="101" Y="-49" Height="87" Width="256" AdapterExpanded="true" DataTableExpanded="false" OldAdapterHeight="28" OldDataTableHeight="306" SplitterPosition="28" />
+    <Shape ID="DesignTable:Encomendas" ZOrder="2" X="101" Y="-49" Height="87" Width="256" AdapterExpanded="true" DataTableExpanded="false" OldAdapterHeight="28" OldDataTableHeight="306" SplitterPosition="28" />
     <Shape ID="DesignTable:MovStk" ZOrder="34" X="355" Y="157" Height="50" Width="148" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="41" OldDataTableHeight="160" SplitterPosition="22" />
     <Shape ID="DesignTable:ClientesLoja" ZOrder="10" X="575" Y="365" Height="63" Width="157" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="82" OldDataTableHeight="254" SplitterPosition="25" />
     <Shape ID="DesignTable:TabPrecosLoja" ZOrder="32" X="99" Y="93" Height="50" Width="177" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="41" OldDataTableHeight="75" SplitterPosition="22" />
-    <Shape ID="DesignTable:TabelaPrecos" ZOrder="30" X="321" Y="516" Height="198" Width="173" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="22" OldDataTableHeight="92" SplitterPosition="118" />
+    <Shape ID="DesignTable:TabelaPrecos" ZOrder="30" X="321" Y="516" Height="62" Width="173" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="74" OldDataTableHeight="118" SplitterPosition="28" />
     <Shape ID="DesignTable:rpt_MapaVendas" ZOrder="24" X="538" Y="558" Height="50" Width="154" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="41" OldDataTableHeight="143" SplitterPosition="22" />
     <Shape ID="DesignTable:rpt_ResumoVendas" ZOrder="22" X="761" Y="367" Height="50" Width="164" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="41" OldDataTableHeight="109" SplitterPosition="22" />
     <Shape ID="DesignTable:DocCabDet" ZOrder="31" X="518" Y="165" Height="62" Width="212" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="61" OldDataTableHeight="254" SplitterPosition="24" />
@@ -41,14 +41,14 @@
     <Shape ID="DesignTable:Product" ZOrder="16" X="328" Y="327" Height="54" Width="163" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="45" OldDataTableHeight="140" SplitterPosition="24" />
     <Shape ID="DesignTable:ExportaWeb" ZOrder="15" X="758" Y="-39" Height="54" Width="168" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="45" OldDataTableHeight="254" SplitterPosition="24" />
     <Shape ID="DesignTable:Epocas" ZOrder="12" X="1250" Y="446" Height="70" Width="252" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="61" OldDataTableHeight="250" SplitterPosition="32" />
-    <Shape ID="DesignTable:Aux1" ZOrder="8" X="869" Y="559" Height="135" Width="203" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="76" />
-    <Shape ID="DesignTable:Marcas" ZOrder="3" X="583" Y="637" Height="62" Width="217" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="53" OldDataTableHeight="76" SplitterPosition="28" />
+    <Shape ID="DesignTable:Aux1" ZOrder="8" X="869" Y="559" Height="62" Width="203" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="53" OldDataTableHeight="76" SplitterPosition="28" />
+    <Shape ID="DesignTable:Marcas" ZOrder="4" X="583" Y="637" Height="62" Width="217" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="53" OldDataTableHeight="76" SplitterPosition="28" />
     <Shape ID="DesignTable:EncCabLista" ZOrder="48" X="355" Y="-30" Height="26" Width="150" AdapterExpanded="true" DataTableExpanded="false" OldAdapterHeight="0" OldDataTableHeight="159" SplitterPosition="22" />
     <Shape ID="DesignTable:EncDet" ZOrder="41" X="355" Y="-1" Height="26" Width="150" AdapterExpanded="true" DataTableExpanded="false" OldAdapterHeight="0" OldDataTableHeight="227" SplitterPosition="22" />
     <Shape ID="DesignTable:ExeEnc" ZOrder="42" X="355" Y="28" Height="26" Width="150" AdapterExpanded="true" DataTableExpanded="false" OldAdapterHeight="0" OldDataTableHeight="108" SplitterPosition="22" />
     <Shape ID="DesignTable:FornList" ZOrder="6" X="354" Y="57" Height="57" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="22" SplitterPosition="53" />
     <Shape ID="DesignTable:GraficoVnd" ZOrder="43" X="539" Y="-29" Height="26" Width="170" AdapterExpanded="true" DataTableExpanded="false" OldAdapterHeight="0" OldDataTableHeight="57" SplitterPosition="22" />
-    <Shape ID="DesignTable:TipoTerceiros" ZOrder="39" X="-117" Y="443" Height="80" Width="180" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="22" SplitterPosition="76" />
+    <Shape ID="DesignTable:TipoTerceiros" ZOrder="39" X="-117" Y="443" Height="32" Width="180" AdapterExpanded="true" DataTableExpanded="false" OldAdapterHeight="0" OldDataTableHeight="76" SplitterPosition="28" />
     <Shape ID="DesignTable:Despesas" ZOrder="27" X="1101" Y="324" Height="36" Width="150" AdapterExpanded="true" DataTableExpanded="false" OldAdapterHeight="0" OldDataTableHeight="215" SplitterPosition="32" />
     <Shape ID="DesignTable:ApoioTrasf" ZOrder="26" X="797" Y="304" Height="28" Width="150" AdapterExpanded="true" DataTableExpanded="false" OldAdapterHeight="0" OldDataTableHeight="101" SplitterPosition="24" />
     <Shape ID="DesignTable:DocDetAux" ZOrder="23" X="94" Y="507" Height="28" Width="179" AdapterExpanded="true" DataTableExpanded="false" OldAdapterHeight="0" OldDataTableHeight="196" SplitterPosition="24" />
@@ -66,7 +66,7 @@
           <Y>159</Y>
         </Point>
         <Point>
-          <X>1152</X>
+          <X>1011</X>
           <Y>159</Y>
         </Point>
       </RoutePoints>
@@ -122,7 +122,7 @@
           <Y>151</Y>
         </Point>
         <Point>
-          <X>1152</X>
+          <X>1011</X>
           <Y>151</Y>
         </Point>
       </RoutePoints>
@@ -215,11 +215,11 @@
         </Point>
         <Point>
           <X>975</X>
-          <Y>196</Y>
+          <Y>197</Y>
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:Marcas_Modelos" ZOrder="2" LineWidth="11">
+    <Connector ID="DesignRelation:Marcas_Modelos" ZOrder="3" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>783</X>
