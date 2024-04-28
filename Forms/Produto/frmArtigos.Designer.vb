@@ -78,8 +78,6 @@ Partial Class frmArtigos
         Me.ModeloID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GrupoID = New System.Windows.Forms.DataGridViewComboBoxColumn()
         Me.TipoID = New System.Windows.Forms.DataGridViewComboBoxColumn()
-        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.LinhaID = New System.Windows.Forms.DataGridViewComboBoxColumn()
         Me.UnidID = New System.Windows.Forms.DataGridViewComboBoxColumn()
         Me.Altura = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.EpocaID = New System.Windows.Forms.DataGridViewComboBoxColumn()
@@ -215,7 +213,7 @@ Partial Class frmArtigos
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgvModelos.AutoGenerateColumns = False
         Me.dgvModelos.ColumnHeadersHeight = 29
-        Me.dgvModelos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ModeloID, Me.GrupoID, Me.TipoID, Me.DataGridViewTextBoxColumn4, Me.LinhaID, Me.UnidID, Me.Altura, Me.EpocaID, Me.MarcaID, Me.EscalaID})
+        Me.dgvModelos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ModeloID, Me.GrupoID, Me.TipoID, Me.UnidID, Me.Altura, Me.EpocaID, Me.MarcaID, Me.EscalaID})
         Me.dgvModelos.DataSource = Me.ModelosBindingSource
         Me.dgvModelos.Location = New System.Drawing.Point(16, 48)
         Me.dgvModelos.Margin = New System.Windows.Forms.Padding(4)
@@ -523,7 +521,6 @@ Partial Class frmArtigos
         Me.GrupoID.DataPropertyName = "GrupoID"
         Me.GrupoID.DataSource = Me.GruposBindingSource
         Me.GrupoID.DisplayMember = "GrupoDesc"
-        Me.GrupoID.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.[Nothing]
         Me.GrupoID.HeaderText = "Grupo"
         Me.GrupoID.MinimumWidth = 6
         Me.GrupoID.Name = "GrupoID"
@@ -540,35 +537,11 @@ Partial Class frmArtigos
         Me.TipoID.Name = "TipoID"
         Me.TipoID.Width = 125
         '
-        'DataGridViewTextBoxColumn4
-        '
-        Me.DataGridViewTextBoxColumn4.DataPropertyName = "FamiliaID"
-        Me.DataGridViewTextBoxColumn4.HeaderText = "FamiliaID"
-        Me.DataGridViewTextBoxColumn4.MinimumWidth = 6
-        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
-        Me.DataGridViewTextBoxColumn4.Visible = False
-        Me.DataGridViewTextBoxColumn4.Width = 125
-        '
-        'LinhaID
-        '
-        Me.LinhaID.DataPropertyName = "LinhaID"
-        Me.LinhaID.DataSource = Me.LinhasBindingSource
-        Me.LinhaID.DisplayMember = "DescrLinha"
-        Me.LinhaID.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.[Nothing]
-        Me.LinhaID.HeaderText = "Linha"
-        Me.LinhaID.MinimumWidth = 6
-        Me.LinhaID.Name = "LinhaID"
-        Me.LinhaID.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.LinhaID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.LinhaID.ValueMember = "LinhaID"
-        Me.LinhaID.Width = 72
-        '
         'UnidID
         '
         Me.UnidID.DataPropertyName = "UnidID"
         Me.UnidID.DataSource = Me.UnidadesBindingSource
         Me.UnidID.DisplayMember = "UnidDescr"
-        Me.UnidID.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.[Nothing]
         Me.UnidID.HeaderText = "Unid"
         Me.UnidID.MinimumWidth = 6
         Me.UnidID.Name = "UnidID"
@@ -715,8 +688,6 @@ Partial Class frmArtigos
     Friend WithEvents ModeloID As DataGridViewTextBoxColumn
     Friend WithEvents GrupoID As DataGridViewComboBoxColumn
     Friend WithEvents TipoID As DataGridViewComboBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
-    Friend WithEvents LinhaID As DataGridViewComboBoxColumn
     Friend WithEvents UnidID As DataGridViewComboBoxColumn
     Friend WithEvents Altura As DataGridViewTextBoxColumn
     Friend WithEvents EpocaID As DataGridViewComboBoxColumn
