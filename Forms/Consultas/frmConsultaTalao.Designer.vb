@@ -1,9 +1,9 @@
-<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmConsultaTalao
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         If disposing AndAlso components IsNot Nothing Then
             components.Dispose()
@@ -17,7 +17,7 @@ Partial Class frmConsultaTalao
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmConsultaTalao))
         Me.C1TDBGCTaloes = New C1.Win.C1TrueDBGrid.C1TrueDBGrid()
@@ -40,6 +40,8 @@ Partial Class frmConsultaTalao
         Me.cbReport = New System.Windows.Forms.ComboBox()
         Me.btValor = New System.Windows.Forms.Button()
         Me.btForn = New System.Windows.Forms.Button()
+        Me.btValidaTalao = New System.Windows.Forms.Button()
+        Me.btCancelar = New System.Windows.Forms.Button()
         CType(Me.C1TDBGCTaloes, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.C1DbNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -71,7 +73,7 @@ Partial Class frmConsultaTalao
         Me.C1TDBGCTaloes.RowDivider.Style = C1.Win.C1TrueDBGrid.LineStyleEnum.[Single]
         Me.C1TDBGCTaloes.RowHeight = 20
         Me.C1TDBGCTaloes.RowSubDividerColor = System.Drawing.Color.DarkGray
-        Me.C1TDBGCTaloes.Size = New System.Drawing.Size(1528, 428)
+        Me.C1TDBGCTaloes.Size = New System.Drawing.Size(1666, 428)
         Me.C1TDBGCTaloes.TabIndex = 0
         Me.C1TDBGCTaloes.Text = "C1TrueDBGrid1"
         Me.C1TDBGCTaloes.PropBag = resources.GetString("C1TDBGCTaloes.PropBag")
@@ -82,7 +84,7 @@ Partial Class frmConsultaTalao
         Me.CmdFechar.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.CmdFechar.DialogResult = System.Windows.Forms.DialogResult.Yes
         Me.CmdFechar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CmdFechar.Location = New System.Drawing.Point(1354, 18)
+        Me.CmdFechar.Location = New System.Drawing.Point(1492, 18)
         Me.CmdFechar.Margin = New System.Windows.Forms.Padding(4)
         Me.CmdFechar.Name = "CmdFechar"
         Me.CmdFechar.Size = New System.Drawing.Size(175, 39)
@@ -139,7 +141,8 @@ Partial Class frmConsultaTalao
         '
         'PictureBox
         '
-        Me.PictureBox.Location = New System.Drawing.Point(1001, 10)
+        Me.PictureBox.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.PictureBox.Location = New System.Drawing.Point(1149, 10)
         Me.PictureBox.Margin = New System.Windows.Forms.Padding(4)
         Me.PictureBox.Name = "PictureBox"
         Me.PictureBox.Size = New System.Drawing.Size(335, 241)
@@ -167,7 +170,7 @@ Partial Class frmConsultaTalao
         Me.lbFiltro.Location = New System.Drawing.Point(15, 78)
         Me.lbFiltro.Margin = New System.Windows.Forms.Padding(4)
         Me.lbFiltro.Name = "lbFiltro"
-        Me.lbFiltro.Size = New System.Drawing.Size(169, 79)
+        Me.lbFiltro.Size = New System.Drawing.Size(169, 129)
         Me.lbFiltro.TabIndex = 10
         '
         'cmdFiltrar
@@ -247,7 +250,7 @@ Partial Class frmConsultaTalao
         Me.btDev.BackColor = System.Drawing.Color.FromArgb(CType(CType(243, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(51, Byte), Integer))
         Me.btDev.DialogResult = System.Windows.Forms.DialogResult.Yes
         Me.btDev.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold)
-        Me.btDev.Location = New System.Drawing.Point(1354, 107)
+        Me.btDev.Location = New System.Drawing.Point(1492, 107)
         Me.btDev.Margin = New System.Windows.Forms.Padding(4)
         Me.btDev.Name = "btDev"
         Me.btDev.Size = New System.Drawing.Size(175, 39)
@@ -262,7 +265,7 @@ Partial Class frmConsultaTalao
         Me.btAnular.BackColor = System.Drawing.Color.FromArgb(CType(CType(243, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(51, Byte), Integer))
         Me.btAnular.DialogResult = System.Windows.Forms.DialogResult.Yes
         Me.btAnular.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold)
-        Me.btAnular.Location = New System.Drawing.Point(1354, 60)
+        Me.btAnular.Location = New System.Drawing.Point(1492, 60)
         Me.btAnular.Margin = New System.Windows.Forms.Padding(4)
         Me.btAnular.Name = "btAnular"
         Me.btAnular.Size = New System.Drawing.Size(175, 39)
@@ -302,7 +305,7 @@ Partial Class frmConsultaTalao
         Me.btForn.BackColor = System.Drawing.Color.FromArgb(CType(CType(243, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(51, Byte), Integer))
         Me.btForn.DialogResult = System.Windows.Forms.DialogResult.Yes
         Me.btForn.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold)
-        Me.btForn.Location = New System.Drawing.Point(1354, 201)
+        Me.btForn.Location = New System.Drawing.Point(1492, 201)
         Me.btForn.Margin = New System.Windows.Forms.Padding(4)
         Me.btForn.Name = "btForn"
         Me.btForn.Size = New System.Drawing.Size(175, 39)
@@ -311,11 +314,37 @@ Partial Class frmConsultaTalao
         Me.btForn.Text = "Fornecedores"
         Me.btForn.UseVisualStyleBackColor = False
         '
+        'btValidaTalao
+        '
+        Me.btValidaTalao.BackColor = System.Drawing.Color.FromArgb(CType(CType(243, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(51, Byte), Integer))
+        Me.btValidaTalao.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btValidaTalao.Location = New System.Drawing.Point(943, 26)
+        Me.btValidaTalao.Margin = New System.Windows.Forms.Padding(4)
+        Me.btValidaTalao.Name = "btValidaTalao"
+        Me.btValidaTalao.Size = New System.Drawing.Size(169, 78)
+        Me.btValidaTalao.TabIndex = 51
+        Me.btValidaTalao.Text = "Validar Talões"
+        Me.btValidaTalao.UseVisualStyleBackColor = False
+        '
+        'btCancelar
+        '
+        Me.btCancelar.BackColor = System.Drawing.Color.FromArgb(CType(CType(243, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(51, Byte), Integer))
+        Me.btCancelar.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btCancelar.Location = New System.Drawing.Point(943, 107)
+        Me.btCancelar.Margin = New System.Windows.Forms.Padding(4)
+        Me.btCancelar.Name = "btCancelar"
+        Me.btCancelar.Size = New System.Drawing.Size(169, 78)
+        Me.btCancelar.TabIndex = 52
+        Me.btCancelar.Text = "Cancelar"
+        Me.btCancelar.UseVisualStyleBackColor = False
+        '
         'frmConsultaTalao
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1545, 688)
+        Me.ClientSize = New System.Drawing.Size(1683, 688)
+        Me.Controls.Add(Me.btCancelar)
+        Me.Controls.Add(Me.btValidaTalao)
         Me.Controls.Add(Me.btForn)
         Me.Controls.Add(Me.btValor)
         Me.Controls.Add(Me.cbReport)
@@ -365,4 +394,6 @@ Partial Class frmConsultaTalao
     Friend WithEvents cbReport As System.Windows.Forms.ComboBox
     Friend WithEvents btValor As System.Windows.Forms.Button
     Friend WithEvents btForn As System.Windows.Forms.Button
+    Friend WithEvents btValidaTalao As Button
+    Friend WithEvents btCancelar As Button
 End Class

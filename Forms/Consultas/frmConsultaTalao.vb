@@ -1,5 +1,6 @@
 
 Imports System.Data.SqlClient
+Imports C1.Win.C1FlexGrid
 Imports C1.Win.C1TrueDBGrid
 
 Public Class frmConsultaTalao
@@ -17,6 +18,9 @@ Public Class frmConsultaTalao
     Dim xArmzAux As String
     Dim dComissaoAux As Double
     Dim lblForn As New Label
+    Dim xValidaValor As String
+    Dim dtErroInventario As New DataTable
+
 
     Dim WithEvents Dgrid As New DataGridView
 
@@ -26,6 +30,8 @@ Public Class frmConsultaTalao
         Dim val As New clsValidacoes(Me.Name)
 
         Try
+
+            btValidaTalao.Text = "Validar Talões"
 
             If xGrupoAcesso = "ADMIN" Then
                 btDetTalao.Visible = True
@@ -50,7 +56,6 @@ Public Class frmConsultaTalao
             'HELDER - QUE COISA ESTRANHA
             cbVerTodas.Checked = False
             xCargaIni = True
-
 
             If xArmz = "0000" Then
                 xArmzAux = "%"
@@ -229,13 +234,13 @@ Public Class frmConsultaTalao
                 xFiltraTaloes = xFiltraTaloes.Substring(0, xFiltraTaloes.Length - 2)
 
 
-                Sql = "SELECT Serie.SerieID AS Talão, Serie.ProductCode, Modelos.EpocaID AS Ep, Modelos.GrupoID AS Gr, Modelos.TipoID AS Tip, Modelos.Altura AS Alt, Serie.ModeloID AS Modelo, " & _
-               "Serie.CorID AS Cor, RTRIM(ModeloCor.ModCorDescr) AS Descrição, Serie.TamID AS Tam, RTRIM(Serie.ArmazemID) + ' - ' + RTRIM(Armazens.ArmAbrev) " & _
-               "AS Loja, Serie.EstadoID AS Est, Modelos.LinhaID AS Ln, Serie.PrecoEtiqueta AS PrTalão, Serie.PrecoVenda AS PrVnd, Serie.PVndReal AS PrVndReal , Serie.Comissao, DocNr, Serie.DtSaida AS DtUltMov, Serie.Obs, Serie.Obs1, ModeloCor.FornID " & _
-               "FROM Serie LEFT OUTER JOIN " & _
-               "Modelos ON Serie.ModeloID = Modelos.ModeloID LEFT OUTER JOIN " & _
-               "ModeloCor ON Serie.CorID = ModeloCor.CorID AND Serie.ModeloID = ModeloCor.ModeloID LEFT OUTER JOIN " & _
-               "Armazens ON Serie.ArmazemID = Armazens.ArmazemID " & _
+                Sql = "SELECT Serie.SerieID AS Talão, Serie.ProductCode, Modelos.EpocaID AS Ep, Modelos.GrupoID AS Gr, Modelos.TipoID AS Tip, Modelos.Altura AS Alt, Serie.ModeloID AS Modelo, " &
+               "Serie.CorID AS Cor, RTRIM(ModeloCor.ModCorDescr) AS Descrição, Serie.TamID AS Tam, RTRIM(Serie.ArmazemID) + ' - ' + RTRIM(Armazens.ArmAbrev) " &
+               "AS Loja, Serie.EstadoID AS Est, Modelos.LinhaID AS Ln, Serie.PrecoEtiqueta AS PrTalão, Serie.PrecoVenda AS PrVnd, Serie.PVndReal AS PrVndReal , Serie.Comissao, DocNr, Serie.DtSaida AS DtUltMov, Serie.Obs, Serie.Obs1, ModeloCor.FornID " &
+               "FROM Serie LEFT OUTER JOIN " &
+               "Modelos ON Serie.ModeloID = Modelos.ModeloID LEFT OUTER JOIN " &
+               "ModeloCor ON Serie.CorID = ModeloCor.CorID AND Serie.ModeloID = ModeloCor.ModeloID LEFT OUTER JOIN " &
+               "Armazens ON Serie.ArmazemID = Armazens.ArmazemID " &
                "WHERE Serie.SerieID in (" & xFiltraTaloes & ") and Serie.ArmazemID LIKE '" & xArmzAux & "'"
 
                 db.GetData(Sql, dtConsultaTalao)
@@ -254,7 +259,7 @@ Public Class frmConsultaTalao
                     ' ISTO FOI FEITO À PRESSA PARA MOSTRAR OS TALÕES NAS LOJAS....
                     Sql = "SELECT Serie.SerieID AS Talão, Serie.ProductCode, Modelos.EpocaID AS Ep, Modelos.GrupoID AS Gr, Modelos.TipoID AS Tip, Modelos.Altura AS Alt, Serie.ModeloID AS Modelo, Serie.CorID AS Cor,  " &
                         "RTRIM(ModeloCor.ModCorDescr) AS Descrição, Serie.TamID AS Tam, RTRIM(Serie.ArmazemID) + ' - ' + RTRIM(Armazens.ArmAbrev) AS Loja,  " &
-                        "Serie.EstadoID AS Est, Modelos.LinhaID AS Ln, Serie.PrecoEtiqueta AS PrTalão, Serie.PrecoVenda AS PrVnd, Serie.PVndReal AS PrVndReal, Serie.Comissao, SERIE.VENDEDOR AS Vendedor, DocNr, Serie.DtSaida AS DtUltMov,  Serie.PrFixo, Serie.Obs, Serie.Obs1, ModeloCor.FornID " &
+                        "Serie.EstadoID AS Est, Modelos.LinhaID AS Ln, Serie.PrecoEtiqueta AS PrTalão, Serie.PrecoVenda AS PrVnd, Serie.PVndReal AS PrVndReal, Serie.Comissao, SERIE.VENDEDOR AS Vendedor, DocNr, Serie.DtSaida AS DtUltMov,  Serie.PrFixo, Serie.Obs, Serie.Obs1, Serie.Obs3, ModeloCor.FornID " &
                         "FROM Modelos RIGHT OUTER JOIN " &
                         "Serie ON Modelos.ModeloID = Serie.ModeloID LEFT OUTER JOIN " &
                         "ModeloCor ON Serie.CorID = ModeloCor.CorID AND Serie.ModeloID = ModeloCor.ModeloID LEFT OUTER JOIN " &
@@ -333,10 +338,16 @@ Public Class frmConsultaTalao
                         lbFiltro.Items.Add(Me.tbFiltraTalao.Text)
                         Me.tbFiltraTalao.Focus()
                         Me.tbFiltraTalao.SelectAll()
+                        'atribuir o valor de lbFiltro.Items.Count à lable lbcontador
+                        'btValidaTalao.Text = " Validar " & Chr(13) & Me.lbFiltro.Items.Count.ToString & " Talões "
+                        btValidaTalao.Text = " Validar " & Environment.NewLine & Me.lbFiltro.Items.Count.ToString & " Talões "
                     Else
                         MsgBox("Erro no Talão!")
                         tbFiltraTalao.SelectAll()
                     End If
+                Else
+                    MsgBox("Erro no Talão!")
+                    tbFiltraTalao.SelectAll()
                 End If
             End If
         Catch ex As Exception
@@ -758,12 +769,48 @@ Public Class frmConsultaTalao
 
         Try
 
+
             Sql = "SELECT COUNT(*) FROM SERIE WHERE SERIEID='" & Talao & "'"
             If db.GetDataValue(Sql) = 0 Then
                 Return False
             Else
                 Return True
             End If
+
+
+            'xMensagem = "Talão já Conferido!!"
+            'xMensagem = "Esse Talão está no Armazém: " & xArmzAux & " no Estado: " & xEstado
+            'xMensagem = "Esse Talão não Existe!!"
+
+
+            'Dim xArmzAux As String
+            'Dim xMensagem As String
+            'Dim xEstado As String
+            'Dim dr() As DataRow
+            'Try
+            '    If dtDet.Select("SerieID = '" & Me.txtCodBarras.Text & "'", "").Length > 0 Then
+            '        Return True
+            '    Else
+            '        If dtConfere.Select("SerieID = '" & Me.txtCodBarras.Text & "'", "").Length > 0 Then
+            '            xMensagem = "Talão já Conferido!!"
+            '            TalaoInvalido(xMensagem)
+            '            Return False
+            '        Else
+            '            dr = dtSerieID.Select("SerieID = '" & Me.txtCodBarras.Text & "'", "")
+            '            If dr.Length > 0 Then
+            '                xArmzAux = dr(0)("ArmazemId")
+            '                xEstado = dr(0)("EstadoID")
+            '                xMensagem = "Esse Talão está no Armazem: " & xArmzAux & " no Estado: " & xEstado
+            '                TalaoInvalido(xMensagem)
+            '                Return False
+            '            Else
+            '                xMensagem = "Esse Talão não Existe!!"
+            '                TalaoInvalido(xMensagem)
+            '                Return False
+            '            End If
+            '        End If
+            '    End If
+
 
 
             'If dtConsultaTalao.Rows.Count > 0 Then
@@ -979,6 +1026,89 @@ Public Class frmConsultaTalao
         End Try
 
     End Sub
+
+    Private Sub btValidaTalao_Click(sender As Object, e As EventArgs) Handles btValidaTalao.Click
+
+        Me.Cursor = Cursors.WaitCursor
+        Dim db As New ClsSqlBDados
+        xFiltraTaloes = ""
+        'xValidaValor = Date.Now.ToString("dd/MM/yyyy") + " - " + Microsoft.VisualBasic.Right(xArmz, 2)
+        xValidaValor = Date.Now.ToString("dd/MM/yyyy")
+
+        'C1TDBGCTaloes.AllowUpdate = True
+
+        Try
+
+
+            If Me.lbFiltro.Items.Count > 0 Then
+
+                For I As Integer = 0 To Me.lbFiltro.Items.Count - 1
+                    xFiltraTaloes += " '" + Me.lbFiltro.Items(I).ToString + "', "
+                Next
+                xFiltraTaloes = xFiltraTaloes.Substring(0, xFiltraTaloes.Length - 2)
+
+                Sql = "UPDATE Serie SET Obs3 = '" & xValidaValor & "' 
+                    WHERE  (SerieID IN (" & xFiltraTaloes & ")) AND (ArmazemID = '" & xArmz & "') AND (EstadoID = 'S')"
+
+                db.ExecuteData(Sql)
+
+
+                'TALÕES LIDOS NA LOJA MAS QUE NÃO ESTÃO EM STOCK
+                Sql = "SELECT SerieID FROM Serie 
+                    WHERE  (SerieID IN (" & xFiltraTaloes & ")) AND ((ArmazemID <> '" & xArmz & "') OR (EstadoID <> 'S'))"
+                db.GetData(Sql, dtErroInventario)
+
+                If dtErroInventario.Rows.Count > 0 Then
+                    For Each r As DataRow In dtErroInventario.Rows
+                        GravarEvento("Erro Inventário", xArmz, r("SerieID"))
+                    Next
+                End If
+
+
+                Me.lbFiltro.Items.Clear()
+                Me.tbFiltraTalao.Clear()
+                xFiltraTaloes = ""
+
+                'C1TrueDBGridFilterChange(C1TDBGCTaloes, Me.C1TDBGCTaloes.Columns, dtConsultaTalao, sQuery)
+                CarregarDados()
+
+
+            Else
+                MsgBox("Não existem talões para validar!!", MsgBoxStyle.Information)
+            End If
+
+
+
+        Catch ex As SqlException
+            ErroSQL(ex.Number, ex.Message, "btValidaTalao_Click")
+        Catch ex As Exception
+            ErroVB(ex.Message, "btValidaTalao_Click")
+        Finally
+            Me.Cursor = Cursors.Default
+            If Not db Is Nothing Then db.Dispose()
+            db = Nothing
+        End Try
+
+
+
+    End Sub
+
+    Private Sub btCancelar_Click(sender As Object, e As EventArgs) Handles btCancelar.Click
+        Try
+
+
+            Me.lbFiltro.Items.Clear()
+            Me.tbFiltraTalao.Clear()
+            xFiltraTaloes = ""
+            btValidaTalao.Text = "Validar Talões"
+
+
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+
 
 
 End Class
