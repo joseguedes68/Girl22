@@ -23,6 +23,8 @@ Partial Class frmArtigos
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmArtigos))
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.GirlDataSet = New GirlRootName.GirlDataSet()
         Me.ModelosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ModelosTableAdapter = New GirlRootName.GirlDataSetTableAdapters.ModelosTableAdapter()
@@ -208,6 +210,8 @@ Partial Class frmArtigos
         'dgvModelos
         '
         Me.dgvModelos.AllowUserToDeleteRows = False
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.dgvModelos.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.dgvModelos.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -339,6 +343,8 @@ Partial Class frmArtigos
         'dgvModeloCor
         '
         Me.dgvModeloCor.AllowUserToDeleteRows = False
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.dgvModeloCor.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle2
         Me.dgvModeloCor.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgvModeloCor.AutoGenerateColumns = False
@@ -414,9 +420,9 @@ Partial Class frmArtigos
         'DataGridViewTextBoxColumn18
         '
         Me.DataGridViewTextBoxColumn18.DataPropertyName = "PrCusto"
-        DataGridViewCellStyle1.Format = "C2"
-        DataGridViewCellStyle1.NullValue = Nothing
-        Me.DataGridViewTextBoxColumn18.DefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle3.Format = "C2"
+        DataGridViewCellStyle3.NullValue = Nothing
+        Me.DataGridViewTextBoxColumn18.DefaultCellStyle = DataGridViewCellStyle3
         Me.DataGridViewTextBoxColumn18.HeaderText = "PrCusto"
         Me.DataGridViewTextBoxColumn18.MinimumWidth = 6
         Me.DataGridViewTextBoxColumn18.Name = "DataGridViewTextBoxColumn18"
@@ -425,9 +431,9 @@ Partial Class frmArtigos
         'DataGridViewTextBoxColumn14
         '
         Me.DataGridViewTextBoxColumn14.DataPropertyName = "PrVnd"
-        DataGridViewCellStyle2.Format = "C4"
-        DataGridViewCellStyle2.NullValue = Nothing
-        Me.DataGridViewTextBoxColumn14.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle4.Format = "C4"
+        DataGridViewCellStyle4.NullValue = Nothing
+        Me.DataGridViewTextBoxColumn14.DefaultCellStyle = DataGridViewCellStyle4
         Me.DataGridViewTextBoxColumn14.HeaderText = "PrEtiqueta"
         Me.DataGridViewTextBoxColumn14.MinimumWidth = 6
         Me.DataGridViewTextBoxColumn14.Name = "DataGridViewTextBoxColumn14"
@@ -513,10 +519,11 @@ Partial Class frmArtigos
         'txtModelos
         '
         Me.txtModelos.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtModelos.Location = New System.Drawing.Point(1159, 288)
+        Me.txtModelos.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtModelos.Location = New System.Drawing.Point(1205, 286)
         Me.txtModelos.Margin = New System.Windows.Forms.Padding(4)
         Me.txtModelos.Name = "txtModelos"
-        Me.txtModelos.Size = New System.Drawing.Size(80, 22)
+        Me.txtModelos.Size = New System.Drawing.Size(134, 30)
         Me.txtModelos.TabIndex = 8
         Me.txtModelos.Text = "MODELOS"
         Me.txtModelos.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -526,32 +533,35 @@ Partial Class frmArtigos
         Me.cbGrupos.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cbGrupos.DataSource = Me.GruposBindingSource
         Me.cbGrupos.DisplayMember = "GrupoDesc"
+        Me.cbGrupos.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbGrupos.FormattingEnabled = True
         Me.cbGrupos.Location = New System.Drawing.Point(1089, 328)
         Me.cbGrupos.Margin = New System.Windows.Forms.Padding(4)
         Me.cbGrupos.Name = "cbGrupos"
-        Me.cbGrupos.Size = New System.Drawing.Size(307, 24)
+        Me.cbGrupos.Size = New System.Drawing.Size(307, 33)
         Me.cbGrupos.TabIndex = 9
         Me.cbGrupos.ValueMember = "GrupoID"
         '
         'cbTipos
         '
         Me.cbTipos.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cbTipos.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbTipos.FormattingEnabled = True
         Me.cbTipos.Location = New System.Drawing.Point(1089, 375)
         Me.cbTipos.Margin = New System.Windows.Forms.Padding(4)
         Me.cbTipos.Name = "cbTipos"
-        Me.cbTipos.Size = New System.Drawing.Size(307, 24)
+        Me.cbTipos.Size = New System.Drawing.Size(307, 33)
         Me.cbTipos.TabIndex = 9
         '
         'cbMarcas
         '
         Me.cbMarcas.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cbMarcas.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbMarcas.FormattingEnabled = True
         Me.cbMarcas.Location = New System.Drawing.Point(1089, 421)
         Me.cbMarcas.Margin = New System.Windows.Forms.Padding(4)
         Me.cbMarcas.Name = "cbMarcas"
-        Me.cbMarcas.Size = New System.Drawing.Size(307, 24)
+        Me.cbMarcas.Size = New System.Drawing.Size(307, 33)
         Me.cbMarcas.TabIndex = 9
         '
         'btFiltro
@@ -576,10 +586,11 @@ Partial Class frmArtigos
         '
         Me.Label1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(1095, 291)
         Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(59, 16)
+        Me.Label1.Size = New System.Drawing.Size(96, 25)
         Me.Label1.TabIndex = 11
         Me.Label1.Text = "Modelo :"
         '
