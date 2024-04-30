@@ -31,7 +31,6 @@ Partial Class frmMarcas
         Me.MarcasDataGridView = New System.Windows.Forms.DataGridView()
         Me.MarcaID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.MarcaDescr = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.GirlDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MarcasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MarcasDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -53,6 +52,7 @@ Partial Class frmMarcas
         '
         'MarcasDataGridView
         '
+        Me.MarcasDataGridView.AllowUserToDeleteRows = False
         Me.MarcasDataGridView.AllowUserToOrderColumns = True
         Me.MarcasDataGridView.AutoGenerateColumns = False
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
@@ -64,7 +64,7 @@ Partial Class frmMarcas
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.MarcasDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.MarcasDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.MarcasDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.MarcaID, Me.MarcaDescr, Me.DataGridViewTextBoxColumn3})
+        Me.MarcasDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.MarcaID, Me.MarcaDescr})
         Me.MarcasDataGridView.DataSource = Me.MarcasBindingSource
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
@@ -99,15 +99,6 @@ Partial Class frmMarcas
         Me.MarcaDescr.MinimumWidth = 6
         Me.MarcaDescr.Name = "MarcaDescr"
         Me.MarcaDescr.Width = 350
-        '
-        'DataGridViewTextBoxColumn3
-        '
-        Me.DataGridViewTextBoxColumn3.DataPropertyName = "OperadorID"
-        Me.DataGridViewTextBoxColumn3.HeaderText = "OperadorID"
-        Me.DataGridViewTextBoxColumn3.MinimumWidth = 6
-        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
-        Me.DataGridViewTextBoxColumn3.Visible = False
-        Me.DataGridViewTextBoxColumn3.Width = 125
         '
         'frmMarcas
         '

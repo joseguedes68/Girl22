@@ -372,7 +372,7 @@ Public Class frmStockFoto
 
         If cbMarcas.SelectedValue <> 0 Then
             If sQuery.Length > 0 Then
-                sQuery += " AND MarcaID = " + cbMarcas.SelectedValue
+                sQuery += " AND MarcaID = " + cbMarcas.SelectedValue.ToString
             Else
                 sQuery += " WHERE MarcaID = " + cbMarcas.SelectedValue.ToString
             End If
@@ -1095,7 +1095,7 @@ Public Class frmStockFoto
                     FROM      ModeloCor
                     WHERE   (FornID LIKE '" + xForn + "') AND (RTRIM(RefForn) LIKE '" + xRefForn + "'))) AND (Serie.CorID LIKE '" + xCor + "') 
                     AND (Serie.TamID LIKE '" + xTamanho + "') AND (Serie.EstadoID IN ('S', 'T')) " & sfiltropreco &
-                    "ORDER BY Tipos.Ordem, Foto DESC"
+                    "ORDER BY Foto DESC"
 
 
 
@@ -1243,6 +1243,7 @@ Public Class frmStockFoto
             Me.txtTamanho.Text = ""
             Me.txtForn.Text = ""
             Me.txtRefForn.Text = ""
+            Me.cbMarcas.SelectedValue = 0
 
             PanelStock.Visible = False
             Me.lbPrecoPromocao.Visible = False
