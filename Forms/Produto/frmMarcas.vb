@@ -16,15 +16,15 @@
     Private Sub MarcasDataGridView_CellBeginEdit(sender As Object, e As DataGridViewCellCancelEventArgs) Handles MarcasDataGridView.CellBeginEdit
         Try
 
-            Dim maxID As Integer = 0
-            For Each row As DataRow In GirlDataSet.Marcas.Rows
-                If row.RowState <> DataRowState.Deleted Then
-                    If row("MarcaID") > maxID Then
-                        maxID = row("MarcaID")
-                    End If
-                End If
-            Next
-            MarcasDataGridView.CurrentRow.Cells("MarcaID").Value = maxID + 1
+            'Dim maxID As Integer = 0
+            'For Each row As DataRow In GirlDataSet.Marcas.Rows
+            '    If row.RowState <> DataRowState.Deleted Then
+            '        If row("MarcaID") > maxID Then
+            '            maxID = row("MarcaID")
+            '        End If
+            '    End If
+            'Next
+            'MarcasDataGridView.CurrentRow.Cells("MarcaID").Value = maxID + 1
 
         Catch ex As Exception
 
@@ -32,32 +32,42 @@
     End Sub
 
     Private Sub MarcasDataGridView_CellValidating(sender As Object, e As DataGridViewCellValidatingEventArgs) Handles MarcasDataGridView.CellValidating
-        If e.ColumnIndex = MarcasDataGridView.Columns("MarcaDescr").Index Then
-            Dim newValue As String = e.FormattedValue.ToString()
 
-            ' Verifica se o comprimento do valor inserido é maior que 45 caracteres
-            If newValue.Length > 45 Then
-                MessageBox.Show("O campo Marca deve ter no máximo 45 caracteres.", "Valor Inválido", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                e.Cancel = True ' Cancela a edição da célula
-                Exit Sub
-            End If
+        Try
 
-            For Each row As DataGridViewRow In MarcasDataGridView.Rows
-                If row.Index <> e.RowIndex Then ' Exclui a linha atual da comparação
-                    Dim cell As DataGridViewCell = row.Cells("MarcaDescr")
-                    If cell.Value IsNot Nothing AndAlso Not cell.Value.Equals(DBNull.Value) Then
-                        Dim cellValue As String = cell.Value.ToString()
-                        ' Convertendo ambas as strings para minúsculas antes de compará-las
-                        If String.Equals(newValue.ToLower(), cellValue.ToLower()) Then
-                            MessageBox.Show("O valor da Marca está duplicado.", "Valor Duplicado", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                            e.Cancel = True ' Cancela a edição da célula
-                            Exit Sub
+
+
+            If e.ColumnIndex = MarcasDataGridView.Columns("MarcaDescr").Index Then
+                Dim newValue As String = e.FormattedValue.ToString()
+
+                ' Verifica se o comprimento do valor inserido é maior que 45 caracteres
+                If newValue.Length > 45 Then
+                    MessageBox.Show("O campo Marca deve ter no máximo 45 caracteres.", "Valor Inválido", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    e.Cancel = True ' Cancela a edição da célula
+                    Exit Sub
+                End If
+
+                For Each row As DataGridViewRow In MarcasDataGridView.Rows
+                    If row.Index <> e.RowIndex Then ' Exclui a linha atual da comparação
+                        Dim cell As DataGridViewCell = row.Cells("MarcaDescr")
+                        If cell.Value IsNot Nothing AndAlso Not cell.Value.Equals(DBNull.Value) Then
+                            Dim cellValue As String = cell.Value.ToString()
+                            ' Convertendo ambas as strings para minúsculas antes de compará-las
+                            If String.Equals(newValue.ToLower(), cellValue.ToLower()) Then
+                                MessageBox.Show("O valor da Marca está duplicado.", "Valor Duplicado", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                                e.Cancel = True ' Cancela a edição da célula
+                                Exit Sub
+                            End If
                         End If
                     End If
-                End If
-            Next
+                Next
 
-        End If
+            End If
+
+        Catch ex As Exception
+
+        End Try
+
     End Sub
 
 
@@ -75,7 +85,24 @@
         End Try
     End Sub
 
+    Private Sub MarcasDataGridView_UserAddedRow(sender As Object, e As DataGridViewRowEventArgs) Handles MarcasDataGridView.UserAddedRow
+        Try
+
+
+            Dim maxID As Integer = 0
+            For Each row As DataRow In GirlDataSet.Marcas.Rows
+                If row.RowState <> DataRowState.Deleted Then
+                    If row("MarcaID") > maxID Then
+                        maxID = row("MarcaID")
+                    End If
+                End If
+            Next
+            MarcasDataGridView.CurrentRow.Cells("MarcaID").Value = maxID + 1
 
 
 
+        Catch ex As Exception
+
+        End Try
+    End Sub
 End Class
