@@ -13,24 +13,6 @@
     End Sub
 
 
-    Private Sub MarcasDataGridView_CellBeginEdit(sender As Object, e As DataGridViewCellCancelEventArgs) Handles MarcasDataGridView.CellBeginEdit
-        Try
-
-            'Dim maxID As Integer = 0
-            'For Each row As DataRow In GirlDataSet.Marcas.Rows
-            '    If row.RowState <> DataRowState.Deleted Then
-            '        If row("MarcaID") > maxID Then
-            '            maxID = row("MarcaID")
-            '        End If
-            '    End If
-            'Next
-            'MarcasDataGridView.CurrentRow.Cells("MarcaID").Value = maxID + 1
-
-        Catch ex As Exception
-
-        End Try
-    End Sub
-
     Private Sub MarcasDataGridView_CellValidating(sender As Object, e As DataGridViewCellValidatingEventArgs) Handles MarcasDataGridView.CellValidating
 
         Try

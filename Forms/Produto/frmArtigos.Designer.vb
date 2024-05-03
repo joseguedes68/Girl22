@@ -25,6 +25,8 @@ Partial Class frmArtigos
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.GirlDataSet = New GirlRootName.GirlDataSet()
         Me.ModelosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ModelosTableAdapter = New GirlRootName.GirlDataSetTableAdapters.ModelosTableAdapter()
@@ -39,18 +41,10 @@ Partial Class frmArtigos
         Me.BindingNavigatorMoveLastItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.dgvModelos = New System.Windows.Forms.DataGridView()
-        Me.ModeloID = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.GrupoID = New System.Windows.Forms.DataGridViewComboBoxColumn()
         Me.GruposBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.TipoID = New System.Windows.Forms.DataGridViewComboBoxColumn()
-        Me.UnidID = New System.Windows.Forms.DataGridViewComboBoxColumn()
         Me.UnidadesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Altura = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.EpocaID = New System.Windows.Forms.DataGridViewComboBoxColumn()
         Me.EpocasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.MarcaID = New System.Windows.Forms.DataGridViewComboBoxColumn()
         Me.MarcasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.EscalaID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.LinhasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ModeloCorBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ModeloCorTableAdapter = New GirlRootName.GirlDataSetTableAdapters.ModeloCorTableAdapter()
@@ -85,6 +79,14 @@ Partial Class frmArtigos
         Me.EpocasTableAdapter = New GirlRootName.GirlDataSetTableAdapters.EpocasTableAdapter()
         Me.TerceirosTableAdapter = New GirlRootName.GirlDataSetTableAdapters.TerceirosTableAdapter()
         Me.MarcasTableAdapter = New GirlRootName.GirlDataSetTableAdapters.MarcasTableAdapter()
+        Me.ModeloID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.GrupoID = New System.Windows.Forms.DataGridViewComboBoxColumn()
+        Me.TipoID = New System.Windows.Forms.DataGridViewComboBoxColumn()
+        Me.UnidID = New System.Windows.Forms.DataGridViewComboBoxColumn()
+        Me.Altura = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.EpocaID = New System.Windows.Forms.DataGridViewComboBoxColumn()
+        Me.MarcaID = New System.Windows.Forms.DataGridViewComboBoxColumn()
+        Me.EscalaID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.GirlDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ModelosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ModelosBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -128,14 +130,14 @@ Partial Class frmArtigos
         Me.ModelosBindingNavigator.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ModelosBindingNavigator.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.ModelosBindingNavigator.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BindingNavigatorMoveFirstItem, Me.BindingNavigatorMovePreviousItem, Me.BindingNavigatorSeparator, Me.BindingNavigatorPositionItem, Me.BindingNavigatorCountItem, Me.BindingNavigatorSeparator1, Me.BindingNavigatorMoveNextItem, Me.BindingNavigatorMoveLastItem, Me.BindingNavigatorSeparator2})
-        Me.ModelosBindingNavigator.Location = New System.Drawing.Point(0, 617)
+        Me.ModelosBindingNavigator.Location = New System.Drawing.Point(0, 672)
         Me.ModelosBindingNavigator.MoveFirstItem = Me.BindingNavigatorMoveFirstItem
         Me.ModelosBindingNavigator.MoveLastItem = Me.BindingNavigatorMoveLastItem
         Me.ModelosBindingNavigator.MoveNextItem = Me.BindingNavigatorMoveNextItem
         Me.ModelosBindingNavigator.MovePreviousItem = Me.BindingNavigatorMovePreviousItem
         Me.ModelosBindingNavigator.Name = "ModelosBindingNavigator"
         Me.ModelosBindingNavigator.PositionItem = Me.BindingNavigatorPositionItem
-        Me.ModelosBindingNavigator.Size = New System.Drawing.Size(1412, 32)
+        Me.ModelosBindingNavigator.Size = New System.Drawing.Size(1402, 32)
         Me.ModelosBindingNavigator.TabIndex = 0
         Me.ModelosBindingNavigator.Text = "BindingNavigator1"
         '
@@ -216,6 +218,14 @@ Partial Class frmArtigos
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgvModelos.AutoGenerateColumns = False
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvModelos.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.dgvModelos.ColumnHeadersHeight = 29
         Me.dgvModelos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ModeloID, Me.GrupoID, Me.TipoID, Me.UnidID, Me.Altura, Me.EpocaID, Me.MarcaID, Me.EscalaID})
         Me.dgvModelos.DataSource = Me.ModelosBindingSource
@@ -223,108 +233,28 @@ Partial Class frmArtigos
         Me.dgvModelos.Margin = New System.Windows.Forms.Padding(4)
         Me.dgvModelos.Name = "dgvModelos"
         Me.dgvModelos.RowHeadersWidth = 51
-        Me.dgvModelos.Size = New System.Drawing.Size(1065, 401)
+        Me.dgvModelos.Size = New System.Drawing.Size(971, 403)
         Me.dgvModelos.TabIndex = 1
-        '
-        'ModeloID
-        '
-        Me.ModeloID.DataPropertyName = "ModeloID"
-        Me.ModeloID.HeaderText = "Modelo"
-        Me.ModeloID.MinimumWidth = 6
-        Me.ModeloID.Name = "ModeloID"
-        Me.ModeloID.Width = 50
-        '
-        'GrupoID
-        '
-        Me.GrupoID.DataPropertyName = "GrupoID"
-        Me.GrupoID.DataSource = Me.GruposBindingSource
-        Me.GrupoID.DisplayMember = "GrupoDesc"
-        Me.GrupoID.HeaderText = "Grupo"
-        Me.GrupoID.MinimumWidth = 6
-        Me.GrupoID.Name = "GrupoID"
-        Me.GrupoID.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.GrupoID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.GrupoID.ValueMember = "GrupoID"
-        Me.GrupoID.Width = 180
         '
         'GruposBindingSource
         '
         Me.GruposBindingSource.DataMember = "Grupos"
         Me.GruposBindingSource.DataSource = Me.GirlDataSet
         '
-        'TipoID
-        '
-        Me.TipoID.DataPropertyName = "TipoID"
-        Me.TipoID.HeaderText = "Tipo"
-        Me.TipoID.MinimumWidth = 6
-        Me.TipoID.Name = "TipoID"
-        Me.TipoID.Width = 125
-        '
-        'UnidID
-        '
-        Me.UnidID.DataPropertyName = "UnidID"
-        Me.UnidID.DataSource = Me.UnidadesBindingSource
-        Me.UnidID.DisplayMember = "UnidDescr"
-        Me.UnidID.HeaderText = "Unid"
-        Me.UnidID.MinimumWidth = 6
-        Me.UnidID.Name = "UnidID"
-        Me.UnidID.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.UnidID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.UnidID.ValueMember = "UnidID"
-        Me.UnidID.Width = 46
-        '
         'UnidadesBindingSource
         '
         Me.UnidadesBindingSource.DataMember = "Unidades"
         Me.UnidadesBindingSource.DataSource = Me.GirlDataSet
-        '
-        'Altura
-        '
-        Me.Altura.DataPropertyName = "Altura"
-        Me.Altura.HeaderText = "Altura"
-        Me.Altura.MinimumWidth = 6
-        Me.Altura.Name = "Altura"
-        Me.Altura.Width = 50
-        '
-        'EpocaID
-        '
-        Me.EpocaID.DataPropertyName = "EpocaID"
-        Me.EpocaID.DataSource = Me.EpocasBindingSource
-        Me.EpocaID.DisplayMember = "EpocaDescr"
-        Me.EpocaID.HeaderText = "Epoca"
-        Me.EpocaID.MinimumWidth = 6
-        Me.EpocaID.Name = "EpocaID"
-        Me.EpocaID.ValueMember = "EpocaID"
-        Me.EpocaID.Width = 60
         '
         'EpocasBindingSource
         '
         Me.EpocasBindingSource.DataMember = "Epocas"
         Me.EpocasBindingSource.DataSource = Me.GirlDataSet
         '
-        'MarcaID
-        '
-        Me.MarcaID.DataPropertyName = "MarcaID"
-        Me.MarcaID.DataSource = Me.MarcasBindingSource
-        Me.MarcaID.DisplayMember = "MarcaDescr"
-        Me.MarcaID.HeaderText = "Marca"
-        Me.MarcaID.MinimumWidth = 6
-        Me.MarcaID.Name = "MarcaID"
-        Me.MarcaID.ValueMember = "MarcaID"
-        Me.MarcaID.Width = 200
-        '
         'MarcasBindingSource
         '
         Me.MarcasBindingSource.DataMember = "Marcas"
         Me.MarcasBindingSource.DataSource = Me.GirlDataSet
-        '
-        'EscalaID
-        '
-        Me.EscalaID.DataPropertyName = "EscalaID"
-        Me.EscalaID.HeaderText = "Escala"
-        Me.EscalaID.MinimumWidth = 6
-        Me.EscalaID.Name = "EscalaID"
-        Me.EscalaID.Width = 55
         '
         'LinhasBindingSource
         '
@@ -343,19 +273,27 @@ Partial Class frmArtigos
         'dgvModeloCor
         '
         Me.dgvModeloCor.AllowUserToDeleteRows = False
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.dgvModeloCor.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.dgvModeloCor.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle3
         Me.dgvModeloCor.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgvModeloCor.AutoGenerateColumns = False
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvModeloCor.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
         Me.dgvModeloCor.ColumnHeadersHeight = 29
         Me.dgvModeloCor.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn11, Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn13, Me.DataGridViewTextBoxColumn15, Me.DataGridViewTextBoxColumn16, Me.DataGridViewTextBoxColumn17, Me.DataGridViewTextBoxColumn18, Me.DataGridViewTextBoxColumn14})
         Me.dgvModeloCor.DataSource = Me.ModeloCorBindingSource
-        Me.dgvModeloCor.Location = New System.Drawing.Point(16, 421)
+        Me.dgvModeloCor.Location = New System.Drawing.Point(16, 424)
         Me.dgvModeloCor.Margin = New System.Windows.Forms.Padding(4)
         Me.dgvModeloCor.Name = "dgvModeloCor"
         Me.dgvModeloCor.RowHeadersWidth = 51
-        Me.dgvModeloCor.Size = New System.Drawing.Size(1065, 174)
+        Me.dgvModeloCor.Size = New System.Drawing.Size(971, 226)
         Me.dgvModeloCor.TabIndex = 2
         '
         'DataGridViewTextBoxColumn11
@@ -407,7 +345,7 @@ Partial Class frmArtigos
         Me.DataGridViewTextBoxColumn16.HeaderText = "RefForn"
         Me.DataGridViewTextBoxColumn16.MinimumWidth = 6
         Me.DataGridViewTextBoxColumn16.Name = "DataGridViewTextBoxColumn16"
-        Me.DataGridViewTextBoxColumn16.Width = 75
+        Me.DataGridViewTextBoxColumn16.Width = 90
         '
         'DataGridViewTextBoxColumn17
         '
@@ -420,24 +358,24 @@ Partial Class frmArtigos
         'DataGridViewTextBoxColumn18
         '
         Me.DataGridViewTextBoxColumn18.DataPropertyName = "PrCusto"
-        DataGridViewCellStyle3.Format = "C2"
-        DataGridViewCellStyle3.NullValue = Nothing
-        Me.DataGridViewTextBoxColumn18.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle5.Format = "C2"
+        DataGridViewCellStyle5.NullValue = Nothing
+        Me.DataGridViewTextBoxColumn18.DefaultCellStyle = DataGridViewCellStyle5
         Me.DataGridViewTextBoxColumn18.HeaderText = "PrCusto"
         Me.DataGridViewTextBoxColumn18.MinimumWidth = 6
         Me.DataGridViewTextBoxColumn18.Name = "DataGridViewTextBoxColumn18"
-        Me.DataGridViewTextBoxColumn18.Width = 65
+        Me.DataGridViewTextBoxColumn18.Width = 85
         '
         'DataGridViewTextBoxColumn14
         '
         Me.DataGridViewTextBoxColumn14.DataPropertyName = "PrVnd"
-        DataGridViewCellStyle4.Format = "C4"
-        DataGridViewCellStyle4.NullValue = Nothing
-        Me.DataGridViewTextBoxColumn14.DefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle6.Format = "C4"
+        DataGridViewCellStyle6.NullValue = Nothing
+        Me.DataGridViewTextBoxColumn14.DefaultCellStyle = DataGridViewCellStyle6
         Me.DataGridViewTextBoxColumn14.HeaderText = "PrEtiqueta"
         Me.DataGridViewTextBoxColumn14.MinimumWidth = 6
         Me.DataGridViewTextBoxColumn14.Name = "DataGridViewTextBoxColumn14"
-        Me.DataGridViewTextBoxColumn14.Width = 65
+        Me.DataGridViewTextBoxColumn14.Width = 105
         '
         'CoresBindingSource
         '
@@ -467,10 +405,10 @@ Partial Class frmArtigos
         'PicBox
         '
         Me.PicBox.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.PicBox.Location = New System.Drawing.Point(1089, 63)
+        Me.PicBox.Location = New System.Drawing.Point(1015, 63)
         Me.PicBox.Margin = New System.Windows.Forms.Padding(4)
         Me.PicBox.Name = "PicBox"
-        Me.PicBox.Size = New System.Drawing.Size(307, 203)
+        Me.PicBox.Size = New System.Drawing.Size(371, 254)
         Me.PicBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PicBox.TabIndex = 4
         Me.PicBox.TabStop = False
@@ -479,10 +417,11 @@ Partial Class frmArtigos
         '
         Me.cmdGravar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cmdGravar.BackColor = System.Drawing.Color.FromArgb(CType(CType(243, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(51, Byte), Integer))
-        Me.cmdGravar.Location = New System.Drawing.Point(1101, 15)
+        Me.cmdGravar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.cmdGravar.Location = New System.Drawing.Point(1015, 15)
         Me.cmdGravar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmdGravar.Name = "cmdGravar"
-        Me.cmdGravar.Size = New System.Drawing.Size(96, 31)
+        Me.cmdGravar.Size = New System.Drawing.Size(120, 40)
         Me.cmdGravar.TabIndex = 5
         Me.cmdGravar.Text = "Gravar"
         Me.cmdGravar.UseVisualStyleBackColor = False
@@ -491,10 +430,11 @@ Partial Class frmArtigos
         '
         Me.cmdCancelar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cmdCancelar.BackColor = System.Drawing.Color.FromArgb(CType(CType(243, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(51, Byte), Integer))
-        Me.cmdCancelar.Location = New System.Drawing.Point(1205, 15)
+        Me.cmdCancelar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.cmdCancelar.Location = New System.Drawing.Point(1145, 15)
         Me.cmdCancelar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmdCancelar.Name = "cmdCancelar"
-        Me.cmdCancelar.Size = New System.Drawing.Size(96, 31)
+        Me.cmdCancelar.Size = New System.Drawing.Size(120, 40)
         Me.cmdCancelar.TabIndex = 6
         Me.cmdCancelar.Text = "Cancelar"
         Me.cmdCancelar.UseVisualStyleBackColor = False
@@ -503,10 +443,11 @@ Partial Class frmArtigos
         '
         Me.cmdFechar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cmdFechar.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.cmdFechar.Location = New System.Drawing.Point(1309, 15)
+        Me.cmdFechar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.cmdFechar.Location = New System.Drawing.Point(1275, 15)
         Me.cmdFechar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmdFechar.Name = "cmdFechar"
-        Me.cmdFechar.Size = New System.Drawing.Size(96, 31)
+        Me.cmdFechar.Size = New System.Drawing.Size(120, 40)
         Me.cmdFechar.TabIndex = 7
         Me.cmdFechar.Text = "Fechar"
         Me.cmdFechar.UseVisualStyleBackColor = False
@@ -518,58 +459,58 @@ Partial Class frmArtigos
         '
         'txtModelos
         '
-        Me.txtModelos.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtModelos.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtModelos.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtModelos.Location = New System.Drawing.Point(1205, 286)
+        Me.txtModelos.Location = New System.Drawing.Point(1144, 344)
         Me.txtModelos.Margin = New System.Windows.Forms.Padding(4)
         Me.txtModelos.Name = "txtModelos"
-        Me.txtModelos.Size = New System.Drawing.Size(134, 30)
+        Me.txtModelos.Size = New System.Drawing.Size(185, 30)
         Me.txtModelos.TabIndex = 8
         Me.txtModelos.Text = "MODELOS"
         Me.txtModelos.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'cbGrupos
         '
-        Me.cbGrupos.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cbGrupos.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cbGrupos.DataSource = Me.GruposBindingSource
         Me.cbGrupos.DisplayMember = "GrupoDesc"
-        Me.cbGrupos.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbGrupos.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbGrupos.FormattingEnabled = True
-        Me.cbGrupos.Location = New System.Drawing.Point(1089, 328)
+        Me.cbGrupos.Location = New System.Drawing.Point(1015, 399)
         Me.cbGrupos.Margin = New System.Windows.Forms.Padding(4)
         Me.cbGrupos.Name = "cbGrupos"
-        Me.cbGrupos.Size = New System.Drawing.Size(307, 33)
+        Me.cbGrupos.Size = New System.Drawing.Size(371, 30)
         Me.cbGrupos.TabIndex = 9
         Me.cbGrupos.ValueMember = "GrupoID"
         '
         'cbTipos
         '
-        Me.cbTipos.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.cbTipos.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbTipos.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cbTipos.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbTipos.FormattingEnabled = True
-        Me.cbTipos.Location = New System.Drawing.Point(1089, 375)
+        Me.cbTipos.Location = New System.Drawing.Point(1015, 459)
         Me.cbTipos.Margin = New System.Windows.Forms.Padding(4)
         Me.cbTipos.Name = "cbTipos"
-        Me.cbTipos.Size = New System.Drawing.Size(307, 33)
+        Me.cbTipos.Size = New System.Drawing.Size(371, 30)
         Me.cbTipos.TabIndex = 9
         '
         'cbMarcas
         '
-        Me.cbMarcas.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.cbMarcas.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbMarcas.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cbMarcas.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbMarcas.FormattingEnabled = True
-        Me.cbMarcas.Location = New System.Drawing.Point(1089, 421)
+        Me.cbMarcas.Location = New System.Drawing.Point(1015, 519)
         Me.cbMarcas.Margin = New System.Windows.Forms.Padding(4)
         Me.cbMarcas.Name = "cbMarcas"
-        Me.cbMarcas.Size = New System.Drawing.Size(307, 33)
+        Me.cbMarcas.Size = New System.Drawing.Size(371, 30)
         Me.cbMarcas.TabIndex = 9
         '
         'btFiltro
         '
-        Me.btFiltro.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btFiltro.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btFiltro.BackColor = System.Drawing.Color.FromArgb(CType(CType(243, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(51, Byte), Integer))
         Me.btFiltro.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btFiltro.Location = New System.Drawing.Point(1268, 468)
+        Me.btFiltro.Location = New System.Drawing.Point(1258, 590)
         Me.btFiltro.Margin = New System.Windows.Forms.Padding(4)
         Me.btFiltro.Name = "btFiltro"
         Me.btFiltro.Size = New System.Drawing.Size(128, 60)
@@ -584,10 +525,10 @@ Partial Class frmArtigos
         '
         'Label1
         '
-        Me.Label1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(1095, 291)
+        Me.Label1.Location = New System.Drawing.Point(1040, 344)
         Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(96, 25)
@@ -606,12 +547,92 @@ Partial Class frmArtigos
         '
         Me.MarcasTableAdapter.ClearBeforeFill = True
         '
+        'ModeloID
+        '
+        Me.ModeloID.DataPropertyName = "ModeloID"
+        Me.ModeloID.HeaderText = "Modelo"
+        Me.ModeloID.MinimumWidth = 6
+        Me.ModeloID.Name = "ModeloID"
+        Me.ModeloID.Width = 75
+        '
+        'GrupoID
+        '
+        Me.GrupoID.DataPropertyName = "GrupoID"
+        Me.GrupoID.DataSource = Me.GruposBindingSource
+        Me.GrupoID.DisplayMember = "GrupoDesc"
+        Me.GrupoID.HeaderText = "Grupo"
+        Me.GrupoID.MinimumWidth = 6
+        Me.GrupoID.Name = "GrupoID"
+        Me.GrupoID.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.GrupoID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.GrupoID.ValueMember = "GrupoID"
+        Me.GrupoID.Width = 180
+        '
+        'TipoID
+        '
+        Me.TipoID.DataPropertyName = "TipoID"
+        Me.TipoID.HeaderText = "Tipo"
+        Me.TipoID.MinimumWidth = 6
+        Me.TipoID.Name = "TipoID"
+        Me.TipoID.Width = 125
+        '
+        'UnidID
+        '
+        Me.UnidID.DataPropertyName = "UnidID"
+        Me.UnidID.DataSource = Me.UnidadesBindingSource
+        Me.UnidID.DisplayMember = "UnidDescr"
+        Me.UnidID.HeaderText = "Unid"
+        Me.UnidID.MinimumWidth = 6
+        Me.UnidID.Name = "UnidID"
+        Me.UnidID.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.UnidID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.UnidID.ValueMember = "UnidID"
+        Me.UnidID.Width = 60
+        '
+        'Altura
+        '
+        Me.Altura.DataPropertyName = "Altura"
+        Me.Altura.HeaderText = "Altura"
+        Me.Altura.MinimumWidth = 6
+        Me.Altura.Name = "Altura"
+        Me.Altura.Width = 50
+        '
+        'EpocaID
+        '
+        Me.EpocaID.DataPropertyName = "EpocaID"
+        Me.EpocaID.DataSource = Me.EpocasBindingSource
+        Me.EpocaID.DisplayMember = "EpocaDescr"
+        Me.EpocaID.HeaderText = "Epoca"
+        Me.EpocaID.MinimumWidth = 6
+        Me.EpocaID.Name = "EpocaID"
+        Me.EpocaID.ValueMember = "EpocaID"
+        Me.EpocaID.Width = 70
+        '
+        'MarcaID
+        '
+        Me.MarcaID.DataPropertyName = "MarcaID"
+        Me.MarcaID.DataSource = Me.MarcasBindingSource
+        Me.MarcaID.DisplayMember = "MarcaDescr"
+        Me.MarcaID.HeaderText = "Marca"
+        Me.MarcaID.MinimumWidth = 6
+        Me.MarcaID.Name = "MarcaID"
+        Me.MarcaID.ValueMember = "MarcaID"
+        Me.MarcaID.Width = 220
+        '
+        'EscalaID
+        '
+        Me.EscalaID.DataPropertyName = "EscalaID"
+        Me.EscalaID.HeaderText = "Escala"
+        Me.EscalaID.MinimumWidth = 6
+        Me.EscalaID.Name = "EscalaID"
+        Me.EscalaID.Width = 75
+        '
         'frmArtigos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(1412, 649)
+        Me.ClientSize = New System.Drawing.Size(1402, 704)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btFiltro)
         Me.Controls.Add(Me.cbMarcas)
@@ -693,16 +714,16 @@ Partial Class frmArtigos
     Friend WithEvents EpocasTableAdapter As GirlRootName.GirlDataSetTableAdapters.EpocasTableAdapter
     Friend WithEvents TerceirosBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents TerceirosTableAdapter As GirlRootName.GirlDataSetTableAdapters.TerceirosTableAdapter
-    Friend WithEvents DataGridViewTextBoxColumn11 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn12 As System.Windows.Forms.DataGridViewComboBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn13 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn15 As System.Windows.Forms.DataGridViewComboBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn16 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn17 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn18 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn14 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents MarcasBindingSource As BindingSource
     Friend WithEvents MarcasTableAdapter As GirlDataSetTableAdapters.MarcasTableAdapter
+    Friend WithEvents DataGridViewTextBoxColumn11 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn12 As DataGridViewComboBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn13 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn15 As DataGridViewComboBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn16 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn17 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn18 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn14 As DataGridViewTextBoxColumn
     Friend WithEvents ModeloID As DataGridViewTextBoxColumn
     Friend WithEvents GrupoID As DataGridViewComboBoxColumn
     Friend WithEvents TipoID As DataGridViewComboBoxColumn

@@ -133,7 +133,7 @@ Public Class frmStockFoto
                 btStockGeral.Visible = True
                 BtStockLoja.Visible = True
                 cbArmazem.Visible = False
-                cbMarcas.Visible = False
+                cbMarcas.Visible = True
 
             Else
                 btStkArmz.Visible = True

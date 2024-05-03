@@ -34,18 +34,21 @@ Public Class frmArtigos
             Me.cbGrupos.ValueMember = "GrupoID"
             Me.GirlDataSet.Grupos.AddGruposRow("%", "Todos Grupos", "", "", Now)
             Me.cbGrupos.SelectedValue = "%"
+            Me.cbGrupos.MaxDropDownItems = 15
 
             Me.cbTipos.DataSource = Me.GirlDataSet.Tipos
             Me.cbTipos.DisplayMember = "DescrTipo"
             Me.cbTipos.ValueMember = "TipoID"
             Me.GirlDataSet.Tipos.AddTiposRow("%", "Todos os Tipos", "", "", 0, "", "", 0, "", Now)
             Me.cbTipos.SelectedValue = "%"
+            Me.cbTipos.MaxDropDownItems = 15
 
             Me.cbMarcas.DataSource = Me.GirlDataSet.Marcas
             Me.cbMarcas.DisplayMember = "MarcaDescr"
             Me.cbMarcas.ValueMember = "MarcaID"
             Me.GirlDataSet.Marcas.AddMarcasRow(0, "Todas as Marcas")
             Me.cbMarcas.SelectedValue = 0
+            Me.cbMarcas.MaxDropDownItems = 15
 
 
             'o quarto parametro é inteiro 
@@ -102,6 +105,8 @@ Public Class frmArtigos
             dgvModelos.AllowUserToDeleteRows = False
             dgvModeloCor.AllowUserToDeleteRows = False
 
+            txtModelos.Focus()
+
 
         Catch ex As Exception
             ErroVB(ex.Message, Me.Name + ": frmArtigos_Load")
@@ -154,7 +159,9 @@ Public Class frmArtigos
 
 
     Private Sub cmdGravar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdGravar.Click
+
         Dim db As New ClsSqlBDados
+
         Try
             Me.Validate()
             Me.ModelosBindingSource.EndEdit()
