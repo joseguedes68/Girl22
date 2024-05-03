@@ -1222,15 +1222,15 @@ Public Class frmStockFoto
                         Foto(I) = dr("Foto").ToString
                         I += 1
                     Loop
-
+                    CarregarFotos()
+                    ActualizarNavegador()
                 Else
                     FazerRefresh()
                     ActualizarNavegador()
                     MsgBox("Sem dados para apresentar!", MsgBoxStyle.Information)
                 End If
             End If
-            CarregarFotos()
-            ActualizarNavegador()
+
         Catch ex As Exception
             ErroVB(ex.Message, Me.Name + " cmdPesquisar_Click")
         Finally

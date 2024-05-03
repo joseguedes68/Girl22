@@ -1397,10 +1397,10 @@ Partial Class frmStockFoto
         Me.cbArmazem.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cbArmazem.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbArmazem.FormattingEnabled = True
-        Me.cbArmazem.Location = New System.Drawing.Point(1064, 388)
+        Me.cbArmazem.Location = New System.Drawing.Point(1067, 388)
         Me.cbArmazem.Margin = New System.Windows.Forms.Padding(4)
         Me.cbArmazem.Name = "cbArmazem"
-        Me.cbArmazem.Size = New System.Drawing.Size(280, 33)
+        Me.cbArmazem.Size = New System.Drawing.Size(274, 33)
         Me.cbArmazem.TabIndex = 29
         '
         'pVendas
