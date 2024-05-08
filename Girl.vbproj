@@ -762,9 +762,7 @@
     <Compile Include="Forms\Gerais\frmEmpresa.Designer.vb">
       <DependentUpon>frmEmpresa.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Gerais\frmEmpresa.vb">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forms\Gerais\frmEmpresa.vb" />
     <Compile Include="Forms\Gerais\frmReport.vb">
       <SubType>Form</SubType>
     </Compile>
