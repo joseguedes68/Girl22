@@ -603,9 +603,7 @@
     <Compile Include="Forms\Gerais\HashTeste2.Designer.vb">
       <DependentUpon>HashTeste2.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Gerais\HashTeste2.vb">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forms\Gerais\HashTeste2.vb" />
     <Compile Include="Forms\Documentos\frmVendas.designer.vb">
       <DependentUpon>frmVendas.vb</DependentUpon>
     </Compile>
@@ -762,7 +760,9 @@
     <Compile Include="Forms\Gerais\frmEmpresa.Designer.vb">
       <DependentUpon>frmEmpresa.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Gerais\frmEmpresa.vb" />
+    <Compile Include="Forms\Gerais\frmEmpresa.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Gerais\frmReport.vb">
       <SubType>Form</SubType>
     </Compile>
