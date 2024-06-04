@@ -157,6 +157,7 @@ Module ModuleGeral
     Public dtTaloesEliminar As New DataTable
     Public bImprimeSubRelatorio As Boolean = False
     Public sGrupo As String = "%"
+    Public sTipoTerceiro As String = ""
 
     Public bCancelarEvento As Boolean = False
     Public bAtrai As Boolean = False
@@ -4346,6 +4347,34 @@ Module ModuleGeral
         End Try
 
     End Sub
+
+    Public Function ValidaTerceiroPos(ByVal xUtilizador As String) As Boolean
+
+        Dim db As New ClsSqlBDados
+
+        Try
+            Sql = "SELECT COUNT(*)
+            FROM Utilizadores 
+            INNER JOIN Armazens ON Utilizadores.ArmazemID = Armazens.ArmazemID 
+            INNER JOIN Terceiros ON Armazens.TercID = Terceiros.TercID
+            where TipoTerc in ('C','I') AND NomeUtilizador='" & xUtilizador & "'"
+            If db.GetDataValue(Sql) > 0 Then
+                Return True
+            Else
+                Return False
+            End If
+
+        Catch ex As SqlException
+            ErroSQL(ex.Number, ex.Message, "ValidaTerceiroPos")
+        Catch ex As Exception
+            ErroVB(ex.Message, "ValidaTerceiroPos")
+        Finally
+            If Not db Is Nothing Then db.Dispose()
+            db = Nothing
+        End Try
+
+    End Function
+
 
 
 

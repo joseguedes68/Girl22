@@ -179,7 +179,7 @@ Public Class ClsSqlBDados
 
     Public Overloads Sub GetData(ByVal sQuery As String, ByRef dt As DataTable, Optional ByVal WithSchema As Boolean = True)
         Try
-            dberror = False
+            'dberror = False
             Debug.Print(sQuery)
             If ValidarConexao() Then
                 With Comando
@@ -262,7 +262,7 @@ Public Class ClsSqlBDados
 
     Public Overloads Function GetDataValue(ByVal sQuery As String) As String
         Try
-            dberror = False
+            'dberror = False
             Debug.Print(sQuery)
             If ValidarConexao() Then
                 Comando = New SqlCommand(sQuery, cn)
@@ -290,7 +290,7 @@ Public Class ClsSqlBDados
     'alterei o timeout de 15 para 30 em 22/06/2023 vai na próxima instalação.... alterei para 120 em 14/12/2023
     Public Sub ExecuteData(ByVal sQuery As String, Optional ByVal Timeout As Integer = 120)
         Try
-            dberror = False
+            'dberror = False
             Debug.Print(sQuery)
             If ValidarConexao() Then
                 cmd = New SqlCommand(sQuery, cn)

@@ -603,7 +603,9 @@
     <Compile Include="Forms\Gerais\HashTeste2.Designer.vb">
       <DependentUpon>HashTeste2.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Gerais\HashTeste2.vb" />
+    <Compile Include="Forms\Gerais\HashTeste2.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Documentos\frmVendas.designer.vb">
       <DependentUpon>frmVendas.vb</DependentUpon>
     </Compile>

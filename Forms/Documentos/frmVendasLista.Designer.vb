@@ -162,6 +162,7 @@ Partial Class frmVendasLista
         Me.dgvListaDocs.Location = New System.Drawing.Point(3, 87)
         Me.dgvListaDocs.MultiSelect = False
         Me.dgvListaDocs.Name = "dgvListaDocs"
+        Me.dgvListaDocs.RowHeadersWidth = 51
         Me.dgvListaDocs.RowTemplate.Height = 24
         Me.dgvListaDocs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvListaDocs.Size = New System.Drawing.Size(1343, 669)

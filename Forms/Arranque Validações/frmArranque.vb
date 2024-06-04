@@ -13,6 +13,8 @@ Public Class frmArranque
     Private Sub frmArranque_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Try
 
+
+
             'MsgBox("PesquisaMaxNumDoc TENHO QUE CONTROLAR QUANDO PesquisaMaxNumDoc DEVOLVE """)
             'MsgBox("TESTAR ARRANQUE SEM CÓPIAS ATIVAS, TESTAR SINAL..")
 
@@ -238,11 +240,15 @@ Public Class frmArranque
 
             dtUtil.Clear()
             Dim xUtil As String = txtUtilizador.Text.Trim.ToString
-
+            'TODO: O TERCEIROID 2000 ESTÁ COMO FORNECEDOR. TENHO QUE DECIDIR O QUE VOU FAZER!!!
+            'If Not ValidaTerceiroPos(xUtil) Then
+            '    MsgBox("utilizador não autorizado!")
+            '    LogoffPC()
+            'End If
 
 
             Sql = "SELECT UtilizadorID, NomeUtilizador, UtilWindows, GrupoAcesso, ArmazemID, PassWord, NovaPassWord FROM Utilizadores WHERE NomeUtilizador = N'" & xUtil & "'"
-            db.GetData(Sql, dtUtil)
+                db.GetData(Sql, dtUtil)
             If dtUtil.Rows.Count = 0 Then
                 MsgBox("Utilizador não Existe!")
                 LogoffPC()
