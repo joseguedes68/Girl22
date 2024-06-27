@@ -1401,7 +1401,7 @@ Public Class frmDocs
         tbNrDoc.Text = ""
         dpDataDoc.Text = Now
         tbNrAT.Text = ""
-        If xTipoDoc = "GT" Then btSeparacao.Visible = True
+        If xTipoDoc = "GT" And DevolveGrupoAcesso() = "ADMIN" Then btSeparacao.Visible = True
         tbCountryDescarga.Text = ""
         PTotais.Visible = False
         tbNIF.Text = ""
