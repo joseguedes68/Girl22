@@ -770,7 +770,7 @@ Public Class frmVendas
 
 
 
-            If HashOK = True Then
+            If HashOK = True Or xTipoDoc = "VC" Then
 
 
                 For Each row As DataGridViewRow In dgvVendas.Rows
