@@ -57,6 +57,7 @@ Partial Class frmFechoCaixa
         Me.dgvFechosCaixa.Location = New System.Drawing.Point(4, 49)
         Me.dgvFechosCaixa.Margin = New System.Windows.Forms.Padding(4)
         Me.dgvFechosCaixa.Name = "dgvFechosCaixa"
+        Me.dgvFechosCaixa.RowHeadersWidth = 51
         Me.dgvFechosCaixa.Size = New System.Drawing.Size(1509, 619)
         Me.dgvFechosCaixa.TabIndex = 0
         '
@@ -101,16 +102,16 @@ Partial Class frmFechoCaixa
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.TableLayoutPanel1.Controls.Add(Me.cbLojas, 3, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.btDetalhe, 6, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.dpDeData, 1, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.dpAteData, 2, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.btFecharCaixa, 5, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.btAtualizar, 4, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.btImprimir, 7, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.btValidar, 8, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.cbVerTodas, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.dgvFechosCaixa, 6, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.btFechar, 9, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.btAtualizar, 4, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.btFecharCaixa, 5, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.btDetalhe, 6, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.btImprimir, 7, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.btValidar, 8, 0)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
         Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(4)

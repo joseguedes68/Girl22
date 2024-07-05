@@ -167,6 +167,7 @@ Public Class frmFechoCaixa
         Dim sIdDocCab As String = ""
         Dim sIdDocDet As String = ""
         Dim dtSerie As New DataTable
+        dberror = False
 
 
 
