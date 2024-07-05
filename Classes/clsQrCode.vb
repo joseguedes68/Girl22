@@ -63,7 +63,7 @@ Public Class clsQrCode
 
 
             Sql = "UPDATE DOCCAB SET DOCCAB.QrCodeValor =(SELECT
-                    concat('A:',Empresas.EmpContrib,'*B:',IIF(DocCab.NIFTerc='xxxxxxxxx','999999990',DocCab.NIFTerc),'*C:PT',DocCab.CountryDescarga,'*D:',
+                    concat('A:',Empresas.EmpContrib,'*B:',IIF(DocCab.NIFTerc='xxxxxxxxx','999999990',DocCab.NIFTerc),'*C:',DocCab.CountryDescarga,'*D:',
                     DocCab.TipoDocID,'*E:N*F:',YEAR(DataDoc),FORMAT(MONTH(DataDoc),'00'),
                     FORMAT(DAY(DATADOC),'00'),'*G:',DocCab.TipoDocID,' ',DocCab.SerieDoc,TRIM('/'),DocCab.NrDoc,
                     '*H:',DocCab.ATCUD,
