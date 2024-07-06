@@ -53,14 +53,12 @@ Partial Class frmConsultaTalao
         Me.C1TDBGCTaloes.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuBar
         Me.C1TDBGCTaloes.AllowColMove = False
         Me.C1TDBGCTaloes.AlternatingRows = True
-        Me.C1TDBGCTaloes.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.C1TDBGCTaloes.CaptionHeight = 28
+        Me.C1TDBGCTaloes.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.C1TDBGCTaloes.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.C1TDBGCTaloes.GroupByCaption = "Drag a column header here to group by that column"
         Me.C1TDBGCTaloes.Images.Add(CType(resources.GetObject("C1TDBGCTaloes.Images"), System.Drawing.Image))
-        Me.C1TDBGCTaloes.Location = New System.Drawing.Point(5, 260)
+        Me.C1TDBGCTaloes.Location = New System.Drawing.Point(0, 274)
         Me.C1TDBGCTaloes.Margin = New System.Windows.Forms.Padding(4)
         Me.C1TDBGCTaloes.MarqueeStyle = C1.Win.C1TrueDBGrid.MarqueeEnum.DottedCellBorder
         Me.C1TDBGCTaloes.Name = "C1TDBGCTaloes"
@@ -73,7 +71,7 @@ Partial Class frmConsultaTalao
         Me.C1TDBGCTaloes.RowDivider.Style = C1.Win.C1TrueDBGrid.LineStyleEnum.[Single]
         Me.C1TDBGCTaloes.RowHeight = 20
         Me.C1TDBGCTaloes.RowSubDividerColor = System.Drawing.Color.DarkGray
-        Me.C1TDBGCTaloes.Size = New System.Drawing.Size(1658, 428)
+        Me.C1TDBGCTaloes.Size = New System.Drawing.Size(1676, 494)
         Me.C1TDBGCTaloes.TabIndex = 0
         Me.C1TDBGCTaloes.Text = "C1TrueDBGrid1"
         Me.C1TDBGCTaloes.PropBag = resources.GetString("C1TDBGCTaloes.PropBag")
@@ -140,7 +138,7 @@ Partial Class frmConsultaTalao
         '
         'PictureBox
         '
-        Me.PictureBox.Location = New System.Drawing.Point(1099, 10)
+        Me.PictureBox.Location = New System.Drawing.Point(1102, 18)
         Me.PictureBox.Margin = New System.Windows.Forms.Padding(4)
         Me.PictureBox.Name = "PictureBox"
         Me.PictureBox.Size = New System.Drawing.Size(310, 241)
@@ -337,7 +335,7 @@ Partial Class frmConsultaTalao
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1676, 688)
+        Me.ClientSize = New System.Drawing.Size(1676, 768)
         Me.Controls.Add(Me.btCancelar)
         Me.Controls.Add(Me.btValidaTalao)
         Me.Controls.Add(Me.btForn)
@@ -383,7 +381,6 @@ Partial Class frmConsultaTalao
     Friend WithEvents btDetTalao As System.Windows.Forms.Button
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents btDev As System.Windows.Forms.Button
     Friend WithEvents btAnular As System.Windows.Forms.Button
     Friend WithEvents cbReport As System.Windows.Forms.ComboBox
@@ -391,4 +388,5 @@ Partial Class frmConsultaTalao
     Friend WithEvents btForn As System.Windows.Forms.Button
     Friend WithEvents btValidaTalao As Button
     Friend WithEvents btCancelar As Button
+    Friend WithEvents Panel1 As Panel
 End Class

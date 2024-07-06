@@ -203,7 +203,16 @@ Public Class frmConsultaTalao
             End With
 
             C1TDBGCTaloes.Width = xLarguraGrid * 1.1
+
+
+            'em c1TDBGCTaloes mostrar a scrollbar vertical
+            C1TDBGCTaloes.Splits(0).VScrollBar.Style = ScrollBarStyleEnum.Always
+
+
             WindowState = FormWindowState.Maximized
+
+
+
         Catch ex As Exception
         Finally
             If val IsNot Nothing Then val.Dispose()
