@@ -289,6 +289,7 @@ Public Class frmConsultaTalao
             Me.Cursor = Cursors.Default
             If Not db Is Nothing Then db.Dispose()
             db = Nothing
+            Me.tbFiltraTalao.Focus()
 
         End Try
 
@@ -409,6 +410,7 @@ Public Class frmConsultaTalao
         frmMovTalao.MaximizeBox = False
         frmMovTalao.MinimizeBox = False
         frmMovTalao.ShowDialog(Me)
+        Me.tbFiltraTalao.Focus()
 
     End Sub
 
@@ -1042,7 +1044,8 @@ Public Class frmConsultaTalao
         Dim db As New ClsSqlBDados
         xFiltraTaloes = ""
         'xValidaValor = Date.Now.ToString("dd/MM/yyyy") + " - " + Microsoft.VisualBasic.Right(xArmz, 2)
-        xValidaValor = Date.Now.ToString("dd/MM/yyyy")
+        'xValidaValor = Date.Now.ToString("dd/MM/yyyy")
+        xValidaValor = Date.Now.ToString("yyyy/MM/dd")
 
         'C1TDBGCTaloes.AllowUpdate = True
 
@@ -1055,6 +1058,20 @@ Public Class frmConsultaTalao
                     xFiltraTaloes += " '" + Me.lbFiltro.Items(I).ToString + "', "
                 Next
                 xFiltraTaloes = xFiltraTaloes.Substring(0, xFiltraTaloes.Length - 2)
+
+                'TALÕES LIDOS DUAS VEZES NO MESMO INVENTÁRIO!!
+                Sql = "SELECT SerieID FROM Serie 
+                    WHERE  SerieID IN (" & xFiltraTaloes & ") AND Obs3 = " & "'" & xValidaValor.ToString & "'"
+                db.GetData(Sql, dtErroInventario)
+
+                If dtErroInventario.Rows.Count > 0 Then
+                    For Each r As DataRow In dtErroInventario.Rows
+                        GravarEvento("Erro Inv Leitura Duplicada", xArmz, r("SerieID"))
+                    Next
+                End If
+
+                dtErroInventario.Clear()
+
 
                 Sql = "UPDATE Serie SET Obs3 = '" & xValidaValor & "' 
                     WHERE  (SerieID IN (" & xFiltraTaloes & ")) AND (ArmazemID = '" & xArmz & "') AND (EstadoID = 'S')"
@@ -1096,6 +1113,7 @@ Public Class frmConsultaTalao
             Me.Cursor = Cursors.Default
             If Not db Is Nothing Then db.Dispose()
             db = Nothing
+            Me.tbFiltraTalao.Focus()
         End Try
 
 
@@ -1110,7 +1128,7 @@ Public Class frmConsultaTalao
             Me.tbFiltraTalao.Clear()
             xFiltraTaloes = ""
             btValidaTalao.Text = "Validar Talões"
-
+            Me.tbFiltraTalao.Focus()
 
         Catch ex As Exception
 

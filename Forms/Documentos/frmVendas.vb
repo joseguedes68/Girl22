@@ -846,7 +846,7 @@ Public Class frmVendas
                 Sql = "DELETE FROM DocCab WHERE IdDocCab = '" & gIdDocCab.ToString & "'"
                 db.ExecuteData(Sql)
 
-                EnviarEmail("Erro", "ERRO Nº225V NA CRIAÇÃO DO DOC " + " " + xArmz + "" + gIdDocCab.ToString)
+                EnviarEmail("Erro", "ERRO Nº225V NA CRIAÇÃO DO DOC " + " " + xArmz + "  " + gIdDocCab.ToString)
                 MsgBox("ERRO Nº225V NA CRIAÇÃO DO DOCUMENTO - AVISE O TECNICO!")
 
                 ''VERIFICAR SE ESTÁ VAI APAGAR A ULTIMA!! 
