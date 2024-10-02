@@ -28,7 +28,7 @@ Public Class frmConsultaTalao
 
     Private Sub frmConsultaTalao_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         Dim val As New clsValidacoes(Me.Name)
-
+        cbInv.Checked = False
         Try
 
             btValidaTalao.Text = "Validar Talões"
@@ -780,8 +780,11 @@ Public Class frmConsultaTalao
 
         Try
 
-
-            Sql = "SELECT COUNT(*) FROM SERIE WHERE SERIEID='" & Talao & "'"
+            If cbInv.Checked = False Then
+                Sql = "SELECT COUNT(*) FROM SERIE WHERE SERIEID='" & Talao & "'"
+            Else
+                Sql = "SELECT COUNT(*) FROM Serie WHERE  (SerieID = '" & Talao & "') AND (ArmazemID = '" & xArmz & "') AND (EstadoID = 'S')"
+            End If
             If db.GetDataValue(Sql) = 0 Then
                 Return False
             Else
@@ -1114,6 +1117,7 @@ Public Class frmConsultaTalao
             If Not db Is Nothing Then db.Dispose()
             db = Nothing
             Me.tbFiltraTalao.Focus()
+            btValidaTalao.Text = "Validar Talões"
         End Try
 
 

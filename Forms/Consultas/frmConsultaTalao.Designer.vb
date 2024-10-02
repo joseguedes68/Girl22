@@ -42,6 +42,7 @@ Partial Class frmConsultaTalao
         Me.btForn = New System.Windows.Forms.Button()
         Me.btValidaTalao = New System.Windows.Forms.Button()
         Me.btCancelar = New System.Windows.Forms.Button()
+        Me.cbInv = New System.Windows.Forms.CheckBox()
         CType(Me.C1TDBGCTaloes, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.C1DbNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -331,11 +332,24 @@ Partial Class frmConsultaTalao
         Me.btCancelar.Text = "Cancelar"
         Me.btCancelar.UseVisualStyleBackColor = False
         '
+        'cbInv
+        '
+        Me.cbInv.AutoSize = True
+        Me.cbInv.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbInv.Location = New System.Drawing.Point(943, 196)
+        Me.cbInv.Margin = New System.Windows.Forms.Padding(4)
+        Me.cbInv.Name = "cbInv"
+        Me.cbInv.Size = New System.Drawing.Size(65, 28)
+        Me.cbInv.TabIndex = 53
+        Me.cbInv.Text = "Inv."
+        Me.cbInv.UseVisualStyleBackColor = True
+        '
         'frmConsultaTalao
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1676, 768)
+        Me.Controls.Add(Me.cbInv)
         Me.Controls.Add(Me.btCancelar)
         Me.Controls.Add(Me.btValidaTalao)
         Me.Controls.Add(Me.btForn)
@@ -389,4 +403,5 @@ Partial Class frmConsultaTalao
     Friend WithEvents btValidaTalao As Button
     Friend WithEvents btCancelar As Button
     Friend WithEvents Panel1 As Panel
+    Friend WithEvents cbInv As CheckBox
 End Class
