@@ -78,6 +78,10 @@ Partial Class frmMenuGirl
         Me.ReposiçõesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DevFornecedoresToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DevoluçõesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ExportaWebToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ExportarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ActualizarPVPToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ActualizarTamanhosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MovimentosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EntredasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SeparaçõesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -130,6 +134,7 @@ Partial Class frmMenuGirl
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.NotifyIcon1 = New System.Windows.Forms.NotifyIcon(Me.components)
+        Me.ActualizarMarcaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -414,7 +419,7 @@ Partial Class frmMenuGirl
         '
         'GestãoToolStripMenuItem
         '
-        Me.GestãoToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EtiquetasToolStripMenuItem1, Me.ReservasToolStripMenuItem1, Me.ErrosToolStripMenuItem1, Me.ChatToolStripMenuItem, Me.DevoluçõesLojasToolStripMenuItem, Me.EncomendasToolStripMenuItem, Me.CatalogoToolStripMenuItem, Me.TransferirStockToolStripMenuItem, Me.ReposiçõesToolStripMenuItem, Me.DevFornecedoresToolStripMenuItem, Me.DevoluçõesToolStripMenuItem})
+        Me.GestãoToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EtiquetasToolStripMenuItem1, Me.ReservasToolStripMenuItem1, Me.ErrosToolStripMenuItem1, Me.ChatToolStripMenuItem, Me.DevoluçõesLojasToolStripMenuItem, Me.EncomendasToolStripMenuItem, Me.CatalogoToolStripMenuItem, Me.TransferirStockToolStripMenuItem, Me.ReposiçõesToolStripMenuItem, Me.DevFornecedoresToolStripMenuItem, Me.DevoluçõesToolStripMenuItem, Me.ExportaWebToolStripMenuItem})
         Me.GestãoToolStripMenuItem.Name = "GestãoToolStripMenuItem"
         Me.GestãoToolStripMenuItem.Size = New System.Drawing.Size(116, 35)
         Me.GestãoToolStripMenuItem.Text = "Gestão"
@@ -486,6 +491,31 @@ Partial Class frmMenuGirl
         Me.DevoluçõesToolStripMenuItem.Size = New System.Drawing.Size(334, 36)
         Me.DevoluçõesToolStripMenuItem.Text = "Devoluções"
         Me.DevoluçõesToolStripMenuItem.Visible = False
+        '
+        'ExportaWebToolStripMenuItem
+        '
+        Me.ExportaWebToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ExportarToolStripMenuItem, Me.ActualizarPVPToolStripMenuItem, Me.ActualizarTamanhosToolStripMenuItem, Me.ActualizarMarcaToolStripMenuItem})
+        Me.ExportaWebToolStripMenuItem.Name = "ExportaWebToolStripMenuItem"
+        Me.ExportaWebToolStripMenuItem.Size = New System.Drawing.Size(334, 36)
+        Me.ExportaWebToolStripMenuItem.Text = "Web"
+        '
+        'ExportarToolStripMenuItem
+        '
+        Me.ExportarToolStripMenuItem.Name = "ExportarToolStripMenuItem"
+        Me.ExportarToolStripMenuItem.Size = New System.Drawing.Size(357, 36)
+        Me.ExportarToolStripMenuItem.Text = "Exportar Novos"
+        '
+        'ActualizarPVPToolStripMenuItem
+        '
+        Me.ActualizarPVPToolStripMenuItem.Name = "ActualizarPVPToolStripMenuItem"
+        Me.ActualizarPVPToolStripMenuItem.Size = New System.Drawing.Size(357, 36)
+        Me.ActualizarPVPToolStripMenuItem.Text = "Actualizar PVP"
+        '
+        'ActualizarTamanhosToolStripMenuItem
+        '
+        Me.ActualizarTamanhosToolStripMenuItem.Name = "ActualizarTamanhosToolStripMenuItem"
+        Me.ActualizarTamanhosToolStripMenuItem.Size = New System.Drawing.Size(357, 36)
+        Me.ActualizarTamanhosToolStripMenuItem.Text = "Actualizar Tamanhos"
         '
         'MovimentosToolStripMenuItem
         '
@@ -831,6 +861,12 @@ Partial Class frmMenuGirl
         Me.NotifyIcon1.Text = "NotifyIcon1"
         Me.NotifyIcon1.Visible = True
         '
+        'ActualizarMarcaToolStripMenuItem
+        '
+        Me.ActualizarMarcaToolStripMenuItem.Name = "ActualizarMarcaToolStripMenuItem"
+        Me.ActualizarMarcaToolStripMenuItem.Size = New System.Drawing.Size(357, 36)
+        Me.ActualizarMarcaToolStripMenuItem.Text = "Actualizar Marca"
+        '
         'frmMenuGirl
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -959,4 +995,9 @@ Partial Class frmMenuGirl
     Friend WithEvents ConferênciasToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AcessóriosToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents MarcasToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ExportaWebToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ExportarToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ActualizarPVPToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ActualizarTamanhosToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ActualizarMarcaToolStripMenuItem As ToolStripMenuItem
 End Class

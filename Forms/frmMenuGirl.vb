@@ -1199,7 +1199,36 @@ Public Class frmMenuGirl
 
     End Sub
 
+    Private Sub ExportarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExportarToolStripMenuItem.Click
+        Me.Cursor = Cursors.WaitCursor
+        ExportaWeb()
+        Me.Cursor = Cursors.Default
+    End Sub
 
+    Private Sub ActualizarPVPToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ActualizarPVPToolStripMenuItem.Click
+        Me.Cursor = Cursors.WaitCursor
+        ActualizaPVPWeb()
+        ActualizaLigacao("CelfGest")
+        Me.Cursor = Cursors.Default
+        MsgBox("Preços Web Actualizados com sucesso!")
+    End Sub
+
+    Private Sub ActualizarTamanhosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ActualizarTamanhosToolStripMenuItem.Click
+        Me.Cursor = Cursors.WaitCursor
+        ActualizaTamWeb()
+        ActualizaLigacao("CelfGest")
+        Me.Cursor = Cursors.Default
+        MsgBox("Tamanhos Web Actualizados com sucesso!")
+    End Sub
+
+    Private Sub ActualizarMarcaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ActualizarMarcaToolStripMenuItem.Click
+
+        Me.Cursor = Cursors.WaitCursor
+        ActualizaMarcaWeb()
+        ActualizaLigacao("CelfGest")
+        Me.Cursor = Cursors.Default
+
+    End Sub
 End Class
 
 

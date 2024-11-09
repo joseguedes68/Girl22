@@ -166,10 +166,10 @@ Module ModuleGeral
     Public iDiasDevolver As Integer
 
 
-    Public cnStringCelferiWebSite As String = "server=185.166.188.45;user id=u876060510_celferi;password=k*>YKFh2ifrPduMh7jh9cM4hsXUx2a"
+    Public cnStringCelferiWebSite As String = "server=185.166.188.45;Database=u876060510_celferi;user id=u876060510_admin;password=tLdJJ_jw3a$n.!5"
     Public sUserCPanelCelferi As String = "u876060510.celferi.com"
-    Public sPassCPanelCelferi As String = "u_L2TBa$siDHg5H"
-
+    Public sPassCPanelCelferi As String = "Th>8zsF4zzQJskun"
+    Public sPrefixoTabela As String = "oc_"
 
     'Public cnStringCelferiWebSite As String = "server=137.74.207.187;user id=celferic_joseguedes;password=#9d.UxZ!F%j8;database=celferic_ocart24"
     'Public sUserCPanelCelferi As String = "girl@celferi.com"
@@ -181,11 +181,6 @@ Module ModuleGeral
     Public sServidorTugaTechFTP As String = "137.74.207.187"
     Public sUtilizadorTugaTechFTP As String = "celferi@iloveshoes.pt"
     Public sPasswordTugaTechFTP As String = "30..Cl..42"
-
-
-
-
-
 
 
 
@@ -3237,7 +3232,7 @@ Module ModuleGeral
 
         Try
 
-            Dim sAnoExport As String = "22" 'ANO A PARTIR DO QUAL VOU EXPORTAR....
+            Dim sAnoExport As String = "24" 'ANO A PARTIR DO QUAL VOU EXPORTAR....
             'TODO ENCONTRAR UMA FORMA DE LIMITAR A QTD DE ARTIGOS A PASSAR, PERMITIR CANCELAR!!!!
             'SQL = "SELECT TABMC.EpocaID, TABMC.GrupoID, TABMC.TipoID, TABMC.ModeloID, TABMC.CorID, TABMC.ModCorDescr, TABMC.PEtiq, TABSERIE.PVP, TABMC.Web, TABMC.PictogramaID, TABMC.PID, TABMC.PIDDESCR, TABMC.IdModeloCor, TABSERIE.Qtd, TABMC.NomeAbrev FROM (SELECT Modelos.EpocaID, Modelos.GrupoID, Modelos.TipoID, ModeloCor.ModeloID, ModeloCor.CorID, ModeloCor.ModCorDescr, ModeloCor.PrVnd AS PEtiq, ModeloCor.Web, ModeloCor.PictogramaID, Tipos.PID, Tipos.PIDDESCR, ModeloCor.IdModeloCor, Terceiros.NomeAbrev FROM ModeloCor INNER JOIN Modelos ON ModeloCor.ModeloID = Modelos.ModeloID INNER JOIN Tipos ON Modelos.TipoID = Tipos.TipoId INNER JOIN Terceiros ON ModeloCor.FornID = Terceiros.TercID) AS TABMC INNER JOIN (SELECT ModeloID, CorID, SUM(1) AS Qtd, MIN(PrecoVenda) AS PVP FROM Serie WHERE (EstadoID IN ('S', 'T')) GROUP BY ModeloID, CorID) AS TABSERIE ON TABMC.ModeloID = TABSERIE.ModeloID AND TABMC.CorID = TABSERIE.CorID WHERE (TABSERIE.Qtd > 0) AND (NOT (TABMC.GrupoID IN ('4', '6'))) AND (TABMC.Web = 0) ORDER BY TABMC.EpocaID DESC "
             'SQL = "SELECT TABMC.EpocaID, TABMC.GrupoID, TABMC.TipoID, TABMC.ModeloID, TABMC.CorID, TABMC.ModCorDescr, TABMC.PEtiq, TABSERIE.PVP, TABMC.Web, TABMC.PictogramaID, TABMC.PID, TABMC.PIDDESCR, TABMC.IdModeloCor, TABSERIE.Qtd, TABMC.NomeAbrev FROM (SELECT Modelos.EpocaID, Modelos.GrupoID, Modelos.TipoID, ModeloCor.ModeloID, ModeloCor.CorID, ModeloCor.ModCorDescr, ModeloCor.PrVnd AS PEtiq, ModeloCor.Web, ModeloCor.PictogramaID, Tipos.PID, Tipos.PIDDESCR, ModeloCor.IdModeloCor, Terceiros.NomeAbrev FROM ModeloCor INNER JOIN Modelos ON ModeloCor.ModeloID = Modelos.ModeloID INNER JOIN Tipos ON Modelos.TipoID = Tipos.TipoId INNER JOIN Terceiros ON ModeloCor.FornID = Terceiros.TercID) AS TABMC INNER JOIN (SELECT ModeloID, CorID, SUM(1) AS Qtd, PrecoEtiqueta AS PVP FROM Serie WHERE (EstadoID IN ('S', 'T')) AND (LEFT(SerieID, 2) > '" & sAnoExport & "') GROUP BY ModeloID, CorID, PrecoEtiqueta) AS TABSERIE ON TABMC.ModeloID = TABSERIE.ModeloID AND TABMC.CorID = TABSERIE.CorID WHERE (TABSERIE.Qtd > 0) AND (NOT (TABMC.GrupoID IN ('4', '6'))) AND (TABMC.Web = 0) ORDER BY TABMC.EpocaID DESC"
@@ -3251,7 +3246,12 @@ Module ModuleGeral
             conn = New MySql.Data.MySqlClient.MySqlConnection
             conn.ConnectionString = cnStringCelferiWebSite
 
-            SQL = "SELECT category_id FROM u876060510_celferi.oc_category"
+            SQL = "SELECT category_id FROM oc_category"
+            'SQL = "SELECT * FROM oc_category"
+
+            'dbWeb.GetData(SQL, dtCategorias)
+
+
             If conn.State = ConnectionState.Closed Then conn.Open()
             myCommand.Connection = conn
             myCommand.CommandText = SQL
@@ -3260,7 +3260,7 @@ Module ModuleGeral
             myAdapter.Fill(dtCategorias)
 
 
-            SQL = "SELECT model FROM u876060510_celferi.oc_product"
+            SQL = "SELECT model FROM oc_product"
             If conn.State = ConnectionState.Closed Then conn.Open()
             myCommand.Connection = conn
             myCommand.CommandText = SQL
@@ -3284,11 +3284,11 @@ Module ModuleGeral
 
             For Each r As DataRow In dtArtigosExportar.Rows
 
-                sModel = r("ModeloID") & r("CorID")
+                sModel = (r("ModeloID") & r("CorID")).ToString
                 sProduct_id = sModel
                 sPID = r("PID")
 
-                If dtProdutosWeb.Compute("Count(model)", "model=" & sModel & "") = 0 Then
+                If Convert.ToInt32(dtProdutosWeb.Compute("Count(model)", "model = '" & sModel.Replace("'", "''") & "'")) = 0 Then
 
                     'ARTIGO AINDA NÃO ESTÁ NA WEB!
 
@@ -3319,11 +3319,11 @@ Module ModuleGeral
 
 
 
-                        SQL = "SELECT count(*) FROM u876060510_celferi.oc_manufacturer where name = '" & r("NomeAbrev") & "'"
+                        SQL = "SELECT count(*) FROM oc_manufacturer where name = '" & r("NomeAbrev") & "'"
                         If conn.State = ConnectionState.Closed Then conn.Open()
                         myCommand.CommandText = SQL
                         If myCommand.ExecuteScalar() > 0 Then
-                            SQL = "SELECT manufacturer_id FROM u876060510_celferi.oc_manufacturer where name = '" & r("NomeAbrev") & "'"
+                            SQL = "SELECT manufacturer_id FROM oc_manufacturer where name = '" & r("NomeAbrev") & "'"
                             If conn.State = ConnectionState.Closed Then conn.Open()
                             myCommand.CommandText = SQL
                             iMarca = myCommand.ExecuteScalar()
@@ -3340,24 +3340,24 @@ Module ModuleGeral
 
 
                         'INSERIR VALORES NA TABELA PRODUCT!!
-                        SQL = "INSERT INTO u876060510_celferi.oc_product ( product_id, model, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, date_available, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status, date_added ) " &
+                        SQL = "INSERT INTO oc_product ( product_id, model, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, date_available, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status, date_added ) " &
                             "SELECT '" & sProduct_id & "', '" & sModel & "', '" & r("Qtd") & "', 5, 'catalog/product/" & sModel & ".JPG', " & iMarca & " , 1 ,  " & dPVP & ", 0, 9, '2015-09-28 00:00:00', 0, 1, 0, 0, 0, 1, 1, 1, " & 9999999 - sProduct_id & ", 1, '2015-09-28 00:00:00';"
                         strData.AppendLine(SQL)
 
-                        SQL = "INSERT INTO u876060510_celferi.oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) " &
+                        SQL = "INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) " &
                             "VALUES ('" & sProduct_id & "', '2', '" & sModel & "', '" & r("ModCorDescr") & "', 'tag', 'meta_title', 'meta_description', 'meta_keyword');"
                         strData.AppendLine(SQL)
 
-                        SQL = "INSERT INTO u876060510_celferi.oc_product_to_category (product_id, category_id) VALUES ('" & sProduct_id & "', '" & sPID & "');"
+                        SQL = "INSERT INTO oc_product_to_category (product_id, category_id) VALUES ('" & sProduct_id & "', '" & sPID & "');"
                         strData.AppendLine(SQL)
 
-                        SQL = "INSERT INTO u876060510_celferi.oc_product_to_store (product_id, store_id) VALUES ('" & sProduct_id & "', '0');"
+                        SQL = "INSERT INTO oc_product_to_store (product_id, store_id) VALUES ('" & sProduct_id & "', '0');"
                         strData.AppendLine(SQL)
 
-                        SQL = "INSERT INTO u876060510_celferi.oc_product_to_layout (product_id, store_id, layout_id) VALUES ('" & sProduct_id & "', '0', '0');"
+                        SQL = "INSERT INTO oc_product_to_layout (product_id, store_id, layout_id) VALUES ('" & sProduct_id & "', '0', '0');"
                         strData.AppendLine(SQL)
 
-                        SQL = "INSERT INTO u876060510_celferi.oc_product_option (product_option_id, product_id, option_id, value, required) VALUES ('" & sProduct_id & "', '" & sProduct_id & "', '20', '', '1');"
+                        SQL = "INSERT INTO oc_product_option (product_option_id, product_id, option_id, value, required) VALUES ('" & sProduct_id & "', '" & sProduct_id & "', '20', '', '1');"
                         strData.AppendLine(SQL)
 
                         If conn.State = ConnectionState.Closed Then conn.Open()
@@ -3477,7 +3477,7 @@ Module ModuleGeral
             conn = New MySql.Data.MySqlClient.MySqlConnection
             conn.ConnectionString = cnStringCelferiWebSite
 
-            Sql = "SELECT model, price FROM u876060510_celferi.oc_product WHERE model like '" & sArtigo & "' order by model"
+            Sql = "SELECT model, price FROM oc_product WHERE model like '" & sArtigo & "' order by model"
             If conn.State = ConnectionState.Closed Then conn.Open()
             myCommand.Connection = conn
             myCommand.CommandText = Sql
@@ -3497,7 +3497,7 @@ Module ModuleGeral
 
             For Each r As DataRow In dtProdutosWeb.Rows
 
-                myCommand.CommandText = "DELETE FROM u876060510_celferi.oc_product_special WHERE product_special_id='" & r("model") & "'"
+                myCommand.CommandText = "DELETE FROM oc_product_special WHERE product_special_id='" & r("model") & "'"
                 myCommand.ExecuteNonQuery()
 
                 rPVPTAB02WEB = dtPVPTAB02WEB.Select("ARTIGO=" & r("model"))
@@ -3505,7 +3505,7 @@ Module ModuleGeral
                     dPVP = rPVPTAB02WEB(0)("PVP") / 1.23
 
                     If Math.Round(dPVP, 2) < Math.Round(r("price"), 2) Then
-                        myCommand.CommandText = "INSERT INTO u876060510_celferi.oc_product_special (product_special_id, product_id, customer_group_id, priority, price, date_start, date_end) VALUES ('" & r("model") & "', '" & r("model") & "', '1', '0', '" & dPVP & "', '" & sDeData & "', '" & sAteData & "' );"
+                        myCommand.CommandText = "INSERT INTO oc_product_special (product_special_id, product_id, customer_group_id, priority, price, date_start, date_end) VALUES ('" & r("model") & "', '" & r("model") & "', '1', '0', '" & dPVP & "', '" & sDeData & "', '" & sAteData & "' );"
                         myCommand.ExecuteNonQuery()
                     End If
                 Else
@@ -3548,7 +3548,7 @@ Module ModuleGeral
             conn = New MySql.Data.MySqlClient.MySqlConnection
             conn.ConnectionString = cnStringCelferiWebSite
 
-            Sql = "SELECT model, price FROM u876060510_celferi.oc_product WHERE model like '" & sArtigo & "' order by model"
+            Sql = "SELECT model, price FROM oc_product WHERE model like '" & sArtigo & "' order by model"
             If conn.State = ConnectionState.Closed Then conn.Open()
             myCommand.Connection = conn
             myCommand.CommandText = Sql
@@ -3585,23 +3585,23 @@ Module ModuleGeral
 
                 rArtigoTam = dtArtigoTamanhos.Select("Artigo=" & r("model"))
 
-                Sql = "DELETE FROM u876060510_celferi.oc_product_option_value WHERE product_option_id='" & dProduct_id & "'"
+                Sql = "DELETE FROM oc_product_option_value WHERE product_option_id='" & dProduct_id & "'"
                 myCommand.CommandText = Sql
                 myCommand.ExecuteNonQuery()
 
-                Sql = "DELETE FROM u876060510_celferi.oc_product_filter WHERE product_id='" & dProduct_id & "'"
+                Sql = "DELETE FROM oc_product_filter WHERE product_id='" & dProduct_id & "'"
                 myCommand.CommandText = Sql
                 myCommand.ExecuteNonQuery()
 
                 If rArtigoTam.Length > 0 Then
                     For i As Integer = 0 To rArtigoTam.Length - 1
                         'Debug.Write(index.ToString & " ")
-                        Sql = "INSERT INTO u876060510_celferi.oc_product_option_value (product_option_value_id, product_option_id, product_id, option_id, option_value_id, quantity, subtract, price, price_prefix, points, points_prefix, weight, weight_prefix) " &
+                        Sql = "INSERT INTO oc_product_option_value (product_option_value_id, product_option_id, product_id, option_id, option_value_id, quantity, subtract, price, price_prefix, points, points_prefix, weight, weight_prefix) " &
                                " VALUES ('" & dProduct_id & rArtigoTam(i)("TamID") & "', '" & dProduct_id & "', '" & dProduct_id & "', '20', '" & rArtigoTam(i)("TamID") & "', " & rArtigoTam(i)("Qtd") & ", '1', '0', '+', '0', '+', '0', '+');"
                         myCommand.CommandText = Sql
                         myCommand.ExecuteNonQuery()
 
-                        Sql = "INSERT INTO u876060510_celferi.oc_product_filter (product_id, filter_id) VALUES ('" & dProduct_id & "', '" & rArtigoTam(i)("TamID") & "');"
+                        Sql = "INSERT INTO oc_product_filter (product_id, filter_id) VALUES ('" & dProduct_id & "', '" & rArtigoTam(i)("TamID") & "');"
                         myCommand.CommandText = Sql
                         myCommand.ExecuteNonQuery()
 
@@ -3609,7 +3609,7 @@ Module ModuleGeral
                     'Debug.WriteLine("")
                 Else
                     'limpar artigo da web
-                    myCommand.CommandText = "DELETE FROM u876060510_celferi.oc_product WHERE product_id='" & dProduct_id & "'"
+                    myCommand.CommandText = "DELETE FROM oc_product WHERE product_id='" & dProduct_id & "'"
                     myCommand.ExecuteNonQuery()
 
                     'APAGAR FOTO
@@ -3665,7 +3665,7 @@ Module ModuleGeral
             For Each r As DataRow In dtArtigosActualizar.Rows
 
 
-                SQL = "SELECT manufacturer_id FROM u876060510_celferi.oc_manufacturer where name = '" & r("NomeAbrev") & "'"
+                SQL = "SELECT manufacturer_id FROM oc_manufacturer where name = '" & r("NomeAbrev") & "'"
                 If conn.State = ConnectionState.Closed Then conn.Open()
                 myCommand.CommandText = SQL
                 iMarca = myCommand.ExecuteScalar()
