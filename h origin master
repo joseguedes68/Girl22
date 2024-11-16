@@ -1,0 +1,198 @@
+[33mcommit 00f64d40b6b5898ae21c32e6fed4529da5b9eb63[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m)[m
+Author: joseguedes68 <josemanuelguedes@gmail.com>
+Date:   Sat Nov 9 16:21:09 2024 +0000
+
+    atualizar celferi.com 01
+
+[33mcommit e636ee7477a94fa1c38229b27b5929bbe6e2433d[m
+Author: joseguedes68 <josemanuelguedes@gmail.com>
+Date:   Wed Oct 2 10:37:07 2024 +0100
+
+    correções inventário
+
+[33mcommit 5bed0b949f06b1790cfaa28f220d1b638ab4627b[m
+Author: joseguedes68 <josemanuelguedes@gmail.com>
+Date:   Wed Sep 25 16:19:54 2024 +0100
+
+    melhorias no inventário
+
+[33mcommit a74d052334a73e7dec6751da92b2af7f839d628e[m
+Author: joseguedes68 <josemanuelguedes@gmail.com>
+Date:   Sat Jul 6 14:59:42 2024 +0100
+
+    scrollbar visivel na ConsultaTalão
+
+[33mcommit bc2019b548d1926d3c06d4decd01295cff290550[m
+Author: joseguedes68 <josemanuelguedes@gmail.com>
+Date:   Fri Jul 5 12:55:34 2024 +0100
+
+    QRCODE correção do erro PT repetido!!
+
+[33mcommit a0219f4233daadbb0e1315bb02dffa2605f41e28[m
+Author: joseguedes68 <josemanuelguedes@gmail.com>
+Date:   Fri Jul 5 11:39:07 2024 +0100
+
+    corrigir acessos do fpos nas consignações
+
+[33mcommit d4aec86598c9b0d0ea9069d2deaccc6e793e8565[m
+Author: joseguedes68 <josemanuelguedes@gmail.com>
+Date:   Sun Jun 30 22:28:50 2024 +0100
+
+    CORRECÇÃO DE ERRO NAS VENDAS DE CONSIGNAÇÃO - VC
+
+[33mcommit 5c94ef77d377af4cea2d047b9400663222ea868c[m
+Author: joseguedes68 <josemanuelguedes@gmail.com>
+Date:   Thu Jun 27 18:58:11 2024 +0100
+
+    permissões aos docs de origem nas lojas
+
+[33mcommit 816e12a30533add2c14f09dafe8eb65c85ac67e5[m
+Author: joseguedes68 <josemanuelguedes@gmail.com>
+Date:   Tue Jun 4 19:56:57 2024 +0100
+
+    retificar variável dberror
+
+[33mcommit 10b64c3b71bf26c7ec930cc00710455318709381[m
+Author: joseguedes68 <josemanuelguedes@gmail.com>
+Date:   Tue Jun 4 18:53:13 2024 +0100
+
+    compilação
+
+[33mcommit dc4899c4481bc0295c6123a12994e4a2dd1681dd[m
+Author: joseguedes68 <josemanuelguedes@gmail.com>
+Date:   Wed May 8 10:52:58 2024 +0100
+
+    compilação
+
+[33mcommit 4a8597484832acf94ae22f12446a5ada524a586b[m
+Author: joseguedes68 <josemanuelguedes@gmail.com>
+Date:   Fri May 3 20:58:44 2024 +0100
+
+    ACERTOS DIVERSOS
+
+[33mcommit 96884e767f69d4a3e7d75f90eb92ff29c5c054e3[m
+Author: joseguedes68 <josemanuelguedes@gmail.com>
+Date:   Fri May 3 18:10:09 2024 +0100
+
+    atualizações no frmProdutos
+
+[33mcommit 3fd3d965e03c4655b16c2074f31571065c533e8f[m
+Author: joseguedes68 <josemanuelguedes@gmail.com>
+Date:   Fri May 3 17:28:26 2024 +0100
+
+    corrigir erro na criação de marcas
+
+[33mcommit aa0698d9529c613119d1532f6a1644b311e641e1[m
+Author: joseguedes68 <josemanuelguedes@gmail.com>
+Date:   Tue Apr 30 19:38:30 2024 +0100
+
+    melhorar frmArtigos
+
+[33mcommit b09c08fb7e95f5e87b2b7712a02f0b6f5f0d1246[m
+Author: joseguedes68 <josemanuelguedes@gmail.com>
+Date:   Tue Apr 30 19:19:43 2024 +0100
+
+    corrigir erro nas consultas e não deixar apagar marcas
+
+[33mcommit f2b54380602e3124269f6cd9cf36c82d7bc76d5d[m
+Author: joseguedes68 <josemanuelguedes@gmail.com>
+Date:   Sun Apr 28 22:14:32 2024 +0100
+
+    acertos consulta talões
+
+[33mcommit cbfdf7bf6b8547088d2a0397024274f907cb6bbb[m
+Author: joseguedes68 <josemanuelguedes@gmail.com>
+Date:   Sun Apr 28 21:39:16 2024 +0100
+
+    conferencias na consulta de talões
+
+[33mcommit 7b10604e2543f4316b961e3db842f9565c8d3c51[m
+Author: joseguedes68 <josemanuelguedes@gmail.com>
+Date:   Sun Apr 28 19:27:35 2024 +0100
+
+    colocar o filtro das marcas nas consultas
+
+[33mcommit e52be0f8e6ffe844a880459f4c53f86266fe1980[m
+Author: joseguedes68 <josemanuelguedes@gmail.com>
+Date:   Sun Apr 28 18:39:41 2024 +0100
+
+    controlar o erro nos artigos
+    Nota: não resolvi, só controlei!!!
+
+[33mcommit 0d0243b3d239681ea9731c6748e02a1445779a57[m
+Author: joseguedes68 <josemanuelguedes@gmail.com>
+Date:   Sun Apr 28 18:28:21 2024 +0100
+
+    corrigir artigos continuação
+
+[33mcommit ac2c4d57b7fc0dd8ea51ff51cb9f00bc0574413a[m
+Author: joseguedes68 <josemanuelguedes@gmail.com>
+Date:   Sun Apr 28 18:16:43 2024 +0100
+
+    correção erros artigos
+
+[33mcommit d7b5ff2b9c26ac8ae654b4b30740c75a7d15b87f[m
+Author: joseguedes68 <josemanuelguedes@gmail.com>
+Date:   Sun Apr 28 18:02:33 2024 +0100
+
+    inserir marcas nos artigos
+
+[33mcommit 9f618b5addf02d88202e210a4367de63f3ae479a[m
+Author: joseguedes68 <josemanuelguedes@gmail.com>
+Date:   Fri Apr 26 00:33:29 2024 +0100
+
+    criar nova fromulário para os artigos
+
+[33mcommit 6a3594283d28e6c1568893e337d6c463a99cd644[m
+Author: joseguedes68 <josemanuelguedes@gmail.com>
+Date:   Thu Apr 25 23:49:01 2024 +0100
+
+    Retificar icon do estadoenc. bolinhas azul e vermelha
+
+[33mcommit bdda2351838bf8e3acbc2b42234186954bcd922f[m
+Author: joseguedes68 <josemanuelguedes@gmail.com>
+Date:   Thu Apr 25 23:31:44 2024 +0100
+
+    Gravar Marca no Modelo
+
+[33mcommit 265f739374bb06e95d6ec40687bd143fb5483b98[m
+Author: joseguedes68 <josemanuelguedes@gmail.com>
+Date:   Thu Apr 25 21:25:20 2024 +0100
+
+    na consulta talões, alterações ao campo fornid e intruduzir obs3
+
+[33mcommit fe5fab93d5550c8a66d6a0e0fb82e5dc74d1bf57[m
+Author: joseguedes68 <josemanuelguedes@gmail.com>
+Date:   Wed Apr 24 19:47:22 2024 +0100
+
+    tratar marcas nas encomendas
+
+[33mcommit dfcbba8bac479025919841d61e12c6555000077e[m
+Author: joseguedes68 <josemanuelguedes@gmail.com>
+Date:   Wed Apr 24 18:39:47 2024 +0100
+
+    inserir combobox marcas nas encomendas passo 1
+
+[33mcommit 544f2bd090ccc373d180d7f34bc5dba3c9854fdc[m
+Author: joseguedes68 <josemanuelguedes@gmail.com>
+Date:   Wed Apr 24 17:54:58 2024 +0100
+
+    correção do user
+
+[33mcommit 1938607218e745a590001ae6faa35bbeb43f8ab3[m
+Author: joseguedes68 <josemanuelguedes@gmail.com>
+Date:   Wed Apr 24 17:50:48 2024 +0100
+
+    TERCEIROS ALTERAÇÃO VALIDAÇÃO NIF
+
+[33mcommit 134d6316a3d82b32f0102718580050ec782dd668[m
+Author: joseguedes68 <josemanuelguedes@gmail.com>
+Date:   Wed Apr 24 17:28:40 2024 +0100
+
+    reposição de versão anterior
+
+[33mcommit c8b76e65fd8d5db818ad10b5af49f6b7b894241b[m
+Author: joseguedes68 <josemanuelguedes@gmail.com>
+Date:   Wed Mar 6 19:23:11 2024 +0000
+
+    Adicionar arquivos de projeto.
