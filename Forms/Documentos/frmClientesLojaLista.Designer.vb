@@ -60,8 +60,9 @@ Partial Class frmClientesLojaLista
         Me.Label7 = New System.Windows.Forms.Label()
         Me.txtTelefone = New System.Windows.Forms.TextBox()
         Me.btCancelar = New System.Windows.Forms.Button()
-        Me.ClientesLojaTableAdapter = New GirlRootName.GirlDataSetTableAdapters.ClientesLojaTableAdapter()
         Me.txtCodPostal = New System.Windows.Forms.MaskedTextBox()
+        Me.btPesquisar = New System.Windows.Forms.Button()
+        Me.ClientesLojaTableAdapter = New GirlRootName.GirlDataSetTableAdapters.ClientesLojaTableAdapter()
         CType(Me.dgvListaClientes, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ClientesLojaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GirlDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -434,10 +435,6 @@ Partial Class frmClientesLojaLista
         Me.btCancelar.Text = "Cancelar"
         Me.btCancelar.UseVisualStyleBackColor = False
         '
-        'ClientesLojaTableAdapter
-        '
-        Me.ClientesLojaTableAdapter.ClearBeforeFill = True
-        '
         'txtCodPostal
         '
         Me.txtCodPostal.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!)
@@ -447,11 +444,29 @@ Partial Class frmClientesLojaLista
         Me.txtCodPostal.Size = New System.Drawing.Size(139, 26)
         Me.txtCodPostal.TabIndex = 80
         '
+        'btPesquisar
+        '
+        Me.btPesquisar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btPesquisar.BackColor = System.Drawing.Color.FromArgb(CType(CType(243, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(51, Byte), Integer))
+        Me.btPesquisar.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.btPesquisar.Location = New System.Drawing.Point(675, 142)
+        Me.btPesquisar.Margin = New System.Windows.Forms.Padding(4)
+        Me.btPesquisar.Name = "btPesquisar"
+        Me.btPesquisar.Size = New System.Drawing.Size(169, 54)
+        Me.btPesquisar.TabIndex = 81
+        Me.btPesquisar.Text = "Pesquisar"
+        Me.btPesquisar.UseVisualStyleBackColor = False
+        '
+        'ClientesLojaTableAdapter
+        '
+        Me.ClientesLojaTableAdapter.ClearBeforeFill = True
+        '
         'frmClientesLojaLista
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(887, 570)
+        Me.Controls.Add(Me.btPesquisar)
         Me.Controls.Add(Me.txtCodPostal)
         Me.Controls.Add(Me.btCancelar)
         Me.Controls.Add(Me.Label7)
@@ -519,4 +534,5 @@ Partial Class frmClientesLojaLista
     Friend WithEvents DistritoID As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents IDClienteLoja As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents txtCodPostal As MaskedTextBox
+    Friend WithEvents btPesquisar As Button
 End Class

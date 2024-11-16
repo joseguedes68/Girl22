@@ -142,7 +142,6 @@ Public Class frmClientesLojaLista
 
     End Sub
 
-
     'EVENTOS NA frmClientesLojaLista
 
 
@@ -151,8 +150,13 @@ Public Class frmClientesLojaLista
         'FALTA LIMITAR ALTERAÇÕES PELAS REGRAS DAS FINANÇAS
         Try
 
+
             'dgvListaClientes.SelectionMode = DataGridViewSelectionMode.FullRowSelect
             dgvListaClientes.MultiSelect = False
+
+            dgvListaClientes.ClearSelection()
+            dgvListaClientes.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+
 
             dgvListaClientes.Visible = False
             Me.GirlDataSet.ClientesLoja.Clear()
@@ -182,77 +186,6 @@ Public Class frmClientesLojaLista
 
 
     End Sub
-
-    Private Sub dgvListaClientes_MouseDown(sender As Object, e As System.Windows.Forms.MouseEventArgs) Handles dgvListaClientes.MouseDown
-        bPermiteSelectLinha = True
-    End Sub
-
-    'Private Sub dgvListaClientes_SelectionChanged(sender As Object, e As System.EventArgs) Handles dgvListaClientes.SelectionChanged
-
-    '    Dim db As New ClsSqlBDados
-
-    '    Try
-    '        bPesquisa = False
-    '        If bPermiteSelectLinha = False Then Exit Sub
-    '        If IsDataGridViewEmpty(dgvListaClientes) Then Exit Sub
-
-
-    '        sIDClienteLoja = Me.dgvListaClientes("IDClienteLoja", Me.dgvListaClientes.CurrentCell.RowIndex).Value.ToString
-    '        txtNif.Text = Me.dgvListaClientes("NIF", Me.dgvListaClientes.CurrentCell.RowIndex).Value.ToString
-    '        txtNif.Enabled = False
-    '        txtTelemovel.Text = Me.dgvListaClientes("Telemovel", Me.dgvListaClientes.CurrentCell.RowIndex).Value.ToString
-    '        txtNome.Text = Me.dgvListaClientes("Nome", Me.dgvListaClientes.CurrentCell.RowIndex).Value.ToString
-    '        txtMorada.Text = Me.dgvListaClientes("Morada", Me.dgvListaClientes.CurrentCell.RowIndex).Value.ToString
-    '        txtCodPostal.Text = Me.dgvListaClientes("CodPostal", Me.dgvListaClientes.CurrentCell.RowIndex).Value.ToString
-    '        txtLocalidade.Text = Me.dgvListaClientes("Localidade", Me.dgvListaClientes.CurrentCell.RowIndex).Value.ToString
-    '        txtTelefone.Text = Me.dgvListaClientes("Telefone", Me.dgvListaClientes.CurrentCell.RowIndex).Value.ToString
-    '        txtEmail.Text = Me.dgvListaClientes("Email", Me.dgvListaClientes.CurrentCell.RowIndex).Value.ToString
-    '        txtObs.Text = Me.dgvListaClientes("Obs", Me.dgvListaClientes.CurrentCell.RowIndex).Value.ToString
-
-
-
-    '    Catch ex As Exception
-    '        ErroVB(ex.Message, "dgvListaClientes_SelectionChanged")
-    '    End Try
-
-    'End Sub
-
-    Private Sub dgvListaClientes_RowEnter(sender As Object, e As DataGridViewCellEventArgs) Handles dgvListaClientes.RowEnter
-
-        bPesquisa = False
-        If bPermiteSelectLinha = False Then Exit Sub
-        If IsDataGridViewEmpty(dgvListaClientes) Then Exit Sub
-
-
-        ' Obtém a linha atualmente selecionada
-        Dim selectedRow As DataGridViewRow = dgvListaClientes.Rows(e.RowIndex)
-
-        ' Verifica se há uma linha selecionada
-        If selectedRow IsNot Nothing Then
-            ' Obtém os valores das células da linha selecionada
-            sIDClienteLoja = selectedRow.Cells("IDClienteLoja").Value
-            txtNif.Text = selectedRow.Cells("NIF").Value
-            txtTelemovel.Text = selectedRow.Cells("Telemovel").Value
-            txtNome.Text = selectedRow.Cells("Nome").Value
-            txtMorada.Text = selectedRow.Cells("Morada").Value
-            txtCodPostal.Text = selectedRow.Cells("CodPostal").Value
-            txtLocalidade.Text = selectedRow.Cells("Localidade").Value
-            txtTelefone.Text = selectedRow.Cells("Telefone").Value
-            txtEmail.Text = selectedRow.Cells("Email").Value
-            txtObs.Text = selectedRow.Cells("Obs").Value
-
-
-        End If
-    End Sub
-
-
-
-
-
-
-
-
-
 
 
     'FUNÇÕES
@@ -409,5 +342,61 @@ Public Class frmClientesLojaLista
     Private Sub dgvListaClientes_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles dgvListaClientes.CellValueChanged
         bPesquisa = False
     End Sub
+
+    Private Sub btPesquisar_Click(sender As Object, e As EventArgs) Handles btPesquisar.Click
+        Try
+            If bPesquisa = True Then
+                chamarfiltro()
+            End If
+
+
+        Catch ex As SqlException
+            ErroSQL(ex.Number, ex.Message, "Filtro")
+        Catch ex As Exception
+            ErroVB(ex.Message, "Filtro")
+        End Try
+    End Sub
+
+
+    Private Sub dgvListaClientes_CellMouseDown(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgvListaClientes.CellMouseDown
+        Try
+            ' Verifica se o clique foi em uma célula válida
+            If e.RowIndex >= 0 AndAlso e.Button = MouseButtons.Left Then
+                ' Limpa a seleção anterior e seleciona a linha clicada
+                dgvListaClientes.ClearSelection()
+                dgvListaClientes.Rows(e.RowIndex).Selected = True
+
+                bPesquisa = False
+
+                ' Verifica se a DataGridView está vazia
+                If IsDataGridViewEmpty(dgvListaClientes) Then Exit Sub
+
+                ' Obtém a linha atualmente selecionada
+                Dim selectedRow As DataGridViewRow = dgvListaClientes.Rows(e.RowIndex)
+
+                ' Garante que a linha selecionada não seja nula
+                If selectedRow IsNot Nothing Then
+                    ' Obtém os valores das células e atualiza os campos correspondentes
+                    sIDClienteLoja = Convert.ToString(selectedRow.Cells("IDClienteLoja").Value)
+                    txtNif.Text = Convert.ToString(selectedRow.Cells("NIF").Value)
+                    txtTelemovel.Text = Convert.ToString(selectedRow.Cells("Telemovel").Value)
+                    txtNome.Text = Convert.ToString(selectedRow.Cells("Nome").Value)
+                    txtMorada.Text = Convert.ToString(selectedRow.Cells("Morada").Value)
+                    txtCodPostal.Text = Convert.ToString(selectedRow.Cells("CodPostal").Value)
+                    txtLocalidade.Text = Convert.ToString(selectedRow.Cells("Localidade").Value)
+                    txtTelefone.Text = Convert.ToString(selectedRow.Cells("Telefone").Value)
+                    txtEmail.Text = Convert.ToString(selectedRow.Cells("Email").Value)
+                    txtObs.Text = Convert.ToString(selectedRow.Cells("Obs").Value)
+                End If
+            End If
+        Catch ex As NullReferenceException
+            ' Trata erro específico de referência nula
+            ErroVB($"Erro ao acessar um valor nulo na DataGridView: {ex.Message}", "dgvListaCliente")
+        Catch ex As Exception
+            ' Trata qualquer outro tipo de erro
+            ErroVB($"Erro inesperado: {ex.Message}", "dgvListaCliente")
+        End Try
+    End Sub
+
 
 End Class

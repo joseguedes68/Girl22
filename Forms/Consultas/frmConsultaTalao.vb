@@ -210,7 +210,7 @@ Public Class frmConsultaTalao
 
 
             WindowState = FormWindowState.Maximized
-
+            Me.tbFiltraTalao.Focus()
 
 
         Catch ex As Exception
